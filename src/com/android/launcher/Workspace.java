@@ -811,14 +811,14 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
    
                 
                 if (xMoved || yMoved) {
-                    // If xDiff > yDiff means the finger path pitch is smaller than 45� so we assume the user want to scroll X axis
+                    // If xDiff > yDiff means the finger path pitch is smaller than 45 degrees so we assume the user want to scroll X axis
                     if (xDiff > yDiff) {
                         // Scroll if the user moved far enough along the X axis
                         mTouchState = TOUCH_STATE_SCROLLING;
                         enableChildrenCache();
                         
                     } 
-                    // If yDiff > xDiff means the finger path pitch is bigger than 45� so we assume the user want to either scroll Y or Y-axis gesture
+                    // If yDiff > xDiff means the finger path pitch is bigger than 45 degrees so we assume the user want to either scroll Y or Y-axis gesture
                     else if (getOpenFolder()==null)
                     {
                     	// As x scrolling is left untouched (more or less untouched;)), every gesture should start by dragging in Y axis. In fact I only consider useful, swipe up and down.
