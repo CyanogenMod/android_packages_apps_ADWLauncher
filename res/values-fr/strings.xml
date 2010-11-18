@@ -56,6 +56,8 @@
     <string name="group_applications">Applications</string>
     <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all shortcuts -->
     <string name="group_shortcuts">Raccourcis</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all launcher actions -->
+    <string name="launcher_actions">Actions du lanceur</string>
     <!-- Options in "Add to Home" dialog box; Title of the search gadget -->
     <string name="group_search">Rechercher</string>
     <!-- Options in "Add to Home" dialog box; Title of the folder gadget -->
@@ -153,8 +155,8 @@
     <string name="pref_dialog_desktop_overshoot">Autoriser le rebondissement sur le premier et dernier bureau</string>
 
 	<!-- Drawer Settings -->
-    <string name="pref_title_drawer_settings">Préférence du menu</string>
-    <string name="pref_summary_drawer_settings">Préférence du menu des applications</string>
+    <string name="pref_title_drawer_settings">Préférences du menu</string>
+    <string name="pref_summary_drawer_settings">Préférences du menu des applications</string>
 
     <string name="pref_title_zoom_effect_speed">Vitesse de l\'effet zoom</string>
     <string name="pref_summary_zoom_effect_speed">Définir la durée de l\'effet zoom en millisecondes</string>
@@ -195,7 +197,7 @@
     <string name="pref_summary_clean_screen_mode">Cacher les icones et widgets pendant l\'ouverture des vignettes</string>
 
     <!-- Button preferences -->
-    <string name="pref_title_ui_settings">Préférence d\'interface</string>
+    <string name="pref_title_ui_settings">Préférences d\'interface</string>
     <string name="pref_summary_ui_settings">Activer/désactiver des éléments d\'interface</string>
 	<string name="pref_title_home_button_binding">Comportement du bouton maison</string>
     <string name="pref_summary_home_button_binding">Sélectionner l\'action liée au bouton maison</string>
@@ -264,6 +266,10 @@
     <string name="pref_message_restart_normal">Modifier cette option provoque le redémarrage de l\'application</string>
     <string name="pref_message_restart_froyo">Modifier cette option provoque le redémarrage de l\'application</string>
     <string name="drop_to_uninstall">Glisser ici pour désinstaller</string>
+
+    <string name="toast_widgets_not_supported">Les widgets ne sont pas supportés... désolé :-)</string>
+    <string name="toast_unknown_item">Élément inconnu. Il n\'est pas possible d\'ajouter des éléments de types inconnus :-)</string>
+    <string name="toast_no_application_def">Aucune application définie pour l\'instant, lâchez quelque chose ici ! :)</string>
 
     <string name="pref_title_import_export">Sauvegarde et restauration</string>
     <string name="pref_title_xml">Préférences ADW</string>
@@ -345,7 +351,7 @@
 
 	<!-- Category titles -->
 	<string name="pref_title_system_preferences">Préférences système</string>
-	<string name="pref_summary_system_preferences">Préférence générale de ADW.Launcher</string>
+	<string name="pref_summary_system_preferences">Préférences générale de ADW.Launcher</string>
 	<string name="pref_title_screens_preferencecategory">Préférences d\'écran</string>
 	<string name="pref_title_screens_layout_preferencecategory">Apparence des bureaux</string>
 	<string name="pref_title_screens_behaviour_preferencecategory">Comportement des bureaux</string>
@@ -400,13 +406,21 @@
 	<string name="AppGroupConfig">"Configurer le groupe"</string>
 	<string name="AppGroupRename">"Nouveau groupe"</string>
 	<string name="AppGroupConfigError">"Vous ne pouvez pas configurer ce groupe"</string>
-	<string name="AppGroupAddError">"Vous ne pouvez pas avoir plus de groupe"</string>
-
+	<string name="AppGroupAddError">"Vous ne pouvez pas avoir plus de groupes"</string>
 	<string name="rename_group_title">Nouveau groupe</string>
 	<string name="rename_group_label">Nom du groupe</string>
+    <string name="show_catalog">Afficher le groupe \"%s\"</string>
 	
 	<string name="pref_title_adw_restart">Redémarrer ADW</string>
 	<string name="pref_summary_adw_restart">Fermer et relancer ADW.Launcher</string>
 	<string name="pref_title_adw_reset">Remettre à zéro ADW</string>
 	<string name="pref_summary_adw_reset">Vider les préférences et relancer ADW.Launcher</string>
+
+    <string name="need_scrollable">Le widget que vous essayez d\'ajouter nécessite le support des Widgets défilants, qui est actuellement désactivé.\nVoulez-vous l\'activer maintenant ?</string>
+    <string name="scrollable_api_required">Ce widget nécessite une nouvelle version d\'ADW.Launcher.\nVeuillez le mettre à jour ou contactez le développeur du widget</string>
+
+    <string name="pref_title_drawer_navigate_catalogs">Navigation par groupes</string>
+    <string name="pref_summary_drawer_navigate_catalogs">Afficher les boutons de navigation par groupes</string>
+    <string name="pref_title_notif_receiver">Afficher notifications</string>
+    <string name="pref_summary_notif_receiver">Activer les compteurs de notifications globaux</string>
 </resources>
