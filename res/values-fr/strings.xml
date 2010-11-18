@@ -374,7 +374,7 @@
     <string name="message_cannot_add_desktop_screen">Vous ne pouvez pas ajouter de nouveau bureau</string>
     <string name="message_cannot_swap_desktop_screen">Vous ne pouvez pas échanger ces bureaux</string>
 		
-	<string name="menu_edit">Edit</string>
+	<string name="menu_edit">Modifier</string>
 
 	<string name="pref_label_shirtcuts">Raccourci Personnalisé</string>
 	<string name="pref_label_activities">Activités</string>
