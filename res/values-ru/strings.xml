@@ -261,7 +261,7 @@
     <string name="dbfile_not_readable">Резервная копия найдена, но не может быть прочитана!</string>
     <string name="dbfile_import_success">Резервная копия восстановлена успешно!</string>
     <string name="dbfile_import_error">Ошибка восстановления из резервной копии!</string>
-	<!--  Desktop columns/Rows -->
+    <!--  Desktop columns/Rows -->
     <string name="pref_title_desktop_columns">Колонки домашнего экрана</string>
     <string name="pref_summary_desktop_columns">Установка количество колонок</string>
     <string name="pref_dialog_desktop_columns">Установите количество</string>
@@ -281,10 +281,10 @@
     <string name="pref_title_fade_drawer_labels">Исчезающие подписи при анимации главного меню</string>
     <string name="pref_summary_fade_drawer_labels">Больше нагрузка на процессор/память</string>
 
-	<string name="widget_config_dialog_title">Размер виджетов</string>
-	<string name="widget_config_dialog_summary">Сколько строк/колонок?</string>
-	<string name="widget_columns">Колонок</string>
-	<string name="widget_rows">Строк</string>
+    <string name="widget_config_dialog_title">Размер виджетов</string>
+    <string name="widget_config_dialog_summary">Сколько строк/колонок?</string>
+    <string name="widget_columns">Колонок</string>
+    <string name="widget_rows">Строк</string>
     
     <string name="pref_title_screen_cache">Кэшировать рабочие столы</string>
     <string name="pref_summary_screen_cache">для плавной прокрутки. Отключить если много виджетов</string>
@@ -296,15 +296,15 @@
     <string name="pref_title_desktop_indicator_type">Тип индикатора</string>
     <string name="pref_summary_desktop_indicator_type">Выбор типа индикатора</string>
 
-	<!-- Category titles -->
-	<string name="pref_title_system_preferences">Системные настройки ADW</string>
-	<string name="pref_summary_system_preferences">Системные настройки</string>
-	<string name="pref_title_screens_layout_preferencecategory">Режим домашнего экрана</string>
-	<string name="pref_title_screens_behaviour_preferencecategory">Оформление домашнего экрана</string>
-	<string name="pref_title_drawer_preferencecategory">Главное меню</string>
-	<string name="pref_title_drawer_visuals_preferencecategory">Внешний вид главного меню</string>
-	<string name="pref_title_highlights_preferencecategory">Подсветка иконок</string>
-	<string name="pref_title_indicators_preferencecategory">Индикатор рабочих столов</string>
+    <!-- Category titles -->
+    <string name="pref_title_system_preferences">Системные настройки ADW</string>
+    <string name="pref_summary_system_preferences">Системные настройки</string>
+    <string name="pref_title_screens_layout_preferencecategory">Режим домашнего экрана</string>
+    <string name="pref_title_screens_behaviour_preferencecategory">Оформление домашнего экрана</string>
+    <string name="pref_title_drawer_preferencecategory">Главное меню</string>
+    <string name="pref_title_drawer_visuals_preferencecategory">Внешний вид главного меню</string>
+    <string name="pref_title_highlights_preferencecategory">Подсветка иконок</string>
+    <string name="pref_title_indicators_preferencecategory">Индикатор рабочих столов</string>
 
     <string name="pref_title_system_persistent">ADW постоянно в памяти</string>
     <string name="pref_summary_system_persistent">Запретить выгружать ADW из памяти</string>
@@ -317,17 +317,17 @@
   <string name="toast_no_application_def">Не назначено ни одного приложения, перетащите сюда что-нибудь! :)</string>
 
     <!-- Theme preferences -->
-	<string name="pref_title_theme_settings">Настройки тем оформления</string>
-	<string name="pref_summary_theme_settings">Смена тем оформления ADW Launcher</string>
-	<string name="pref_title_theme_package">Выбрать тему</string>
-	<string name="pref_summary_theme_package">Выберите тему оформления ADW Launcher</string>
-	<string name="pref_title_theme_preview">Просмотр</string>
-	<string name="pref_summary_theme_preview">Просмотр выбранной темы оформления</string>
-	<string name="pref_title_theme_icons">Использовать иконки темы</string>
-	<string name="pref_summary_theme_icons">В противном случае будут использованы иконки ОС Android</string>
-	<string name="pref_themes_apply_theme">Применить тему оформления!</string>
-	<string name="pref_themes_get_themes">Скачать темы оформления!</string>
-	
+    <string name="pref_title_theme_settings">Настройки тем оформления</string>
+    <string name="pref_summary_theme_settings">Смена тем оформления ADW Launcher</string>
+    <string name="pref_title_theme_package">Выбрать тему</string>
+    <string name="pref_summary_theme_package">Выберите тему оформления ADW Launcher</string>
+    <string name="pref_title_theme_preview">Просмотр</string>
+    <string name="pref_summary_theme_preview">Просмотр выбранной темы оформления</string>
+    <string name="pref_title_theme_icons">Использовать иконки темы</string>
+    <string name="pref_summary_theme_icons">В противном случае будут использованы иконки ОС Android</string>
+    <string name="pref_themes_apply_theme">Применить тему оформления!</string>
+    <string name="pref_themes_get_themes">Скачать темы оформления!</string>
+    
     <string name="pref_title_wallpaper_scrolling">Прокрутка обоев</string>
     <string name="pref_summary_wallpaper_scrolling">Прокрутка обоев экрана при перемещении по рабочим столам</string>
     <string name="message_delete_desktop_screen">Удалить этот рабочий стол и все содержимое?</string>
@@ -337,38 +337,37 @@
     
     <string name="menu_edit">Редактировать</string>
 
-	<string name="pref_label_shirtcuts">Личный ярлык</string>
-	<string name="pref_label_activities">Действия приложений</string>
-	<string name="pref_label_activities_loading">Загружается список действий...</string>
-	<string name="shirtcut_header">Выберите желаемое действие приложения для запуска.\nТак же можно сменить иконку ярлыка.</string>
-	<string name="shirtcut_pick_activity">Выберите действие</string>
-	<string name="shirtcut_label">Надпись</string>
-	<string name="shirtcuts_select_picture">Выбрать изображения</string>
-	<string name="shirtcuts_crop_picture">Выбрать и уменьшить изображение</string>
-	<string name="shirtcuts_icon_packs">Иконки тем для ADW</string>
-	<string name="shirtcuts_select_icon_type">Выбрать тип иконки</string>
-	<string name="shirtcuts_select_icon_pack">Выбрать пак иконок</string>
+    <string name="pref_label_shirtcuts">Личный ярлык</string>
+    <string name="pref_label_activities">Действия приложений</string>
+    <string name="shirtcut_header">Выберите желаемое действие приложения для запуска.\nТак же можно сменить иконку ярлыка.</string>
+    <string name="shirtcut_pick_activity">Выберите действие</string>
+    <string name="shirtcut_label">Надпись</string>
+    <string name="shirtcuts_select_picture">Выбрать изображения</string>
+    <string name="shirtcuts_crop_picture">Выбрать и уменьшить изображение</string>
+    <string name="shirtcuts_icon_packs">Иконки тем для ADW</string>
+    <string name="shirtcuts_select_icon_type">Выбрать тип иконки</string>
+    <string name="shirtcuts_select_icon_pack">Выбрать пак иконок</string>
 
-	<string name="selectAll">Выбрать все</string>
-	<string name="AppGroupAll">"ВСЕ"</string>
-	<string name="AppGroupAdd">"Новая папка"</string>
-	<string name="AppGroupDel">"Удалить папку"</string>
+    <string name="selectAll">Выбрать все</string>
+    <string name="AppGroupAll">"ВСЕ"</string>
+    <string name="AppGroupAdd">"Новая папка"</string>
+    <string name="AppGroupDel">"Удалить папку"</string>
     <string name="AppGroupDelLong">"Действитеьлно удалить\nтекущую папку?"</string>
-	<string name="AppGroupChoose">"Выбрать папку"</string>
-	<string name="AppGroupConfig">"Создать папку"</string>
-	<string name="AppGroupRename">"Новая папка"</string>
-	<string name="AppGroupConfigError">"Вы не можете редактировать эту папку"</string>
-	<string name="rename_group_title">Новая папка</string>
-	<string name="rename_group_label">Имя папки</string>
-	<string name="show_catalog">Показывать папку \"%s\"</string>
-	
-	<string name="pref_title_adw_restart">Перезапуск ADW</string>
-	<string name="pref_summary_adw_restart">Закрыть и перезапустить ADW Launcher</string>
-	<string name="pref_title_adw_reset">Сброс настроек ADW</string>
-	<string name="pref_summary_adw_reset">Удалить настройки ADW Launcher и перезапустить?</string>
-	
-	<string name="need_scrollable">Виджет который Вы хотите добавить требует поддержки прокрутки для виджетов, которая в данный момент отключена.\nХотите включить поддержку прокрутки?</string>
-	<string name="scrollable_api_required">Этот виджет требует новую версию ADW.\nОбновите приложение, либо свяжитесь с разработчиком виджета.</string>
+    <string name="AppGroupChoose">"Выбрать папку"</string>
+    <string name="AppGroupConfig">"Создать папку"</string>
+    <string name="AppGroupRename">"Новая папка"</string>
+    <string name="AppGroupConfigError">"Вы не можете редактировать эту папку"</string>
+    <string name="rename_group_title">Новая папка</string>
+    <string name="rename_group_label">Имя папки</string>
+    <string name="show_catalog">Показывать папку \"%s\"</string>
+    
+    <string name="pref_title_adw_restart">Перезапуск ADW</string>
+    <string name="pref_summary_adw_restart">Закрыть и перезапустить ADW Launcher</string>
+    <string name="pref_title_adw_reset">Сброс настроек ADW</string>
+    <string name="pref_summary_adw_reset">Удалить настройки ADW Launcher и перезапустить?</string>
+    
+    <string name="need_scrollable">Виджет который Вы хотите добавить требует поддержки прокрутки для виджетов, которая в данный момент отключена.\nХотите включить поддержку прокрутки?</string>
+    <string name="scrollable_api_required">Этот виджет требует новую версию ADW.\nОбновите приложение, либо свяжитесь с разработчиком виджета.</string>
 
     <string name="pref_title_drawer_navigate_catalogs">Навигация папок</string>
     <string name="pref_summary_drawer_navigate_catalogs">Отображать кнопки навигации по папкам</string>
