@@ -9,7 +9,7 @@
   <string name="activity_not_found">L\'aplicació no està instal·lada al telèfon.</string>
   <string name="configure_wallpaper">Configura...</string>
   <string name="rename_folder_label">Nom del directori</string>
-  <string name="rename_folder_title">Reanomena carpeta</string>
+  <string name="rename_folder_title">Reanomena la carpeta</string>
   <string name="rename_action">D\'acord</string>
   <string name="cancel_action">Cancel·la</string>
   <string name="menu_item_add_item">Afegeix a l\'escriptori</string>
