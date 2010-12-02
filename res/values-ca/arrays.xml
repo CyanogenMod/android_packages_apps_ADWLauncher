@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
        <string-array name="menu_binding_entries">
-       			<item>NONE</item>
+   			<item>NONE</item>
                 <item>Vés a l\'escriptori per defecte</item>
                 <item>Vés a l\'escriptori per defecte/Mostra miniatures</item>
                 <item>Mostra miniatures</item>
