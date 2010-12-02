@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+       <string-array name="menu_binding_entries">
+   			<item>NONE</item>
+                <item>Vés a l\'escriptori per defecte</item>
+                <item>Vés a l\'escriptori per defecte/Mostra miniatures</item>
+                <item>Mostra miniatures</item>
+                <item>Obre/tanca menú d\'aplicacions</item>
+                <item>Mostra/oculta la barra d\'estat</item>
+                <item>Obre/tanca les notificacions</item>
+                <item>Vés a l\'escriptori per defecte/Obre les notificacions</item>
+                <item>Obre/tanca la barra de dreceres</item>
+                <item>Obre una aplicació</item>
+       </string-array>
+       <string-array name="desktop_indicator_entries">
+                <item>Indicador sobre punt</item>
+                <item>Indicador sobre línia</item>
+                <item>Indicador sota línia</item>
+       </string-array>
+       <string-array name="home_orientation_entries">
+                <item>Automàtic</item>
+                <item>Vertical</item>
+                <item>Apaïsat</item>
+       </string-array>
+       <string-array name="screen_cache_entries">
+                <item>Baixa qualitat</item>
+                <item>Auto</item>
+                <item>Desactivat</item>
+       </string-array>     
+</resources>
