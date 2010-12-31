@@ -72,7 +72,7 @@
 			android:clearTaskOnLaunch="true" android:stateNotNeeded="true"
 			android:theme="@style/Theme"
 			android:screenOrientation="nosensor" android:windowSoftInputMode="stateUnspecified|adjustPan">
-			<intent-filter>
+			<intent-filter android:priority="-1">
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.HOME" />
 				<category android:name="android.intent.category.DEFAULT" />
