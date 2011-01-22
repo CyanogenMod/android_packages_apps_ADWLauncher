@@ -5,332 +5,344 @@
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
 
-          http://www.apache.org/licenses/LICENSE-2.0
+     http://www.apache.org/licenses/LICENSE-2.0
 
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
--->
+  -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="application_name" msgid="5865630159700533006">"ADW.Launcher"</string>
-    <string name="uid_name" msgid="3371120195364560632">"Android Core Apps"</string>
-    <string name="folder_name" msgid="4588446541914685904">"Ordner"</string>
-    <string name="chooser_wallpaper" msgid="5988031014201479733">"Hintergrund auswählen"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"Hintergrund festlegen"</string>
-    <string name="pick_wallpaper" msgid="2674908923379130941">"Galerie"</string>
-    <string name="activity_not_found" msgid="3571057450431950427">"Anwendung ist nicht auf dem Telefon installiert."</string>
-    <string name="configure_wallpaper" msgid="2820186271419674623">"Konfigurieren..."</string>
-    <string name="rename_folder_label" msgid="5646236631298452787">"Ordnername"</string>
-    <string name="rename_folder_title" msgid="4544573104191526550">"Ordner umbenennen"</string>
-    <string name="rename_action" msgid="6016003384693240896">"OK"</string>
-    <string name="cancel_action" msgid="3811860427489435048">"Abbrechen"</string>
-    <string name="menu_item_add_item" msgid="6233177331075781114">"Zum Startbildschirm hinzufügen"</string>
-    <string name="group_applications" msgid="4118484163419674240">"Anwendungen"</string>
-    <string name="group_shortcuts" msgid="9133529424900391877">"Verknüpfungen"</string>
-    <string name="launcher_actions">Launcher Aktionen</string>
-    <string name="group_search" msgid="5905328940867162196">"Suchen"</string>
-    <string name="group_folder" msgid="5143593791798929193">"Neuer Ordner"</string>
-    <string name="group_live_folders" msgid="2664945399140647217">"Ordner"</string>
-    <string name="group_widgets" msgid="6704978494073105844">"Widgets"</string>
-    <string name="group_wallpapers" msgid="1568191644272224858">"Hintergrundbilder"</string>
-    <string name="out_of_space" msgid="8365249326091984698">"Auf dem Startbildschirm ist kein Platz mehr vorhanden."</string>
-    <string name="shortcut_installed" msgid="7071557296331322355">"\"<xliff:g id="NAME">%s</xliff:g>\"-Verknüpfung wurde erstellt."</string>
-    <string name="shortcut_uninstalled" msgid="2129499669449749995">"\"<xliff:g id="NAME">%s</xliff:g>\"-Verknüpfung wurde entfernt."</string>
-    <string name="shortcut_duplicate" msgid="4757756326465060694">"\"<xliff:g id="NAME">%s</xliff:g>\"-Verknüpfung ist bereits vorhanden."</string>
-    <string name="title_select_shortcut" msgid="2858897527672831763">"Tastenkürzel auswählen"</string>
-    <string name="title_select_live_folder" msgid="3753447798805166749">"Ordner auswählen"</string>
-    <string name="menu_add" msgid="3065046628354640854">"Hinzufügen"</string>
-    <string name="menu_wallpaper" msgid="5837429080911269832">"Hintergrund"</string>
-    <string name="menu_search" msgid="4826514464423239041">"Suchen"</string>
-    <string name="menu_settings" msgid="6233960148378443661">"Einstellungen"</string>
-    <string name="menu_adw_settings">ADW.Launcher</string>
-    <string name="permlab_install_shortcut" msgid="1201690825493376489">"Verknüpfungen installieren"</string>
-    <string name="permdesc_install_shortcut" msgid="7429365847558984148">"Ermöglicht einer Anwendung das Hinzufügen von Verknüpfungen ohne Eingriff des Nutzers."</string>
-    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"Verknüpfungen deinstallieren"</string>
-    <string name="permdesc_uninstall_shortcut" msgid="959972195916090900">"Ermöglicht einer Anwendung das Entfernen von Verknüpfungen ohne Eingriff des Nutzers."</string>
-    <string name="permlab_read_settings" msgid="3452408290738106747">"Einstellungen und Shortcuts für Startseite lesen"</string>
-    <string name="permdesc_read_settings" msgid="8377434937176025492">"Ermöglicht einer Anwendung, die Einstellungen und Shortcuts auf der Startseite zu lesen."</string>
-    <string name="permlab_write_settings" msgid="1360567537236705628">"Einstellungen und Shortcuts für Startseite schreiben"</string>
-    <string name="permdesc_write_settings" msgid="1098648778383349818">"Ermöglicht einer Anwendung, die Einstellungen und Shortcuts auf der Startseite zu ändern."</string>
-    <string name="gadget_error_text" msgid="8359351016167075858">"Problem beim Laden des Widgets"</string>
+           xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="application_name" msgid="5865630159700533006">"ADW.Launcher"</string>
+  <string name="uid_name" msgid="3371120195364560632">"Android Core Apps"</string>
+  <string name="folder_name" msgid="4588446541914685904">"Ordner"</string>
+  <string name="chooser_wallpaper" msgid="5988031014201479733">"Hintergrund auswählen"</string>
+  <string name="wallpaper_instructions" msgid="4215640646180727542">"Hintergrund festlegen"</string>
+  <string name="pick_wallpaper" msgid="2674908923379130941">"Galerie"</string>
+  <string name="activity_not_found" msgid="3571057450431950427">"Anwendung ist nicht auf dem Telefon installiert."</string>
+  <string name="configure_wallpaper" msgid="2820186271419674623">"Konfigurieren..."</string>
+  <string name="rename_folder_label" msgid="5646236631298452787">"Ordnername"</string>
+  <string name="rename_folder_title" msgid="4544573104191526550">"Ordner umbenennen"</string>
+  <string name="rename_action" msgid="6016003384693240896">"OK"</string>
+  <string name="cancel_action" msgid="3811860427489435048">"Abbrechen"</string>
+  <string name="menu_item_add_item" msgid="6233177331075781114">"Zum Startbildschirm hinzufügen"</string>
+  <string name="group_applications" msgid="4118484163419674240">"Anwendungen"</string>
+  <string name="group_shortcuts" msgid="9133529424900391877">"Verknüpfungen"</string>
+  <string name="launcher_actions">Launcher Aktionen</string>
+  <string name="group_search" msgid="5905328940867162196">"Suchen"</string>
+  <string name="group_folder" msgid="5143593791798929193">"Neuer Ordner"</string>
+  <string name="group_live_folders" msgid="2664945399140647217">"Ordner"</string>
+  <string name="group_widgets" msgid="6704978494073105844">"Widgets"</string>
+  <string name="group_wallpapers" msgid="1568191644272224858">"Hintergrundbilder"</string>
+  <string name="out_of_space" msgid="8365249326091984698">"Auf dem Startbildschirm ist kein Platz mehr vorhanden."</string>
+  <string name="shortcut_installed" msgid="7071557296331322355">"\"<xliff:g id="NAME">%s</xliff:g>\"-Verknüpfung wurde erstellt."</string>
+  <string name="shortcut_uninstalled" msgid="2129499669449749995">"\"<xliff:g id="NAME">%s</xliff:g>\"-Verknüpfung wurde entfernt."</string>
+  <string name="shortcut_duplicate" msgid="4757756326465060694">"\"<xliff:g id="NAME">%s</xliff:g>\"-Verknüpfung ist bereits vorhanden."</string>
+  <string name="title_select_shortcut" msgid="2858897527672831763">"Tastenkürzel auswählen"</string>
+  <string name="title_select_live_folder" msgid="3753447798805166749">"Ordner auswählen"</string>
+  <string name="menu_add" msgid="3065046628354640854">"Hinzufügen"</string>
+  <string name="menu_wallpaper" msgid="5837429080911269832">"Hintergrund"</string>
+  <string name="menu_search" msgid="4826514464423239041">"Suchen"</string>
+  <string name="menu_settings" msgid="6233960148378443661">"Einstellungen"</string>
+  <string name="menu_adw_settings">ADW.Launcher</string>
+  <string name="permlab_install_shortcut" msgid="1201690825493376489">"Verknüpfungen installieren"</string>
+  <string name="permdesc_install_shortcut" msgid="7429365847558984148">"Ermöglicht einer Anwendung das Hinzufügen von Verknüpfungen ohne Eingriff des Nutzers."</string>
+  <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"Verknüpfungen deinstallieren"</string>
+  <string name="permdesc_uninstall_shortcut" msgid="959972195916090900">"Ermöglicht einer Anwendung das Entfernen von Verknüpfungen ohne Eingriff des Nutzers."</string>
+  <string name="permlab_read_settings" msgid="3452408290738106747">"Einstellungen und Shortcuts für Startseite lesen"</string>
+  <string name="permdesc_read_settings" msgid="8377434937176025492">"Ermöglicht einer Anwendung, die Einstellungen und Shortcuts auf der Startseite zu lesen."</string>
+  <string name="permlab_write_settings" msgid="1360567537236705628">"Einstellungen und Shortcuts für Startseite schreiben"</string>
+  <string name="permdesc_write_settings" msgid="1098648778383349818">"Ermöglicht einer Anwendung, die Einstellungen und Shortcuts auf der Startseite zu ändern."</string>
+  <string name="gadget_error_text" msgid="8359351016167075858">"Problem beim Laden des Widgets"</string>
 
-    <!-- ADW Settings -->
-    <!-- Screen preferences -->
-    <string name="pref_label_settings">ADW.Launcher-Einstellungen</string>
-    <string name="pref_title_screen_preferences">Anzeige-Einstellungen</string>
-    <string name="pref_summary_screen_preferences">Einstellungen für Standardbildschirm, Effekte, ...</string>
+  <!-- ADW Settings -->
+  <!-- Screen preferences -->
+  <string name="pref_label_settings">ADW.Launcher-Einstellungen</string>
+  <string name="pref_title_screen_preferences">Anzeige-Einstellungen</string>
+  <string name="pref_summary_screen_preferences">Einstellungen für Standardbildschirm, Effekte...</string>
 
-    <string name="pref_title_wallpaper_hack">Wallpaper-Hack</string>
-    <string name="pref_summary_wallpaper_hack">Für schnelleres Scrollen. Bei Fehlermeldungen nicht benutzen.</string>
+  <string name="pref_title_wallpaper_hack">Wallpaper-Hack</string>
+  <string name="pref_summary_wallpaper_hack">Für schnelleres Scrollen. Bei Fehlermeldungen nicht benutzen.</string>
 
-    <string name="pref_title_orientation_sensor">Homescreen-Orientierung</string>
-    <string name="pref_summary_orientation_sensor">Gewünschte Orientierung auswählen</string>
+  <string name="pref_title_orientation_sensor">Homescreen-Orientierung</string>
+  <string name="pref_summary_orientation_sensor">Gewünschte Orientierung auswählen</string>
 
-    <string name="pref_title_hide_statusbar">Statuszeile ausblenden</string>
-    <string name="pref_summary_hide_statusbar">Obere Statuszeile ausblenden</string>
+  <string name="pref_title_hide_statusbar">Statuszeile ausblenden</string>
+  <string name="pref_summary_hide_statusbar">Obere Statuszeile ausblenden</string>
 
-    <string name="pref_title_default_screen">Standardbildschirm</string>
+  <string name="pref_title_default_screen">Standardbildschirm</string>
 
-    <string name="pref_title_desktop_scrolling_speed">Scrollgeschwindigkeit</string>
-    <string name="pref_summary_desktop_scrolling_speed">Geschwindigkeit für Bildschirmwechsel einstellen</string>
-    <string name="pref_dialog_desktop_scrolling_speed">Kleine Werte für schnellere Wechsel</string>
+  <string name="pref_title_desktop_scrolling_speed">Scrollgeschwindigkeit</string>
+  <string name="pref_summary_desktop_scrolling_speed">Geschwindigkeit für Bildschirmwechsel einstellen</string>
+  <string name="pref_dialog_desktop_scrolling_speed">Kleine Werte für schnellere Wechsel</string>
 
-    <string name="pref_title_desktop_overshoot">Überschwingen</string>
-    <string name="pref_summary_desktop_overshoot">Überschwingen beim Wechsel des Bildschirms einstellen</string>
-    <string name="pref_dialog_desktop_overshoot">Überschwingen. Zum Ausschalten auf Null setzen</string>
+  <string name="pref_title_desktop_overshoot">Überschwingen</string>
+  <string name="pref_summary_desktop_overshoot">Überschwingen beim Wechsel des Bildschirms einstellen</string>
+  <string name="pref_dialog_desktop_overshoot">Überschwingen. Zum Ausschalten auf Null setzen</string>
 
-    <!-- Drawer Settings -->
-    <string name="pref_title_drawer_settings">Drawer</string>
-    <string name="pref_summary_drawer_settings">Drawer (Launcher) konfigurieren</string>
+  <!-- Drawer Settings -->
+  <string name="pref_title_drawer_settings">Drawer</string>
+  <string name="pref_summary_drawer_settings">Drawer (Launcher) konfigurieren</string>
 
-    <string name="pref_title_zoom_effect_speed">Zoom-Effekt Geschwindigkeit</string>
-    <string name="pref_summary_zoom_effect_speed">Zeit in Millisekunden für den Zoom-Effekt setzen</string>
-    <string name="pref_dialog_zoom_effect_speed">Millisekunden für den Zoom-Effekt</string>
+  <string name="pref_title_zoom_effect_speed">Zoom-Effekt Geschwindigkeit</string>
+  <string name="pref_summary_zoom_effect_speed">Zeit in Millisekunden für den Zoom-Effekt setzen</string>
+  <string name="pref_dialog_zoom_effect_speed">Millisekunden für den Zoom-Effekt</string>
 
-    <string name="pref_title_page_horizontal_margin">Horizontaler Rand</string>
-    <string name="pref_summary_page_horizontal_margin">Horizontalen Rand zwischen den Seiten des Drawers einstellen</string>
-    <string name="pref_dialog_page_horizontal_margin">Horizontaler Rand zwischen den Seiten des Drawers</string>
+  <string name="pref_title_page_horizontal_margin">Horizontaler Rand</string>
+  <string name="pref_summary_page_horizontal_margin">Horizontalen Rand zwischen den Seiten des Drawers einstellen</string>
+  <string name="pref_dialog_page_horizontal_margin">Horizontaler Rand zwischen den Seiten des Drawers</string>
 
-    <string name="pref_title_animated_drawer">Animierter Drawer</string>
-    <string name="pref_summary_animated_drawer">Auswählen, ob Animationen im Drawer angezeigt werden sollen</string>
+  <string name="pref_title_animated_drawer">Animierter Drawer</string>
+  <string name="pref_summary_animated_drawer">Auswählen, ob Animationen im Drawer angezeigt werden sollen</string>
 
-    <string name="pref_title_drawer_columns_portrait">Aufrecht: Spalten</string>
-    <string name="pref_summary_drawer_columns_portrait">Anzahl der Spalten des Drawers im Hochformat wählen</string>
-    <string name="pref_dialog_drawer_columns_portrait">Anzahl der Spalten im Hochformat</string>
+  <string name="pref_title_drawer_columns_portrait">Aufrecht: Spalten</string>
+  <string name="pref_summary_drawer_columns_portrait">Anzahl der Spalten des Drawers im Hochformat wählen</string>
+  <string name="pref_dialog_drawer_columns_portrait">Anzahl der Spalten im Hochformat</string>
 
-    <string name="pref_title_drawer_rows_portrait">Aufrecht: Reihen</string>
-    <string name="pref_summary_drawer_rows_portrait">Anzahl der Reihen des Drawers im Hochformat wählen</string>
-    <string name="pref_dialog_drawer_rows_portrait">Anzahl der Reihen im Hochformat</string>
+  <string name="pref_title_drawer_rows_portrait">Aufrecht: Reihen</string>
+  <string name="pref_summary_drawer_rows_portrait">Anzahl der Reihen des Drawers im Hochformat wählen</string>
+  <string name="pref_dialog_drawer_rows_portrait">Anzahl der Reihen im Hochformat</string>
 
-    <string name="pref_title_drawer_columns_landscape">Quer: Spalten</string>
-    <string name="pref_summary_drawer_columns_landscape">Anzahl der Spalten des Drawers im Querformat wählen</string>
-    <string name="pref_dialog_drawer_columns_landscape">Anzahl der Spalten im Querformat</string>
+  <string name="pref_title_drawer_columns_landscape">Quer: Spalten</string>
+  <string name="pref_summary_drawer_columns_landscape">Anzahl der Spalten des Drawers im Querformat wählen</string>
+  <string name="pref_dialog_drawer_columns_landscape">Anzahl der Spalten im Querformat</string>
 
-    <string name="pref_title_drawer_rows_landscape">Quer: Reihen</string>
-    <string name="pref_summary_drawer_rows_landscape">Anzahl der Reihen des Drawers im Querformat wählen</string>
-    <string name="pref_dialog_drawer_rows_landscape">Anzahl der Reihen im Querformat</string>
+  <string name="pref_title_drawer_rows_landscape">Quer: Reihen</string>
+  <string name="pref_summary_drawer_rows_landscape">Anzahl der Reihen des Drawers im Querformat wählen</string>
+  <string name="pref_dialog_drawer_rows_landscape">Anzahl der Reihen im Querformat</string>
 
-    <string name="pref_title_sense_previews">Sense Vorschauen</string>
-    <string name="pref_summary_sense_previews">Vorschauen im Aussehen von HTC Sense-Oberflächen verwenden</string>
+  <string name="pref_title_sense_previews">Sense Vorschauen</string>
+  <string name="pref_summary_sense_previews">Vorschauen im Aussehen von HTC Sense-Oberflächen verwenden</string>
 
-    <!-- Button preferences -->
-    <string name="pref_title_ui_settings">Benutzeroberfläche</string>
-    <string name="pref_summary_ui_settings">Elemente der Benutzeroberfläche konfigurieren</string>
+  <!-- Button preferences -->
+  <string name="pref_title_ui_settings">Benutzeroberfläche</string>
+  <string name="pref_summary_ui_settings">Elemente der Benutzeroberfläche konfigurieren</string>
 
-    <string name="pref_title_home_button_binding">HOME-Taste</string>
-    <string name="pref_summary_home_button_binding">Aktion für HOME-Taste auswählen</string>
+  <string name="pref_title_home_button_binding">HOME-Taste</string>
+  <string name="pref_summary_home_button_binding">Aktion für HOME-Taste auswählen</string>
 
-    <string name="pref_title_swipedown_actions">Swipe-Down Aktion</string>
-    <string name="pref_summary_swipedown_actions">Aktion wählen für: Nach unten wischen</string>
+  <string name="pref_title_swipedown_actions">Swipe-Down Aktion</string>
+  <string name="pref_summary_swipedown_actions">Aktion wählen für: Nach unten wischen</string>
 
-    <string name="pref_title_swipeup_actions">Swipe-Up Aktion</string>
-    <string name="pref_summary_swipeup_actions">Aktion wählen für: Nach oben wischen</string>
+  <string name="pref_title_swipeup_actions">Swipe-Up Aktion</string>
+  <string name="pref_summary_swipeup_actions">Aktion wählen für: Nach oben wischen</string>
 
-    <string name="pref_title_desktop_dots">Desktop-Punkte</string>
-    <string name="pref_summary_desktop_dots">Zeige/Verstecke Punkte für Anzeigenwechsel (wie Nexus One)</string>
+  <string name="pref_title_desktop_dots">Desktop-Punkte</string>
+  <string name="pref_summary_desktop_dots">Zeige/Verstecke Punkte für Anzeigenwechsel (wie Nexus One)</string>
 
-    <string name="pref_title_dockbar">Dockzeile</string>
-    <string name="pref_summary_dockbar">Ein-/Ausschalten der neuen Dockzeile für Schnellzugriffe</string>
+  <string name="pref_title_dockbar">Dockzeile</string>
+  <string name="pref_summary_dockbar">Ein-/Ausschalten der neuen Dockzeile für Schnellzugriffe</string>
 
-    <string name="pref_title_closing_dockbar">Automatisch schließen</string>
-    <string name="pref_summary_closing_dockbar">Dockzeile nach Anwendungsstart automatisch schließen</string>
+  <string name="pref_title_closing_dockbar">Automatisch schließen</string>
+  <string name="pref_summary_closing_dockbar">Dockzeile nach Anwendungsstart automatisch schließen</string>
 
-    <string name="pref_title_closing_folder">Ordner schließen</string>
-    <string name="pref_summary_closing_folder">Ordner nach Programmstart automatisch schließen</string>
+  <string name="pref_title_closing_folder">Ordner schließen</string>
+  <string name="pref_summary_closing_folder">Ordner nach Programmstart automatisch schließen</string>
 
-    <string name="pref_title_ab_scale_factor">Größe Aktionstasten</string>
-    <string name="pref_summary_ab_scale_factor">Skaliere die Größe der Aktionstasten-Icons</string>
-    <string name="pref_dialog_ab_scale_factor">Größenfaktor der Aktionstasten-Icons</string>
+  <string name="pref_title_ab_scale_factor">Größe Aktionstasten</string>
+  <string name="pref_summary_ab_scale_factor">Skaliere die Größe der Aktionstasten-Icons</string>
+  <string name="pref_dialog_ab_scale_factor">Größenfaktor der Aktionstasten-Icons</string>
 
-    <string name="pref_title_hide_ab_bg">Aktionstasten-HG ausblenden</string>
-    <string name="pref_summary_hide_ab_bg">Hintergrund der Aktionstasten ausblenden</string>
+  <string name="pref_title_hide_ab_bg">Aktionstasten-HG ausblenden</string>
+  <string name="pref_summary_hide_ab_bg">Hintergrund der Aktionstasten ausblenden</string>
 
-    <string name="pref_title_hide_icon_labels">Keine Icon-Beschriftung</string>
-    <string name="pref_summary_hide_icon_labels">Beschriftung der Bildschirmsymbole ausblenden</string>
+  <string name="pref_title_hide_icon_labels">Keine Icon-Beschriftung</string>
+  <string name="pref_summary_hide_icon_labels">Beschriftung der Bildschirmsymbole ausblenden</string>
 
-    <string name="pref_title_build_info">Informationen</string>
-    <string name="pref_title_adw_version">ADW.Launcher-Version</string>
+  <string name="pref_title_build_info">Informationen</string>
+  <string name="pref_title_adw_version">ADW.Launcher-Version</string>
 
-    <string name="pref_title_icon_highlights">Farbe: Auswahl gedrückt</string>
-    <string name="pref_summary_icon_highlights">Stelle Farbe für den Icon-Hintergrund bei Auswahl ein</string>
-    <string name="pref_title_icon_highlights_focus">Farbe: Fokusiert</string>
-    <string name="pref_summary_icon_highlights_focus">Stelle Farbe für den Icon-Hintergrund bei Fokusierung ein</string>
-    <string name="pref_title_new_selectors">Neue Icon-Auswahl</string>
-    <string name="pref_summary_new_selectors">Ausschalten für alte Methode</string>
-    <string name="pref_title_drawer_color">Hintergrundfarbe</string>
-    <string name="pref_summary_drawer_color">Farbe für den Drawer-Hintergrund festlegen</string>
+  <string name="pref_title_icon_highlights">Farbe: Auswahl gedrückt</string>
+  <string name="pref_summary_icon_highlights">Stelle Farbe für den Icon-Hintergrund bei Auswahl ein</string>
+  <string name="pref_title_icon_highlights_focus">Farbe: Fokusiert</string>
+  <string name="pref_summary_icon_highlights_focus">Stelle Farbe für den Icon-Hintergrund bei Fokusierung ein</string>
+  <string name="pref_title_new_selectors">Neue Icon-Auswahl</string>
+  <string name="pref_summary_new_selectors">Ausschalten für alte Methode</string>
+  <string name="pref_title_drawer_color">Hintergrundfarbe</string>
+  <string name="pref_summary_drawer_color">Farbe für den Drawer-Hintergrund festlegen</string>
 
-    <string name="pref_dialog_title_color_picker">Farbe aufnehmen</string>
-    <string name="pref_dialog_message_color_picker">Zum Bestätigen auf den farbigen Mittelpunkt tippen.\nDrücke ZURÜCK zum Abbrechen.</string>
-    <string name="pref_dialog_color_picker_alpha">Tranzparenz</string>
-    <string name="pref_message_restart_normal">Nach Änderung startet sich der Launcher neu</string>
-    <string name="pref_message_restart_froyo">Nach Änderung startet sich der Launcher neu</string>
-    <string name="drop_to_uninstall">Zum deinstallieren loslassen</string>
+  <string name="pref_dialog_title_color_picker">Farbe aufnehmen</string>
+  <string name="pref_dialog_message_color_picker">Zum Bestätigen auf den farbigen Mittelpunkt tippen.\nDrücke ZURÜCK zum Abbrechen.</string>
+  <string name="pref_dialog_color_picker_alpha">Tranzparenz</string>
+  <string name="pref_message_restart_normal">Nach Änderung startet sich der Launcher neu</string>
+  <string name="pref_message_restart_froyo">Nach Änderung startet sich der Launcher neu</string>
+  <string name="drop_to_uninstall">Zum deinstallieren loslassen</string>
 
-    <string name="toast_widgets_not_supported">Widgets werden nicht unterstützt... Sorry :-)</string>
-    <string name="toast_unknown_item">Unbekanntes Element. Es können keine unbekannten Elemente hinzugefügt werden :-)</string>
-    <string name="toast_no_application_def">Noch keine App festgelegt. Lass hier etwas los! :)</string>
+  <string name="toast_widgets_not_supported">Widgets werden nicht unterstützt... Sorry :-)</string>
+  <string name="toast_unknown_item">Unbekanntes Element. Es können keine unbekannten Elemente hinzugefügt werden :-)</string>
+  <string name="toast_no_application_def">Noch keine App festgelegt. Lass hier etwas los! :)</string>
 
-    <string name="pref_title_import_export">Sicherung und Wiederherstellung</string>
-    <string name="pref_title_xml">ADW-Einstellungen</string>
-    <string name="pref_title_xml_import">Wiederherstellen der ADW-Einstellungen</string>
-    <string name="pref_summary_xml_import">Wiederherstellen aus /sdcard/adw_settings.xml</string>
-    <string name="pref_title_xml_export">Sichern der ADW-Einstellungen</string>
-    <string name="pref_summary_xml_export">Sichern nach /sdcard/adw_settings.xml</string>
+  <string name="pref_title_import_export">Sicherung und Wiederherstellung</string>
+  <string name="pref_title_xml">ADW-Einstellungen</string>
+  <string name="pref_title_xml_import">Wiederherstellen der ADW-Einstellungen</string>
+  <string name="pref_summary_xml_import">Wiederherstellen aus /sdcard/adw_settings.xml</string>
+  <string name="pref_title_xml_export">Sichern der ADW-Einstellungen</string>
+  <string name="pref_summary_xml_export">Sichern nach /sdcard/adw_settings.xml</string>
 
-    <string name="pref_title_db">Bildschirm-Konfiguration</string>
-    <string name="pref_title_db_import">Wiederherstellen der Bildschirm-Konfiguration</string>
-    <string name="pref_summary_db_import">Wiederherstellen aus /sdcard/adw_launcher.db</string>
-    <string name="pref_title_db_export">Sichern der Bildschirm-Konfiguration</string>
-    <string name="pref_summary_db_export">Sichern nach to /sdcard/adw_launcher.db</string>
+  <string name="pref_title_db">Bildschirm-Konfiguration</string>
+  <string name="pref_title_db_import">Wiederherstellen der Bildschirm-Konfiguration</string>
+  <string name="pref_summary_db_import">Wiederherstellen aus /sdcard/adw_launcher.db</string>
+  <string name="pref_title_db_export">Sichern der Bildschirm-Konfiguration</string>
+  <string name="pref_summary_db_export">Sichern nach to /sdcard/adw_launcher.db</string>
 
-    <string name="title_dialog_xml">ADW-Launcher Einstellungen</string>
-    <string name="import_export_sdcard_unmounted">SD-Karte nicht eingebunden!</string>
+  <string name="title_dialog_xml">ADW-Launcher Einstellungen</string>
+  <string name="import_export_sdcard_unmounted">SD-Karte nicht eingebunden!</string>
 
-    <!-- XML Import/Export strings -->
-    <string name="message_dialog_export">ADW-Einstellungen sichern? Existierende Datei wird überschrieben!</string>
-    <string name="xml_export_dialog">Sichere ADW-Einstellungen...</string>
-    <string name="xml_export_success">ADW-Einstellungen erfolgreich gesichert!</string>
-    <string name="xml_export_error">Fehler beim Sichern der ADW-Einstellungen!</string>
+  <!-- XML Import/Export strings -->
+  <string name="message_dialog_export">ADW-Einstellungen sichern? Existierende Datei wird überschrieben!</string>
+  <string name="xml_export_dialog">Sichere ADW-Einstellungen...</string>
+  <string name="xml_export_success">ADW-Einstellungen erfolgreich gesichert!</string>
+  <string name="xml_export_error">Fehler beim Sichern der ADW-Einstellungen!</string>
 
-    <string name="message_dialog_import">ADW-Einstellungen wiederherstellen? ADW.Launcher wird neu gestartet!</string>
-    <string name="xml_import_dialog">Wiederherstellen der ADW-Einstellungen...</string>
-    <string name="xml_file_not_found">Datei für Wiederherstellung nicht gefunden!</string>
-    <string name="xml_not_readable">Datei ist vorhanden aber nicht lesbar!</string>
-    <string name="xml_import_success">ADW-Einstellungen erfolgreich wiederhergestellt!</string>
-    <string name="xml_import_error">Fehler beim Wiederherstellen der ADW-Einstellungen!</string>
+  <string name="message_dialog_import">ADW-Einstellungen wiederherstellen? ADW.Launcher wird neu gestartet!</string>
+  <string name="xml_import_dialog">Wiederherstellen der ADW-Einstellungen...</string>
+  <string name="xml_file_not_found">Datei für Wiederherstellung nicht gefunden!</string>
+  <string name="xml_not_readable">Datei ist vorhanden aber nicht lesbar!</string>
+  <string name="xml_import_success">ADW-Einstellungen erfolgreich wiederhergestellt!</string>
+  <string name="xml_import_error">Fehler beim Wiederherstellen der ADW-Einstellungen!</string>
 
-    <!-- Config Import/Export strings -->
-    <string name="message_dialog_export_config">Sichern der Bildschirm-Konfiguration?  Existierende Datei wird überschrieben!</string>
-    <string name="dbfile_export_dialog">Sichere Bildschirm-Konfiguration...</string>
-    <string name="dbfile_export_success">Konfiguration erfolgreich gesichert!</string>
-    <string name="dbfile_export_error">Fehler beim Sichern der Konfiguration!</string>
+  <!-- Config Import/Export strings -->
+  <string name="message_dialog_export_config">Sichern der Bildschirm-Konfiguration?  Existierende Datei wird überschrieben!</string>
+  <string name="dbfile_export_dialog">Sichere Bildschirm-Konfiguration...</string>
+  <string name="dbfile_export_success">Konfiguration erfolgreich gesichert!</string>
+  <string name="dbfile_export_error">Fehler beim Sichern der Konfiguration!</string>
 
-    <string name="message_dialog_import_config">Bildschirm-Konfiguration wiederherstellen? ADW.Launcher wird neu gestartet!</string>
-    <string name="dbfile_import_dialog">Wiederherstellen der Bildschirm-Konfiguration...</string>
-    <string name="dbfile_not_found">Konfigurationsdatei nicht gefunden!</string>
-    <string name="dbfile_not_readable">Konfigurationsdatei ist vorhanden aber nicht lesbar!</string>
-    <string name="dbfile_import_success">Konfiguration erfolgreich wiederhergestellt!</string>
-    <string name="dbfile_import_error">Fehler beim Wiederherstellen der Konfiguration!</string>
+  <string name="message_dialog_import_config">Bildschirm-Konfiguration wiederherstellen? ADW.Launcher wird neu gestartet!</string>
+  <string name="dbfile_import_dialog">Wiederherstellen der Bildschirm-Konfiguration...</string>
+  <string name="dbfile_not_found">Konfigurationsdatei nicht gefunden!</string>
+  <string name="dbfile_not_readable">Konfigurationsdatei ist vorhanden aber nicht lesbar!</string>
+  <string name="dbfile_import_success">Konfiguration erfolgreich wiederhergestellt!</string>
+  <string name="dbfile_import_error">Fehler beim Wiederherstellen der Konfiguration!</string>
 
-    <!--  Desktop columns/Rows -->
-    <string name="pref_title_desktop_columns">Spalten: Bildschirm</string>
-    <string name="pref_summary_desktop_columns">Anzahl der Spalten auf dem Bildschirm festlegen</string>
-    <string name="pref_dialog_desktop_columns">Anzahl der Spalten auf dem Bildschirm festlegen</string>
+  <!--  Desktop columns/Rows -->
+  <string name="pref_title_desktop_columns">Spalten: Bildschirm</string>
+  <string name="pref_summary_desktop_columns">Anzahl der Spalten auf dem Bildschirm festlegen</string>
+  <string name="pref_dialog_desktop_columns">Anzahl der Spalten auf dem Bildschirm festlegen</string>
 
-    <string name="pref_title_desktop_rows">Reihen: Bildschirm</string>
-    <string name="pref_summary_desktop_rows">Anzahl der Reihen auf dem Bildschirm festlegen</string>
-    <string name="pref_dialog_desktop_rows">Anzahl der Reihen auf dem Bildschirm festlegen</string>
+  <string name="pref_title_desktop_rows">Reihen: Bildschirm</string>
+  <string name="pref_summary_desktop_rows">Anzahl der Reihen auf dem Bildschirm festlegen</string>
+  <string name="pref_dialog_desktop_rows">Anzahl der Reihen auf dem Bildschirm festlegen</string>
 
-    <string name="pref_title_autosize_icons">Auto-Ausdehnung</string>
-    <string name="pref_summary_autosize_icons">Versuche Symbole/Widgets so zu dehnen, dass sie nicht überlappen</string>
+  <string name="pref_title_autosize_icons">Auto-Ausdehnung</string>
+  <string name="pref_summary_autosize_icons">Versuche Symbole/Widgets so zu dehnen, dass sie nicht überlappen</string>
 
-    <string name="pref_title_scrollable_widgets">Scrollbare Widgets</string>
-    <string name="pref_summary_scrollable_widgets">Ausschalten, wenn scrollbare Widgets nicht genutzt werden sollen</string>
+  <string name="pref_title_scrollable_widgets">Scrollbare Widgets</string>
+  <string name="pref_summary_scrollable_widgets">Ausschalten, wenn scrollbare Widgets nicht genutzt werden sollen</string>
 
-    <string name="pref_title_drawer_labels">App-Namen zeigen</string>
-    <string name="pref_summary_drawer_labels">Namen der Apps im Drawer zeigen</string>
-    <string name="pref_title_fade_drawer_labels">App-Namen einblenden</string>
-    <string name="pref_summary_fade_drawer_labels">Namen der Apps einblenden statt sofort sichtbar. (Nutzt mehr RAM/CPU)</string>
+  <string name="pref_title_drawer_labels">App-Namen zeigen</string>
+  <string name="pref_summary_drawer_labels">Namen der Apps im Drawer zeigen</string>
+  <string name="pref_title_fade_drawer_labels">App-Namen einblenden</string>
+  <string name="pref_summary_fade_drawer_labels">Namen der Apps einblenden statt sofort sichtbar. (Nutzt mehr RAM/CPU)</string>
 
-    <string name="widget_config_dialog_title">Widget Bereich</string>
-    <string name="widget_config_dialog_summary">Wieviele Reihen/Spalten wird das Widget einnehmen?</string>
-    <string name="widget_columns">Zeilen</string>
-    <string name="widget_rows">Reihen</string>
+  <string name="widget_config_dialog_title">Widget Bereich</string>
+  <string name="widget_config_dialog_summary">Wieviele Reihen/Spalten wird das Widget einnehmen?</string>
+  <string name="widget_columns">Zeilen</string>
+  <string name="widget_rows">Reihen</string>
 
-    <string name="pref_title_screen_cache">Bildschirm-Cache</string>
-    <string name="pref_summary_screen_cache">Für sanfteres Scrolling. Höhere Qualtität benötigt mehr Speicher.</string>
+  <string name="pref_title_screen_cache">Bildschirm-Cache</string>
+  <string name="pref_summary_screen_cache">Für sanfteres Scrolling. Höhere Qualtität benötigt mehr Speicher.</string>
 
-    <string name="pref_title_desktop_indicator">Zeige Bildschirm-Indikator</string>
-    <string name="pref_summary_desktop_indicator">Visuellen Hinweis beim Scrollen des Bildschirms zeigen</string>
-    <string name="pref_title_desktop_indicator_autohide">Indikator autom. ausblenden</string>
-    <string name="pref_summary_desktop_indicator_autohide">Den Bildschirm-Indikator nach kurzer Zeit ausblenden</string>
-    <string name="pref_title_desktop_indicator_type">Indikatortyp</string>
-    <string name="pref_summary_desktop_indicator_type">Zwischen verschiedenen Stilen wählen</string>
+  <string name="pref_title_desktop_indicator">Zeige Bildschirm-Indikator</string>
+  <string name="pref_summary_desktop_indicator">Visuellen Hinweis beim Scrollen des Bildschirms zeigen</string>
+  <string name="pref_title_desktop_indicator_autohide">Indikator autom. ausblenden</string>
+  <string name="pref_summary_desktop_indicator_autohide">Den Bildschirm-Indikator nach kurzer Zeit ausblenden</string>
+  <string name="pref_title_desktop_indicator_type">Indikatortyp</string>
+  <string name="pref_summary_desktop_indicator_type">Zwischen verschiedenen Stilen wählen</string>
 
-    <!-- Category titles -->
-    <string name="pref_title_system_preferences">System-Einstellungen</string>
-    <string name="pref_summary_system_preferences">Allgemeine Einstellungen für den ADW.Launcher</string>
-    <string name="pref_title_screens_layout_preferencecategory">Bildschirmanordnung</string>
-    <string name="pref_title_screens_behaviour_preferencecategory">Bildschirmverhalten</string>
-    <string name="pref_title_drawer_preferencecategory">App-Drawer</string>
-    <string name="pref_title_drawer_visuals_preferencecategory">App-Drawer Aussehen</string>
-    <string name="pref_title_highlights_preferencecategory">Icon-Hervorhebung</string>
-    <string name="pref_title_indicators_preferencecategory">Bildschirm-Indikator</string>
+  <!-- Category titles -->
+  <string name="pref_title_system_preferences">System-Einstellungen</string>
+  <string name="pref_summary_system_preferences">Allgemeine Einstellungen für den ADW.Launcher</string>
+  <string name="pref_title_screens_layout_preferencecategory">Bildschirmanordnung</string>
+  <string name="pref_title_screens_behaviour_preferencecategory">Bildschirmverhalten</string>
+  <string name="pref_title_drawer_preferencecategory">App-Drawer</string>
+  <string name="pref_title_drawer_visuals_preferencecategory">App-Drawer Aussehen</string>
+  <string name="pref_title_highlights_preferencecategory">Icon-Hervorhebung</string>
+  <string name="pref_title_indicators_preferencecategory">Bildschirm-Indikator</string>
 
-    <string name="pref_title_system_persistent">System persistent</string>
-    <string name="pref_summary_system_persistent">Gefährlich. Einschalten, um Beendigung des Launchers durch das System zu verhindern (gefährlich)</string>
+  <string name="pref_title_system_persistent">System persistent</string>
+  <string name="pref_summary_system_persistent">Gefährlich. Einschalten, um Beendigung des Launchers durch das System zu verhindern (gefährlich)</string>
 
-    <!-- Theme preferences -->
-    <string name="pref_title_theme_settings">Themes</string>
-    <string name="pref_summary_theme_settings">Themes für ADW.Launcher auswählen</string>
-    <string name="pref_title_theme_package">Wähle dein Theme</string>
-    <string name="pref_summary_theme_package">Theme für ADW.Launcher auswählen</string>
-    <string name="pref_title_theme_preview">Theme-Vorschau</string>
-    <string name="pref_summary_theme_preview">Vorschau des ausgewählten Themes</string>
-    <string name="pref_title_theme_icons">Theme-Icons nutzen</string>
-    <string name="pref_summary_theme_icons">Abwählen um die Standard-Icons zu nutzen</string>
-    <string name="pref_themes_apply_theme">Theme anwenden!</string>
-    <string name="pref_themes_get_themes">Themes beziehen!</string>
+  <!-- Theme preferences -->
+  <string name="pref_title_theme_settings">Gestaltung</string>
+  <string name="pref_summary_theme_settings">Design für ADW.Launcher auswählen</string>
+  <string name="pref_title_theme_package">Wähle ein Design</string>
+  <string name="pref_summary_theme_package">Design für ADW.Launcher auswählen</string>
+  <string name="pref_title_theme_preview">Design-Vorschau</string>
+  <string name="pref_summary_theme_preview">Vorschau des ausgewählten Designs</string>
+  <string name="pref_title_theme_icons">Icondesigns nutzen</string>
+  <string name="pref_summary_theme_icons">Abwählen um die Standard-Icons zu nutzen</string>
+  <string name="pref_themes_apply_theme">Design anwenden!</string>
+  <string name="pref_themes_get_themes">Design beziehen!</string>
 
-    <string name="pref_title_wallpaper_scrolling">Wallpaper-Scrolling</string>
-    <string name="pref_summary_wallpaper_scrolling">Hintergrundbild beim Wechseln des Bildschirms bewegen</string>
-    <string name="message_delete_desktop_screen">Diesen Bildschirm mit seinen Elementen entfernen?</string>
-    <string name="message_cannot_delete_desktop_screen">Der letzte Screen kann nicht gelöscht werden</string>
-    <string name="message_cannot_add_desktop_screen">Mehr Bildschirme können nicht hinzugefügt werden</string>
-    <string name="message_cannot_swap_desktop_screen">Bildschirme können nicht getauscht werden</string>
+  <string name="pref_title_wallpaper_scrolling">Wallpaper-Scrolling</string>
+  <string name="pref_summary_wallpaper_scrolling">Hintergrundbild beim Wechseln des Bildschirms bewegen</string>
+  <string name="message_delete_desktop_screen">Diesen Bildschirm mit seinen Elementen entfernen?</string>
+  <string name="message_cannot_delete_desktop_screen">Der letzte Screen kann nicht gelöscht werden</string>
+  <string name="message_cannot_add_desktop_screen">Mehr Bildschirme können nicht hinzugefügt werden</string>
+  <string name="message_cannot_swap_desktop_screen">Bildschirme können nicht getauscht werden</string>
 
-    <string name="menu_edit">Bearbeiten</string>
+  <string name="menu_edit">Bearbeiten</string>
 
-    <string name="pref_label_shirtcuts">Anderer Kurzbefehl</string>
-    <string name="pref_label_activities">Aktivitäten</string>
-    <string name="shirtcut_header">Gewünschte Anwendungsaktivität zum Starten auswählen.\nEin anderes Icon kann auch ausgewählt werden.</string>
-    <string name="shirtcut_pick_activity">Aktivität wählen</string>
-    <string name="shirtcut_label">Bezeichnung</string>
-    <string name="shirtcuts_select_picture">Bild auswählen</string>
-    <string name="shirtcuts_crop_picture">Bild auswählen und beschneiden</string>
-    <string name="shirtcuts_icon_packs">ADWTheme Icon-Packs</string>
-    <string name="shirtcuts_select_icon_type">Icon-Typ auswählen</string>
-    <string name="shirtcuts_select_icon_pack">Icon-Pack auswählen</string>
+  <string name="pref_label_shirtcuts">Anderer Kurzbefehl</string>
+  <string name="pref_label_activities">Aktivitäten</string>
+  <string name="shirtcut_header">Gewünschte Anwendungsaktivität zum Starten auswählen.\nEin anderes Icon kann auch ausgewählt werden.</string>
+  <string name="shirtcut_pick_activity">Aktivität wählen</string>
+  <string name="shirtcut_label">Bezeichnung</string>
+  <string name="shirtcuts_select_picture">Bild auswählen</string>
+  <string name="shirtcuts_crop_picture">Bild auswählen und beschneiden</string>
+  <string name="shirtcuts_icon_packs">ADWTheme Icon-Packs</string>
+  <string name="shirtcuts_select_icon_type">Icon-Typ auswählen</string>
+  <string name="shirtcuts_select_icon_pack">Icon-Pack auswählen</string>
 
-    <string name="selectAll">Alle auswählen</string>
-    <string name="AppGroupAll">"ALLE"</string>
-    <string name="AppGroupAdd">"Neuer Katalog"</string>
-    <string name="AppGroupDel">"Katalog löschen"</string>
-    <string name="AppGroupDelLong">"Soll der aktuelle Katalog\nwirklich gelöscht werden?"</string>
-    <string name="AppGroupChoose">"Katalog auswählen"</string>
-    <string name="AppGroupConfig">"Katalog bearbeiten"</string>
-    <string name="AppGroupRename">"Neuer Katalog"</string>
-    <string name="AppGroupConfigError">"Dieser Katalog kann nicht angelegt werden"</string>
-    <string name="rename_group_title">Neuer Katalog</string>
-    <string name="rename_group_label">Katalog-Name</string>
-    <string name="show_catalog">Katalog \"%s\" anzeigen</string>
+  <string name="selectAll">Alle auswählen</string>
+  <string name="AppGroupAll">"ALLE"</string>
+  <string name="AppGroupAdd">"Neuer Katalog"</string>
+  <string name="AppGroupDel">"Katalog löschen"</string>
+  <string name="AppGroupDelLong">"Soll der aktuelle Katalog\nwirklich gelöscht werden?"</string>
+  <string name="AppGroupChoose">"Katalog auswählen"</string>
+  <string name="AppGroupConfig">"Katalog bearbeiten"</string>
+  <string name="AppGroupRename">"Neuer Katalog"</string>
+  <string name="AppGroupConfigError">"Dieser Katalog kann nicht angelegt werden"</string>
+  <string name="rename_group_title">Neuer Katalog</string>
+  <string name="rename_group_label">Katalog-Name</string>
+  <string name="show_catalog">Katalog \"%s\" anzeigen</string>
 
-    <string name="pref_title_adw_restart">ADW neu starten</string>
-    <string name="pref_summary_adw_restart">Den ADW.Launcher schließen und neu starten</string>
-    <string name="pref_title_adw_reset">ADW zurücksetzten</string>
-    <string name="pref_summary_adw_reset">Einstellunegen des ADW.Launcher zurücksetzen und neu starten</string>
-    
-    <string name="need_scrollable">Das Widget das Sie hinzufügen wollen benötigt \'Scrollable Widget Unterstützung\'. Dies ist momentan deaktiviert.\nMöchten Sie es nun aktivieren?</string>	
-    <string name="scrollable_api_required">Das Widget benötigt eine neuere ADW.Launcher Version.\nBitte updaten Sie oder kontaktieren Sie den Widget Entwickler</string>
+  <string name="pref_title_adw_restart">ADW neu starten</string>
+  <string name="pref_summary_adw_restart">Den ADW.Launcher schließen und neu starten</string>
+  <string name="pref_title_adw_reset">ADW zurücksetzten</string>
+  <string name="pref_summary_adw_reset">Einstellunegen des ADW.Launcher zurücksetzen und neu starten</string>
 
-    <string name="pref_title_drawer_navigate_catalogs">Katalog Navigation</string>	
-    <string name="pref_summary_drawer_navigate_catalogs">Katalog Navigation anzeigen</string>	
-    <string name="pref_title_notif_receiver">Zeige Benachrichtigungen</string>	
-    <string name="pref_summary_notif_receiver">Globale Benachrichtigungszähler aktivieren</string>
-    
-	<string name="pref_title_notif_size">Bubble Schriftgröße</string>	
-    <string name="pref_summary_notif_size">Schriftgöße der Benachrichtigungs-Bubbles auswählen</string>	
-    <string name="pref_dialog_notif_size">Schriftgöße der Benachrichtigungs-Bubbles auswählen</string>
-    
-	<string name="pref_title_ab_preferencecategory">Haupt-Dock</string>	
-    <string name="pref_title_main_dock_style">Haupt-Dock Style</string>	
-    <string name="pref_summary_main_dock_style">Haupt-dock Layout</string>	
-    <string name="pref_title_behaviour_preferences">Allgemeines Verhalten</string>	
-    <string name="pref_summary_behaviour_preferences">Allgemeine App Verhaltenseinstellungen</string>	
-    <string name="pref_title_drawer_style">App Drawer Style</string>	
-    <string name="pref_summary_drawer_style">Zwischen verschiedenen Drawern auswählen</string>
+  <string name="need_scrollable">Das Widget das Sie hinzufügen wollen benötigt \'Scrollable Widget Unterstützung\'. Dies ist momentan deaktiviert.\nMöchten Sie es nun aktivieren?</string>
+  <string name="scrollable_api_required">Das Widget benötigt eine neuere ADW.Launcher Version.\nBitte updaten Sie oder kontaktieren Sie den Widget Entwickler</string>
+
+  <string name="pref_title_drawer_navigate_catalogs">Katalog Navigation</string>
+  <string name="pref_summary_drawer_navigate_catalogs">Katalog Navigation anzeigen</string>
+  <string name="pref_title_notif_receiver">Zeige Benachrichtigungen</string>
+  <string name="pref_summary_notif_receiver">Globale Benachrichtigungszähler aktivieren</string>
+
+  <string name="pref_title_notif_size">Bubble Schriftgröße</string>
+  <string name="pref_summary_notif_size">Schriftgöße der Benachrichtigungs-Bubbles auswählen</string>
+  <string name="pref_dialog_notif_size">Schriftgöße der Benachrichtigungs-Bubbles auswählen</string>
+
+  <string name="pref_title_ab_preferencecategory">Haupt-Dock</string>
+  <string name="pref_title_main_dock_style">Haupt-Dock Style</string>
+  <string name="pref_summary_main_dock_style"Aussehen des Haupt-Docks</string>
+  <string name="pref_title_behaviour_preferences">Allgemeines Verhalten</string>
+  <string name="pref_summary_behaviour_preferences">Allgemeine App Verhaltenseinstellungen</string>
+  <string name="pref_title_drawer_style">App-Drawer Style</string>
+  <string name="pref_summary_drawer_style">Zwischen verschiedenen Drawern auswählen</string>
+  <string name="pref_title_dockbar_preferencecategory">Versteckte Dockzeile</string>
+  <string name="pref_title_ab_tint">Gefärbte Dock-Icons</string>
+  <string name="pref_summary_ab_tint">Die Dock-Icons färben</string>
+  <string name="pref_title_ab_tint_color">Farbe</string>
+  <string name="pref_summary_ab_tint_color">Die Farbe für das Einfärben der Dock-Icons ändern</string>
+  <string name="pref_title_deletezone_preferencecategory">Papierkorb</string>
+  <string name="pref_title_deletezone_style">Position des Papierkorbs</string>
+  <string name="pref_summary_deletezone_style">Die Position des Papierkorbs ändern</string>
+  <string name="pref_title_close_apps_dockbar">App-Drawer schließen</string>
+  <string name="pref_summary_close_apps_dockbar">Den App-Drawer schließen, bei Gedrückhalten von Icons, wenn Dockzeile sichtbar ist</string>
+  <string name="menu_lock">Desktop sperren</string>
+  <string name="menu_unlock">Desktop entsperren</string>
 </resources>
