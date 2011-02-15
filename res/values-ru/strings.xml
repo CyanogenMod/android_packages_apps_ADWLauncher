@@ -116,7 +116,7 @@
     <string name="pref_summary_screen_preferences">Количество рабочих столов и так далее</string>
 
     <string name="pref_title_wallpaper_hack">Плавная прокрутка рабочих столов</string>
-    <string name="pref_summary_wallpaper_hack">Отключить если возникает ошибка</string>
+    <string name="pref_summary_wallpaper_hack">Отключить, если возникает ошибка</string>
 
     <string name="pref_title_orientation_sensor">Ориентация экрана</string>
     <string name="pref_summary_orientation_sensor">поворачивать при повороте телефона</string>
@@ -287,7 +287,7 @@
     <string name="widget_rows">Строк</string>
     
     <string name="pref_title_screen_cache">Кэшировать рабочие столы</string>
-    <string name="pref_summary_screen_cache">для плавной прокрутки. Отключить если много виджетов</string>
+    <string name="pref_summary_screen_cache">для плавной прокрутки. Отключить, если много виджетов</string>
 
     <string name="pref_title_desktop_indicator">Индикатор рабочих столов</string>
     <string name="pref_summary_desktop_indicator">во время прокрутки</string>
@@ -339,20 +339,20 @@
 
     <string name="pref_label_shirtcuts">Личный ярлык</string>
     <string name="pref_label_activities">Действия приложений</string>
-    <string name="shirtcut_header">Выберите желаемое действие приложения для запуска.\nТак же можно сменить иконку ярлыка.</string>
+    <string name="shirtcut_header">Выберите желаемое действие приложения для запуска.\nТакже можно сменить иконку ярлыка.</string>
     <string name="shirtcut_pick_activity">Выберите действие</string>
     <string name="shirtcut_label">Надпись</string>
     <string name="shirtcuts_select_picture">Выбрать изображения</string>
     <string name="shirtcuts_crop_picture">Выбрать и уменьшить изображение</string>
     <string name="shirtcuts_icon_packs">Иконки тем для ADW</string>
     <string name="shirtcuts_select_icon_type">Выбрать тип иконки</string>
-    <string name="shirtcuts_select_icon_pack">Выбрать пак иконок</string>
+    <string name="shirtcuts_select_icon_pack">Выбрать набор иконок</string>
 
     <string name="selectAll">Выбрать все</string>
     <string name="AppGroupAll">"ВСЕ"</string>
     <string name="AppGroupAdd">"Новая папка"</string>
     <string name="AppGroupDel">"Удалить папку"</string>
-    <string name="AppGroupDelLong">"Действитеьлно удалить\nтекущую папку?"</string>
+    <string name="AppGroupDelLong">"Действительно удалить\nтекущую папку?"</string>
     <string name="AppGroupChoose">"Выбрать папку"</string>
     <string name="AppGroupConfig">"Создать папку"</string>
     <string name="AppGroupRename">"Новая папка"</string>
@@ -366,7 +366,7 @@
     <string name="pref_title_adw_reset">Сброс настроек ADW</string>
     <string name="pref_summary_adw_reset">Удалить настройки ADW Launcher и перезапустить?</string>
     
-    <string name="need_scrollable">Виджет который Вы хотите добавить требует поддержки прокрутки для виджетов, которая в данный момент отключена.\nХотите включить поддержку прокрутки?</string>
+    <string name="need_scrollable">Виджет, который Вы хотите добавить, требует поддержки прокрутки для виджетов, которая в данный момент отключена.\nХотите включить поддержку прокрутки?</string>
     <string name="scrollable_api_required">Этот виджет требует новую версию ADW.\nОбновите приложение, либо свяжитесь с разработчиком виджета.</string>
 
     <string name="pref_title_drawer_navigate_catalogs">Навигация папок</string>
