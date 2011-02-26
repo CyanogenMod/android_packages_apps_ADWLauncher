@@ -306,5 +306,35 @@
 	<string name="pref_title_adw_reset">Resetar ADW</string>
 	<string name="pref_summary_adw_reset">Limpar configurações ADW.Launcher e reiniciar</string>
 
+	<string name="need_scrollable">O widget que você quer adicionar precisa \'suporte a widget rolável\' que está atualmente desabilitado.\nVocê deseja habilitar agora?</string>
+	<string name="scrollable_api_required">Este widget precisa de uma verão atualizada do ADW.Launcher.\nPor favor atualize ou contate o desenvolvedor do widget</string>
+    
+	<string name="pref_title_drawer_navigate_catalogs">Catálogos de Navegação</string>
+	<string name="pref_summary_drawer_navigate_catalogs">Mostrar botões de aplicação de catálogos de navegação</string>
+	<string name="pref_title_notif_receiver">Mostrar notificações</string>
+	<string name="pref_summary_notif_receiver">Habilitar contador de notificação global</string>
 
+	<string name="pref_title_notif_size">Tamanho da fonte de caixas</string>
+	<string name="pref_summary_notif_size">Selecionar o tamanho da fonte para as caixas de notificações</string>
+	<string name="pref_dialog_notif_size">Selecionar o tamanho da fonte para as caixas de notificações</string>
+
+	<string name="pref_title_ab_preferencecategory">Dock Principal</string>
+	<string name="pref_title_main_dock_style">Estilo do Dock Principal</string>
+	<string name="pref_summary_main_dock_style">Selecione o estilo do dock principal</string>
+	<string name="pref_title_behaviour_preferences">Comportamento Geral</string>
+	<string name="pref_summary_behaviour_preferences">Configuração do comportamento geral de aplicação</string>
+	<string name="pref_title_drawer_style">Estilo do Drawer de Aplicações</string>
+	<string name="pref_summary_drawer_style">Alternar entre diferentes implementações do drawer</string>
+	<string name="pref_title_dockbar_preferencecategory">Dockbar Escondido</string>
+	<string name="pref_title_ab_tint">Pintar ícones do dock</string>
+	<string name="pref_summary_ab_tint">Realiza pintura gráfica dos ícones do dock</string>
+	<string name="pref_title_ab_tint_color">Cor de Pintura</string>
+	<string name="pref_summary_ab_tint_color">Trocar a cor de pintura</string>
+	<string name="pref_title_deletezone_preferencecategory">Lixeira</string>
+	<string name="pref_title_deletezone_style">Posição da Lixeira</string>
+	<string name="pref_summary_deletezone_style">Trocar posição da lixeira</string>
+	<string name="pref_title_close_apps_dockbar">Fechar drawer de aplicações</string>
+	<string name="pref_summary_close_apps_dockbar">Fecha o drawer de aplicações quando pressionar ítens e a dockbar está visível</string>
+	<string name="menu_lock">Travar Área de Trabalho</string>
+	<string name="menu_unlock">Destravar Área de Trabalho</string>
 </resources>

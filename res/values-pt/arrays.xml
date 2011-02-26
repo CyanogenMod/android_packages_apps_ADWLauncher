@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+       <string-array name="menu_binding_entries">
+       		<item>Nenhum</item>
+                <item>Move para área de trabalho padrão</item>
+                <item>Move para área de trabalho padrão/mostrar previews</item>
+                <item>Mostrar previews</item>
+                <item>Abrir/fechar App Drawer</item>
+                <item>Mostrar/esconder barra de status</item>
+                <item>Abrir/fechar notificações</item>
+                <item>Mover para área de trabalho padrão/Abrir notificações</item>
+                <item>Abrir/fechar DockBar</item>
+                <item>Abrir aplicação...</item>
+       </string-array>
+       <string-array name="desktop_indicator_entries">
+                <item>Ponto de paginação no topo</item>
+                <item>Paginador deslizante no topo</item>
+                <item>Paginador deslizante na base</item>
+       </string-array>
+       <string-array name="home_orientation_entries">
+                <item>Auto/sensor</item>
+                <item>Retrato</item>
+                <item>Paisagem</item>
+       </string-array>
+       <string-array name="screen_cache_entries">
+                <item>Baixa Qualidade</item>
+                <item>Auto</item>
+                <item>Desabilitado</item>
+       </string-array>
+       <string-array name="main_dock_entries">
+                <item>Nenhum (Expandir área de trabalho)</item>
+                <item>3 Ícones</item>
+                <item>5 Ícones</item>
+                <item>1 Ícone</item>
+       </string-array>
+       <string-array name="deletezone_entries">
+                <item>Nenhum</item>
+                <item>Topo</item>
+                <item>Base</item>
+                <item>Topo (Diminui área de trabalho)</item>
+                <item>Base (Diminui área de trabalho)</item>
+       </string-array>
+       <string-array name="app_drawer_style_entries">
+                <item>Plano vertical</item>
+                <item>Horizontal paginado</item>
+       </string-array>
+</resources>

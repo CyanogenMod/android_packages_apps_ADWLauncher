@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="adw_changelog">
+-&lt;b>NOTICE:&lt;/b> Se seu tema parece feio, pergunte para o desenvolvedor do tema atualizá-lo!!! &lt;br>&lt;br>
+-&lt;b>NOTICE:&lt;/b> Para adicionar/remover telas aperte MENU/Edit.&lt;br>&lt;br>
+-&lt;b>NOTICE:&lt;/b> Para habilitar ORIENTAÇÃO, desabilite PERSISTÊNCIA.&lt;br>&lt;br>
+-&lt;b>REMEMBER:&lt;/b> Você pode esconder aplicações do drawer usando os catálogos personalizados (pressione tecla menu enquanto o drawer estiver aberto) &lt;br>&lt;br>
+
+&lt;b>Versão 1.3.6:&lt;/b>&lt;br>
+&lt;b>--------------&lt;/b>&lt;br>
+-Opção para travar/destravar área de trabalho (pressione menu/mais) &lt;br>
+-Pequenas correções para alguns FCs &lt;br>
+&lt;b>Versão 1.3.5:&lt;/b>&lt;br>
+&lt;b>--------------&lt;/b>&lt;br>
+-Opção para selecioner diferente posição/comportamento para a lixeira &lt;br>
+-Janela QuickActions ao pressionar ítens. &lt;br>
+-Suporte para arrastar para fora e QuickActions no dock principal também. &lt;br>
+-Adicionei o LauncherActions para o principal menu de ADD. &lt;br>
+-Muitas correções &lt;br>
+
+</string>
+</resources>
