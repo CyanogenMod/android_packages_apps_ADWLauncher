@@ -65,7 +65,7 @@
     <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all live folders -->
     <string name="group_live_folders">Dossiers</string>
     <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all widgets/gadgets -->
-    <string name="group_widgets">Widgets</string>
+    <string name="group_widgets">Vignettes actives</string>
     <!-- Options in "Add to Home" dialog box; Title of the group containing the list of apps that can set the wallpaper-->
     <string name="group_wallpapers">Arrière plan</string>
     <!-- Error message when user has filled a home screen, possibly not used -->
@@ -108,7 +108,7 @@
     <skip />    
 
     <!-- Text to show user in place of a gadget when we can't display it properly -->
-    <string name="gadget_error_text">Erreur de chargement du widget</string>
+    <string name="gadget_error_text">Erreur de chargement de la vignette active</string>
     <!-- ADW Settings -->
     <string name="pref_label_settings">Préférences</string>
     <!-- Screen preferences -->
@@ -221,7 +221,7 @@
     <string name="pref_message_restart_froyo">Modifier cette option provoque le redémarrage de l\'application</string>
     <string name="drop_to_uninstall">Glisser ici pour désinstaller</string>
 
-    <string name="toast_widgets_not_supported">Les widgets ne sont pas supportés... désolé :-)</string>
+    <string name="toast_widgets_not_supported">Les vignettes actives ne sont pas supportées... désolé :-)</string>
     <string name="toast_unknown_item">Élément inconnu. Il n\'est pas possible d\'ajouter des éléments de types inconnus :-)</string>
     <string name="toast_no_application_def">Aucune application définie pour l\'instant, lâchez quelque chose ici ! :)</string>
 
@@ -277,23 +277,23 @@
     <string name="pref_dialog_desktop_rows">Définir le nombre de ligne par bureau</string>
     
     <string name="pref_title_autosize_icons">Taille automatique</string>
-    <string name="pref_summary_autosize_icons">Tenter de retailler les icônes/widgets pour qu\'ils ne soient pas déformés</string>
+    <string name="pref_summary_autosize_icons">Tenter de retailler les icônes/vignettes actives pour qu\'elles ne soient pas déformées</string>
 
-    <string name="pref_title_scrollable_widgets">Support des widgets défilants</string>
-    <string name="pref_summary_scrollable_widgets">Désactivez si vous n\'utilisez pas les widgets défilants</string>
+    <string name="pref_title_scrollable_widgets">Support des vignettes actives défilantes</string>
+    <string name="pref_summary_scrollable_widgets">Désactivez si vous n\'utilisez pas les vignettes actives défilantes</string>
 
     <string name="pref_title_drawer_labels">Voir le libellé des applications</string>
     <string name="pref_summary_drawer_labels">Voir le libellé des applications dans le menu</string>
     <string name="pref_title_fade_drawer_labels">Faire apparaitre les libellés doucement</string>
     <string name="pref_summary_fade_drawer_labels">Les libellés apparaissent en douceur et non brusquement. Utilise plus de ressources</string>
 
-	<string name="widget_config_dialog_title">Configuration de la taille des widgets</string>
-	<string name="widget_config_dialog_summary">Combien de lignes/colonnes doit utiliser le widget ?</string>
+	<string name="widget_config_dialog_title">Configuration de la taille des vignettes actives</string>
+	<string name="widget_config_dialog_summary">Combien de lignes/colonnes doit utiliser la vignette active ?</string>
 	<string name="widget_columns">Colonne(s)</string>
 	<string name="widget_rows">Ligne(s)</string>
     
     <string name="pref_title_screen_cache">Utiliser le cache mémoire</string>
-    <string name="pref_summary_screen_cache">Le défilement sera plus doux. A désactiver si vous utilisez beaucoup de widgets !</string>
+    <string name="pref_summary_screen_cache">Le défilement sera plus doux. A désactiver si vous utilisez beaucoup de vignettes actives !</string>
 
     <string name="pref_title_desktop_indicator">Voir l\'indicateur de bureau</string>
     <string name="pref_summary_desktop_indicator">Voir un indicateur lors du défilement de bureau</string>
@@ -367,8 +367,8 @@
 	<string name="pref_title_adw_reset">Remettre à zéro ADW</string>
 	<string name="pref_summary_adw_reset">Vider les préférences et relancer ADW.Launcher</string>
 
-    <string name="need_scrollable">Le widget que vous essayez d\'ajouter nécessite le support des Widgets défilants, qui est actuellement désactivé.\nVoulez-vous l\'activer maintenant ?</string>
-    <string name="scrollable_api_required">Ce widget nécessite une nouvelle version d\'ADW.Launcher.\nVeuillez le mettre à jour ou contactez le développeur du widget</string>
+    <string name="need_scrollable">La vignette active que vous essayez d\'ajouter nécessite le support des vignettes actives défilantes, qui est actuellement désactivé.\nVoulez-vous l\'activer maintenant ?</string>
+    <string name="scrollable_api_required">Cette vignette active nécessite une nouvelle version d\'ADW.Launcher.\nVeuillez le mettre à jour ou contactez le développeur du widget</string>
 
     <string name="pref_title_drawer_navigate_catalogs">Navigation par groupes</string>
     <string name="pref_summary_drawer_navigate_catalogs">Afficher les boutons de navigation par groupes</string>
