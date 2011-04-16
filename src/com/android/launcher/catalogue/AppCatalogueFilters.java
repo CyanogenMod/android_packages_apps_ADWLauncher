@@ -74,7 +74,7 @@ public final class AppCatalogueFilters {
 
 	private final static String PREF_GRP_NAME = "GrpName";
 	private final static String APP_GROUP_PREFS_PREFIX = "APP_CATALOG_";
-	private Context mContext = null;
+	Context mContext = null;
 	private final AppCatalogueFilter mDrawerFilter = new AppCatalogueFilter();
 
 	private SharedPreferences mAllGroupsIndex = null;

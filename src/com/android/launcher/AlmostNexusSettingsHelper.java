@@ -397,6 +397,11 @@ public final class AlmostNexusSettingsHelper {
 	    boolean newD = sp.getBoolean("drawer_navigate_catalogs", context.getResources().getBoolean(R.bool.config_drawer_navigate_catalogs));
 	    return newD;
 	}
+    public static boolean getDrawerUngroupCatalog(Context context) {
+        SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
+        boolean newD = sp.getBoolean("drawer_ungroup_catalog", context.getResources().getBoolean(R.bool.config_drawer_ungroup_catalog));
+        return newD;
+    }
 	public static boolean getNotifReceiver(Context context) {
 	    SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
 	    boolean newD = sp.getBoolean("notif_receiver", context.getResources().getBoolean(R.bool.config_notif_receiver));
@@ -433,12 +438,12 @@ public final class AlmostNexusSettingsHelper {
         return newD;
     }
     public static boolean getDesktopBlocked(Context context) {
-        SharedPreferences sp = sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);;
+        SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);;
         boolean newD = sp.getBoolean("desktopBlocked", false);
         return newD;
     }
     public static void setDesktopBlocked(Context context,boolean block) {
-        SharedPreferences sp = sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);;
+        SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);;
         SharedPreferences.Editor editor = sp.edit();
         editor.putBoolean("desktopBlocked", block);
         editor.commit();
