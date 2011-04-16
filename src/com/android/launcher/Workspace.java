@@ -544,7 +544,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
-        boolean restore = false;
+        //boolean restore = false;
         //ADW: If using old wallpaper rendering method...
         if(!lwpSupport && mWallpaperDrawable!=null){
         	float x = getScrollX() * mWallpaperOffset;
@@ -620,10 +620,10 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
                 drawChild(canvas, getChildAt(i), getDrawingTime());
             }
         }
-        float x = getScrollX();
-        if (restore) {
-            canvas.restore();
-        }
+//        float x = getScrollX();
+//        if (restore) {
+//            canvas.restore();
+//        }
     }
 
     @Override
@@ -1051,7 +1051,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
 
         CellLayout current = ((CellLayout) getChildAt(mCurrentScreen));
         final ItemInfo info = (ItemInfo)child.getTag();
-        mLauncher.showActions(info, child);
+        mLauncher.showActions(info, child, null);
 
         current.onDragChild(child);
         mDragger.startDrag(child, this, child.getTag(), DragController.DRAG_ACTION_MOVE);
@@ -1093,7 +1093,14 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
     }
 
     public void onDrop(DragSource source, int x, int y, int xOffset, int yOffset, Object dragInfo) {
-        final CellLayout cellLayout = getCurrentDropLayout();
+        
+    	// if drawer is still open, then don't drop on workspace!
+    	if ( mLauncher.isAllAppsVisible() )
+    	{
+    		return;
+    	}
+    	
+    	final CellLayout cellLayout = getCurrentDropLayout();
         if (source != this) {
             onDropExternal(x - xOffset, y - yOffset, dragInfo, cellLayout);
         } else {
@@ -1507,6 +1514,25 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
                     			info.spanY, false);
                     	break;
                     }
+                }else if (tag instanceof UserFolderInfo){
+                    //TODO: ADW: Maybe there are icons inside folders.... need to update them too
+                    final UserFolderInfo folderInfo = (UserFolderInfo) tag;
+                    final ArrayList<ApplicationInfo> contents = folderInfo.contents;
+                    final int contentsCount = contents.size();
+                    for (int k = 0; k < contentsCount; k++) {
+                        final ApplicationInfo appInfo = contents.get(k);
+                        if (appInfo.id == info.id)
+                        {
+                            appInfo.assignFrom(info);
+                            if (!info.filtered) {
+                                info.icon = Utilities.createIconThumbnail(info.icon, getContext());
+                                info.filtered = true;
+                            }
+
+                            final Folder folder = getOpenFolder();
+                            if (folder != null) folder.notifyDataSetChanged();
+                        }
+                    }
                 }
             }
         }
@@ -1552,7 +1578,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
                         final Intent intent = appInfo.intent;
                         final ComponentName name = intent.getComponent();
                         if ((appInfo.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION ||
-                                info.itemType == LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT)&&
+                                appInfo.itemType == LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT)&&
                                 Intent.ACTION_MAIN.equals(intent.getAction()) && name != null &&
                                 packageName.equals(name.getPackageName())) {
 
@@ -1714,35 +1740,34 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
 				long currentTime=SystemClock.uptimeMillis()-startTime;
 				Rect r1=new Rect(0, 0, child.getWidth(), child.getHeight());
 				RectF r2=getScaledChild(child);
-				float x=0; float y=0; float width=0;float height=0; float alpha=255;
-				if(mStatus==SENSE_OPENING){
-					alpha=easeOut(currentTime,0,100,mAnimationDuration);
-					x=easeOut(currentTime, child.getLeft(), r2.left, mAnimationDuration);
-					y=easeOut(currentTime, child.getTop(), r2.top, mAnimationDuration);
-					width=easeOut(currentTime, child.getRight(), r2.right, mAnimationDuration);
-					height=easeOut(currentTime, child.getBottom(), r2.bottom, mAnimationDuration);
+				float x=0; float y=0; float width=0; float alpha=255;
+                if(mStatus==SENSE_OPENING){
+                    int animationDuration = mAnimationDuration;
+					alpha=easeOut(currentTime,0,100,animationDuration);
+					x=easeOut(currentTime, child.getLeft(), r2.left, animationDuration);
+					y=easeOut(currentTime, child.getTop(), r2.top, animationDuration);
+					width=easeOut(currentTime, child.getRight(), r2.right, animationDuration);
 				}else if (mStatus==SENSE_CLOSING){
-					alpha=easeOut(currentTime,100,0,mAnimationDuration);
-					x=easeOut(currentTime, r2.left,child.getLeft(), mAnimationDuration);
-					y=easeOut(currentTime, r2.top, child.getTop(), mAnimationDuration);
-					width=easeOut(currentTime, r2.right, child.getRight(), mAnimationDuration);
-					height=easeOut(currentTime, r2.bottom, child.getBottom(), mAnimationDuration);
+	                int animationDuration = mAnimationDuration;
+					alpha=easeOut(currentTime,100,0,animationDuration);
+					x=easeOut(currentTime, r2.left,child.getLeft(), animationDuration);
+					y=easeOut(currentTime, r2.top, child.getTop(), animationDuration);
+					width=easeOut(currentTime, r2.right, child.getRight(), animationDuration);
 				}else if(mStatus==SENSE_OPEN){
 					x=r2.left;
 					y=r2.top;
 					width=r2.right;
-					height=r2.bottom;
 					alpha=100;
 				}
 				float scale=((width-x)/r1.width());
-				canvas.save();
+				//canvas.save();
 				canvas.translate(x, y);
 				canvas.scale(scale,scale);
 				mPaint.setAlpha((int) alpha);
 				canvas.drawRoundRect(new RectF(r1.left+5,r1.top+5,r1.right-5, r1.bottom-5), 15f, 15f, mPaint);
 				mPaint.setAlpha(255);
 				child.draw(canvas);
-				canvas.restore();
+				//canvas.restore();
 			}else{
 				child.draw(canvas);
 			}

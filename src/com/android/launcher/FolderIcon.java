@@ -48,26 +48,29 @@ public class FolderIcon extends BubbleTextView implements DropTarget {
 
         FolderIcon icon = (FolderIcon) LayoutInflater.from(launcher).inflate(resId, group, false);
         //TODO:ADW Load icon from theme/iconpack
-        Drawable dclosed;
-        Drawable dopen;
-        final Resources resources = launcher.getResources();
-        String themePackage=AlmostNexusSettingsHelper.getThemePackageName(launcher, Launcher.THEME_DEFAULT);
-        if(themePackage.equals(Launcher.THEME_DEFAULT)){
-        	dclosed = resources.getDrawable(R.drawable.ic_launcher_folder);
-        	dopen = resources.getDrawable(R.drawable.ic_launcher_folder_open);
-        }else{
-        	Drawable tmpIcon1 = loadFolderFromTheme(launcher, launcher.getPackageManager(), themePackage,"ic_launcher_folder");
-        	if(tmpIcon1==null){
-        		dclosed = resources.getDrawable(R.drawable.ic_launcher_folder);
-        	}else{
-        		dclosed = tmpIcon1;
-        	}
-        	Drawable tmpIcon2 = loadFolderFromTheme(launcher, launcher.getPackageManager(), themePackage,"ic_launcher_folder_open");
-        	if(tmpIcon2==null){
-        		dopen = resources.getDrawable(R.drawable.ic_launcher_folder_open);
-        	}else{
-        		dopen = tmpIcon2;
-        	}
+        Drawable dclosed = folderInfo.icon;
+        Drawable dopen = folderInfo.icon;
+        if ( dopen == null )
+        {
+            final Resources resources = launcher.getResources();
+            String themePackage=AlmostNexusSettingsHelper.getThemePackageName(launcher, Launcher.THEME_DEFAULT);
+            if(themePackage.equals(Launcher.THEME_DEFAULT)){
+            	dclosed = resources.getDrawable(R.drawable.ic_launcher_folder);
+            	dopen = resources.getDrawable(R.drawable.ic_launcher_folder_open);
+            }else{
+            	Drawable tmpIcon1 = loadFolderFromTheme(launcher, launcher.getPackageManager(), themePackage,"ic_launcher_folder");
+            	if(tmpIcon1==null){
+            		dclosed = resources.getDrawable(R.drawable.ic_launcher_folder);
+            	}else{
+            		dclosed = tmpIcon1;
+            	}
+            	Drawable tmpIcon2 = loadFolderFromTheme(launcher, launcher.getPackageManager(), themePackage,"ic_launcher_folder_open");
+            	if(tmpIcon2==null){
+            		dopen = resources.getDrawable(R.drawable.ic_launcher_folder_open);
+            	}else{
+            		dopen = tmpIcon2;
+            	}
+            }
         }
         icon.mCloseIcon=Utilities.createIconThumbnail(dclosed, launcher);
         icon.mOpenIcon=dopen;

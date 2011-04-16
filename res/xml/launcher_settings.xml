@@ -72,6 +72,10 @@
                 android:defaultValue="@bool/config_drawer_navigate_catalogs"
                 android:summary="@string/pref_summary_drawer_navigate_catalogs"
                 android:key="drawer_navigate_catalogs" />
+            <CheckBoxPreference android:title="@string/pref_title_drawer_ungroup_catalog"
+                android:defaultValue="@bool/config_drawer_ungroup_catalog"
+                android:summary="@string/pref_summary_drawer_ungroup_catalog"
+                android:key="drawer_ungroup_catalog" />
 			<com.android.launcher.DialogSeekBarPreference
 				android:title="@string/pref_title_drawer_columns_portrait"
 				android:summary="@string/pref_summary_drawer_columns_portrait"

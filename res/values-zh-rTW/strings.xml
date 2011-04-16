@@ -112,8 +112,6 @@
 
     <!-- Text to show user in place of a gadget when we can't display it properly -->
     <string name="gadget_error_text" msgid="8359351016167075858">"載入小工具時發生問題"</string>
-    <!-- ADW Version Information -->
-    <string name="adw_version">版本 1.3.6 System</string>
     <!-- ADW Settings -->
     <string name="pref_label_settings">桌面設置</string>
     <!-- Screen preferences -->

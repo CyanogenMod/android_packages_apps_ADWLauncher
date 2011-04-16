@@ -22,6 +22,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
+import android.widget.TextView;
 
 public class CustomShirtcutActivity extends Activity implements OnClickListener {
 	private static final String ACTION_ADW_PICK_ICON="org.adw.launcher.icons.ACTION_PICK_ICON";
@@ -117,28 +119,62 @@ public class CustomShirtcutActivity extends Activity implements OnClickListener 
 		edLabel=(EditText) findViewById(R.id.shirtcut_label);
 		mPackageManager=getPackageManager();
 		mIconSize=(int) getResources().getDimension(android.R.dimen.app_icon_size);
-		loadFromAppInfo(getAppInfo());
+	    loadFromItemInfo(getItemInfo());
 	}
 
-	private ApplicationInfo getAppInfo() {
+	private ItemInfo getItemInfo() {
 		final Intent intent = getIntent();
 		if (intent != null && intent.getAction() != null &&
 				intent.getAction().equals(Intent.ACTION_EDIT)
 				&& intent.hasExtra(EXTRA_APPLICATIONINFO)) {
 			long id = intent.getLongExtra(EXTRA_APPLICATIONINFO, 0);
+			FolderInfo folderInfo = LauncherModel.getFolderById(this, id, null);
+			if ( folderInfo != null)
+			{
+			    this.setTitle(R.string.rename_folder_title);
+			    TextView tv = (TextView) findViewById(R.id.header);
+			    tv.setVisibility(View.GONE);
+			    
+			    if ( !folderInfo.customIcon ) // load default icon
+			    {
+    	            final Resources resources = getResources();
+    	            String themePackage=AlmostNexusSettingsHelper.getThemePackageName(this, Launcher.THEME_DEFAULT);
+    	            if(themePackage.equals(Launcher.THEME_DEFAULT)){
+    	                folderInfo.icon = resources.getDrawable(R.drawable.ic_launcher_folder_open);
+    	            }else{
+    	                Drawable tmpIcon2 = FolderIcon.loadFolderFromTheme(this, this.getPackageManager(), themePackage,"ic_launcher_folder_open");
+    	                if(tmpIcon2==null){
+    	                    folderInfo.icon = resources.getDrawable(R.drawable.ic_launcher_folder_open);
+    	                }else{
+    	                    folderInfo.icon = tmpIcon2;
+    	                }
+    	            }
+			    }
+			    return folderInfo;
+			}
 			return LauncherModel.loadApplicationInfoById(this, id);
 		}
 		return null;
 	}
 
-	private void loadFromAppInfo(ApplicationInfo info) {
+	private void loadFromItemInfo(ItemInfo info) {
 		if (info == null)
 			return;
+		
+	    if ( info instanceof ApplicationInfo )
+	    {
+	        mIntent = ((ApplicationInfo) info).intent;
+	    }
 		edLabel.setText(info.title);
-		mIntent = info.intent;
 		btPickIcon.setImageDrawable(info.icon);
 		btPickIcon.setEnabled(true);
 		btOk.setEnabled(true);
+		
+		if ( mIntent == null )
+		{
+		    btPickActivity.setVisibility(View.INVISIBLE);
+		    return;
+		}
 		ComponentName component = mIntent.getComponent();
 		if (component != null) {
 			if (component.getClassName().equals(CustomShirtcutActivity.class.getName()) &&
@@ -409,7 +445,11 @@ public class CustomShirtcutActivity extends Activity implements OnClickListener 
 		    mAdapter = new ArrayAdapter<String>(CustomShirtcutActivity.this, R.layout.add_list_item);
 		    mAdapter.add(getString(R.string.shirtcuts_select_picture));
 		    mAdapter.add(getString(R.string.shirtcuts_crop_picture));
-		    mAdapter.add(getString(R.string.shirtcuts_icon_packs));
+            mAdapter.add(getString(R.string.shirtcuts_icon_packs));
+            if ( mIconResource != null )
+            {
+                mAdapter.add(getString(R.string.shirtcuts_restore_original));
+            }
 
 		    final AlertDialog.Builder builder = new AlertDialog.Builder(CustomShirtcutActivity.this);
 		    builder.setTitle(getString(R.string.shirtcuts_select_icon_type));
@@ -459,6 +499,33 @@ public class CustomShirtcutActivity extends Activity implements OnClickListener 
 				Intent packIntent=new Intent(ACTION_ADW_PICK_ICON);
 				startActivityForResult(Intent.createChooser(packIntent, getString(R.string.shirtcuts_select_icon_pack)), PICK_FROM_ICON_PACK);
 				break;
+
+            case 3:
+                //Restore Original
+                if (mIconResource != null ) {
+                    try {
+                        final PackageManager packageManager = getPackageManager();
+                        Resources resources = packageManager.getResourcesForApplication(
+                                mIconResource.packageName);
+                        final int id = resources.getIdentifier(mIconResource.resourceName, null, null);
+                        Drawable icon = Utilities.createIconThumbnail(resources.getDrawable(id), CustomShirtcutActivity.this);
+                        if ( icon instanceof BitmapDrawable )
+                        {
+                            mBitmap = ((BitmapDrawable)icon).getBitmap();
+                        }
+                        else if ( icon instanceof FastBitmapDrawable )
+                        {
+                            mBitmap = ((FastBitmapDrawable)icon).getBitmap();
+                        }
+                        if(mBitmap!=null){
+                            if(mBitmap.getWidth()>mIconSize)
+                                mBitmap=Utilities.createBitmapThumbnail(mBitmap, CustomShirtcutActivity.this);
+                            btPickIcon.setImageBitmap(mBitmap);
+                        }
+                    } catch (Exception e) {
+                    }
+                }
+                break;
 
 			default:
 				break;
