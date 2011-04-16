@@ -27,8 +27,4 @@ class FolderInfo extends ItemInfo {
      */
     boolean opened;
 
-    /**
-     * The folder name.
-     */
-    CharSequence title;
 }

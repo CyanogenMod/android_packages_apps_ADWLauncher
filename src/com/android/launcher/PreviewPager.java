@@ -1,18 +1,27 @@
 package com.android.launcher;
 
+import com.android.launcher.catalogue.AppCatalogueFilters;
+import com.android.launcher.catalogue.AppGroupAdapter;
+
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.drawable.TransitionDrawable;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class PreviewPager extends ViewGroup {
 	private int mTotalItems;
 	private int mCurrentItem;
 	private int mDotDrawableId;
+	private int mTextSize = -1;
+	
+	private boolean mShowGroupText;
+    private boolean isUngroupMode = false;
 	
 	public PreviewPager(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -37,16 +46,25 @@ public class PreviewPager extends ViewGroup {
 		createLayout();
 	}
 	private void updateLayout(){
+		int offset = 0;
 		for(int i=0;i<getChildCount();i++){
-			final ImageView img=(ImageView) getChildAt(i);
-			TransitionDrawable tmp=(TransitionDrawable)img.getDrawable();
-			if(i==mCurrentItem){
-				tmp.startTransition(50);
-			}else{
-				tmp.resetTransition();
+			View child = getChildAt(i);
+			if ( child instanceof ImageView )
+			{
+				TransitionDrawable tmp=(TransitionDrawable)((ImageView) child).getDrawable();
+				if(i-offset==mCurrentItem){
+					tmp.startTransition(50);
+				}else{
+					tmp.resetTransition();
+				}
+			}
+			else
+			{
+				offset ++;
 			}
 		}
 	}
+	
 	private void createLayout(){
 		detachAllViewsFromParent();
     	//ADW: Load the specified theme
@@ -69,7 +87,66 @@ public class PreviewPager extends ViewGroup {
 		int dotWidth=getResources().getDrawable(mDotDrawableId).getIntrinsicWidth();
 		int separation=dotWidth;
 		int marginLeft=((getWidth())/2)-(((mTotalItems*dotWidth)/2)+(((mTotalItems-1)*separation)/2));
-		int marginTop=((getHeight())/2)-(dotWidth/2);
+		int dotMarginTop=((getHeight())/2)-(dotWidth/2);
+
+		if ( mShowGroupText )
+		{
+			String groupTitle = getCurrentGroupTitle();
+			if ( groupTitle != null )
+			{
+				TextView groupName=new TextView(getContext());
+				groupName.setText(groupTitle);
+				
+		        ViewGroup.LayoutParams p;
+		        p = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+		        		ViewGroup.LayoutParams.WRAP_CONTENT);
+		        groupName.setLayoutParams(p);
+				
+		        groupName.getPaint().setAntiAlias(true);
+				int textSize = mTextSize;
+				if ( textSize == -1 )
+				{
+					if ( getHeight() > 0 )
+					{
+						// start here
+						textSize = 20;
+						groupName.setTextSize(textSize);
+						
+						int targetSize = getHeight() - (getHeight() - dotWidth)/2;
+						int textHeight = 99999;
+						while ( textHeight > targetSize)
+						{
+							groupName.setTextSize(--textSize);
+							textHeight = (int) groupName.getPaint().getTextSize();
+							if ( textSize < 10 )
+							{
+								textSize = 10;
+								break;
+							}
+						}
+						mTextSize = textSize;
+					}
+				}
+				
+				groupName.setTextSize(textSize);
+				int textWidth = (int) groupName.getPaint().measureText(groupTitle);
+				marginLeft -= ( textWidth / 2); 
+				
+	            int childHeightSpec = getChildMeasureSpec(
+	                    MeasureSpec.makeMeasureSpec(dotWidth, MeasureSpec.UNSPECIFIED), 0, p.height);
+	            int childWidthSpec = getChildMeasureSpec(
+	                    MeasureSpec.makeMeasureSpec(textWidth, MeasureSpec.EXACTLY), 0, p.width);
+	            groupName.measure(childWidthSpec, childHeightSpec);
+				
+	            int left=marginLeft;
+	            
+	            groupName.layout(left, 0, left+textWidth,getHeight() );
+	            addViewInLayout(groupName, getChildCount(), p, true);
+	            
+	            marginLeft += textWidth+separation;
+			}
+		}
+		
 		for(int i=0;i<mTotalItems;i++){
 			ImageView dot=new ImageView(getContext());
 			TransitionDrawable td;
@@ -93,7 +170,7 @@ public class PreviewPager extends ViewGroup {
             int left=marginLeft+(i*(dotWidth+separation));
             
             
-			dot.layout(left, marginTop, left+dotWidth,marginTop+dotWidth );
+			dot.layout(left, dotMarginTop, left+dotWidth,dotMarginTop+dotWidth );
             addViewInLayout(dot, getChildCount(), p, true);
             if(i==mCurrentItem){
             	TransitionDrawable tmp=(TransitionDrawable)dot.getDrawable();
@@ -102,12 +179,27 @@ public class PreviewPager extends ViewGroup {
 		}
 		postInvalidate();
 	}
+
+	private String getCurrentGroupTitle()
+	{
+		String groupTitle = null;
+		final ApplicationsAdapter drawerAdapter = Launcher.getModel().getApplicationsAdapter();
+		if (drawerAdapter != null)
+		{
+		    int index = drawerAdapter.getCatalogueFilter().getCurrentFilterIndex();
+		    int title = isUngroupMode?R.string.AppGroupUn:R.string.AppGroupAll;
+		    groupTitle = (index ==  AppGroupAdapter.APP_GROUP_ALL ?
+		    		getContext().getString(title) :
+		    		AppCatalogueFilters.getInstance().getGroupTitle(index));
+		}
+		return groupTitle;
+	}
 	protected int getTotalItems() {
 		return mTotalItems;
 	}
 
 	protected void setTotalItems(int totalItems) {
-		if(totalItems!=mTotalItems){
+		if(totalItems!=mTotalItems || mShowGroupText){
 			this.mTotalItems = totalItems;
 			createLayout();
 		}
@@ -128,4 +220,14 @@ public class PreviewPager extends ViewGroup {
 		this.mLeft=value;
 		this.mRight=this.mLeft+width;
 	}
+
+	public void showGroupText(boolean show)
+	{
+		mShowGroupText = show;
+	}
+
+    public void setUngroupMode(boolean setUngroupMode)
+    {
+        isUngroupMode = setUngroupMode;
+    }
 }

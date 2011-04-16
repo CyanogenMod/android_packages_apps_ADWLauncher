@@ -1,5 +1,9 @@
 package com.android.launcher;
 
+import android.util.DisplayMetrics;
+import android.view.GestureDetector;
+import android.view.View;
+
 
 public interface Drawer {
 
@@ -26,4 +30,12 @@ public interface Drawer {
 	public void open(boolean animate);
 	public void close(boolean animate);
 	public void setPadding(int left, int top, int right, int bottom);
+	
+	public void switchGroups(Runnable switchGroups);
+	
+	public void setUngroupMode( boolean setUngroupMode );
+	
+    static final int ABS_SWIPE_MIN_DISTANCE = 120;
+    static final int ABS_SWIPE_MAX_OFF_PATH = 100;
+    static final int ABS_SWIPE_THRESHOLD_VELOCITY = 100;
 }

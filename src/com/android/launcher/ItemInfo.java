@@ -21,6 +21,7 @@ import java.io.IOException;
 
 import android.content.ContentValues;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 /**
@@ -81,6 +82,27 @@ class ItemInfo {
      */
     boolean isGesture = false;
 
+    /**
+     * The application name.
+     */
+    public CharSequence title;
+
+    /**
+     * Indicates whether the icon comes from an application's resource (if false)
+     * or from a custom Bitmap (if true.)
+     */
+    boolean customIcon;
+
+    /**
+     * When set to true, indicates that the icon has been resized.
+     */
+    boolean filtered;
+
+    /**
+     * The application icon.
+     */
+    public Drawable icon;
+
     ItemInfo() {
     }
 
@@ -97,6 +119,9 @@ class ItemInfo {
         screen = info.screen;
         itemType = info.itemType;
         container = info.container;
+        icon = info.icon;
+        customIcon = info.customIcon;
+        filtered = info.filtered;
     }
 
     /**
@@ -106,6 +131,10 @@ class ItemInfo {
      */
     void onAddToDatabase(ContentValues values) {
         values.put(LauncherSettings.BaseLauncherColumns.ITEM_TYPE, itemType);
+
+        String titleStr = title != null ? title.toString() : null;
+        values.put(LauncherSettings.BaseLauncherColumns.TITLE, titleStr);
+
         if (!isGesture) {
             values.put(LauncherSettings.Favorites.CONTAINER, container);
             values.put(LauncherSettings.Favorites.SCREEN, screen);
@@ -113,6 +142,12 @@ class ItemInfo {
             values.put(LauncherSettings.Favorites.CELLY, cellY);
             values.put(LauncherSettings.Favorites.SPANX, spanX);
             values.put(LauncherSettings.Favorites.SPANY, spanY);
+        }
+        if (customIcon) {
+            values.put(LauncherSettings.BaseLauncherColumns.ICON_TYPE,
+                    LauncherSettings.BaseLauncherColumns.ICON_TYPE_BITMAP);
+            Bitmap bitmap = ((FastBitmapDrawable) icon).getBitmap();
+            writeBitmap(values, bitmap);
         }
     }
 

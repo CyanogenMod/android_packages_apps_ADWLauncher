@@ -44,6 +44,7 @@ public class AppGroupAdapter extends BaseAdapter {
     public static final int APP_GROUP_ALL = -1;
     public static final int APP_GROUP_CONFIG = -2;
     public static final int APP_GROUP_ADD = -3;
+    
     /**
      * Specific item in our list.
      */
@@ -79,7 +80,7 @@ public class AppGroupAdapter extends BaseAdapter {
         Resources res = launcher.getResources();
 
         mItems.add(new ListItem(res, R.string.AppGroupAdd, APP_GROUP_ADD));
-		mItems.add(new ListItem(res, R.string.AppGroupAll, APP_GROUP_ALL));
+		mItems.add(new ListItem(res, R.string.AppGroupUn, APP_GROUP_ALL));
 
 		for(AppCatalogueFilters.Catalogue itm : AppCatalogueFilters.getInstance().getAllGroups()) {
 			addListItem(res, itm);

@@ -1,5 +1,11 @@
 package com.android.launcher.catalogue;
 
+import java.util.List;
+
+import com.android.launcher.ApplicationsAdapter;
+import com.android.launcher.Launcher;
+import com.android.launcher.catalogue.AppCatalogueFilters.Catalogue;
+
 import android.content.SharedPreferences;
 
 public class AppCatalogueFilter {
@@ -20,6 +26,22 @@ public class AppCatalogueFilter {
 			final SharedPreferences prefs = mCatalogue.getPreferences();
 			if (prefs != null)
 				result = prefs.getBoolean(className, false);
+		}
+		else
+		{
+            AppCatalogueFilters instance = AppCatalogueFilters.getInstance();
+    		if ( ((Launcher)instance.mContext).useDrawerUngroupCatalog )
+    		{
+                List<Catalogue> allGroups = instance.getAllGroups();
+    			for (Catalogue catalogue : allGroups)
+    			{
+    				if ( catalogue.getPreferences().getBoolean(className, false) )
+    				{
+    					result = false;
+    					break;
+    				}
+    			}
+    		}
 		}
 		return result;
 	}
