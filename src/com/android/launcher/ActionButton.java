@@ -15,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.View.OnLongClickListener;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 public class ActionButton extends CounterImageView implements DropTarget, DragListener,
@@ -334,9 +335,15 @@ public class ActionButton extends CounterImageView implements DropTarget, DragLi
         if (mDragger == null || !v.isInTouchMode() || mCurrentInfo == null || specialMode || mLauncher.isDesktopBlocked()) {
             return false;
         }
-        // Close Drawer if it is open...
-        mLauncher.closeAllApplications();
-        mLauncher.showActions(mCurrentInfo, v);
+        mLauncher.showActions(mCurrentInfo, v, new PopupWindow.OnDismissListener()
+        {
+            @Override
+            public void onDismiss()
+            {
+                // Close Drawer if it is open...
+                mLauncher.closeAllApplications();
+            }
+        });
         mDragger.startDrag(v, this, mCurrentInfo, DragController.DRAG_ACTION_COPY);
         UpdateLaunchInfo(null);
         return true;

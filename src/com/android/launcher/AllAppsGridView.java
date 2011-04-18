@@ -18,7 +18,14 @@ package com.android.launcher;
 
 //import com.android.launcher.catalogue.CataGridView;
 
+import com.android.launcher.AllAppsSlidingView.MyGestureDetector;
+import com.android.launcher.catalogue.AppCatalogueFilters;
+import com.android.launcher.catalogue.AppGroupAdapter;
+
 import android.content.Context;
+import android.content.res.Configuration;
+import android.database.DataSetObserver;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -26,11 +33,21 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.Transformation;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
+import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AllAppsGridView extends GridView implements
 		AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener,
@@ -58,21 +75,33 @@ public class AllAppsGridView extends GridView implements
 	private boolean mDrawLabels = true;
 	private boolean mFadeDrawLabels = false;
 	private float mLabelFactor;
-    private int distH;
-    private int distV;
-    private float x;
-    private float y;
-    private float width;
-    private float height;
+//    private int distH;
+//    private int distV;
+//    private float x;
+//    private float y;
+//    private float width;
+//    private float height;
     private Rect rl1=new Rect();
     private Rect rl2=new Rect();
-    private float scale;
+//    private float scale;
     private Rect r3=new Rect();
-    private int xx;
+//    private int xx;
 
-	public AllAppsGridView(Context context) {
-		super(context);
-	}
+    private int mLastIndexDraw = -99;
+    private String mGroupTitle = null;
+    private TextView mGroupTitleText;
+    private int mGroupTextX;
+    private int mGroupTextY;
+    private Paint mGroupPaint;
+    Transformation mTransformation = new Transformation();
+
+    private DisplayMetrics dm = getResources().getDisplayMetrics();
+    private int SWIPE_MIN_DISTANCE = (int)(ABS_SWIPE_MIN_DISTANCE * dm.densityDpi / 160.0f);
+    private int SWIPE_MAX_OFF_PATH = (int)(ABS_SWIPE_MAX_OFF_PATH * dm.densityDpi / 160.0f);
+    private int SWIPE_THRESHOLD_VELOCITY = (int)(ABS_SWIPE_THRESHOLD_VELOCITY * dm.densityDpi / 160.0f);
+    private GestureDetector gestureDetector;
+    private View.OnTouchListener gestureListener;
+    private boolean mFlang = false;
 
 	public AllAppsGridView(Context context, AttributeSet attrs) {
 		this(context, attrs, android.R.attr.gridViewStyle);
@@ -85,7 +114,7 @@ public class AllAppsGridView extends GridView implements
 		mPaint.setDither(false);
 		mLabelPaint = new Paint();
 		mLabelPaint.setDither(false);
-	}
+    }
 
 	@Override
 	public boolean isOpaque() {
@@ -100,11 +129,14 @@ public class AllAppsGridView extends GridView implements
 		setOnItemClickListener(this);
 		setOnItemLongClickListener(this);
 	}
-
+	
 	public void onItemClick(AdapterView parent, View v, int position, long id) {
-		ApplicationInfo app = (ApplicationInfo) parent
-				.getItemAtPosition(position);
-		mLauncher.startActivitySafely(app.intent);
+	    if ( !mFlang )
+	    {
+    		ApplicationInfo app = (ApplicationInfo) parent
+    				.getItemAtPosition(position);
+    		mLauncher.startActivitySafely(app.intent);
+	    }
 	}
 
 	public boolean onItemLongClick(AdapterView<?> parent, View view,
@@ -117,10 +149,17 @@ public class AllAppsGridView extends GridView implements
 				.getItemAtPosition(position);
 		app = new ApplicationInfo(app);
 
+        mLauncher.showActions(app, view, new PopupWindow.OnDismissListener()
+        {
+            @Override
+            public void onDismiss()
+            {
+              if (!mLauncher.isDockBarOpen() || AlmostNexusSettingsHelper.getUICloseAppsDockbar(mLauncher)) {
+                  mLauncher.closeAllApplications();
+              }
+            }
+        });
 		mDragger.startDrag(view, this, app, DragController.DRAG_ACTION_COPY);
-		if (!mLauncher.isDockBarOpen() || AlmostNexusSettingsHelper.getUICloseAppsDockbar(mLauncher)) {
-		    mLauncher.closeAllApplications();
-		}
 
 		return true;
 	}
@@ -164,6 +203,7 @@ public class AllAppsGridView extends GridView implements
 	 */
 	@Override
 	public void draw(Canvas canvas) {
+        int saveCount = canvas.save();
 		if (isAnimating) {
 			long currentTime;
 			if (startTime == 0) {
@@ -209,7 +249,47 @@ public class AllAppsGridView extends GridView implements
 					.drawARGB((int) (porcentajeScale * mTargetAlpha), Color
 							.red(mBgColor), Color.green(mBgColor), Color
 							.blue(mBgColor));
+            int index = ((ApplicationsAdapter) getAdapter()).getCatalogueFilter().getCurrentFilterIndex();
+            if (mLastIndexDraw != index)
+            {
+                mLastIndexDraw = index;
+                int title = isUngroupMode?R.string.AppGroupUn:R.string.AppGroupAll;
+                mGroupTitle = (index == AppGroupAdapter.APP_GROUP_ALL ? mLauncher.getString(title) : AppCatalogueFilters.getInstance()
+                        .getGroupTitle(index));
+
+                // ((LauncherPlus)mLauncher).groupTitlePopupWindow(mLauncher,
+                // AllAppsGridView.this, name);
+                mGroupTitleText = new TextView(getContext());
+                mGroupTitleText.setTextSize(15);
+                mGroupTitleText.setText(mGroupTitle);
+                mGroupTitleText.setTextColor(Color.WHITE);
+
+                int textWidth = (int) mGroupTitleText.getPaint().measureText(mGroupTitle);
+                mGroupTextX = (getWidth() / 2) - (textWidth / 2);
+
+                int textSize = (int) mGroupTitleText.getPaint().getTextSize();
+                mGroupTextY = textSize;
+
+                mGroupPaint = new Paint();
+                mGroupPaint.setColor(Color.WHITE);
+                mGroupPaint.setTextSize(mGroupTitleText.getTextSize());
+                mGroupPaint.setAntiAlias(true);
+            }
+
+            if (mStatus == OPEN )
+            {
+                mGroupPaint.setAlpha(255);
+                canvas.drawText(mGroupTitle, mGroupTextX, mGroupTextY, mGroupPaint);
+            }
+            else if ( isAnimating && mStatus == OPENING)
+            {
+                mGroupPaint.setAlpha((int) (mLabelFactor * 255));
+                canvas.drawText(mGroupTitle, mGroupTextX, mGroupTextY, mGroupPaint);
+            }
+
+            canvas.translate(0, mGroupTextY);
 			super.draw(canvas);
+			canvas.restoreToCount(saveCount);
 		}
 
 	}
@@ -218,6 +298,7 @@ public class AllAppsGridView extends GridView implements
 	protected boolean drawChild(Canvas canvas, View child, long drawingTime) {
 		int saveCount = canvas.save();
 		Drawable[] tmp = ((TextView) child).getCompoundDrawables();
+                Bitmap b = null;
 		if (mIconSize == 0) {
 			mIconSize = tmp[1].getIntrinsicHeight() + child.getPaddingTop();
 		}
@@ -225,59 +306,62 @@ public class AllAppsGridView extends GridView implements
 			postInvalidate();
 			//float x;
 			//float y;
-			distH = (child.getLeft() + (child.getWidth() / 2))
+			float distH = (child.getLeft() + (child.getWidth() / 2))
 					- (getWidth() / 2);
-			distV = (child.getTop() + (child.getHeight() / 2))
+			float distV = (child.getTop() + (child.getHeight() / 2))
 					- (getHeight() / 2);
-			x = child.getLeft() + (distH * (mScaleFactor - 1)) * (mScaleFactor);
-			y = child.getTop() + (distV * (mScaleFactor - 1)) * (mScaleFactor);
-			width = child.getWidth() * mScaleFactor;
-			height = (child.getHeight() - (child.getHeight() - mIconSize))
-					* mScaleFactor;
-			if (shouldDrawLabels)
+			float x = child.getLeft() + (distH * (mScaleFactor - 1)) * (mScaleFactor);
+			float y = child.getTop() + (distV * (mScaleFactor - 1)) * (mScaleFactor);
+			float width = child.getWidth() * mScaleFactor;
+//			height = (child.getHeight() - (child.getHeight() - mIconSize))
+//					* mScaleFactor;
+			if (shouldDrawLabels) {
 				child.setDrawingCacheEnabled(true);
-			if (shouldDrawLabels && child.getDrawingCache() != null) {
+                                child.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_LOW);
+                                b = child.getDrawingCache();
+                        }
+			if (shouldDrawLabels && b != null) {
 				// ADW: try to manually draw labels
-				rl1.set(0, mIconSize, child.getDrawingCache()
-						.getWidth(), child.getDrawingCache().getHeight());
-				rl2.set(child.getLeft(),
-						child.getTop() + mIconSize, child.getLeft()
-								+ child.getDrawingCache().getWidth(), child
-								.getTop()
-								+ child.getDrawingCache().getHeight());
+				rl1.set(0, mIconSize, b.getWidth(), b.getHeight());
+				rl2.set(child.getLeft(), child.getTop() + mIconSize, child.getLeft()
+							+ b.getWidth(),child.getTop() + b.getHeight());
 				mLabelPaint.setAlpha((int) (mLabelFactor * 255));
-				canvas.drawBitmap(child.getDrawingCache(), rl1, rl2,
+				canvas.drawBitmap(b, rl1, rl2,
 						mLabelPaint);
 			}
-			scale = ((width) / child.getWidth());
-			r3 = tmp[1].getBounds();
-			xx = (child.getWidth() / 2) - (r3.width() / 2);
-			canvas.save();
+			float scale = ((width) / child.getWidth());
+			//r3 = tmp[1].getBounds();
+			int xx = (child.getWidth() / 2) - (tmp[1].getBounds().width() / 2);
 			canvas.translate(x + xx, y + child.getPaddingTop());
 			canvas.scale(scale, scale);
 			tmp[1].draw(canvas);
-			canvas.restore();
 		} else {
+            int alpha = 255;
+            if ( mStatusTransformation )
+            {
+                getChildStaticTransformation( child, mTransformation);
+                alpha = (int) (mTransformation.getAlpha() * 255);
+            }
 			if (mDrawLabels) {
 				child.setDrawingCacheEnabled(true);
-				if (child.getDrawingCache() != null) {
-					mPaint.setAlpha(255);
-					canvas.drawBitmap(child.getDrawingCache(), child.getLeft(),
-							child.getTop(), mPaint);
-				} else {
-					canvas.save();
-					canvas.translate(child.getLeft(), child.getTop());
+				b = child.getDrawingCache();
+                if (b != null) {
+					mPaint.setAlpha(alpha);
+                    canvas.drawBitmap(b, child.getLeft(), child.getTop(), mPaint);
+                } else {
+                    int left = child.getLeft();
+                    int top = child.getTop();
+                    canvas.saveLayerAlpha(left, top, left + child.getWidth(), top + child.getHeight(), (int) (mTransformation.getAlpha() * 255),
+                            Canvas.HAS_ALPHA_LAYER_SAVE_FLAG | Canvas.CLIP_TO_LAYER_SAVE_FLAG);
+					canvas.translate(left, top);
 					child.draw(canvas);
-					canvas.restore();
 				}
 			} else {
-				r3 = tmp[1].getBounds();
-				xx = (child.getWidth() / 2) - (r3.width() / 2);
-				canvas.save();
+				//r3 = tmp[1].getBounds();
+			    int xx = (child.getWidth() / 2) - (tmp[1].getBounds().width() / 2);
 				canvas.translate(child.getLeft() + xx, child.getTop()
 						+ child.getPaddingTop());
 				tmp[1].draw(canvas);
-				canvas.restore();
 			}
 		}
 		canvas.restoreToCount(saveCount);
@@ -351,4 +435,217 @@ public class AllAppsGridView extends GridView implements
 
 	public void setPageHorizontalMargin(int margin) {}
 
+    int FADE_OFF = 0;
+    int FADE_IN = 1;
+    int FADE_CHANGE = 2;
+    int FADE_OUT = 3;
+    long mFadeEnd;
+    int mFadeType = FADE_OFF;
+    DataSetObserver mLastDSObserver;
+    Runnable mSwitchGroups;
+    boolean mStatusTransformation = false;
+
+    private boolean isUngroupMode = false;
+
+    public void switchGroups(Runnable switchGroups)
+    {
+        // just in case :)
+        if ( mLastDSObserver != null )
+        {
+            getAdapter().unregisterDataSetObserver(mLastDSObserver);
+            mLastDSObserver = null;
+        }
+
+        this.mSwitchGroups = switchGroups;
+        mFadeEnd = System.currentTimeMillis() + 150;
+        mFadeType = FADE_OUT;
+        
+        if ( getAdapter().getCount() == 0 )
+        {
+            // nothing to fade so we can't use draw events :( 
+            setStaticTransformationsEnabled(false);
+            switchGroups.run();
+        }
+        else
+        {
+            setStaticTransformationsEnabled(true);
+            this.postInvalidate();
+        }
+    }
+
+    @Override
+    protected boolean getChildStaticTransformation(View child, Transformation t)
+    {
+        long time = mFadeEnd - System.currentTimeMillis();
+        if (mFadeType != FADE_OFF)
+        {
+            if (mFadeType == FADE_IN)
+            {
+                if (time > 0)
+                {
+                    t.setAlpha(1 - (time / 150f));
+                    this.postInvalidate();
+                    return true;
+                }
+            }
+            else
+            {
+                if (time > 0)
+                {
+                    t.setAlpha(time / 150f);
+                    this.postInvalidate();
+                    return true;
+                }
+                else if ( mFadeType == FADE_CHANGE)
+                {
+                    t.setAlpha(0);
+                    return true;
+                }
+                else 
+                {
+                    mFadeType = FADE_CHANGE;
+                    
+                    mLastDSObserver = new DataSetObserver()
+                    {
+                        @Override
+                        public void onChanged()
+                        {
+                            // TODO Auto-generated method stub
+                            super.onChanged();
+                            postInvalidate();
+                            long time = mFadeEnd - System.currentTimeMillis();
+                            mFadeType = FADE_IN;
+                            mFadeEnd = System.currentTimeMillis() + (150 + time);
+                        }
+                        @Override
+                        public void onInvalidated()
+                        {
+                            super.onInvalidated();
+                            postInvalidate();
+                            long time = mFadeEnd - System.currentTimeMillis();
+                            mFadeType = FADE_IN;
+                            mFadeEnd = System.currentTimeMillis() + (150 + time);
+                        }
+                    };
+                    getAdapter().registerDataSetObserver(mLastDSObserver);
+                    mSwitchGroups.run();
+                    t.setAlpha(0);
+                    this.postInvalidate();
+                    return true;
+                }
+            }
+        }
+
+        // clean up!
+        if ( mLastDSObserver != null )
+        {
+            getAdapter().unregisterDataSetObserver(mLastDSObserver);
+            mLastDSObserver = null;
+        }
+        mFadeType = FADE_OFF;
+        t.setAlpha(255);
+        setStaticTransformationsEnabled(false);
+        
+        this.postInvalidate();
+        return true;
+    }
+    
+    @Override
+    protected void setStaticTransformationsEnabled(boolean enabled)
+    {
+        mStatusTransformation = enabled;
+        super.setStaticTransformationsEnabled(enabled);
+    }
+    
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b)
+    {
+        super.onLayout(changed, l, t, r, b);
+        
+        setupGestures();
+        
+        this.setOnTouchListener(gestureListener);
+
+        final int count = getChildCount();
+        for (int i = 0; i < count; i++) {
+            final View child = getChildAt(i);
+            child.setOnTouchListener(gestureListener);
+        }
+    }
+
+    void setupGestures()
+    {
+        // Gesture detection
+        gestureDetector = new GestureDetector(getContext(), new MyGestureDetector());
+        gestureListener = new View.OnTouchListener()
+        {
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                if (gestureDetector.onTouchEvent(event))
+                {
+                    return true;
+                }
+                return false;
+            }
+        };
+    }
+
+    class MyGestureDetector extends SimpleOnGestureListener
+    {
+        @Override
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY)
+        {
+            return super.onScroll(e1, e2, distanceX, distanceY);
+        }
+        
+        float downX;
+        @Override
+        public boolean onDown(MotionEvent e)
+        {
+            mFlang = false;
+            downX = e.getX();
+            // TODO Auto-generated method stub
+            return super.onDown(e);
+        }
+        
+        @Override
+        public boolean onSingleTapUp(MotionEvent e)
+        {
+            if (Math.abs(downX - e.getX()) > SWIPE_MAX_OFF_PATH)
+                return false;
+            // TODO Auto-generated method stub
+            return super.onSingleTapUp(e);
+        }
+        
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)
+        {
+            mFlang = true;
+            try
+            {
+                if (Math.abs(e1.getY() - e2.getY()) <= SWIPE_MAX_OFF_PATH)
+                {
+                    if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY)
+                    {
+                        mLauncher.navigateCatalogs(Launcher.ACTION_CATALOG_PREV);
+                    }
+                    else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY)
+                    {
+                        mLauncher.navigateCatalogs(Launcher.ACTION_CATALOG_NEXT);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // nothing
+            }
+            return super.onFling(e1, e2, velocityX, velocityY);
+        }
+    }
+
+    @Override
+    public void setUngroupMode(boolean setUngroupMode)
+    {
+        isUngroupMode = setUngroupMode;
+    }
 }
