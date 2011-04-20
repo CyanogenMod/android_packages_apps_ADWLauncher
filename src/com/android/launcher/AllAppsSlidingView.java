@@ -1,7 +1,5 @@
 package com.android.launcher;
 
-import com.android.launcher.HolderLayout.OnFadingListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +17,8 @@ import android.graphics.drawable.TransitionDrawable;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.view.GestureDetector;
 import android.view.HapticFeedbackConstants;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -27,10 +27,15 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.animation.Transformation;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
+import android.widget.PopupWindow;
 import android.widget.Scroller;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> implements OnItemClickListener, OnItemLongClickListener, DragSource, Drawer{// implements DragScroller{
@@ -79,6 +84,13 @@ public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> impleme
     static final int LAYOUT_NORMAL = 0;
     static final int LAYOUT_SCROLLING = 1;
     int mLayoutMode = LAYOUT_NORMAL;
+
+    private DisplayMetrics dm = getResources().getDisplayMetrics();
+    private int SWIPE_MIN_DISTANCE = (int)(ABS_SWIPE_MIN_DISTANCE * dm.densityDpi / 160.0f);
+    private int SWIPE_MAX_OFF_PATH = (int)(ABS_SWIPE_MAX_OFF_PATH * dm.densityDpi / 160.0f);
+    private int SWIPE_THRESHOLD_VELOCITY = (int)(ABS_SWIPE_THRESHOLD_VELOCITY * dm.densityDpi / 160.0f);
+    private GestureDetector gestureDetector;
+    private View.OnTouchListener gestureListener;
 
     /**
      * Should be used by subclasses to listen to changes in the dataset
@@ -162,6 +174,7 @@ public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> impleme
     //ADW:Bg color
     private int mBgColor=0xFF000000;
     private int mStatus=HolderLayout.OnFadingListener.CLOSE;
+    private HolderLayout mHolder;
 	public AllAppsSlidingView(Context context) {
 		super(context);
 		initWorkspace();
@@ -192,6 +205,7 @@ public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> impleme
     }
 
     private void initWorkspace() {
+        setupGestures();
     	setVerticalScrollBarEnabled(false);
     	setHorizontalScrollBarEnabled(false);
         mDrawSelectorOnTop = false;
@@ -208,6 +222,7 @@ public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> impleme
         mTouchSlop = configuration.getScaledTouchSlop();
         mMaximumVelocity = configuration.getScaledMaximumFlingVelocity();
         mPager=new PreviewPager(getContext());
+        mPager.showGroupText(true);
         //ADW: listener to handle holderlayouts animations
         mFadingListener=new OnFadingListener() {
 			public void onUpdate(int Status) {
@@ -370,7 +385,9 @@ public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> impleme
         int pos=startPos;
         int x=marginLeft;
         int y=marginTop;
-        HolderLayout holder=new HolderLayout(getContext());
+        HolderLayout oldHolder = mHolder;
+        HolderLayout holder = new HolderLayout(getContext());
+        mHolder=holder;
         for(int i=0;i<mNumRows;i++){
         	for(int j=0;j<mNumColumns;j++){
         		if(pos<mAdapter.getCount()){
@@ -409,6 +426,11 @@ public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> impleme
                 holder.open(isAnimating, mAnimationDuration);
             else
                 holder.close(isAnimating, mAnimationDuration);
+            
+            if ( oldHolder != null )
+            {
+                holder.setStartTime(oldHolder.getStartTime());
+            }
         }
     }
     private void addRemovePages(int current, int next){
@@ -1711,7 +1733,6 @@ public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> impleme
             }
             mBlockLayouts=false;
             requestLayout();
-
         }
 
         @Override
@@ -1752,10 +1773,17 @@ public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> impleme
         ApplicationInfo app = (ApplicationInfo) parent.getItemAtPosition(position);
         app = new ApplicationInfo(app);
 
+        mLauncher.showActions(app, v, new PopupWindow.OnDismissListener()
+        {
+            @Override
+            public void onDismiss()
+            {
+              if(!mLauncher.isDockBarOpen() || AlmostNexusSettingsHelper.getUICloseAppsDockbar(mLauncher)){
+                  mLauncher.closeAllApplications();
+              }
+            }
+        });
         mDragger.startDrag(v, this, app, DragController.DRAG_ACTION_COPY);
-        if(!mLauncher.isDockBarOpen() || AlmostNexusSettingsHelper.getUICloseAppsDockbar(mLauncher)){
-        	mLauncher.closeAllApplications();
-        }
 
         return true;
 	}
@@ -1826,6 +1854,7 @@ public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> impleme
 		}
 	}
 	public void open(boolean animate) {
+	    mHolder=null;
 	    mStatus=HolderLayout.OnFadingListener.OPEN;
 		mBgColor=AlmostNexusSettingsHelper.getDrawerColor(mLauncher);
 		mTargetAlpha=Color.alpha(mBgColor);
@@ -1919,4 +1948,167 @@ public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> impleme
 
 	public void setTextFilterEnabled(boolean textFilterEnabled) {}
 	public void clearTextFilter() {}
+
+    int FADE_OFF = 0;
+    int FADE_IN = 1;
+    int FADE_CHANGE = 2;
+    int FADE_OUT = 3;
+    long mFadeEnd;
+    int mFadeType = FADE_OFF;
+    DataSetObserver mLastDSObserver;
+    Runnable mSwitchGroups;
+
+    public void switchGroups(Runnable switchGroups)
+    {
+        // just in case :)
+        if ( mLastDSObserver != null )
+        {
+            getAdapter().unregisterDataSetObserver(mLastDSObserver);
+            mLastDSObserver = null;
+        }
+
+        this.mSwitchGroups = switchGroups;
+        mFadeEnd = System.currentTimeMillis() + 150;
+        mFadeType = FADE_OUT;
+        setStaticTransformationsEnabled(true);
+        this.postInvalidate();
+    }
+
+    @Override
+    protected boolean getChildStaticTransformation(View child, Transformation t)
+    {
+        long time = mFadeEnd - System.currentTimeMillis();
+        if (mFadeType != FADE_OFF)
+        {
+            if (mFadeType == FADE_IN)
+            {
+                mScroller.forceFinished(true);
+                scrollTo(0,0);
+                snapToScreen(0);
+                if (time > 0)
+                {
+                    t.setAlpha(1 - (time / 150f));
+                    this.postInvalidate();
+                    return true;
+                }
+            }
+            else
+            {
+                if (time > 0)
+                {
+                    t.setAlpha(time / 150f);
+                    this.postInvalidate();
+                    return true;
+                }
+                else if ( mFadeType == FADE_CHANGE)
+                {
+                    t.setAlpha(0);
+                    return true;
+                }
+                else 
+                {
+                    mFadeType = FADE_CHANGE;
+                    
+                    mLastDSObserver = new DataSetObserver()
+                    {
+                        @Override
+                        public void onChanged()
+                        {
+                            // TODO Auto-generated method stub
+                            super.onChanged();
+                            fadeIn();
+                        }
+                        @Override
+                        public void onInvalidated()
+                        {
+                            super.onInvalidated();
+                            fadeIn();
+                        }
+                        private void fadeIn()
+                        {
+                            if ( mFadeType != FADE_IN )
+                            {
+                                postInvalidate();
+                                long time = mFadeEnd - System.currentTimeMillis();
+                                mFadeType = FADE_IN;
+                                mFadeEnd = System.currentTimeMillis() + (150 + time);
+                            }
+                        }
+                    };
+                    getAdapter().registerDataSetObserver(mLastDSObserver);
+                    mSwitchGroups.run();
+                    t.setAlpha(0);
+                    this.postInvalidate();
+                    return true;
+                }
+            }
+        }
+
+        // clean up!
+        if ( mLastDSObserver != null )
+        {
+            getAdapter().unregisterDataSetObserver(mLastDSObserver);
+            mLastDSObserver = null;
+        }
+        mFadeType = FADE_OFF;
+        t.setAlpha(255);
+        setStaticTransformationsEnabled(false);
+        
+        this.postInvalidate();
+        return true;
+    }
+
+    void setupGestures()
+    {
+        // Gesture detection
+        gestureDetector = new GestureDetector(getContext(), new MyGestureDetector());
+        gestureListener = new View.OnTouchListener()
+        {
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                if (gestureDetector.onTouchEvent(event))
+                {
+                    return true;
+                }
+                return false;
+            }
+        };
+        
+        this.setOnTouchListener(gestureListener);
+    }
+
+    class MyGestureDetector extends SimpleOnGestureListener
+    {
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)
+        {
+            try
+            {
+                if (Math.abs(e1.getX() - e2.getX()) > SWIPE_MAX_OFF_PATH)
+                    return false;
+                // right to left swipe
+                if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY)
+                {
+                    mLauncher.navigateCatalogs(Launcher.ACTION_CATALOG_NEXT);
+                    //Toast.makeText(getContext(), "Up Swipe", Toast.LENGTH_SHORT).show();
+                }
+                else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY)
+                {
+                    mLauncher.navigateCatalogs(Launcher.ACTION_CATALOG_PREV);
+                    //Toast.makeText(getContext(), "Down Swap", Toast.LENGTH_SHORT).show();
+                }
+            }
+            catch (Exception e)
+            {
+                // nothing
+            }
+            return false;
+        }
+    }
+
+    @Override
+    public void setUngroupMode(boolean setUngroupMode)
+    {
+        mPager.setUngroupMode( setUngroupMode );
+    }
 }

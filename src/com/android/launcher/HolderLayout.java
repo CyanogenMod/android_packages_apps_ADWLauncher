@@ -342,4 +342,14 @@ public class HolderLayout extends ViewGroup {
     	mDrawLabels=AlmostNexusSettingsHelper.getDrawerLabels(context);
     	mFadeDrawLabels=AlmostNexusSettingsHelper.getFadeDrawerLabels(context);
     }
+
+    public void setStartTime(long startTime)
+    {
+        this.startTime = startTime;
+    }
+
+    public long getStartTime()
+    {
+        return startTime;
+    }
 }

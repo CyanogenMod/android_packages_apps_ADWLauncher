@@ -40,6 +40,7 @@ import com.android.launcher.catalogue.AppCatalogueFilter;
 import com.android.launcher.catalogue.AppCatalogueFilters;
 import com.android.launcher.catalogue.AppGroupAdapter;
 import com.android.launcher.catalogue.AppInfoMList;
+import com.android.launcher.catalogue.AppCatalogueFilters.Catalogue;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -61,10 +62,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.Intent.ShortcutIconResource;
+import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.ActivityInfo;
 import android.content.pm.LabeledIntent;
 import android.content.pm.PackageManager;
+import android.content.pm.ProviderInfo;
 import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
@@ -76,9 +79,11 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -102,9 +107,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+import android.view.animation.Animation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -146,6 +153,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     private static final int MENU_APP_SWITCH_GRP = MENU_SETTINGS + 4;
     private static final int MENU_APP_DELETE_GRP = MENU_SETTINGS + 5;
     private static final int MENU_LOCK_DESKTOP = MENU_SETTINGS + 6;
+    private static final int MENU_MANAGE_APPS = MENU_SETTINGS + 7;
 
     private static final int REQUEST_CREATE_SHORTCUT = 1;
     private static final int REQUEST_CREATE_LIVE_FOLDER = 4;
@@ -174,6 +182,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     static final int DIALOG_CHOOSE_GROUP = 3;
     static final int DIALOG_NEW_GROUP = 4;
     static final int DIALOG_DELETE_GROUP_CONFIRM = 5;
+    static final int DIALOG_PICK_GROUPS = 6;
 
     private static final String PREFERENCES = "launcher.preferences";
 
@@ -205,6 +214,10 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     private static final String RUNTIME_STATE_PENDING_FOLDER_RENAME_ID = "launcher.rename_folder_id";
     // Type: boolean
     private static final String RUNTIME_STATE_DOCKBAR = "launcher.dockbar";
+    // Type: boolean
+    private static final String RUNTIME_STATE_PENDING_GROUP_PICK = "launcher.rename_folder";
+    // Type: long
+    private static final String RUNTIME_STATE_PENDING_GROUP_PICK_ID = "launcher.rename_folder_id";
 
     private static final LauncherModel sModel = new LauncherModel();
 
@@ -230,14 +243,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     private CellLayout.CellInfo mMenuAddInfo;
     private final int[] mCellCoordinates = new int[2];
     private FolderInfo mFolderInfo;
-
-    //Quick Action Options
-    private static final String ANDROID_MARKET_PACKAGE = "com.android.vending";
-    private Drawable mMarketIcon;
-    private CharSequence mMarketLabel;
-
-    private static final String ANDROID_SETTINGS_PACKAGE = "com.android.settings";
-    private String mAppInfoLabel;
+    private ApplicationInfo mPickGroupInfo;
 
     /**
      * ADW: now i use an ActionButton instead of a fixed app-drawer button
@@ -303,7 +309,8 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 	private boolean wallpaperHack=true;
 	private DesktopIndicator mDesktopIndicator;
 	private int savedOrientation;
-	private boolean useDrawerCatalogNavigation=true;
+    private boolean useDrawerCatalogNavigation=true;
+    public boolean useDrawerUngroupCatalog=false;
 	private int appDrawerPadding=-1;
 
     public boolean isDesktopBlocked() {
@@ -357,8 +364,9 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 	//or completely redo the desktop dots implementation
 	private final static int MAX_SCREENS=7;
 	//ADW: NAVIGATION VALUES FOR THE NEXT/PREV CATALOG ACTIONS
-	private final static int ACTION_CATALOG_PREV=1;
-	private final static int ACTION_CATALOG_NEXT=2;
+    protected final static int ACTION_CATALOG_SAME=0;
+    protected final static int ACTION_CATALOG_PREV=1;
+	protected final static int ACTION_CATALOG_NEXT=2;
 	//ADW: Custom counter receiver
 	private CounterReceiver mCounterReceiver;
 	/**
@@ -371,6 +379,18 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     private int mDockStyle=DOCK_STYLE_3;
     //DRAWER STYLES
     private final int[]mDrawerStyles={R.layout.old_drawer, R.layout.new_drawer};
+    
+    //Quick Action Options
+    static final String ANDROID_MARKET_PACKAGE = "com.android.vending";
+    private Drawable mMarketIcon;
+    private CharSequence mMarketLabel;
+    static final String ANDROID_SETTINGS_PACKAGE = "com.android.settings";
+    private String mAppInfoLabel;
+
+    // Manage applications on launcher menu
+    static final ComponentName ANDROID_MANAGE_COMPONENT = new ComponentName(ANDROID_SETTINGS_PACKAGE, ANDROID_SETTINGS_PACKAGE + ".ManageApplications");
+    private String mAppManageLabel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 		mMessWithPersistence=AlmostNexusSettingsHelper.getSystemPersistent(this);
@@ -739,6 +759,13 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         if (renameFolder) {
             long id = savedState.getLong(RUNTIME_STATE_PENDING_FOLDER_RENAME_ID);
             mFolderInfo = sModel.getFolderById(this, id);
+            mRestoring = true;
+        }
+        boolean groupPick = savedState.getBoolean(RUNTIME_STATE_PENDING_GROUP_PICK, false);
+        if (groupPick)
+        {
+            long id = savedState.getLong(RUNTIME_STATE_PENDING_GROUP_PICK_ID);
+            mPickGroupInfo = LauncherModel.loadApplicationInfoById(this, id);
             mRestoring = true;
         }
     }
@@ -1178,6 +1205,16 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         } catch (Exception e) {
             // An exception is thrown if the dialog is not visible, which is fine
         }
+        try
+        {
+            removeDialog(DIALOG_PICK_GROUPS);
+            // Unlock the workspace if the dialog was showing
+        }
+        catch (Exception e)
+        {
+            // An exception is thrown if the dialog is not visible, which is
+            // fine
+        }
      }
 
     @Override
@@ -1319,6 +1356,11 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             outState.putBoolean(RUNTIME_STATE_PENDING_FOLDER_RENAME, true);
             outState.putLong(RUNTIME_STATE_PENDING_FOLDER_RENAME_ID, mFolderInfo.id);
         }
+        if (mPickGroupInfo != null && mWaitingForResult)
+        {
+            outState.putBoolean(RUNTIME_STATE_PENDING_GROUP_PICK, true);
+            outState.putLong(RUNTIME_STATE_PENDING_GROUP_PICK_ID, mPickGroupInfo.id);
+        }
     }
 
     @Override
@@ -1445,31 +1487,36 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         menu.add(MENU_GROUP_ADD, MENU_ADD, 0, R.string.menu_add)
                 .setIcon(android.R.drawable.ic_menu_add)
                 .setAlphabeticShortcut('A');
-        menu.add(MENU_GROUP_NORMAL, MENU_WALLPAPER_SETTINGS, 0, R.string.menu_wallpaper)
-                 .setIcon(android.R.drawable.ic_menu_gallery)
-                 .setAlphabeticShortcut('W');
-        menu.add(MENU_GROUP_NORMAL, MENU_SEARCH, 0, R.string.menu_search)
-                .setIcon(android.R.drawable.ic_search_category_default)
-                .setAlphabeticShortcut(SearchManager.MENU_KEY);
+        
         menu.add(MENU_GROUP_NORMAL, MENU_NOTIFICATIONS, 0, R.string.menu_edit)
                 .setIcon(android.R.drawable.ic_menu_edit)
                 .setAlphabeticShortcut('E');
-        menu.add(MENU_GROUP_NORMAL, MENU_LOCK_DESKTOP, 0, R.string.menu_lock)
-            .setIcon(com.android.internal.R.drawable.ic_menu_block)
-            .setAlphabeticShortcut('X');
 
+        // Manage apps
+        createManageApplications( menu, MENU_GROUP_NORMAL );
+        
         final Intent settings = new Intent(android.provider.Settings.ACTION_SETTINGS);
         settings.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                 Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-
         menu.add(MENU_GROUP_NORMAL, MENU_SETTINGS, 0, R.string.menu_settings)
                 .setIcon(android.R.drawable.ic_menu_preferences).setAlphabeticShortcut('P')
                 .setIntent(settings);
+
 		//ADW: add custom settings
         menu.add(MENU_GROUP_ALMOSTNEXUS, MENU_ALMOSTNEXUS, 0, R.string.menu_adw_settings)
         .setIcon(com.android.internal.R.drawable.ic_menu_preferences)
         .setAlphabeticShortcut('X');
-       
+        menu.add(MENU_GROUP_NORMAL, MENU_SEARCH, 0, R.string.menu_search)
+        .setIcon(android.R.drawable.ic_search_category_default)
+        .setAlphabeticShortcut(SearchManager.MENU_KEY);
+        menu.add(MENU_GROUP_NORMAL, MENU_WALLPAPER_SETTINGS, 0, R.string.menu_wallpaper)
+        .setIcon(android.R.drawable.ic_menu_gallery)
+        .setAlphabeticShortcut('W');
+        menu.add(MENU_GROUP_NORMAL, MENU_LOCK_DESKTOP, 0, R.string.menu_lock)
+        .setIcon(com.android.internal.R.drawable.ic_menu_block)
+        .setAlphabeticShortcut('X');
+
+        // drawer options
 		menu.add(MENU_GROUP_CATALOGUE, MENU_APP_GRP_CONFIG, 0, R.string.AppGroupConfig)
 			.setIcon(android.R.drawable.ic_menu_agenda);
 		//menu.add(MENU_GROUP_CATALOGUE, MENU_APP_GRP_RENAME, 0, R.string.AppGroupRename)
@@ -1478,6 +1525,8 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 			.setIcon(android.R.drawable.ic_menu_manage);
    		menu.add(MENU_GROUP_CATALOGUE, MENU_APP_DELETE_GRP, 0, R.string.AppGroupDel)
 			.setIcon(android.R.drawable.ic_menu_delete);
+        // Manage apps
+        createManageApplications( menu, MENU_GROUP_CATALOGUE );
      return true;
     }
 
@@ -1490,11 +1539,11 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         mMenuAddInfo = mWorkspace.findAllVacantCellsFromModel();
         menu.setGroupEnabled(MENU_GROUP_ADD, mMenuAddInfo != null && mMenuAddInfo.valid);
         boolean forceHidden=getResources().getBoolean(R.bool.force_hidden_settings);
-        boolean showmenu=false;
+        boolean showmenu=true;
         if(!forceHidden){
-	        //ADW: Check if this is the default launcher
+//	        //ADW: Check if this is the default launcher
 	        mIsDefaultLauncher=checkDefaultLauncher();
-	        //ADW: Check if we're running on the specified mod rom
+//	        //ADW: Check if we're running on the specified mod rom
 	        String mod=android.os.SystemProperties.get("ro.modversion", "adw").toLowerCase();
 	    	if(LOGD)Log.d(LOG_TAG,"System version="+mod);
 	    	if(LOGD)Log.d(LOG_TAG,"System version contains rom_mod_version?"+(mod.contains(getResources().getString(R.string.rom_mod_string).toLowerCase())));
@@ -2484,7 +2533,9 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 							/* User clicked OK so do some stuff */
 						}})
 					.create();
-     }
+   	        case DIALOG_PICK_GROUPS:
+   	            return new PickGrpDialog().createDialog();
+        }
 
         return super.onCreateDialog(id);
     }
@@ -2763,6 +2814,13 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             }
             mWaitingForResult = false;
             mFolderInfo = null;
+            
+            if (mPickGroupInfo != null)
+            {
+                // reopen the pick dialog
+                mWaitingForResult = true;
+                showDialog(DIALOG_PICK_GROUPS);
+            }
         }
     }
     /**
@@ -3169,6 +3227,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         }
         wallpaperHack=AlmostNexusSettingsHelper.getWallpaperHack(this);
         useDrawerCatalogNavigation=AlmostNexusSettingsHelper.getDrawerCatalogsNavigation(this);
+        useDrawerUngroupCatalog=AlmostNexusSettingsHelper.getDrawerUngroupCatalog(this);
     }
     /**
      * ADW: Refresh UI status variables and elements after changing settings.
@@ -3244,7 +3303,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     			if(mDesktopIndicator!=null)mDesktopIndicator.hide();
     		}
     	}
-
     }
     /**
      * ADW: Create a copy of an application icon/shortcut with a reflection
@@ -3682,6 +3740,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 	        //mDesktopLocked=true;
 	        mWorkspace.invalidate();
 	        checkActionButtonsSpecialMode();
+	        mAllAppsGrid.setUngroupMode(useDrawerUngroupCatalog);
             mAllAppsGrid.open(animated && allowDrawerAnimations);
     	    mPreviousView.setVisibility(View.GONE);
     	    mNextView.setVisibility(View.GONE);
@@ -3860,7 +3919,9 @@ public final class Launcher extends Activity implements View.OnClickListener, On
             }else if(key.equals("deletezone_style")){
                 int dz=AlmostNexusSettingsHelper.getDeletezoneStyle(this);
                 if(mDeleteZone!=null)mDeleteZone.setPosition(dz);
-			}
+            }else if(key.equals("drawer_ungroup_catalog")){
+                navigateCatalogs(ACTION_CATALOG_PREV);
+            }
 			updateAlmostNexusUI();
 		}
 	}
@@ -4162,7 +4223,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 		}
 	}
 
-	void editShirtcut(ApplicationInfo info) {
+	void editShirtcut(ItemInfo info) {
 		Intent edit = new Intent(Intent.ACTION_EDIT);
 		edit.setClass(this, CustomShirtcutActivity.class);
 		edit.putExtra(CustomShirtcutActivity.EXTRA_APPLICATIONINFO, info.id);
@@ -4173,56 +4234,87 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 		if (!data.hasExtra(CustomShirtcutActivity.EXTRA_APPLICATIONINFO))
 			return;
 		long appInfoId = data.getLongExtra(CustomShirtcutActivity.EXTRA_APPLICATIONINFO, 0);
-		ApplicationInfo info = LauncherModel.loadApplicationInfoById(this, appInfoId);
-		if (info != null) {
-			Bitmap bitmap = data.getParcelableExtra(Intent.EXTRA_SHORTCUT_ICON);
+        FolderInfo folderInfo = LauncherModel.getFolderById(this, appInfoId, null);
+        if (folderInfo != null)
+        {
+            String name = data.getStringExtra(Intent.EXTRA_SHORTCUT_NAME);
+            if (!TextUtils.isEmpty(name))
+            {
+                // Make sure we have the right folder info
+                folderInfo = getModel().findFolderById(folderInfo.id);
+                folderInfo.title = name;
 
-	        Drawable icon = null;
-	        boolean customIcon = false;
-	        ShortcutIconResource iconResource = null;
+                Bitmap bitmap = data.getParcelableExtra(Intent.EXTRA_SHORTCUT_ICON);
+                if (bitmap != null)
+                {
+                    folderInfo.icon = new FastBitmapDrawable(Utilities.createBitmapThumbnail(bitmap, this));
+                    folderInfo.customIcon = true;
+                }
+                else
+                {
+                    folderInfo.icon = null;
+                    folderInfo.customIcon = false;
+                }
+                LauncherModel.updateItemInDatabase(this, folderInfo);
 
-	        if (bitmap != null) {
-	            icon = new FastBitmapDrawable(Utilities.createBitmapThumbnail(bitmap, this));
-	            customIcon = true;
-	        } else {
-	            Parcelable extra = data.getParcelableExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE);
-	            if (extra != null && extra instanceof ShortcutIconResource) {
-	                try {
-	                    iconResource = (ShortcutIconResource) extra;
-	                    final PackageManager packageManager = getPackageManager();
-	                    Resources resources = packageManager.getResourcesForApplication(
-	                            iconResource.packageName);
-	                    final int id = resources.getIdentifier(iconResource.resourceName, null, null);
-	                    icon = resources.getDrawable(id);
-	                } catch (Exception e) {
-	                    w(LOG_TAG, "Could not load shortcut icon: " + extra);
-	                }
-	            }
-	        }
+                if (!isWorkspaceLocked())
+                {
+                    mDesktopLocked = true;
+                }
+                getModel().loadUserItems(false, this, false, false);
+            }
+        }
+        else
+        {
+    		ApplicationInfo info = LauncherModel.loadApplicationInfoById(this, appInfoId);
+    		if (info != null) {
+    			Bitmap bitmap = data.getParcelableExtra(Intent.EXTRA_SHORTCUT_ICON);
+    
+                Drawable icon = null;
+    	        if (bitmap != null) {
+                    // custom
+    	            icon = new FastBitmapDrawable(Utilities.createBitmapThumbnail(bitmap, this));
+    	        }
+    	        else if ( info.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION )
+    	        {
+    	            // well we need one so get the app's icon
+    	            icon = sModel.getApplicationInfoIcon(getPackageManager(), info, this);
+    	            if ( icon instanceof BitmapDrawable )
+    	            {
+    	                icon = new FastBitmapDrawable(((BitmapDrawable) icon).getBitmap());
+    	            }
+    	        }
 
-	        if (icon != null) {
-		        info.icon = icon;
-		        info.customIcon = customIcon;
-		        info.iconResource = iconResource;
-	        }
-            info.itemType = LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT;
-			info.title = data.getStringExtra(Intent.EXTRA_SHORTCUT_NAME);
-			info.intent = data.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT);
-			LauncherModel.updateItemInDatabase(this, info);
+                if (icon != null) {
+                    info.icon = icon;
+                    info.customIcon = true;
+                    info.iconResource = null;
+                    info.filtered = false;
+                }
+                else
+                {
+                    info.customIcon = false;
+                }
 
-			if (info.container == LauncherSettings.Favorites.CONTAINER_MAB)
-				mHandleView.UpdateLaunchInfo(info);
-			else if (info.container == LauncherSettings.Favorites.CONTAINER_LAB)
-				mLAB.UpdateLaunchInfo(info);
-			else if (info.container == LauncherSettings.Favorites.CONTAINER_LAB2)
-				mLAB2.UpdateLaunchInfo(info);
-			else if (info.container == LauncherSettings.Favorites.CONTAINER_RAB)
-				mRAB.UpdateLaunchInfo(info);
-			else if (info.container == LauncherSettings.Favorites.CONTAINER_RAB2)
-				mRAB2.UpdateLaunchInfo(info);
-
-			mWorkspace.updateShortcutFromApplicationInfo(info);
-		}
+                info.itemType = LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT;
+      			info.title = data.getStringExtra(Intent.EXTRA_SHORTCUT_NAME);
+    			info.intent = data.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT);
+    			LauncherModel.updateItemInDatabase(this, info);
+    
+    			if (info.container == LauncherSettings.Favorites.CONTAINER_MAB)
+    				mHandleView.UpdateLaunchInfo(info);
+    			else if (info.container == LauncherSettings.Favorites.CONTAINER_LAB)
+    				mLAB.UpdateLaunchInfo(info);
+    			else if (info.container == LauncherSettings.Favorites.CONTAINER_LAB2)
+    				mLAB2.UpdateLaunchInfo(info);
+    			else if (info.container == LauncherSettings.Favorites.CONTAINER_RAB)
+    				mRAB.UpdateLaunchInfo(info);
+    			else if (info.container == LauncherSettings.Favorites.CONTAINER_RAB2)
+    				mRAB2.UpdateLaunchInfo(info);
+    
+    			mWorkspace.updateShortcutFromApplicationInfo(info);
+    		}
+        }
 	}
 
 	/**
@@ -4491,8 +4583,8 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         }
 	}
 
-	private void navigateCatalogs(int direction){
-		final ApplicationsAdapter drawerAdapter = sModel.getApplicationsAdapter();
+	void navigateCatalogs(final int direction){
+		ApplicationsAdapter drawerAdapter = sModel.getApplicationsAdapter();
 		if (drawerAdapter == null)
 			return;
 
@@ -4503,6 +4595,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 		currentFIndex = filterIndexes.contains(currentFIndex) ?
 				filterIndexes.indexOf(currentFIndex) :
 				filterIndexes.indexOf(AppGroupAdapter.APP_GROUP_ALL);
+		
 	    switch (direction) {
         case ACTION_CATALOG_PREV:
         	currentFIndex--;
@@ -4518,21 +4611,44 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 	    	currentFIndex = filterIndexes.size() - 1;
 	    else if (currentFIndex >= filterIndexes.size())
 	    	currentFIndex = 0;
+	    
 	    // Translate to "filter index"
-	    currentFIndex = filterIndexes.get(currentFIndex);
-	    filter.setCurrentGroupIndex(currentFIndex);
+	    final int setIndex = filterIndexes.get(currentFIndex);
+	    
+	    if ( useDrawerUngroupCatalog )
+	    {
+            filter.setCurrentGroupIndex(setIndex);
+            if ( currentFIndex == 0 && filterIndexes.size() > 1 
+                    && ((ApplicationsAdapter.CatalogueFilter)drawerAdapter.getFilter()).isEmpty() )
+            {
+                navigateCatalogs( direction );
+                return;
+            }
+	    }
 
-	    if (filter == AppCatalogueFilters.getInstance().getDrawerFilter())
-	    	AlmostNexusSettingsHelper.setCurrentAppCatalog(Launcher.this, currentFIndex);
-        mAllAppsGrid.updateAppGrp();
+	    mAllAppsGrid.switchGroups(new Runnable(){
+
+            @Override
+            public void run()
+            {
+                filter.setCurrentGroupIndex(setIndex);
+                if (filter == AppCatalogueFilters.getInstance().getDrawerFilter())
+                    AlmostNexusSettingsHelper.setCurrentAppCatalog(Launcher.this, setIndex);
+
+                mAllAppsGrid.updateAppGrp();
+                ((View)mAllAppsGrid).invalidate();
+            }});
+
         // Uncomment this to show a toast with the name of the new group...
-	    /*String name = currentFIndex ==  AppGroupAdapter.APP_GROUP_ALL ?
-	    		getString(R.string.AppGroupAll) :
-	    		AppCatalogueFilters.getInstance().getGroupTitle(currentFIndex);
-	    if (name != null) {
-	    	Toast t=Toast.makeText(this, name, Toast.LENGTH_SHORT);
-	    	t.show();
-	    } */
+//	    String name = currentFIndex ==  AppGroupAdapter.APP_GROUP_ALL ?
+//	    		getString(R.string.AppGroupUn) :
+//	    		AppCatalogueFilters.getInstance().getGroupTitle(currentFIndex);
+//	    if (name != null) {
+//	        ((LauncherPlus)this).groupTitlePopupWindow(this, mAllAppsGrid, name);
+//	        
+//	    	//Toast t=Toast.makeText(this, name, Toast.LENGTH_SHORT);
+//	    	//t.show();
+//	    } 
 	}
 
 	private void updateCounters(View view, String packageName, int counter, int color){
@@ -4587,7 +4703,11 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                     "or use the exported attribute for this activity.", e);
         }
     }
-    public void showActions(final ItemInfo info, final View view){
+    public void showActions(final ItemInfo info, final View view, PopupWindow.OnDismissListener onDismissListener){
+        QuickActionWindow existingQA = (QuickActionWindow) view.getTag(R.id.TAG_PREVIEW);
+        if( existingQA != null && existingQA.isShowing() ) {
+            return;
+        }
         int[] xy = new int[2];
         //fills the array with the computed coordinates
         view.getLocationInWindow(xy);
@@ -4597,83 +4717,130 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         //a new QuickActionWindow object
         final QuickActionWindow qa = new QuickActionWindow(this, view, rect);
         view.setTag(R.id.TAG_PREVIEW, qa);
-
-        //adds an item to the badge and defines the quick action to be triggered
-        //when the item is clicked on
-        qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_delete), R.string.menu_delete, new OnClickListener() {
-            public void onClick(View v) {
-                final LauncherModel model = Launcher.getModel();
-                if (info.container == LauncherSettings.Favorites.CONTAINER_DESKTOP) {
-                    if (info instanceof LauncherAppWidgetInfo) {
-                        model.removeDesktopAppWidget((LauncherAppWidgetInfo) info);
-                    } else {
-                        model.removeDesktopItem(info);
-                    }
-                } else {
-                    //in a folder?
-                    FolderInfo source=sModel.getFolderById(Launcher.this, info.container);
-                    if (source instanceof UserFolderInfo) {
-                        final UserFolderInfo userFolderInfo = (UserFolderInfo) source;
-                        model.removeUserFolderItem(userFolderInfo, info);
-                    }
-                }
-                if (info instanceof UserFolderInfo) {
-                    final UserFolderInfo userFolderInfo = (UserFolderInfo)info;
-                    LauncherModel.deleteUserFolderContentsFromDatabase(Launcher.this, userFolderInfo);
-                    model.removeUserFolder(userFolderInfo);
-                } else if (info instanceof LauncherAppWidgetInfo) {
-                    final LauncherAppWidgetInfo launcherAppWidgetInfo = (LauncherAppWidgetInfo) info;
-                    final LauncherAppWidgetHost appWidgetHost = Launcher.this.getAppWidgetHost();
-                    Launcher.this.getWorkspace().unbindWidgetScrollableId(launcherAppWidgetInfo.appWidgetId);
-                    if (appWidgetHost != null) {
-                        appWidgetHost.deleteAppWidgetId(launcherAppWidgetInfo.appWidgetId);
-                    }
-                }
-                LauncherModel.deleteItemFromDatabase(Launcher.this, info);
-                if (view instanceof ActionButton)
-                	((ActionButton)view).UpdateLaunchInfo(null);
-                else
-                	((ViewGroup) view.getParent()).removeView(view);
-
-                qa.dismiss();
-            }
-        });
-
-        if(info instanceof ApplicationInfo){
-            qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_edit), R.string.menu_edit, new OnClickListener() {
-                public void onClick(View v) {
-                    editShirtcut((ApplicationInfo)info);
-                    qa.dismiss();
-                }
-            });
-        }else if(info instanceof LauncherAppWidgetInfo){
-            qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_edit), R.string.menu_edit, new OnClickListener() {
-                public void onClick(View v) {
-                    editWidget(view);
-                    qa.dismiss();
-                }
-            });
-        }
-        else if(info instanceof FolderInfo){
-            qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_edit), R.string.menu_edit, new OnClickListener() {
-                public void onClick(View v) {
-                    showRenameDialog((FolderInfo)info);
-                    qa.dismiss();
-                }
-            });
-        }
         
-        if (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION 
+        if (onDismissListener != null) {
+            qa.setOnDismissListener(onDismissListener);
+        }
+
+        if ( info.container != ItemInfo.NO_ID )
+        {
+            //adds an item to the badge and defines the quick action to be triggered
+            //when the item is clicked on
+            qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_delete), R.string.menu_delete, new OnClickListener() {
+                public void onClick(View v) {
+                    final LauncherModel model = Launcher.getModel();
+                    boolean removedFromFolder = false;
+                    if (info.container == LauncherSettings.Favorites.CONTAINER_DESKTOP) {
+                        if (info instanceof LauncherAppWidgetInfo) {
+                            model.removeDesktopAppWidget((LauncherAppWidgetInfo) info);
+                        } else {
+                            model.removeDesktopItem(info);
+                        }
+                    } else {
+                        //in a folder?
+                        FolderInfo source=sModel.getFolderById(Launcher.this, info.container);
+                        if (source instanceof UserFolderInfo) {
+                            final UserFolderInfo userFolderInfo = (UserFolderInfo) source;
+                            model.removeUserFolderItem(userFolderInfo, info);
+                            removedFromFolder = true;
+                        }
+                    }
+                    if (info instanceof UserFolderInfo) {
+                        final UserFolderInfo userFolderInfo = (UserFolderInfo)info;
+                        LauncherModel.deleteUserFolderContentsFromDatabase(Launcher.this, userFolderInfo);
+                        model.removeUserFolder(userFolderInfo);
+                    } else if (info instanceof LauncherAppWidgetInfo) {
+                        final LauncherAppWidgetInfo launcherAppWidgetInfo = (LauncherAppWidgetInfo) info;
+                        final LauncherAppWidgetHost appWidgetHost = Launcher.this.getAppWidgetHost();
+                        Launcher.this.getWorkspace().unbindWidgetScrollableId(launcherAppWidgetInfo.appWidgetId);
+                        if (appWidgetHost != null) {
+                            appWidgetHost.deleteAppWidgetId(launcherAppWidgetInfo.appWidgetId);
+                        }
+                    }
+                    LauncherModel.deleteItemFromDatabase(Launcher.this, info);
+                    
+                    if ( removedFromFolder ) {
+                        final Folder folder = mWorkspace.getOpenFolder();
+                        if (folder != null) folder.notifyDataSetChanged();
+                    }
+                    else {
+                        if (view instanceof ActionButton)
+                            ((ActionButton)view).UpdateLaunchInfo(null);
+                        else
+                            ((ViewGroup) view.getParent()).removeView(view);
+                    }
+    
+                    qa.dismiss();
+                }
+            });
+
+            if(info instanceof ApplicationInfo){
+                qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_edit), R.string.menu_edit, new OnClickListener() {
+                    public void onClick(View v) {
+                        editShirtcut((ApplicationInfo)info);
+                        qa.dismiss();
+                    }
+                });
+            }else if(info instanceof LauncherAppWidgetInfo){
+                qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_edit), R.string.menu_edit, new OnClickListener() {
+                    public void onClick(View v) {
+                        editWidget(view);
+                        qa.dismiss();
+                    }
+                });
+            }
+        }
+
+        String infoPackage = null;
+        boolean isADWShortcut = false;
+        if (info instanceof FolderInfo)
+        {
+            qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_edit), R.string.menu_edit, new OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    if ( info instanceof LiveFolderInfo )
+                    {
+                        showRenameDialog( (LiveFolderInfo)info );                        
+                    }
+                    else
+                    {
+                        editShirtcut(info);
+                    }
+                    qa.dismiss();
+                }
+            });
+            if (info instanceof LiveFolderInfo)
+            {
+                LiveFolderInfo lfi = (LiveFolderInfo) info;
+                if (lfi.baseIntent != null) {
+                    Uri data = lfi.baseIntent.getData();
+                    if ( data != null )
+                    {
+                        String host = data.getHost();
+                        PackageManager mgr = getPackageManager();
+                        ProviderInfo packageInfo = mgr.resolveContentProvider(host, 0);
+                        if (packageInfo != null)
+                            infoPackage = packageInfo.packageName;
+                    }
+                }
+            }
+        }
+        else if (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION || 
+                info.itemType == LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT 
                 || info.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPWIDGET)
         {
-            String infoPackage = null;
-            boolean isADWShortcut = false;
-            if (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION)
+            if (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION || 
+                    info.itemType == LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT )
             {
                 ApplicationInfo appInfo = (ApplicationInfo) info;
-                infoPackage = appInfo.intent.getComponent().getPackageName();
-                isADWShortcut = (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT && appInfo.intent.getComponent().getPackageName()
-                        .equals(Launcher.class.getPackage().getName()));
+                ComponentName component = appInfo.intent.getComponent();
+                if ( component != null )
+                {
+                    infoPackage = component.getPackageName();
+                    isADWShortcut = (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT 
+                            && component.getPackageName().equals(Launcher.class.getPackage().getName()));
+                }
             }
             else if (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPWIDGET)
             {
@@ -4684,94 +4851,119 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                     infoPackage = appWidgetInfo.provider.getPackageName();
                 }
             }
+        }
 
-            if (infoPackage != null && !isADWShortcut)
+        // found the package and it's not an ADW internal shortcut
+        if (infoPackage != null && !isADWShortcut)
+        {
+            if ( !(info instanceof FolderInfo) )
             {
-                final String appPackage = infoPackage;
-                
-                // get the application info label 
-                if ( mAppInfoLabel == null )
+                qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_agenda), R.string.AppGroupChoose, new OnClickListener()
                 {
-                    try
+                    public void onClick(View v)
                     {
-                        Resources resources = createPackageContext(ANDROID_SETTINGS_PACKAGE, Context.CONTEXT_IGNORE_SECURITY).getResources();
-                        int nameID = resources.getIdentifier("application_info_label", "string", ANDROID_SETTINGS_PACKAGE);
-                        if ( nameID != 0 )
-                        {
-                            mAppInfoLabel = resources.getString(nameID);
-                        }
+                        qa.dismiss();
+                        mPickGroupInfo = (ApplicationInfo) info;
+                        mWaitingForResult = true;
+                        showDialog(DIALOG_PICK_GROUPS);
                     }
-                    catch (Exception e)
+                });
+            }
+
+            final String appPackage = infoPackage;
+            // get the application info label 
+            if ( mAppInfoLabel == null )
+            {
+                try
+                {
+                    Resources resources = createPackageContext(ANDROID_SETTINGS_PACKAGE, Context.CONTEXT_IGNORE_SECURITY).getResources();
+                    int nameID = resources.getIdentifier("application_info_label", "string", ANDROID_SETTINGS_PACKAGE);
+                    if ( nameID != 0 )
                     {
-                        // can't lookup the name!
+                        mAppInfoLabel = resources.getString(nameID);
                     }
                 }
-                // if application info label loaded show the option
-                if ( mAppInfoLabel != null )
+                catch (Exception e)
                 {
-                    qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_info_details), mAppInfoLabel, new OnClickListener()
+                    // can't lookup the name!
+                }
+            }
+            // if application info label loaded show the option
+            if ( mAppInfoLabel != null )
+            {
+                qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_info_details), mAppInfoLabel, new OnClickListener()
+                {
+                    public void onClick(View v)
                     {
-                        public void onClick(View v)
+                        qa.dismiss();
+                        try
                         {
-                            qa.dismiss();
-                            try
-                            {
-                                Intent intent = new Intent();
-                                intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                            Intent intent = new Intent();
+                            final int apiLevel = Build.VERSION.SDK_INT;
+                            if (apiLevel >= 9)
+                            { // above 2.3
+                                intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                                 Uri uri = Uri.fromParts("package", appPackage, null);
                                 intent.setData(uri);
-                                startActivity(intent);
                             }
-                            catch (Exception e)
-                            {
-                                // failed to start app info
+                            else
+                            { // below 2.3
+                                final String appPkgName = (apiLevel == 8 ? "pkg" : "com.android.settings.ApplicationPkgName");
+                                intent.setAction(Intent.ACTION_VIEW);
+                                intent.setClassName(ANDROID_SETTINGS_PACKAGE, "com.android.settings.InstalledAppDetails");
+                                intent.putExtra(appPkgName, appPackage);
                             }
+                            Launcher.this.startActivity(intent);
                         }
-                    });
-                }
-                
-                // get the market icon
-                if (mMarketIcon == null && mMarketLabel == null)
-                {
-                    try
-                    {
-                        PackageManager packageManager = getPackageManager();
-                        android.content.pm.ApplicationInfo applicationInfo = packageManager.getApplicationInfo(ANDROID_MARKET_PACKAGE, 0);
-                        mMarketIcon = applicationInfo.loadIcon(packageManager);
-                        mMarketLabel = applicationInfo.loadLabel(packageManager);
-                        if (mMarketLabel == null)
+                        catch (Exception e)
                         {
-                            mMarketLabel = applicationInfo.name;
+                            // failed to start app info
                         }
                     }
-                    catch (Exception e)
+                });
+            }
+            
+            // get the market icon
+            if (mMarketIcon == null && mMarketLabel == null)
+            {
+                try
+                {
+                    PackageManager packageManager = getPackageManager();
+                    android.content.pm.ApplicationInfo applicationInfo = packageManager.getApplicationInfo(ANDROID_MARKET_PACKAGE, 0);
+                    mMarketIcon = applicationInfo.loadIcon(packageManager);
+                    mMarketLabel = applicationInfo.loadLabel(packageManager);
+                    if (mMarketLabel == null)
                     {
-                        // would appear there is no market
-                        mMarketIcon = null;
-                        mMarketLabel = "";  // empty string so we don't try to load this again
+                        mMarketLabel = applicationInfo.name;
                     }
                 }
-                // if market, show it as an option
-                if (mMarketIcon != null && mMarketLabel != null)
+                catch (Exception e)
                 {
-                    qa.addItem(mMarketIcon, (String) mMarketLabel, new OnClickListener()
-                    {
-                        public void onClick(View v)
-                        {
-                            qa.dismiss();
-                            try
-                            {
-                                Intent intent = new Intent(Intent.ACTION_VIEW);
-                                intent.setData(Uri.parse("market://search?q=pname:" + appPackage));
-                                startActivity(intent);
-                            }
-                            catch (Exception e)
-                            {
-                                // failed to tell market to find the app
-                            }
-                        }
-                    });
+                    // would appear there is no market
+                    mMarketIcon = null;
+                    mMarketLabel = "";  // empty string so we don't try to load this again
                 }
+            }
+            // if market, show it as an option
+            if (mMarketIcon != null && mMarketLabel != null)
+            {
+                qa.addItem(mMarketIcon, (String) mMarketLabel, new OnClickListener()
+                {
+                    public void onClick(View v)
+                    {
+                        qa.dismiss();
+                        try
+                        {
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setData(Uri.parse("market://search?q=pname:" + appPackage));
+                            startActivity(intent);
+                        }
+                        catch (Exception e)
+                        {
+                            // failed to tell market to find the app
+                        }
+                    }
+                });
             }
         }
         //shows the quick action window on the screen
@@ -4785,5 +4977,137 @@ public final class Launcher extends Activity implements View.OnClickListener, On
     public void setDockPadding(int pad){
         mDrawerToolbar.setPadding(0, 0,0,pad);
         mDockBar.setPadding(0, 0, 0, pad);
+    }
+    public void createManageApplications(Menu menu, int menuGroupAlmostnexus)
+    {
+        // get the application info label and if found show the option
+        if (mAppManageLabel == null)
+        {
+            try
+            {
+                Resources resources = createPackageContext(ANDROID_SETTINGS_PACKAGE, Context.CONTEXT_IGNORE_SECURITY).getResources();
+                int nameID = resources.getIdentifier("manageapplications_settings_title", "string", ANDROID_SETTINGS_PACKAGE);
+                if (nameID != 0)
+                {
+                    mAppManageLabel = resources.getString(nameID);
+                }
+            }
+            catch (Exception e)
+            {
+                // can't find the settings label
+            }
+        }
+        if (mAppManageLabel != null)
+        {
+            final Intent settings = new Intent(Intent.ACTION_MAIN);
+            settings.setComponent(ANDROID_MANAGE_COMPONENT);
+            settings.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+
+            menu.add(menuGroupAlmostnexus, MENU_MANAGE_APPS, 0, mAppManageLabel).setIcon(android.R.drawable.ic_menu_manage).setAlphabeticShortcut('M')
+                    .setIntent(settings);
+        }
+    }
+
+    protected class PickGrpDialog implements DialogInterface.OnMultiChoiceClickListener, DialogInterface.OnCancelListener, DialogInterface.OnDismissListener,
+            DialogInterface.OnShowListener, DialogInterface.OnClickListener
+    {
+        private List<Catalogue> mAllGroups;
+        private boolean[] inGroup;
+
+        Dialog createDialog()
+        {
+            mWaitingForResult = true;
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(Launcher.this);
+            builder.setTitle(getString(R.string.AppGroupChoose));
+
+            mAllGroups = AppCatalogueFilters.getInstance().getAllGroups();
+
+            int count = mAllGroups.size();
+            CharSequence[] groups = new CharSequence[count];
+            inGroup = new boolean[count];
+            for (int i = 0; i < count; i++)
+            {
+                groups[i] = mAllGroups.get(i).getTitle();
+                inGroup[i] = mAllGroups.get(i).getPreferences().getBoolean(mPickGroupInfo.intent.getComponent().flattenToString(), false);
+            }
+            builder.setMultiChoiceItems(groups, inGroup, this);
+            builder.setInverseBackgroundForced(true);
+            builder.setPositiveButton(android.R.string.ok, this);
+            builder.setNeutralButton(R.string.AppGroupAdd, new DialogInterface.OnClickListener()
+            {
+
+                @Override
+                public void onClick(DialogInterface dialog, int arg1)
+                {
+                    dialog.dismiss();
+                    removeDialog(DIALOG_PICK_GROUPS);
+                    showDialog(DIALOG_NEW_GROUP);
+                }
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.setOnCancelListener(this);
+            dialog.setOnDismissListener(this);
+            dialog.setOnShowListener(this);
+            return dialog;
+        }
+        
+        public void onCancel(DialogInterface dialog)
+        {
+            mPickGroupInfo = null;
+            cleanup();
+        }
+
+        public void onDismiss(DialogInterface dialog)
+        {
+            cleanup();
+        }
+
+        private void cleanup()
+        {
+            mWaitingForResult = false;
+            mAllAppsGrid.updateAppGrp();
+            getWorkspace().unlock();
+            try
+            {
+                removeDialog(DIALOG_PICK_GROUPS);
+            }
+            catch (Exception e)
+            {
+                // Restarted while dialog or whatever causes
+                // IllegalStateException???
+            }
+        }
+
+        public void onClick(DialogInterface dialog, int which)
+        {
+            for (int i = 0; i < inGroup.length; i++)
+            {
+                Editor edit = mAllGroups.get(i).getPreferences().edit();
+                if (inGroup[i])
+                {
+                    edit.putBoolean(mPickGroupInfo.intent.getComponent().flattenToString(), true);
+                }
+                else
+                {
+                    edit.remove(mPickGroupInfo.intent.getComponent().flattenToString());
+                }
+                edit.commit();
+            }
+
+            cleanup();
+        }
+
+        public void onShow(DialogInterface dialog)
+        {
+            getWorkspace().lock();
+        }
+
+        @Override
+        public void onClick(DialogInterface arg0, int which, boolean checked)
+        {
+            inGroup[which] = checked;
+        }
     }
 }

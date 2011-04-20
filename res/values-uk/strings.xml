@@ -61,7 +61,6 @@
   <string name="permlab_write_settings">писати до налаштувань домівки та ярликів</string>
   <string name="permdesc_write_settings">Дозволяє програмі змінювати налаштування та ярлики домівки.</string>
   <string name="gadget_error_text">Помилка завантаження віджету</string>
-  <string name="adw_version">Версія 1.3.6 (інтегрована)</string>
   <string name="pref_label_settings">Налаштування ADW</string>
   <string name="pref_title_screen_preferences">Стільниця</string>
   <string name="pref_summary_screen_preferences">Основна область стільниці, розташування екрану\u2026</string>

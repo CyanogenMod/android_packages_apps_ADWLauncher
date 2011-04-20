@@ -260,10 +260,10 @@
     <string name="message_dialog_export_config">백업합니까? 존재하는 파일은 덮어쓰여집니다.</string>
     <string name="dbfile_export_dialog">설정 백업 중...</string>
     <string name="dbfile_export_success">백업 성공!</string>
-    <string name="dbfile_export_error">백업 실패</string>
+    <string name="dbfile_export_error">백업 실패... :( </string>
 
     <string name="message_dialog_import_config">복구합니까? 런쳐가 재시작됩니다.</string>
-    <string name="dbfile_import_dialog">복구중.</string>
+    <string name="dbfile_import_dialog">복구중..</string>
     <string name="dbfile_not_found">백업 파일이 없습니다!</string>
     <string name="dbfile_not_readable">백업 파일을 읽을 수 없습니다!</string>
     <string name="dbfile_import_success">복구 성공!</string>
@@ -379,25 +379,14 @@
 
     <string name="pref_title_ab_preferencecategory">독 설정</string>
     <string name="pref_title_main_dock_style">독 비활성화 및 개수 설정</string>
+    <string name="pref_summary_main_dock_style">Select the main dock layout</string>
     <string name="pref_title_behaviour_preferences">기본 설정</string>
-    <string name="pref_summary_behaviour_preferences">홈화면에 대한 기본적인 설정을 합니다.</string>
+    <string name="pref_summary_behaviour_preferences">홈화면에 대한 기본적인 설정을 합니다..</string>
     <string name="pref_title_drawer_style">메뉴 스타일 설정</string>
+    <string name="pref_summary_drawer_style">Switch between different drawer implementations</string>
     <string name="pref_title_dockbar_preferencecategory">2차 독 (메뉴 버튼을 끌어올리면 나옵니다.) 설정</string>
-    <string name="pref_title_ab_tint">독 아이콘 색조 선택</string>
-    <string name="pref_summary_ab_tint">독 아이콘의 색조를 선택합니다.</string>
-    <string name="pref_title_ab_tint_color">색조 선택</string>
-    <string name="pref_summary_ab_tint_color">색조를 선택하세요.</string>
-    
-    <string name="pref_title_deletezone_preferencecategory">휴지통</string>
-    <string name="pref_title_deletezone_style">휴지통 위치</string>
-    <string name="pref_summary_deletezone_style">휴지통의 위치를 변경합니다.</string>
-    <string name="pref_title_close_apps_dockbar">메뉴 닫기</string>
-    <string name="pref_summary_close_apps_dockbar">독이 보일 때 메뉴 항목을 길게 누르면 메뉴를 닫습니다.</string>
-    <string name="menu_lock">바탕화면 잠금</string>
-    <string name="menu_unlock">바탕화면 잠금 해제</string>
-    <string name="pref_summary_drawer_style">다른 메뉴 방식를 선택할 수 있습니다l</string>
-    <string name="pref_title_closing_folder">폴더 닫기</string>
-    <string name="pref_summary_closing_folder">앱 실행 후에 자동으로 폴더를 닫습니다</string>
-
-    <string name="pref_summary_main_dock_style">기본 독 형식을 선택하세요.</string>
+    <string name="pref_title_ab_tint">독 아이콘 단색화</string>
+    <string name="pref_summary_ab_tint">독 아이콘을 단색화합니다..</string>
+    <string name="pref_title_ab_tint_color">단색화할 색…</string>
+    <string name="pref_summary_ab_tint_color">단색화 할 색을 고릅니다.</string>
 </resources>

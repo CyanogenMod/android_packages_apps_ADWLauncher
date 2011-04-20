@@ -341,7 +341,6 @@
     <string name="menu_delete">Remover</string>
     <string name="menu_uninstall">Desinstalar</string>
     <string name="menu_adw_settings">ADWConfigurações</string>
-    <string name="adw_version">Versão 1.3.6</string>
     <string name="toast_widgets_not_supported">Desculpe, não tem suporte a widgets :-)</string>
     <string name="toast_unknown_item">Item desconhecido. Não podemos adicionar items com tipo desconhecido :-)</string>
     <string name="toast_no_application_def">Ainda não tem nenhuma aplicação definida, inseria algo aqui! :)</string>

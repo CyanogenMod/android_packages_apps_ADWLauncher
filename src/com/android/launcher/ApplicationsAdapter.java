@@ -264,7 +264,18 @@ public class ApplicationsAdapter extends ArrayAdapter<ApplicationInfo> {
 	}
 
 
-	private class CatalogueFilter extends Filter {
+	public class CatalogueFilter extends Filter {
+        public boolean isEmpty()
+        {
+            ArrayList<ApplicationInfo> filt = new ArrayList<ApplicationInfo>();
+
+            synchronized (allItems) {
+                filterApps(filt, allItems);
+            }
+            
+            return filt.size() == 0;
+        }
+        
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
 
