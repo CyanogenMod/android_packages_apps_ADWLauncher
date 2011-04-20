@@ -25,6 +25,7 @@ import com.android.launcher.catalogue.AppGroupAdapter;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.database.DataSetObserver;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -297,6 +298,7 @@ public class AllAppsGridView extends GridView implements
 	protected boolean drawChild(Canvas canvas, View child, long drawingTime) {
 		int saveCount = canvas.save();
 		Drawable[] tmp = ((TextView) child).getCompoundDrawables();
+                Bitmap b = null;
 		if (mIconSize == 0) {
 			mIconSize = tmp[1].getIntrinsicHeight() + child.getPaddingTop();
 		}
@@ -313,19 +315,18 @@ public class AllAppsGridView extends GridView implements
 			float width = child.getWidth() * mScaleFactor;
 //			height = (child.getHeight() - (child.getHeight() - mIconSize))
 //					* mScaleFactor;
-			if (shouldDrawLabels)
+			if (shouldDrawLabels) {
 				child.setDrawingCacheEnabled(true);
-			if (shouldDrawLabels && child.getDrawingCache() != null) {
+                                child.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_LOW);
+                                b = child.getDrawingCache();
+                        }
+			if (shouldDrawLabels && b != null) {
 				// ADW: try to manually draw labels
-				rl1.set(0, mIconSize, child.getDrawingCache()
-						.getWidth(), child.getDrawingCache().getHeight());
-				rl2.set(child.getLeft(),
-						child.getTop() + mIconSize, child.getLeft()
-								+ child.getDrawingCache().getWidth(), child
-								.getTop()
-								+ child.getDrawingCache().getHeight());
+				rl1.set(0, mIconSize, b.getWidth(), b.getHeight());
+				rl2.set(child.getLeft(), child.getTop() + mIconSize, child.getLeft()
+							+ b.getWidth(),child.getTop() + b.getHeight());
 				mLabelPaint.setAlpha((int) (mLabelFactor * 255));
-				canvas.drawBitmap(child.getDrawingCache(), rl1, rl2,
+				canvas.drawBitmap(b, rl1, rl2,
 						mLabelPaint);
 			}
 			float scale = ((width) / child.getWidth());
@@ -343,10 +344,10 @@ public class AllAppsGridView extends GridView implements
             }
 			if (mDrawLabels) {
 				child.setDrawingCacheEnabled(true);
-				if (child.getDrawingCache() != null) {
+				b = child.getDrawingCache();
+                if (b != null) {
 					mPaint.setAlpha(alpha);
-                    canvas.drawBitmap(child.getDrawingCache(), child.getLeft(),
-                            child.getTop(), mPaint);
+                    canvas.drawBitmap(b, child.getLeft(), child.getTop(), mPaint);
                 } else {
                     int left = child.getLeft();
                     int top = child.getTop();

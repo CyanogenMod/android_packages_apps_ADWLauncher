@@ -1854,6 +1854,7 @@ public class AllAppsSlidingView extends AdapterView<ApplicationsAdapter> impleme
 		}
 	}
 	public void open(boolean animate) {
+	    mHolder=null;
 	    mStatus=HolderLayout.OnFadingListener.OPEN;
 		mBgColor=AlmostNexusSettingsHelper.getDrawerColor(mLauncher);
 		mTargetAlpha=Color.alpha(mBgColor);

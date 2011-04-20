@@ -1634,7 +1634,8 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 
     @Override
     public boolean onSearchRequested() {
-        startSearch(null, false, null, true);
+        startSearch(getTypedText(), false, null, true);
+        clearTypedText();
         return true;
     }
 
