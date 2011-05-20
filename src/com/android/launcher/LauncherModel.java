@@ -922,6 +922,8 @@ public class LauncherModel {
                             folderInfo.cellX = c.getInt(cellXIndex);
                             folderInfo.cellY = c.getInt(cellYIndex);
 
+                            loadFolderIcon(launcher, c, iconTypeIndex, iconIndex, folderInfo);
+
                             switch (container) {
                                 case LauncherSettings.Favorites.CONTAINER_DESKTOP:
                                 case LauncherSettings.Favorites.CONTAINER_DOCKBAR:
@@ -1129,6 +1131,33 @@ public class LauncherModel {
         }
     }
 
+    static private void loadFolderIcon(Context context, Cursor c, int iconTypeIndex, int iconIndex,
+            FolderInfo folderInfo)
+    {
+        int iconType = c.getInt(iconTypeIndex);
+        if ( iconType == LauncherSettings.Favorites.ICON_TYPE_BITMAP )
+        {
+            byte[] data = c.getBlob(iconIndex);
+            try {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+                folderInfo.icon = new FastBitmapDrawable(
+                        Utilities.createBitmapThumbnail(bitmap, context));
+                folderInfo.filtered = true;
+                folderInfo.customIcon = true;
+            } catch (Exception e) {
+                folderInfo.icon = null;
+                folderInfo.filtered = false;
+                folderInfo.customIcon = false;
+            }
+        }
+        else
+        {
+            folderInfo.icon = null;
+            folderInfo.filtered = false;
+            folderInfo.customIcon = false;
+        }
+    }
+
     private static void loadLiveFolderIcon(Launcher launcher, Cursor c, int iconTypeIndex,
             int iconPackageIndex, int iconResourceIndex, LiveFolderInfo liveFolderInfo) {
 
@@ -1177,7 +1206,12 @@ public class LauncherModel {
      * Return an existing UserFolderInfo object if we have encountered this ID previously, or make a
      * new one.
      */
-    private UserFolderInfo findOrMakeUserFolder(HashMap<Long, FolderInfo> folders, long id) {
+    private static UserFolderInfo findOrMakeUserFolder(HashMap<Long, FolderInfo> folders, long id) {
+        if ( folders == null )
+        {
+            return  new UserFolderInfo();
+        }
+        
         // See if a placeholder was created for us already
         FolderInfo folderInfo = folders.get(id);
         if (folderInfo == null || !(folderInfo instanceof UserFolderInfo)) {
@@ -1185,6 +1219,7 @@ public class LauncherModel {
             folderInfo = new UserFolderInfo();
             folders.put(id, folderInfo);
         }
+        
         return (UserFolderInfo) folderInfo;
     }
 
@@ -1192,7 +1227,12 @@ public class LauncherModel {
      * Return an existing UserFolderInfo object if we have encountered this ID previously, or make a
      * new one.
      */
-    private LiveFolderInfo findOrMakeLiveFolder(HashMap<Long, FolderInfo> folders, long id) {
+    static private LiveFolderInfo findOrMakeLiveFolder(HashMap<Long, FolderInfo> folders, long id) {
+        if ( folders == null )
+        {
+            return  new LiveFolderInfo();
+        }
+
         // See if a placeholder was created for us already
         FolderInfo folderInfo = folders.get(id);
         if (folderInfo == null || !(folderInfo instanceof LiveFolderInfo)) {
@@ -1502,7 +1542,12 @@ public class LauncherModel {
         return result;
     }
 
-    FolderInfo getFolderById(Context context, long id) {
+    FolderInfo getFolderById(Context context, long id )
+    {
+        return getFolderById(context, id, mFolders);
+    }
+    
+    static FolderInfo getFolderById(Context context, long id, HashMap<Long, FolderInfo> folders) {
         final ContentResolver cr = context.getContentResolver();
         Cursor c = cr.query(LauncherSettings.Favorites.CONTENT_URI, null,
                 "_id=? and (itemType=? or itemType=?)",
@@ -1518,14 +1563,17 @@ public class LauncherModel {
                 final int screenIndex = c.getColumnIndexOrThrow(LauncherSettings.Favorites.SCREEN);
                 final int cellXIndex = c.getColumnIndexOrThrow(LauncherSettings.Favorites.CELLX);
                 final int cellYIndex = c.getColumnIndexOrThrow(LauncherSettings.Favorites.CELLY);
+                final int iconIndex = c.getColumnIndexOrThrow(LauncherSettings.Favorites.ICON);
+                final int iconTypeIndex = c.getColumnIndexOrThrow(LauncherSettings.Favorites.ICON_TYPE);
 
                 FolderInfo folderInfo = null;
                 switch (c.getInt(itemTypeIndex)) {
                     case LauncherSettings.Favorites.ITEM_TYPE_USER_FOLDER:
-                        folderInfo = findOrMakeUserFolder(mFolders, id);
+                        folderInfo = findOrMakeUserFolder(folders, id);
+                        loadFolderIcon(context, c, iconTypeIndex, iconIndex, folderInfo);
                         break;
                     case LauncherSettings.Favorites.ITEM_TYPE_LIVE_FOLDER:
-                        folderInfo = findOrMakeLiveFolder(mFolders, id);
+                        folderInfo = findOrMakeLiveFolder(folders, id);
                         break;
                 }
 

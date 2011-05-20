@@ -221,6 +221,7 @@ public class HolderLayout extends ViewGroup {
 	protected boolean drawChild(Canvas canvas, View child, long drawingTime) {
 		int saveCount = canvas.save();
 		Drawable[] tmp=((TextView)child).getCompoundDrawables();
+                Bitmap b = null;
 		if(mIconSize==0){
 			mIconSize=tmp[1].getIntrinsicHeight()+child.getPaddingTop();
 		}
@@ -234,13 +235,18 @@ public class HolderLayout extends ViewGroup {
 			y=child.getTop()+(distV*(mScaleFactor-1))*(mScaleFactor);
 			width=child.getWidth()*mScaleFactor;
 			height=(child.getHeight()-(child.getHeight()-mIconSize))*mScaleFactor;
-			if(shouldDrawLabels)child.setDrawingCacheEnabled(true);
-			if(shouldDrawLabels && child.getDrawingCache()!=null){
+			if(shouldDrawLabels) {
+                                child.setDrawingCacheEnabled(true);
+                                child.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_LOW);
+                                b = child.getDrawingCache();
+                        }
+			if(shouldDrawLabels && b != null){
 				//ADW: try to manually draw labels
-				rl1.set(0,mIconSize,child.getDrawingCache().getWidth(),child.getDrawingCache().getHeight());
-				rl2.set(child.getLeft(),child.getTop()+mIconSize,child.getLeft()+child.getDrawingCache().getWidth(),child.getTop()+child.getDrawingCache().getHeight());
+				rl1.set(0,mIconSize,b.getWidth(),b.getHeight());
+				rl2.set(child.getLeft(),child.getTop()+mIconSize,child.getLeft()
+                                         +b.getWidth(),child.getTop()+b.getHeight());
 				mLabelPaint.setAlpha((int) (mLabelFactor*255));
-				canvas.drawBitmap(child.getDrawingCache(), rl1, rl2, mLabelPaint);
+				canvas.drawBitmap(b, rl1, rl2, mLabelPaint);
 			}
 			scale=((width)/child.getWidth());
 			r3 = tmp[1].getBounds();
@@ -252,16 +258,10 @@ public class HolderLayout extends ViewGroup {
 			canvas.restore();
 		}else{
 			if(mDrawLabels){
-				child.setDrawingCacheEnabled(true);
-				if(child.getDrawingCache()!=null){
-					mPaint.setAlpha(255);
-					canvas.drawBitmap(child.getDrawingCache(), child.getLeft(), child.getTop(), mPaint);
-				}else{
-					canvas.save();
-					canvas.translate(child.getLeft(), child.getTop());
-					child.draw(canvas);
-					canvas.restore();
-				}
+				canvas.save();
+				canvas.translate(child.getLeft(), child.getTop());
+				child.draw(canvas);
+				canvas.restore();
 			}else{
 				r3 = tmp[1].getBounds();
 				int xx=(child.getWidth()/2)-(r3.width()/2);
@@ -341,5 +341,15 @@ public class HolderLayout extends ViewGroup {
     public void updateLabelVars(Context context){
     	mDrawLabels=AlmostNexusSettingsHelper.getDrawerLabels(context);
     	mFadeDrawLabels=AlmostNexusSettingsHelper.getFadeDrawerLabels(context);
+    }
+
+    public void setStartTime(long startTime)
+    {
+        this.startTime = startTime;
+    }
+
+    public long getStartTime()
+    {
+        return startTime;
     }
 }

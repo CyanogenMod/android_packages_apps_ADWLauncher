@@ -19,8 +19,6 @@ package com.android.launcher;
 import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 
 /**
  * Represents a launchable application. An application is made of a name (or title),
@@ -35,31 +33,11 @@ public class ApplicationInfo extends ItemInfo {
      * The "unread counter" bubble color
      */
     public int counterColor;
-    /**
-     * The application name.
-     */
-    public CharSequence title;
 
     /**
      * The intent used to start the application.
      */
     public Intent intent;
-
-    /**
-     * The application icon.
-     */
-    public Drawable icon;
-
-    /**
-     * When set to true, indicates that the icon has been resized.
-     */
-    boolean filtered;
-
-    /**
-     * Indicates whether the icon comes from an application's resource (if false)
-     * or from a custom Bitmap (if true.)
-     */
-    boolean customIcon;
 
     int hashCode=0;
 
@@ -90,11 +68,9 @@ public class ApplicationInfo extends ItemInfo {
 	            iconResource.packageName = nfo.iconResource.packageName;
 	            iconResource.resourceName = nfo.iconResource.resourceName;
 	        }
-	        icon = nfo.icon;
-	        filtered = nfo.filtered;
-	        customIcon = nfo.customIcon;
 	        counter=nfo.counter;
 	        counterColor=nfo.counterColor;
+            super.assignFrom(info);
     	}
     }
 
@@ -117,18 +93,10 @@ public class ApplicationInfo extends ItemInfo {
     void onAddToDatabase(ContentValues values) {
         super.onAddToDatabase(values);
 
-        String titleStr = title != null ? title.toString() : null;
-        values.put(LauncherSettings.BaseLauncherColumns.TITLE, titleStr);
-
         String uri = intent != null ? intent.toUri(0) : null;
         values.put(LauncherSettings.BaseLauncherColumns.INTENT, uri);
 
-        if (customIcon) {
-            values.put(LauncherSettings.BaseLauncherColumns.ICON_TYPE,
-                    LauncherSettings.BaseLauncherColumns.ICON_TYPE_BITMAP);
-            Bitmap bitmap = ((FastBitmapDrawable) icon).getBitmap();
-            writeBitmap(values, bitmap);
-        } else {
+        if (!customIcon) {
             values.put(LauncherSettings.BaseLauncherColumns.ICON_TYPE,
                     LauncherSettings.BaseLauncherColumns.ICON_TYPE_RESOURCE);
             if (iconResource != null) {

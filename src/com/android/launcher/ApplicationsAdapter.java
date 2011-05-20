@@ -103,6 +103,7 @@ public class ApplicationsAdapter extends ArrayAdapter<ApplicationInfo> {
 		}
 		View convertView = mInflater.inflate(R.layout.application_boxed, parent, false);
 		convertView.setDrawingCacheEnabled(mWithDrawingCache);
+		convertView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_LOW);
 		viewCache.put(info, convertView);
 		final TextView textView = (TextView) convertView;
 		textView.setCompoundDrawablesWithIntrinsicBounds(null, info.icon, null, null);
@@ -122,9 +123,10 @@ public class ApplicationsAdapter extends ArrayAdapter<ApplicationInfo> {
 			mWithDrawingCache = aValue;
 			for(View v : viewCache.values()) {
 				v.setDrawingCacheEnabled(aValue);
-				if(aValue)
+				if(aValue) {
+				    v.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_LOW);
 				    v.buildDrawingCache();
-				else
+				} else
 				    v.destroyDrawingCache();
 			}
 		}
@@ -262,7 +264,18 @@ public class ApplicationsAdapter extends ArrayAdapter<ApplicationInfo> {
 	}
 
 
-	private class CatalogueFilter extends Filter {
+	public class CatalogueFilter extends Filter {
+        public boolean isEmpty()
+        {
+            ArrayList<ApplicationInfo> filt = new ArrayList<ApplicationInfo>();
+
+            synchronized (allItems) {
+                filterApps(filt, allItems);
+            }
+            
+            return filt.size() == 0;
+        }
+        
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
 

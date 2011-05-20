@@ -568,14 +568,25 @@ public class DragLayer extends FrameLayout implements DragController {
         final int[] coordinates = mDropCoordinates;
         DropTarget dropTarget = findDropTarget((int) x, (int) y, coordinates);
 
+        if ( mTagPopup != null )
+        {
+            // don't perform dismiss action when the popup closes
+            ((QuickActionWindow) mTagPopup).setOnDismissListener(null);
+        }
         if (dropTarget != null) {
             dropTarget.onDragExit(mDragSource, coordinates[0], coordinates[1],
                     (int) mTouchOffsetX, (int) mTouchOffsetY, mDragInfo);
             if (dropTarget.acceptDrop(mDragSource, coordinates[0], coordinates[1],
                     (int) mTouchOffsetX, (int) mTouchOffsetY, mDragInfo)) {
-                dropTarget.onDrop(mDragSource, coordinates[0], coordinates[1],
-                        (int) mTouchOffsetX, (int) mTouchOffsetY, mDragInfo);
-                mDragSource.onDropCompleted((View) dropTarget, true);
+                boolean success = false;
+                if ( mTagPopup == null || !(dropTarget instanceof Workspace) )
+                {
+                    mTagPopup = null;
+                    dropTarget.onDrop(mDragSource, coordinates[0], coordinates[1],
+                            (int) mTouchOffsetX, (int) mTouchOffsetY, mDragInfo);
+                    success = true;
+                }
+                mDragSource.onDropCompleted((View) dropTarget, success);
                 return true;
             } else {
                 mDragSource.onDropCompleted((View) dropTarget, false);
