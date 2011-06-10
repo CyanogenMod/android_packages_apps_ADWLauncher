@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
        <string-array name="menu_binding_entries">
-       			<item>NONE</item>
+                <item>NONE</item>
                 <item>Move to default desktop</item>
                 <item>Move to default desktop/show previews</item>
                 <item>Show previews</item>
@@ -16,6 +16,13 @@
                 <item>Dot paginator top</item>
                 <item>Sliding paginator top</item>
                 <item>Sliding paginator bottom</item>
+       </string-array>
+       <string-array name="desktop_transition_entries">
+                <item>Normal</item>
+                <item>Rotate</item>
+                <item>Page</item>
+                <item>Cube</item>
+                <item>Scatter</item>
        </string-array>
        <string-array name="home_orientation_entries">
                 <item>Auto/sensor</item>
@@ -46,7 +53,7 @@
        </string-array>
        <!-- Do not translate. -->
        <string-array name="menu_binding_values">
-       			<item>0</item>
+                <item>0</item>
                 <item>1</item>
                 <item>2</item>
                 <item>3</item>
@@ -61,6 +68,13 @@
                 <item>1</item>
                 <item>2</item>
                 <item>3</item>
+       </string-array>
+       <string-array name="desktop_transition_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+                <item>4</item>
+                <item>5</item>
        </string-array>
        <string-array name="home_orientation_values">
                 <item>1</item>

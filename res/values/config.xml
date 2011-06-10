@@ -59,6 +59,7 @@
     <bool name="config_desktop_indicator_autohide">false</bool>
     <!-- 1=top dots, 2=top slider, 3=bottom slider -->
     <string name="config_desktop_indicator_type">1</string>
+    <string name="config_desktop_transition">1</string>
     <bool name="config_system_persistent">false</bool>
     <!-- 1=sensor, 2=portrait, 3=landscape -->
     <string name="config_orientation_default">1</string>

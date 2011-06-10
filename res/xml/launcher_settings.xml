@@ -52,6 +52,14 @@
 				android:dialogMessage="@string/pref_dialog_desktop_overshoot"
 				android:key="desktopBounce" android:defaultValue="@integer/config_desktopBounce"
 				android:max="100" />
+            <ListPreference
+                android:key="desktop_transition_style"
+                android:title="@string/pref_title_desktop_transition"
+                android:summary="@string/pref_summary_desktop_transition"
+                android:defaultValue="@string/config_desktop_transition"
+                android:entryValues="@array/desktop_transition_values"
+                android:entries="@array/desktop_transition_entries"
+            />
 		</PreferenceCategory>
 	</PreferenceScreen>
 	<PreferenceScreen

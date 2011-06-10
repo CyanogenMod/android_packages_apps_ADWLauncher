@@ -311,7 +311,8 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 	private int savedOrientation;
     private boolean useDrawerCatalogNavigation=true;
     public boolean useDrawerUngroupCatalog=false;
-    public boolean useDrawerTitleCatalog=false;
+    protected boolean useDrawerTitleCatalog=false;
+    protected int mTransitionStyle = 1;
 	private int appDrawerPadding=-1;
 
     public boolean isDesktopBlocked() {
@@ -1552,7 +1553,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         }
         if(allAppsOpen)showmenu=false;
         menu.setGroupVisible(MENU_GROUP_ALMOSTNEXUS, showmenu);
-		menu.setGroupVisible(MENU_GROUP_ADD, mMenuAddInfo != null && mMenuAddInfo.valid && (!allAppsOpen) );
+        menu.setGroupVisible(MENU_GROUP_ADD, !allAppsOpen );
 		menu.setGroupVisible(MENU_GROUP_NORMAL, !allAppsOpen);
 		menu.setGroupVisible(MENU_GROUP_CATALOGUE, allAppsOpen);
         if(mBlockDesktop){
@@ -3733,7 +3734,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 			}
 			mWorkspace.hideWallpaper(true);
 			allAppsOpen=true;
-			mWorkspace.enableChildrenCache();
+			mWorkspace.enableChildrenCache(mWorkspace.getCurrentScreen(), mWorkspace.getCurrentScreen());
 	        mWorkspace.lock();
 	        if (filter != null)
 	        	sModel.getApplicationsAdapter().setCatalogueFilter(filter);
@@ -4326,7 +4327,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 			mIsEditMode=true;
 	        final Workspace workspace = mWorkspace;
 			if(workspace==null)return;
-			workspace.enableChildrenCache();
+			workspace.enableChildrenCache(0, workspace.getChildCount());
 	    	hideDesktop(true);
 	    	workspace.lock();
 	        //Load a gallery view

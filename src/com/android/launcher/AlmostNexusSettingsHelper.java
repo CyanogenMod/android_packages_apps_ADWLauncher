@@ -453,4 +453,8 @@ public final class AlmostNexusSettingsHelper {
         editor.putBoolean("desktopBlocked", block);
         editor.commit();
     }
+    public static int getDesktopTransitionStyle(Context context)    {
+        SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
+        return Integer.valueOf( sp.getString("desktop_transition_style", context.getResources().getString(R.string.config_desktop_transition)));
+    }
 }

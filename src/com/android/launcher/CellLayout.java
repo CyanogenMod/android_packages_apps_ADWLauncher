@@ -73,7 +73,14 @@ public class CellLayout extends WidgetCellLayout {
 	private int mColumns;
 	private int mPaginatorPadding;
 	private int mDesktopCacheType=AlmostNexusSettingsHelper.CACHE_LOW;
-    public CellLayout(Context context) {
+
+    // used for transitions
+    protected static float mTransitionAmount;
+    protected static boolean mIsTransitionEnabled;
+    protected static boolean mIsTransitionOther;
+    protected static boolean mIsTransitionNegative;
+	
+	public CellLayout(Context context) {
         this(context, null);
     }
 
@@ -164,6 +171,67 @@ public class CellLayout extends WidgetCellLayout {
     int getBottomPadding() {
         return mPortrait ? mLongAxisEndPadding : mShortAxisEndPadding;        
     }
+
+    @Override
+    protected boolean drawChild(Canvas canvas, View view, long arg2)
+    {
+        if( mIsTransitionEnabled )
+        {
+            canvas.save();
+
+            float transitionAmount = mTransitionAmount;
+            int top = view.getTop();
+            int bottom = view.getBottom();
+            int middle = ( bottom + top ) / 2;
+            if ( mIsTransitionOther )
+            {
+                int screenMiddle = getHeight() / 2;
+                int yTransition = screenMiddle - middle;
+                if ( mIsTransitionNegative )
+                {
+                    // move right
+                    canvas.translate( (getWidth() - view.getLeft()) * transitionAmount, yTransition * transitionAmount);
+                }
+                else
+                {
+                    // move left
+                    canvas.translate( -view.getRight() * transitionAmount, yTransition * transitionAmount );
+                }
+            } 
+            else
+            {
+                int height = this.getHeight();
+                int screenMiddle = height / 2;
+                
+                int xTransition = 0;
+                if ( mIsTransitionNegative )
+                {
+                    xTransition = getWidth() - (view.getRight() + view.getLeft()) / 2;
+                }
+                else
+                {
+                    xTransition = -(view.getRight() + view.getLeft()) / 2;
+                }
+                
+                if ( middle <= screenMiddle )
+                {
+                    // move up
+                    canvas.translate( -xTransition * transitionAmount, -bottom * transitionAmount );
+                }
+                else
+                {
+                    // move down
+                    canvas.translate( -xTransition * transitionAmount, ( height - top ) * transitionAmount );
+                }
+            }
+            
+            super.drawChild(canvas, view, arg2);
+            canvas.restore();
+            return true;
+        }
+        return super.drawChild(canvas, view, arg2);
+    }
+
     //ADW: make dispatchDraw available to Launcher for creating previews
     @Override
     protected void dispatchDraw(Canvas canvas) {

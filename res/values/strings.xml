@@ -142,6 +142,9 @@
     <string name="pref_summary_desktop_overshoot">Allows bouncy scrolling desktop screens</string>
     <string name="pref_dialog_desktop_overshoot">Set it to 0 to disable overshooting</string>
 
+    <string name="pref_title_desktop_transition">Desktop Transition</string>
+    <string name="pref_summary_desktop_transition">How desktop screens change when changed</string>
+
     <!-- Drawer Settings -->
     <string name="pref_title_drawer_settings">Drawer Settings</string>
     <string name="pref_summary_drawer_settings">App drawer grid preferences</string>
