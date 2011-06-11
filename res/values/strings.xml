@@ -35,7 +35,7 @@
     <!-- Displayed when user selects a shortcut for an app that was uninstalled -->
     <string name="activity_not_found">Application is not installed on your phone.</string>
     <!-- List item for configuring the current wallpaper -->
-    <string name="configure_wallpaper">Configure...</string>
+    <string name="configure_wallpaper">Configure\u2026</string>
 
     <!-- Folders -->
     <skip />
@@ -121,7 +121,7 @@
     <string name="pref_label_settings">ADW Settings</string>
     <!-- Screen preferences -->
     <string name="pref_title_screen_preferences">Screen preferences</string>
-    <string name="pref_summary_screen_preferences">Default screen, layout...</string>
+    <string name="pref_summary_screen_preferences">Default screen, layout\u2026</string>
 
     <string name="pref_title_wallpaper_hack">Wallpaper Hack</string>
     <string name="pref_summary_wallpaper_hack">Disable this if you get FCs. Leaving it enabled improves the scrolling speed.</string>
@@ -230,9 +230,9 @@
     <string name="pref_message_restart_froyo">Changing this setting will make the Launcher restart itself</string>
     <string name="drop_to_uninstall">Drop to Uninstall</string>
 
-    <string name="toast_widgets_not_supported">Widgets not supported... sorry :-)</string>
-    <string name="toast_unknown_item">Unknown item. We can\'t add unknown item types :-)</string>
-    <string name="toast_no_application_def">No application defined yet, drop something here! :)</string>
+    <string name="toast_widgets_not_supported">Widgets not supported\u2026 sorry!</string>
+    <string name="toast_unknown_item">Unknown item. We can\'t add unknown item types!</string>
+    <string name="toast_no_application_def">No application defined yet, drop something here!</string>
 
     <string name="pref_title_import_export">Backup and restore</string>
     <string name="pref_title_xml">ADW settings</string>
@@ -252,12 +252,12 @@
 
     <!-- XML Import/Export strings -->
     <string name="message_dialog_export">Backup ADW settings? Any existing file will be overwritten.</string>
-    <string name="xml_export_dialog">Backing up ADW settings...</string>
+    <string name="xml_export_dialog">Backing up ADW settings\u2026</string>
     <string name="xml_export_success">ADW settings backed up successfully!</string>
     <string name="xml_export_error">Error backing up ADW settings!</string>
 
     <string name="message_dialog_import">Restore ADW settings? ADW.Launcher will be restarted.</string>
-    <string name="xml_import_dialog">Restoring ADW settings...</string>
+    <string name="xml_import_dialog">Restoring ADW settings\u2026</string>
     <string name="xml_file_not_found">Settings backup file not found!</string>
     <string name="xml_not_readable">Settings backup file exists, but is not readable!</string>
     <string name="xml_import_success">ADW settings restored successfully!</string>
@@ -265,12 +265,12 @@
 
     <!-- Config Import/Export strings -->
     <string name="message_dialog_export_config">Backup desktop configuration? Any existing file will be overwritten.</string>
-    <string name="dbfile_export_dialog">Backing up desktop configuration...</string>
+    <string name="dbfile_export_dialog">Backing up desktop configuration\u2026</string>
     <string name="dbfile_export_success">Configuration backed up successfully!</string>
     <string name="dbfile_export_error">Error backing up configuration!</string>
 
     <string name="message_dialog_import_config">Restore desktop configuration? ADW.Launcher will be restarted.</string>
-    <string name="dbfile_import_dialog">Restoring desktop configuration...</string>
+    <string name="dbfile_import_dialog">Restoring desktop configuration\u2026</string>
     <string name="dbfile_not_found">Configuration file not found!</string>
     <string name="dbfile_not_readable">Configuration file exists, but is not readable!</string>
     <string name="dbfile_import_success">Configuration restored successfully!</string>
