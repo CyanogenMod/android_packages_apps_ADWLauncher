@@ -560,6 +560,10 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
         	//ADW lets center the wallpaper when there's only one screen...
         	if(!mWallpaperScroll || getChildCount()==1)x=(getScrollX()-(mWallpaperWidth/2)+(getRight()/2));
         	final int y=mWallpaperY;
+
+                if (x > 0 || y > 0) { // if the bitmap does not fill the entire window
+                    canvas.drawColor(0xff000000);
+                }
     		canvas.drawBitmap(mWallpaperDrawable.getBitmap(), x, y, mPaint);
         }
         if(!mSensemode){
