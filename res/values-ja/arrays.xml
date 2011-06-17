@@ -17,6 +17,13 @@
                 <item>上部にスライディングページ</item>
                 <item>下部にスライディングページ</item>
        </string-array>
+       <string-array name="desktop_transition_entries">
+                <item>ノーマル</item>
+                <item>回転</item>
+                <item>ページ</item>
+                <item>キューブ</item>
+                <item>散布</item>
+       </string-array>
        <string-array name="home_orientation_entries">
                 <item>自動/センサー</item>
                 <item>ポートレイト</item>
