@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+       <string-array name="menu_binding_entries">
+                <item>Ingen</item>
+                <item>Flyt til standard skrivebord</item>
+                <item>yt til standard skrivebord/vis skrivebords eksempler</item>
+                <item>Vis skrivebords eksempler</item>
+                <item>Åben/luk App skuffe</item>
+                <item>Vis/skjul statuslinje</item>
+                <item>Åben/luk notifikationer</item>
+                <item>Flyt til standard skrivebord / Åben notifikationer</item>
+                <item>Åben/luk DockBar</item>
+                <item>Åben App...</item>
+       </string-array>
+       <string-array name="desktop_indicator_entries">
+                <item>Prikker i toppen</item>
+                <item>Bjælke i toppen</item>
+                <item>Bjælke i bunden</item>
+       </string-array>
+       <string-array name="desktop_transition_entries">
+                <item>Normal</item>
+                <item>Rotere</item>
+                <item>Side</item>
+                <item>Kube</item>
+                <item>Spredende</item>
+       </string-array>
+       <string-array name="home_orientation_entries">
+                <item>Automatik/sensor</item>
+                <item>Portræt</item>
+                <item>Landskab</item>
+       </string-array>
+       <string-array name="screen_cache_entries">
+                <item>Lav kvalitet</item>
+                <item>Automatisk</item>
+                <item>Deaktiveret</item>
+       </string-array>
+       <string-array name="main_dock_entries">
+                <item>None (expand desktop)</item>
+                <item>3 ikoner</item>
+                <item>5 ikoner</item>
+                <item>1 ikon</item>
+       </string-array>
+       <string-array name="deletezone_entries">
+                <item>Ingen</item>
+                <item>Top</item>
+                <item>Bund</item>
+                <item>Top (Formindsk skrivebordet)</item>
+                <item>Bund (Formindsk skrivebordet)</item>
+       </string-array>
+       <string-array name="app_drawer_style_entries">
+                <item>Lodret almindeligt</item>
+                <item>Vertikal vanligt</item>
+       </string-array>
+       <!-- Do not translate. -->
+       <string-array name="menu_binding_values">
+                <item>0</item>
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+                <item>4</item>
+                <item>5</item>
+                <item>6</item>
+                <item>7</item>
+                <item>8</item>
+                <item>9</item>
+       </string-array>
+       <string-array name="desktop_indicator_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+       </string-array>
+       <string-array name="desktop_transition_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+                <item>4</item>
+                <item>5</item>
+       </string-array>
+       <string-array name="home_orientation_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+       </string-array>
+       <string-array name="screen_cache_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+       </string-array>
+       <string-array name="main_dock_values">
+                <item>0</item>
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+       </string-array>
+       <string-array name="deletezone_values">
+                <item>0</item>
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+                <item>4</item>
+       </string-array>
+       <string-array name="app_drawer_style_values">
+                <item>0</item>
+                <item>1</item>
+       </string-array></resources>
