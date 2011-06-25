@@ -1,57 +1,411 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+* Copyright (C) 2008 The Android Open Source Project
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 -->
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="application_name" msgid="5865630159700533006">"ADW.Launcher"</string>
-    <string name="uid_name" msgid="3371120195364560632">"Android-kjerneapplikasjoner"</string>
-    <string name="folder_name" msgid="4588446541914685904">"Mappe"</string>
-    <string name="chooser_wallpaper" msgid="5988031014201479733">"Velg bakgrunnsbilde fra"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"Velg bakgrunnsbilde"</string>
-    <string name="pick_wallpaper" msgid="2674908923379130941">"Bildegalleri"</string>
-    <string name="activity_not_found" msgid="3571057450431950427">"Applikasjonen er ikke installert."</string>
-    <string name="configure_wallpaper" msgid="2820186271419674623">"Konfigurer"</string>
-    <string name="rename_folder_label" msgid="5646236631298452787">"Mappenavn"</string>
-    <string name="rename_folder_title" msgid="4544573104191526550">"Gi nytt navn til mappe"</string>
-    <string name="rename_action" msgid="6016003384693240896">"OK"</string>
-    <string name="cancel_action" msgid="3811860427489435048">"Avbryt"</string>
-    <string name="menu_item_add_item" msgid="6233177331075781114">"Legg til skrivebord"</string>
-    <string name="group_applications" msgid="4118484163419674240">"Applikasjoner"</string>
-    <string name="group_shortcuts" msgid="9133529424900391877">"Snarveier"</string>
-    <string name="group_search" msgid="5905328940867162196">"Søk"</string>
-    <string name="group_folder" msgid="5143593791798929193">"Ny mappe"</string>
-    <string name="group_live_folders" msgid="2664945399140647217">"Mapper"</string>
-    <string name="group_widgets" msgid="6704978494073105844">"Skrivebordselementer"</string>
-    <string name="group_wallpapers" msgid="1568191644272224858">"Bakgrunner"</string>
-    <string name="out_of_space" msgid="8365249326091984698">"Ikke nok plass på skrivebordet."</string>
-    <string name="shortcut_installed" msgid="7071557296331322355">"Opprettet snarveien «<xliff:g id="NAME">%s</xliff:g>»."</string>
-    <string name="shortcut_uninstalled" msgid="2129499669449749995">"Fjernet snarveien «<xliff:g id="NAME">%s</xliff:g>»."</string>
-    <string name="shortcut_duplicate" msgid="4757756326465060694">"Snarveien «<xliff:g id="NAME">%s</xliff:g>» fins allerede."</string>
-    <string name="title_select_shortcut" msgid="2858897527672831763">"Velg snarvei"</string>
-    <string name="title_select_live_folder" msgid="3753447798805166749">"Velg mappe"</string>
-    <string name="menu_add" msgid="3065046628354640854">"Legg til"</string>
-    <string name="menu_wallpaper" msgid="5837429080911269832">"Bakgrunnsbilde"</string>
-    <string name="menu_search" msgid="4826514464423239041">"Søk"</string>
-    <string name="menu_settings" msgid="6233960148378443661">"Innstillinger"</string>
-    <string name="permlab_install_shortcut" msgid="1201690825493376489">"installere snarveier"</string>
-    <string name="permdesc_install_shortcut" msgid="7429365847558984148">"Lar applikasjonen legge til snarveier uten å involvere brukeren."</string>
-    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"avinstallere snarveier"</string>
-    <string name="permdesc_uninstall_shortcut" msgid="959972195916090900">"Lar applikasjonen fjerne snarveier uten å involvere brukeren."</string>
-    <string name="permlab_read_settings" msgid="3452408290738106747">"lese skrivebordsinnstillinger og -snarveier"</string>
-    <string name="permdesc_read_settings" msgid="8377434937176025492">"Lar applikasjonen lese innstillinger og snarveier fra skrivebordet."</string>
-    <string name="permlab_write_settings" msgid="1360567537236705628">"skrive skrivebordsinnstillinger og -snarveier"</string>
-    <string name="permdesc_write_settings" msgid="1098648778383349818">"Lar applikasjonen endre innstillinger og snarveier på skrivebordet."</string>
-    <string name="gadget_error_text" msgid="8359351016167075858">"Problem under lasting av gadget"</string>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- General -->
+    <skip />
+    <!-- Application name -->
+    <string name="application_name">ADW.Launcher</string>
+    <!-- Name for all applications running as this uid. -->
+    <string name="uid_name">Android-kjerneapplikasjoner</string>
+    <!-- Default folder name -->
+    <string name="folder_name">Mappe</string>
+    <!-- Title of dialog that appears after user selects Wallpaper from menu -->
+    <string name="chooser_wallpaper">Velg bakgrunnsbilde fra</string>
+    <!-- Button label on Wallpaper Gallery screen; user selects this button to set a specific wallpaper -->
+    <string name="wallpaper_instructions">Velg bakgrunnsbilde</string>
+    <!-- Option in "Select wallpaper from" dialog box -->
+    <string name="pick_wallpaper">Bildegalleri</string>
+    <!-- Displayed when user selects a shortcut for an app that was uninstalled -->
+    <string name="activity_not_found">Applikasjonen er ikke installert</string>
+    <!-- List item for configuring the current wallpaper -->
+    <string name="configure_wallpaper">Konfigurer\u2026</string>
+
+    <!-- Folders -->
+    <skip />
+    <!-- Label of Folder name field in Rename folder dialog box -->
+    <string name="rename_folder_label">Mappenavn</string>
+    <!-- Title of dialog box -->
+    <string name="rename_folder_title">Gi nytt navn til mappe</string>
+    <!-- Buttons in Rename folder dialog box -->
+    <string name="rename_action">OK</string>
+    <!-- Buttons in Rename folder dialog box -->
+    <string name="cancel_action">Avbryt</string>
+
+    <!-- Shortcuts -->
+    <skip />
+    <!-- Title of dialog box -->
+    <string name="menu_item_add_item">Legg til på skrivebord</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all apps -->
+    <string name="group_applications">Applikasjoner</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all shortcuts -->
+    <string name="group_shortcuts">Snarveier</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all launcher actions -->
+    <string name="launcher_actions">Handlinger</string>
+    <!-- Options in "Add to Home" dialog box; Title of the search gadget -->
+    <string name="group_search">Søk</string>
+    <!-- Options in "Add to Home" dialog box; Title of the folder gadget -->
+    <string name="group_folder">"Ny mappe</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all live folders -->
+    <string name="group_live_folders">Mapper</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all widgets/gadgets -->
+    <string name="group_widgets">Widgets</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of apps that can set the wallpaper-->
+    <string name="group_wallpapers">Bakgrunner</string>
+    <!-- Error message when user has filled a home screen, possibly not used -->
+    <string name="out_of_space">Ikke nok plass på skrivebordet</string>
+    <!-- Message displayed when a shortcut is created by an external application -->
+    <string name="shortcut_installed">Opprettet snarveien \"<xliff:g id="name" example="Browser">%s</xliff:g>\"</string>
+    <!-- Message displayed when a shortcut is uninstalled by an external application -->
+    <string name="shortcut_uninstalled">Fjernet snarveien \"<xliff:g id="name" example="Browser">%s</xliff:g>\"</string>
+    <!-- Message displayed when an external application attempts to create a shortcut that already exists -->
+    <string name="shortcut_duplicate">Snarveien \"<xliff:g id="name" example="Browser">%s</xliff:g>\" finnes allerede</string>
+
+    <!-- Title of dialog when user is selecting shortcut to add to homescreen -->
+    <string name="title_select_shortcut">Velg snarvei</string>
+    <!-- Title of dialog when user is selecting live folder to add to homescreen -->
+    <string name="title_select_live_folder">Velg mappe</string>
+
+    <!-- Menus items: -->
+    <skip />
+    <!-- Verb, menu item used to add an item on the desktop -->
+    <string name="menu_add">Legg til</string>
+    <string name="menu_delete">Fjern</string>
+    <string name="menu_uninstall">Avinstaller</string>
+    <!-- Noun, menu item used to set the desktop's wallpaper -->
+    <string name="menu_wallpaper">Bakgrunnsbilde</string>
+    <!-- Verb, menu item used to initiate global search -->
+    <string name="menu_search">Søk</string>
+    <!-- Noun, menu item used to show the system settings -->
+    <string name="menu_settings">Innstillinger</string>
+    <string name="menu_adw_settings">Innstillinger for ADW</string>
+
+    <!-- Permissions: -->
+    <string name="permlab_install_shortcut">installere snarveier</string>
+    <string name="permdesc_install_shortcut">Lar applikasjonen legge til snarveier uten å spørre brukeren</string>
+    <string name="permlab_uninstall_shortcut">avinstallere snarveier</string>
+    <string name="permdesc_uninstall_shortcut">Lar applikasjonen fjerne snarveier uten å spørre brukeren</string>
+    <string name="permlab_read_settings">lese skrivebordsinnstillinger og -snarveier</string>
+    <string name="permdesc_read_settings">Lar applikasjonen lese innstillinger og snarveier fra skrivebordet</string>
+    <string name="permlab_write_settings">skrive skrivebordsinnstillinger og -snarveier</string>
+    <string name="permdesc_write_settings">Lar applikasjonen endre innstillinger og snarveier på skrivebordet</string>
+
+    <!-- Widgets: -->
+    <skip />
+
+    <!-- Text to show user in place of a gadget when we can't display it properly -->
+    <string name="gadget_error_text">Problem ved lasting av widget</string>
+    <!-- ADW Version Information -->
+    <string name="adw_version">Versjon 1.3.6 System CM 1.1</string>
+    <!-- ADW Settings -->
+    <string name="pref_label_settings">Innstillinger for ADW</string>
+    <!-- Screen preferences -->
+    <string name="pref_title_screen_preferences">Skriverbord</string>
+    <string name="pref_summary_screen_preferences">Innstillinger for skiverbod og utforming\u2026</string>
+
+    <string name="pref_title_wallpaper_hack">Wallpaper Hack</string>
+    <string name="pref_summary_wallpaper_hack">Disable this if you get FCs. Leaving it enabled improves the scrolling speed.</string>
+
+    <string name="pref_title_orientation_sensor">Skrivebordsretning</string>
+    <string name="pref_summary_orientation_sensor">Velg retning på skriveborder</string>
+
+    <string name="pref_title_hide_statusbar">Skjul statuslinje</string>
+    <string name="pref_summary_hide_statusbar">Skjuler statuslinjen</string>
+
+    <string name="pref_title_default_screen">Standardområde</string>
+
+    <string name="pref_title_desktop_scrolling_speed">Rullehastighet</string>
+    <string name="pref_summary_desktop_scrolling_speed">Velg hastighet for sidelengs rulling av skrivebordet </string>
+    <string name="pref_dialog_desktop_scrolling_speed">Lavere verdi gir høyere hastighet</string>
+
+    <string name="pref_title_desktop_overshoot">Forbirulling</string>
+    <string name="pref_summary_desktop_overshoot">Velg hvor mye skriverbordet skal sprette nå du drar for langt</string>
+    <string name="pref_dialog_desktop_overshoot">Sett til 0 for å deaktivere</string>
+
+    <string name="pref_title_desktop_transition">Desktop Transition</string>
+    <string name="pref_summary_desktop_transition">How desktop screens change when changed</string>
+
+    <!-- Drawer Settings -->
+    <string name="pref_title_drawer_settings">Drawer Settings</string>
+    <string name="pref_summary_drawer_settings">App drawer grid preferences</string>
+
+    <string name="pref_title_zoom_effect_speed">Zoom effect speed</string>
+    <string name="pref_summary_zoom_effect_speed">Set the time in milliseconds for the zoom effect</string>
+    <string name="pref_dialog_zoom_effect_speed">Set the time in milliseconds for the zoom effect</string>
+
+    <string name="pref_title_page_horizontal_margin">Page Horizontal Margin</string>
+    <string name="pref_summary_page_horizontal_margin">Set the horizontal margin between each pages of Drawer</string>
+    <string name="pref_dialog_page_horizontal_margin">Set the horizontal margin between each pages of Drawer</string>
+
+    <string name="pref_title_animated_drawer">Animated Drawer</string>
+    <string name="pref_summary_animated_drawer">Turns whether App Drawer should display animations</string>
+
+    <string name="pref_title_drawer_columns_portrait">Drawer Columns Portrait</string>
+    <string name="pref_summary_drawer_columns_portrait">Select the number of drawer columns to use on portrait layout</string>
+    <string name="pref_dialog_drawer_columns_portrait">Select the number of drawer columns to use on portrait layout</string>
+
+    <string name="pref_title_drawer_rows_portrait">Drawer Rows Portrait</string>
+    <string name="pref_summary_drawer_rows_portrait">Select the number of drawer rows to use on portrait layout</string>
+    <string name="pref_dialog_drawer_rows_portrait">Select the number of drawer rows to use on portrait layout</string>
+
+    <string name="pref_title_drawer_columns_landscape">Drawer Columns Landscape</string>
+    <string name="pref_summary_drawer_columns_landscape">Select the number of drawer columns to use on landscape layout</string>
+    <string name="pref_dialog_drawer_columns_landscape">Select the number of drawer columns to use on landscape layout</string>
+
+    <string name="pref_title_drawer_rows_landscape">Drawer Rows Landscape</string>
+    <string name="pref_summary_drawer_rows_landscape">Select the number of drawer rows to use on landscape layout</string>
+    <string name="pref_dialog_drawer_rows_landscape">Select the number of drawer rows to use on landscape layout</string>
+
+    <string name="pref_title_sense_previews">Sense previews</string>
+    <string name="pref_summary_sense_previews">Use the new sense-like implementation</string>
+
+    <!-- Button preferences -->
+    <string name="pref_title_ui_settings">UI Settings</string>
+    <string name="pref_summary_ui_settings">Enable/disable ui elements</string>
+
+    <string name="pref_title_home_button_binding">Home button binding</string>
+    <string name="pref_summary_home_button_binding">Select action for home button binding</string>
+
+    <string name="pref_title_swipedown_actions">Swipe down actions</string>
+    <string name="pref_summary_swipedown_actions">Select action for Swipe down gesture</string>
+
+    <string name="pref_title_swipeup_actions">Swipe up actions</string>
+    <string name="pref_summary_swipeup_actions">Select action for Swipe up gesture</string>
+
+    <string name="pref_title_desktop_dots">Desktop dots</string>
+    <string name="pref_summary_desktop_dots">Show/hide the nexus style pagination dots</string>
+
+    <string name="pref_title_dockbar">Dockbar</string>
+    <string name="pref_summary_dockbar">Enable/disable the new dockbar for your shortcuts</string>
+
+    <string name="pref_title_closing_dockbar">Closing dockbar</string>
+    <string name="pref_summary_closing_dockbar">Auto-close dockbar after app-launch</string>
+
+    <string name="pref_title_closing_folder">Closing folder</string>
+    <string name="pref_summary_closing_folder">Auto-close folder after app-launch</string>
+
+    <string name="pref_title_ab_scale_factor">AB size</string>
+    <string name="pref_summary_ab_scale_factor">Set the scaling size for the ActionButton icons</string>
+    <string name="pref_dialog_ab_scale_factor">Set the scaling size for the ActionButton icons</string>
+
+    <string name="pref_title_hide_ab_bg">Hide AB Bg</string>
+    <string name="pref_summary_hide_ab_bg">Hide the background for the Action Buttons</string>
+
+    <string name="pref_title_hide_icon_labels">Skjul ikontekst</string>
+    <string name="pref_summary_hide_icon_labels">Skjuler teksten under skrivebordsikoner</string>
+
+    <string name="pref_title_build_info">Build Information</string>
+    <string name="pref_title_adw_version">ADW Version</string>
+
+    <string name="pref_title_icon_highlights">Highlights press color</string>
+    <string name="pref_summary_icon_highlights">Set the color for icon press</string>
+    <string name="pref_title_icon_highlights_focus">Highlights focus color</string>
+    <string name="pref_summary_icon_highlights_focus">Set the color for icon focus</string>
+    <string name="pref_title_new_selectors">Use new icon selectors</string>
+    <string name="pref_summary_new_selectors">Disable this to use the old drawables.</string>
+    <string name="pref_title_drawer_color">Background color</string>
+    <string name="pref_summary_drawer_color">Set the color for the drawer background</string>
+
+    <string name="pref_dialog_title_color_picker">Pick a color.</string>
+    <string name="pref_dialog_message_color_picker">Tap on center color to confirm.\nPress back to cancel.</string>
+    <string name="pref_dialog_color_picker_alpha">alpha</string>
+    <string name="pref_message_restart_normal">Changing this setting will make the Launcher restart itself</string>
+    <string name="pref_message_restart_froyo">Changing this setting will make the Launcher restart itself</string>
+    <string name="drop_to_uninstall">Drop to Uninstall</string>
+
+    <string name="toast_widgets_not_supported">Du kan ikke plassere widgets her!</string>
+    <string name="toast_unknown_item">Ukjent gjenstand. Kan ikke plasseres her!</string>
+    <string name="toast_no_application_def">Ingen applikasjon, dra en her!</string>
+
+    <string name="pref_title_import_export">Backup and restore</string>
+    <string name="pref_title_xml">ADW settings</string>
+    <string name="pref_title_xml_import">Restore ADW settings</string>
+    <string name="pref_summary_xml_import">Restore from /sdcard/adw_settings.xml</string>
+    <string name="pref_title_xml_export">Backup ADW settings</string>
+    <string name="pref_summary_xml_export">Backup to /sdcard/adw_settings.xml</string>
+
+    <string name="pref_title_db">Desktop configuration</string>
+    <string name="pref_title_db_import">Restore desktop configuration</string>
+    <string name="pref_summary_db_import">Restore from /sdcard/adw_launcher.db</string>
+    <string name="pref_title_db_export">Backup desktop configuration</string>
+    <string name="pref_summary_db_export">Backup to /sdcard/adw_launcher.db</string>
+
+    <string name="title_dialog_xml">ADW-programvelger</string>
+    <string name="import_export_sdcard_unmounted">SD-kort er ikke montert!</string>
+
+    <!-- XML Import/Export strings -->
+    <string name="message_dialog_export">Backup ADW settings? Any existing file will be overwritten.</string>
+    <string name="xml_export_dialog">Backing up ADW settings\u2026</string>
+    <string name="xml_export_success">ADW settings backed up successfully!</string>
+    <string name="xml_export_error">Error backing up ADW settings!</string>
+
+    <string name="message_dialog_import">Restore ADW settings? ADW.Launcher will be restarted.</string>
+    <string name="xml_import_dialog">Restoring ADW settings\u2026</string>
+    <string name="xml_file_not_found">Settings backup file not found!</string>
+    <string name="xml_not_readable">Settings backup file exists, but is not readable!</string>
+    <string name="xml_import_success">ADW settings restored successfully!</string>
+    <string name="xml_import_error">Error restoring ADW settings!</string>
+
+    <!-- Config Import/Export strings -->
+    <string name="message_dialog_export_config">Backup desktop configuration? Any existing file will be overwritten.</string>
+    <string name="dbfile_export_dialog">Backing up desktop configuration\u2026</string>
+    <string name="dbfile_export_success">Configuration backed up successfully!</string>
+    <string name="dbfile_export_error">Error backing up configuration!</string>
+
+    <string name="message_dialog_import_config">Restore desktop configuration? ADW.Launcher will be restarted.</string>
+    <string name="dbfile_import_dialog">Restoring desktop configuration\u2026</string>
+    <string name="dbfile_not_found">Configuration file not found!</string>
+    <string name="dbfile_not_readable">Configuration file exists, but is not readable!</string>
+    <string name="dbfile_import_success">Configuration restored successfully!</string>
+    <string name="dbfile_import_error">Error restoring configuration!</string>
+    <!--  Desktop columns/Rows -->
+    <string name="pref_title_desktop_columns">Kolonner</string>
+    <string name="pref_summary_desktop_columns">Velg antall kolonner på skrivebordet</string>
+    <string name="pref_dialog_desktop_columns">Velg antall kolonner på skrivebordet</string>
+
+    <string name="pref_title_desktop_rows">Rader</string>
+    <string name="pref_summary_desktop_rows">Velg antall rader på skrivebordet</string>
+    <string name="pref_dialog_desktop_rows">Velg antall rader på skrivebordet</string>
+
+    <string name="pref_title_autosize_icons">Strekk automatisk</string>
+    <string name="pref_summary_autosize_icons">Prøv å strekke ikoner og widgets så de ikke overlapper</string>
+
+    <string name="pref_title_scrollable_widgets">Scrollable widget support</string>
+    <string name="pref_summary_scrollable_widgets">Disable this if you don\'t use scrollable widgets</string>
+
+    <string name="pref_title_drawer_labels">Show app labels</string>
+    <string name="pref_summary_drawer_labels">Show the labels on app drawer</string>
+    <string name="pref_title_fade_drawer_labels">Fade app labels</string>
+    <string name="pref_summary_fade_drawer_labels">Labels fade instead of just appear. Uses more ram/cpu</string>
+
+	<string name="widget_config_dialog_title">Widgetområde</string>
+	<string name="widget_config_dialog_summary">Hvor mange kolonner/rader skal widgeten få?</string>
+	<string name="widget_columns">Kolonner</string>
+	<string name="widget_rows">Rader</string>
+    
+    <string name="pref_title_screen_cache">Scrolling cache</string>
+    <string name="pref_summary_screen_cache">Higher quality will use more memory.</string>
+
+    <string name="pref_title_desktop_indicator">Show desktop indicator</string>
+    <string name="pref_summary_desktop_indicator">Show a visual hint on scrolling desktop</string>
+    <string name="pref_title_desktop_indicator_autohide">Autohide desktop indicator</string>
+    <string name="pref_summary_desktop_indicator_autohide">Hide the indicator after a small period</string>
+    <string name="pref_title_desktop_indicator_type">Indicator type</string>
+    <string name="pref_summary_desktop_indicator_type">Select between different indicator styles</string>
+
+	<!-- Category titles -->
+	<string name="pref_title_system_preferences">System Preferences</string>
+	<string name="pref_summary_system_preferences">General system preferences for ADW.Launcher</string>
+	<string name="pref_title_screens_layout_preferencecategory">Oppsett</string>
+	<string name="pref_title_screens_behaviour_preferencecategory">Virkemåte</string>
+	<string name="pref_title_drawer_preferencecategory">Applications drawer</string>
+	<string name="pref_title_drawer_visuals_preferencecategory">Application drawer visuals</string>
+	<string name="pref_title_highlights_preferencecategory">Icon highlights</string>
+	<string name="pref_title_indicators_preferencecategory">Screen indicator</string>
+
+    <string name="pref_title_system_persistent">System persistent</string>
+    <string name="pref_summary_system_persistent">Dangerous. Enable this to avoid system killing the launcher</string>
+    <!-- Theme preferences -->
+	<string name="pref_title_theme_settings">Themes Preferences</string>
+	<string name="pref_summary_theme_settings">Select themes for ADW.Launcher</string>
+	<string name="pref_title_theme_package">Select your theme</string>
+	<string name="pref_summary_theme_package">Choose your theme for ADW.Launcher</string>
+	<string name="pref_title_theme_preview">Theme Preview</string>
+	<string name="pref_summary_theme_preview">Preview of the selected theme</string>
+	<string name="pref_title_theme_icons">Use Theme Icons</string>
+	<string name="pref_summary_theme_icons">Deselect this to use standard OS icons</string>
+	<string name="pref_themes_apply_theme">Apply theme!</string>
+	<string name="pref_themes_get_themes">Get themes!</string>
+	
+    <string name="pref_title_wallpaper_scrolling">Rulle bakgrunn</string>
+    <string name="pref_summary_wallpaper_scrolling">Rulle bakgrunn når du bytter skrivebordsområde</string>
+    <string name="message_delete_desktop_screen">Fjerne dette området og alt det inneholder?</string>
+    <string name="message_cannot_delete_desktop_screen">Du kan ikke slette det siste området</string>
+    <string name="message_cannot_add_desktop_screen">Kan ikke legge til flere områder</string>
+    <string name="message_cannot_swap_desktop_screen">Kan ikke bytte om på områder</string>
+    
+    <string name="menu_edit">Rediger</string>
+
+	<string name="pref_label_shirtcuts">Tilpasset snarvei</string>
+	<string name="pref_label_activities">Aktiviteter</string>
+	<string name="shirtcut_header">Velg aktivitet som skal startes\nDu kan også velge ikon</string>
+	<string name="shirtcut_pick_activity">Velg aktivitet</string>
+	<string name="shirtcut_label">Tekst</string>
+	<string name="shirtcuts_select_picture">Velge bilde</string>
+	<string name="shirtcuts_crop_picture">Velge og beskjære bilde</string>
+	<string name="shirtcuts_icon_packs">Ikonpakke fra ADW-temaer</string>
+	<string name="shirtcuts_select_icon_type">Velg ikontype</string>
+    <string name="shirtcuts_select_icon_pack">Velg ikonpakke</string>
+    <string name="shirtcuts_restore_original">Gjenopprett opprinnelig</string>
+
+	<string name="selectAll">Velg alle</string>
+	<string name="AppGroupAll">"All"</string>
+	<string name="AppGroupUn">"Ugrupperte"</string>
+	<string name="AppGroupAdd">"Ny gruppe"</string>
+	<string name="AppGroupDel">"Fjern gruppe"</string>
+    <string name="AppGroupDelLong">Er du sikker på du vil slette denne gruppen?"</string>
+	<string name="AppGroupChoose">"Velg gruppe"</string>
+	<string name="AppGroupConfig">"Oppsett"</string>
+	<string name="AppGroupRename">"Ny gruppe"</string>
+	<string name="AppGroupConfigError">"Du kan ikke endre denne gruppen"</string>
+	<string name="rename_group_title">Ny gruppe</string>
+	<string name="rename_group_label">Navn på gruppe</string>
+	<string name="show_catalog">Vis gruppen \"%s\"</string>
+	
+	<string name="pref_title_adw_restart">Restart ADW</string>
+	<string name="pref_summary_adw_restart">Close and restart ADW.Launcher</string>
+	<string name="pref_title_adw_reset">Reset ADW</string>
+	<string name="pref_summary_adw_reset">Clear ADW.Launcher settings and restart</string>
+	
+	<string name="need_scrollable">The widget you want to add needs \'scrollable widgets support\' which is currently disabled.\nDo you want to enable it now?</string>
+	<string name="scrollable_api_required">This widget needs an updated version of ADW.Launcher.\nPlease update or contact widget developer</string>
+    
+    <string name="pref_title_drawer_navigate_catalogs">Catalogs navigation</string>
+    <string name="pref_summary_drawer_navigate_catalogs">Show app catalogs navigation buttons</string>
+    <string name="pref_title_drawer_ungroup_catalog">Catalogs only</string>
+    <string name="pref_summary_drawer_ungroup_catalog">Remove the ALL category and use categories only</string>
+    <string name="pref_title_drawer_show_catalogs">Show Catalog Title</string>
+    <string name="pref_summary_drawer_show_catalogs">Show the catalog titles in the drawer</string>
+    <string name="pref_title_notif_receiver">Show notifications</string>
+    <string name="pref_summary_notif_receiver">Enable the global notification counters</string>
+
+    <string name="pref_title_notif_size">Bubble font size</string>
+    <string name="pref_summary_notif_size">Select the font size for the notification bubbles</string>
+    <string name="pref_dialog_notif_size">Select the font size for the notification bubbles</string>
+
+    <string name="pref_title_ab_preferencecategory">Main Dock</string>
+    <string name="pref_title_main_dock_style">Main Dock Style</string>
+    <string name="pref_summary_main_dock_style">Select the main dock layout</string>
+    <string name="pref_title_behaviour_preferences">General Behavior</string>
+    <string name="pref_summary_behaviour_preferences">General application behavior configuration</string>
+    <string name="pref_title_drawer_style">App Drawer style</string>
+    <string name="pref_summary_drawer_style">Switch between different drawer implementations</string>
+    <string name="pref_title_dockbar_preferencecategory">Hidden Dockbar</string>
+    <string name="pref_title_ab_tint">Dock Icons Tint</string>
+    <string name="pref_summary_ab_tint">Perform graphic tinting to the dock icons</string>
+    <string name="pref_title_ab_tint_color">Tint Color</string>
+    <string name="pref_summary_ab_tint_color">Change the tinting color</string>
+    <string name="pref_title_deletezone_preferencecategory">Trash Can</string>
+    <string name="pref_title_deletezone_style">Trash Can Position</string>
+    <string name="pref_summary_deletezone_style">Change the position of the Trash Can</string>
+    <string name="pref_title_close_apps_dockbar">Close the app drawer</string>
+    <string name="pref_summary_close_apps_dockbar">Close the app drawer when longpressing items when the dockbar is visible</string>
+    <string name="menu_lock">Lås skrivebord</string>
+    <string name="menu_unlock">Lås opp skrivebord</string>
 </resources>
