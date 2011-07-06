@@ -72,6 +72,7 @@ public class AllAppsGridView extends GridView implements
 	private boolean shouldDrawLabels = false;
 	private int mAnimationDuration = 800;
 	private int mBgColor = 0xFF000000;
+	private boolean mScrollingCacheSet = false;
 	private boolean mDrawLabels = true;
 	private boolean mFadeDrawLabels = false;
 	private float mLabelFactor;
@@ -380,6 +381,15 @@ public class AllAppsGridView extends GridView implements
 		mDrawLabels = AlmostNexusSettingsHelper.getDrawerLabels(mLauncher);
 		mFadeDrawLabels = AlmostNexusSettingsHelper
 				.getFadeDrawerLabels(mLauncher);
+
+		if(!mScrollingCacheSet) {
+		    if(mTargetAlpha >= 255) {
+		        setScrollingCacheEnabled(true);
+		        setCacheColorHint(mBgColor);
+		    }
+		    mScrollingCacheSet = true;
+		}
+
         if(getAdapter()==null)
         	animate=false;
         else if(getAdapter().getCount()<=0)
@@ -388,8 +398,8 @@ public class AllAppsGridView extends GridView implements
 			if (mFadeDrawLabels && mDrawLabels) {
                 ListAdapter adapter = getAdapter();
                 if (adapter instanceof ApplicationsAdapter)
-                    ((ApplicationsAdapter)adapter).setChildDrawingCacheEnabled(true);
-			}
+                        ((ApplicationsAdapter)adapter).setChildDrawingCacheEnabled(true);
+		}
 			mBgAlpha = 0;
 			isAnimating = true;
 			mStatus = OPENING;
@@ -401,9 +411,11 @@ public class AllAppsGridView extends GridView implements
 		startTime = 0;
 		this.setVisibility(View.VISIBLE);
 		invalidate();
+		setVerticalFadingEdgeEnabled(true);
 	}
 
 	public void close(boolean animate) {
+	    setVerticalFadingEdgeEnabled(false);
         if(getAdapter()==null)
         	animate=false;
         else if(getAdapter().getCount()<=0)
