@@ -342,32 +342,33 @@ public class AllAppsGridView extends GridView implements
 			canvas.scale(scale, scale);
 			tmp[1].draw(canvas);
 		} else {
-            int alpha = 255;
-            if ( mStatusTransformation )
-            {
-                getChildStaticTransformation( child, mTransformation);
-                alpha = (int) (mTransformation.getAlpha() * 255);
-            }
-			if (mDrawLabels) {
-				child.setDrawingCacheEnabled(true);
-				b = child.getDrawingCache();
-                if (b != null) {
-					mPaint.setAlpha(alpha);
-                    canvas.drawBitmap(b, childLeft, childTop, mPaint);
-                } else {
-                    canvas.saveLayerAlpha(childLeft, childTop, childLeft + childWidth, childTop + child.getHeight(), (int) (mTransformation.getAlpha() * 255),
+            if (mDrawLabels) {
+                if (mStatusTransformation) {
+                    getChildStaticTransformation( child, mTransformation);
+                    int alpha = (int) (mTransformation.getAlpha() * 255);
+                    child.setDrawingCacheEnabled(true);
+                    b = child.getDrawingCache();
+                    if (b != null) {
+                        mPaint.setAlpha(alpha);
+                        canvas.drawBitmap(b, childLeft, childTop, mPaint);
+                    } else {
+                        canvas.saveLayerAlpha(childLeft, childTop, childLeft + childWidth, childTop + child.getHeight(), (int) (mTransformation.getAlpha() * 255),
                             Canvas.HAS_ALPHA_LAYER_SAVE_FLAG | Canvas.CLIP_TO_LAYER_SAVE_FLAG);
-					canvas.translate(childLeft, childTop);
-					child.draw(canvas);
-				}
-			} else {
-			    int xx = (childWidth / 2) - (tmp[1].getBounds().width() / 2);
-				canvas.translate(childLeft + xx, childTop + child.getPaddingTop());
-				tmp[1].draw(canvas);
-			}
-		}
-		canvas.restoreToCount(saveCount);
-		return true;
+                        canvas.translate(childLeft, childTop);
+                        child.draw(canvas);
+                    }
+                } else {
+                    canvas.translate(childLeft, childTop);
+                    child.draw(canvas);
+                }
+            } else {
+                int xx = (childWidth / 2) - (tmp[1].getBounds().width() / 2);
+                canvas.translate(childLeft + xx, childTop + child.getPaddingTop());
+                tmp[1].draw(canvas);
+            }
+        }
+        canvas.restoreToCount(saveCount);
+        return true;
 	}
 
 	/**
