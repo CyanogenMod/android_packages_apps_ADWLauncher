@@ -586,6 +586,7 @@ public class MyLauncherSettings extends PreferenceActivity implements OnPreferen
         new ColorPickerDialog.OnColorChangedListener() {
         public void colorChanged(int color) {
             getPreferenceManager().getSharedPreferences().edit().putInt("drawer_color", color).commit();
+            shouldRestart = true;
         }
     };
     ColorPickerDialog.OnColorChangedListener mABTintColorListener =
