@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="adw_changelog">
+-&lt;b>POZNÁMKA:&lt;/b> Pokud se motiv špatně zobrazuje, kontaktujte vývojáře motivu aby jej aktualizoval!!! &lt;br>&lt;br>
+-&lt;b>POZNÁMKA:&lt;/b> Pro přidání/odebrání ploch stiskněte NABÍDKA/Změnit&lt;br>&lt;br>
+-&lt;b>POZNÁMKA:&lt;/b> Pro povolení ORIENTACE je potřeba zakázat PERZISTENCI.&lt;br>&lt;br>
+-&lt;b>PAMATUJTE:&lt;/b> Můžete skrýt aplikace ze složky použitím vlastních katalogů (stiskněte klávesu MENU při otevřené složce) &lt;br>&lt;br>
+
+&lt;b>Verze 1.3.6:&lt;/b>&lt;br>
+&lt;b>--------------&lt;/b>&lt;br>
+- Možnost zamknout/odemknout plochu (MENU/Více). &lt;br>
+- Drobné opravy pro zamezení FC. &lt;br>
+&lt;b>Verze 1.3.5:&lt;/b>&lt;br>
+&lt;b>--------------&lt;/b>&lt;br>
+- Možnost zvolit různé pozice/chování pro koš. &lt;br>
+- Okno rychlých akcí při dlouhém stisku na položce. &lt;br>
+- Podpora přesunu a rychlých akcí na hlavním doku. &lt;br>
+- Přidána položka Akce spouštěče do hlavní nabídky Přidat. &lt;br>
+- Mnoho oprav. &lt;br>
+</string>
+</resources>

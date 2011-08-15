@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string-array name="menu_binding_entries">
+    <item>Žádná</item>
+    <item>Přesunout na plochu</item>
+    <item>Přesunout na ploch/ukázat náhledy</item>
+    <item>Ukázat náhledy</item>
+    <item>Otevřít/zavřít nabídku aplikací</item>
+    <item>Zobrazit/skrýt stavový řádek</item>
+    <item>Zobrazit/skrýt oznámení</item>
+    <item>Přesunout na plochu/Otevřít oznámení</item>
+    <item>Zobrazit/skrýt dok</item>
+    <item>Otevřít aplikaci...</item>
+  </string-array>
+
+  <string-array name="desktop_indicator_entries">
+    <item>Bodový stránkovač nahoře</item>
+    <item>Posuvný stránkovač nahoře</item>
+    <item>Posuvný stránkovač dole</item>
+  </string-array>
+
+  <string-array name="desktop_transition_entries">
+    <item>Normální</item>
+    <item>Rotovat</item>
+    <item>Stránka</item>
+    <item>Kostrka</item>
+    <item>Rozptýlení</item>
+  </string-array>
+
+  <string-array name="home_orientation_entries">
+    <item>Automaticky/senzorem</item>
+    <item>Na výšku</item>
+    <item>Na šířku</item>
+  </string-array>
+
+  <string-array name="screen_cache_entries">
+    <item>Nízká kvalita</item>
+    <item>Automaticky</item>
+    <item>Vypnutý</item>
+  </string-array>
+
+  <string-array name="main_dock_entries">
+    <item>Žádný (rozšíření plochy)</item>
+    <item>3 ikony</item>
+    <item>5 ikon</item>
+    <item>1 ikona</item>
+  </string-array>
+
+  <string-array name="deletezone_entries">
+    <item>Žádný</item>
+    <item>Nahoře</item>
+    <item>Dole</item>
+    <item>Nahoře (zmenšit plochu)</item>
+    <item>Dole (zmenšit plochu)</item>
+  </string-array>
+
+  <string-array name="app_drawer_style_entries">
+    <item>Svislá plocha</item>
+    <item>Horizontální stránkování</item>
+  </string-array>
+</resources>
