@@ -315,6 +315,8 @@
     <string name="shirtcuts_select_icon_pack">Elige un pack</string>
     <string name="shirtcuts_restore_original">Restaurar original</string>
 
+    <!-- Catalogs strings -->
+    <string name="sortType">Ordenar por\:</string>
     <string name="selectAll">Seleccionar todos</string>
     <string name="AppGroupAll">"TODAS"</string>
     <string name="AppGroupAdd">"Nuevo grupo"</string>

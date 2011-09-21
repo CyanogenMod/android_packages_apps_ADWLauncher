@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
        <string-array name="menu_binding_entries">
-       			<item>Desactivado</item>
+                   <item>Desactivado</item>
                 <item>Ir al escritorio por defecto</item>
                 <item>Ir al escritorio por defecto/mostrar previsualización</item>
                 <item>Mostrar previsualización</item>
@@ -50,6 +50,10 @@
        <string-array name="app_drawer_style_entries">
                 <item>Vertical</item>
                 <item>Horizontal paginado</item>
+       </string-array>
+       <string-array name="catalog_sorttype_entries">
+                <item>Nombre</item>
+                <item>Antigüedad</item>
        </string-array>
 
 </resources>
