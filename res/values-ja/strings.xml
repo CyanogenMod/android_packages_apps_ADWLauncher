@@ -257,15 +257,15 @@
     <string name="pref_title_desktop_indicator_type">インジケータタイプ</string>
     <string name="pref_summary_desktop_indicator_type">インジケータタイプを選択する.</string>
 
-	<!-- Category titles -->
-	<string name="pref_title_system_preferences">システム設定</string>
-	<string name="pref_summary_system_preferences">ADW.Launcherの一般的なシステム設定</string>
-	<string name="pref_title_screens_layout_preferencecategory">デスクトップレイアウト</string>
-	<string name="pref_title_screens_behaviour_preferencecategory">デスクトップの挙動</string>
-	<string name="pref_title_drawer_preferencecategory">アプリケーションドロワー</string>
-	<string name="pref_title_drawer_visuals_preferencecategory">アプリケーションドロワーの見た目</string>
-	<string name="pref_title_highlights_preferencecategory">アイコンハイライト</string>
-	<string name="pref_title_indicators_preferencecategory">スクリーンインジケータ</string>
+    <!-- Category titles -->
+    <string name="pref_title_system_preferences">システム設定</string>
+    <string name="pref_summary_system_preferences">ADW.Launcherの一般的なシステム設定</string>
+    <string name="pref_title_screens_layout_preferencecategory">デスクトップレイアウト</string>
+    <string name="pref_title_screens_behaviour_preferencecategory">デスクトップの挙動</string>
+    <string name="pref_title_drawer_preferencecategory">アプリケーションドロワー</string>
+    <string name="pref_title_drawer_visuals_preferencecategory">アプリケーションドロワーの見た目</string>
+    <string name="pref_title_highlights_preferencecategory">アイコンハイライト</string>
+    <string name="pref_title_indicators_preferencecategory">スクリーンインジケータ</string>
 
     <string name="pref_title_system_persistent">システムに常駐</string>
     <string name="pref_summary_system_persistent">危険: システムからランチャーが終了されるのを防ぐ</string>
@@ -290,34 +290,35 @@
     
     <string name="menu_edit">編集</string>
 
-	<string name="pref_label_shirtcuts">カスタムショートカット</string>
-	<string name="pref_label_activities">アクティビティ</string>
-	<string name="shirtcut_header">起動したいアプリケーションのアクティビティを選択してください。\nアイコンをカスタム設定することもできます。</string>
-	<string name="shirtcut_pick_activity">アクティビティを選択</string>
-	<string name="shirtcut_label">ラベル</string>
-	<string name="shirtcuts_select_picture">画像を選択</string>
-	<string name="shirtcuts_crop_picture">画像の選択と切り抜き</string>
-	<string name="shirtcuts_icon_packs">ADWテーマアイコンパック</string>
-	<string name="shirtcuts_select_icon_type">アイコンタイプを選択</string>
-	<string name="shirtcuts_select_icon_pack">アイコンパックを選択</string>
-	<string name="shirtcuts_restore_original">オリジナルに戻す</string>
+    <string name="pref_label_shirtcuts">カスタムショートカット</string>
+    <string name="pref_label_activities">アクティビティ</string>
+    <string name="shirtcut_header">起動したいアプリケーションのアクティビティを選択してください。\nアイコンをカスタム設定することもできます。</string>
+    <string name="shirtcut_pick_activity">アクティビティを選択</string>
+    <string name="shirtcut_label">ラベル</string>
+    <string name="shirtcuts_select_picture">画像を選択</string>
+    <string name="shirtcuts_crop_picture">画像の選択と切り抜き</string>
+    <string name="shirtcuts_icon_packs">ADWテーマアイコンパック</string>
+    <string name="shirtcuts_select_icon_type">アイコンタイプを選択</string>
+    <string name="shirtcuts_select_icon_pack">アイコンパックを選択</string>
+    <string name="shirtcuts_restore_original">オリジナルに戻す</string>
 
-	<string name="selectAll">すべて選択</string>
-	<string name="AppGroupAll">"すべて"</string>
-	<string name="AppGroupUn">"未設定"</string>
-	<string name="AppGroupAdd">"新規グループ"</string>
-	<string name="AppGroupDel">"グループを削除"</string>
+    <string name="sortType">並び替え\:</string>
+    <string name="selectAll">すべて選択</string>
+    <string name="AppGroupAll">"すべて"</string>
+    <string name="AppGroupUn">"未設定"</string>
+    <string name="AppGroupAdd">"新規グループ"</string>
+    <string name="AppGroupDel">"グループを削除"</string>
     <string name="AppGroupDelLong">"現在のグループを\n本当に削除しますか?"</string>
-	<string name="AppGroupChoose">"グループを選択"</string>
-	<string name="AppGroupConfig">"グループを設定"</string>
-	<string name="AppGroupRename">"新しいグループ"</string>
-	<string name="AppGroupConfigError">"このグループは設定できません"</string>
-	<string name="rename_group_title">新しいグループ</string>
-	<string name="rename_group_label">グループ名</string>
-	<string name="show_catalog">グループを表示 \"%s\"</string>
-	
-	<string name="pref_title_adw_restart">ADWの再起動</string>
-	<string name="pref_summary_adw_restart">ADW.Launcherを終了し、再起動します。</string>
+    <string name="AppGroupChoose">"グループを選択"</string>
+    <string name="AppGroupConfig">"グループを設定"</string>
+    <string name="AppGroupRename">"新しいグループ"</string>
+    <string name="AppGroupConfigError">"このグループは設定できません"</string>
+    <string name="rename_group_title">新しいグループ</string>
+    <string name="rename_group_label">グループ名</string>
+    <string name="show_catalog">グループを表示 \"%s\"</string>
+
+    <string name="pref_title_adw_restart">ADWの再起動</string>
+    <string name="pref_summary_adw_restart">ADW.Launcherを終了し、再起動します。</string>
     <string name="pref_title_adw_reset">ADWをリセット</string>
     <string name="pref_summary_adw_reset">ADW.Launcherの設定を削除し、再起動します。</string>
 
