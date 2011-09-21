@@ -16,6 +16,9 @@
 
 package com.android.launcher.catalogue;
 
+import java.text.Collator;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import android.content.Context;
@@ -31,8 +34,13 @@ import com.android.launcher.R;
 /** which is used to show list item */
 class ApplicationListAdapter extends BaseAdapter {
 
+    public enum SortType {
+        NAME, AGE
+    }
+
     private List<AppListInfo> mAppInfoList;
     private LayoutInflater mInflater;
+    private static final Collator sCollator = Collator.getInstance();
 
     public ApplicationListAdapter(Context context,
         List<AppListInfo> AppList) {
@@ -86,6 +94,44 @@ class ApplicationListAdapter extends BaseAdapter {
 
     public void updateList() {
         notifyDataSetChanged();
+    }
+
+    public void sortBy(SortType type, boolean ascending) {
+        if (SortType.NAME == type) {
+            if (ascending)
+                Collections.sort(mAppInfoList, new AppListInfoNameComparator());
+            else {
+                Comparator<AppListInfo> revert = Collections.reverseOrder(new AppListInfoNameComparator());
+                Collections.sort(mAppInfoList, revert);
+            }
+        } else if (SortType.AGE == type) {
+            if (ascending)
+                Collections.sort(mAppInfoList, new AppListInfoAgeComparator());
+            else {
+                Comparator<AppListInfo> revert = Collections.reverseOrder(new AppListInfoAgeComparator());
+                Collections.sort(mAppInfoList, revert);
+            }
+        }
+        notifyDataSetChanged();
+    }
+
+    static class AppListInfoNameComparator implements Comparator<AppListInfo> {
+        public final int compare(AppListInfo a, AppListInfo b) {
+            int result = sCollator.compare(a.title, b.title);
+            if (0 == result)
+                result = sCollator.compare(a.className, b.className);
+            return result;
+        }
+    }
+
+    static class AppListInfoAgeComparator implements Comparator<AppListInfo> {
+        public final int compare(AppListInfo a, AppListInfo b) {
+            int result = a.firstInstallTime < b.firstInstallTime ? -1 :
+                (a.firstInstallTime > b.firstInstallTime) ? 1 : 0;
+            if (0 == result)
+                result = sCollator.compare(a.className, b.className);
+            return result;
+        }
     }
 
     public class ViewHolder {

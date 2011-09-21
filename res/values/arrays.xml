@@ -51,6 +51,11 @@
                 <item>Vertical plain</item>
                 <item>Horizontal paginated</item>
        </string-array>
+       <string-array name="catalog_sorttype_entries">
+                <item>Name</item>
+                <item>Age</item>
+       </string-array>
+
        <!-- Do not translate. -->
        <string-array translatable="false" name="menu_binding_values">
                 <item>0</item>

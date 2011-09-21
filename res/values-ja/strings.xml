@@ -302,6 +302,7 @@
 	<string name="shirtcuts_select_icon_pack">アイコンパックを選択</string>
 	<string name="shirtcuts_restore_original">オリジナルに戻す</string>
 
+	<string name="sortType">並び替え\:</string>
 	<string name="selectAll">すべて選択</string>
 	<string name="AppGroupAll">"すべて"</string>
 	<string name="AppGroupUn">"未設定"</string>
