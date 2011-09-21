@@ -51,5 +51,9 @@
                 <item>Vertical</item>
                 <item>Horizontal paginado</item>
        </string-array>
+       <string-array name="catalog_sorttype_entries">
+                <item>Nombre</item>
+                <item>Antigüedad</item>
+       </string-array>
 
 </resources>

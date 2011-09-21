@@ -16,9 +16,6 @@
 
 package com.android.launcher.catalogue;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.android.launcher.ApplicationInfo;
 import com.android.launcher.ApplicationsAdapter;
 import com.android.launcher.LauncherModel;
@@ -30,16 +27,28 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.ToggleButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AppInfoMList extends ListActivity implements
 		View.OnCreateContextMenuListener, View.OnClickListener,
@@ -47,7 +56,6 @@ public class AppInfoMList extends ListActivity implements
 	private static final String TAG = "AppInfoMList";
 	private static final boolean DBG = true;
 	public static final String EXTRA_CATALOGUE_INDEX = "EXTRA_CATALOGUE_INDEX";
-
 	// Custom Adapter used for managing items in the list
 	private ApplicationListAdapter mAppInfoAdapter;
 	// list of task info
@@ -56,6 +64,11 @@ public class AppInfoMList extends ListActivity implements
 	private Button mOkButton;
 	private Catalogue mCatalogue;
 
+	private SharedPreferences mPrefs = null;
+	private static final String AppListSortType = "AppListSortType";
+	private static final String AppListSortAscending = "AppListSortAscending";
+	private ApplicationListAdapter.SortType mSortType = ApplicationListAdapter.SortType.NAME;
+	private boolean mSortAscending = true;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -74,6 +87,36 @@ public class AppInfoMList extends ListActivity implements
 		setContentView(R.layout.app_group_conf_list);
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
 				R.layout.custom_title1);
+
+		/* read sort preferences for applications list */
+		mPrefs = getPreferences(MODE_PRIVATE);
+		int sortType = mPrefs.getInt(AppListSortType, 0);
+		mSortType = ApplicationListAdapter.SortType.values()[sortType];
+		mSortAscending = mPrefs.getBoolean(AppListSortAscending, true);
+
+		/* sort type spinner */
+		final Spinner spinner = (Spinner) findViewById(R.id.sortType);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+				this, R.array.catalog_sorttype_entries, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner.setAdapter(adapter);
+		spinner.setSelection(sortType);
+		spinner.setOnItemSelectedListener(new OnSortTypeItemSelectedListener());
+
+		/* sort direction */
+		final ToggleButton direction = (ToggleButton) findViewById(R.id.sortDirection);
+		direction.setChecked(mSortAscending);
+		direction.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mSortAscending = direction.isChecked();
+				// save sort direction preference
+				SharedPreferences.Editor prefs = mPrefs.edit();
+				prefs.putBoolean(AppListSortAscending, mSortAscending);
+				prefs.commit();
+				mAppInfoAdapter.sortBy(mSortType, mSortAscending);
+			}
+		});
 
 		List<AppListInfo> appInfos = new ArrayList<AppListInfo>();
 
@@ -167,6 +210,7 @@ public class AppInfoMList extends ListActivity implements
 		mCatalogue.setTitleView(t);
 
 		SharedPreferences curAppGrp = mCatalogue.getPreferences();
+		final PackageManager pm = getPackageManager();
 
 		for (int i = 0; i < appInfos.size(); i++) {
 			AppListInfo tempAppListInfo = new AppListInfo();
@@ -177,6 +221,13 @@ public class AppInfoMList extends ListActivity implements
 					.flattenToString();
 			tempAppListInfo.icon = tempAppInfo.icon;
 
+			try {
+				PackageInfo pkgInfo = pm.getPackageInfo(tempAppInfo.intent.getComponent().getPackageName(), 0);
+				tempAppListInfo.firstInstallTime = pkgInfo.firstInstallTime;
+			} catch (NameNotFoundException e) {
+				tempAppListInfo.firstInstallTime = 0;
+			}
+
 			tempAppListInfo.title = tempAppInfo.title.toString();
 			if (curAppGrp != null)
 				tempAppListInfo.checked = curAppGrp.getBoolean(
@@ -186,7 +237,7 @@ public class AppInfoMList extends ListActivity implements
 
 			savedAppInfos.add(tempAppListInfo);
 			if (DBG) Log.d(TAG, tempAppListInfo.className + " "
-					+ tempAppListInfo.checked);
+					+ tempAppListInfo.checked + " installTime: " + tempAppListInfo.firstInstallTime);
 		}
 
 		mAppInfoAdapter.updateList(savedAppInfos);
@@ -200,5 +251,23 @@ public class AppInfoMList extends ListActivity implements
 			tempAppListInfo.checked=bool;
 		}
 		mAppInfoAdapter.updateList();
+	}
+
+	public class OnSortTypeItemSelectedListener implements OnItemSelectedListener {
+
+		@Override
+		public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+			mSortType = ApplicationListAdapter.SortType.values()[pos];
+			// save sort type preference
+			SharedPreferences.Editor prefs = mPrefs.edit();
+			prefs.putInt(AppListSortType, pos);
+			prefs.commit();
+			mAppInfoAdapter.sortBy(mSortType, mSortAscending);
+		}
+
+		@Override
+		public void onNothingSelected(AdapterView<?> parent) {
+			// Do nothing.
+		}
 	}
 }
