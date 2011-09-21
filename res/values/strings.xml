@@ -350,6 +350,8 @@
     <string name="shirtcuts_select_icon_pack">Select icon pack</string>
     <string name="shirtcuts_restore_original">Restore Original</string>
 
+    <!-- Catalogs strings -->
+	<string name="sortType">Sort by\:</string>
 	<string name="selectAll">Select all</string>
 	<string name="AppGroupAll">"All"</string>
 	<string name="AppGroupUn">"Uncataloged"</string>
