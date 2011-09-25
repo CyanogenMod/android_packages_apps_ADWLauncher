@@ -156,6 +156,9 @@
     <string name="pref_title_hide_ab_bg">アクションボタンの背景を隠す</string>
     <string name="pref_summary_hide_ab_bg">アクションボタン(LAB,RAB)の背景を表示しない</string>
 
+    <string name="pref_title_lock_ab">アクションボタンをロックする</string>
+    <string name="pref_summary_lock_ab">アクションボタンを編集させない</string>
+
     <string name="pref_title_hide_icon_labels">アイコンラベルを隠す</string>
     <string name="pref_summary_hide_icon_labels">デスクトップアイコンのラベルを表示しない</string>
 

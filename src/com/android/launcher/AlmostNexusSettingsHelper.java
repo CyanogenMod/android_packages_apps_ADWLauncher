@@ -130,6 +130,11 @@ public final class AlmostNexusSettingsHelper {
 		boolean newD = sp.getBoolean("uiABBg", context.getResources().getBoolean(R.bool.config_uiABBg));
 		return newD;
 	}
+	public static boolean getUILockAB(Context context) {
+		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
+		boolean newD = sp.getBoolean("uiLockAB", context.getResources().getBoolean(R.bool.config_uiLockAB));
+		return newD;
+	}
 	public static int getZoomSpeed(Context context) {
 		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
 		int newD = sp.getInt("zoomSpeed", context.getResources().getInteger(R.integer.config_zoomSpeed))+300;
