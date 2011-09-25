@@ -146,6 +146,9 @@
     <string name="pref_title_hide_ab_bg">Verberg actie knop achtergrond</string>
     <string name="pref_summary_hide_ab_bg">Verberg de achtergrond van de actie knop</string>
 
+    <string name="pref_title_lock_ab">Zet actieknoppen vast</string>
+    <string name="pref_summary_lock_ab">Voorkom bewerking van actieknoppen</string>
+
     <string name="pref_title_hide_icon_labels">Verberg icoon labels</string>
     <string name="pref_summary_hide_icon_labels">Verberg icoon labels op de desktop</string>
 
