@@ -15,8 +15,8 @@
 -->
 
 <resources>
-	<string name="rom_mod_string">CyanogenMod</string>
-	<bool name="force_hidden_settings">false</bool>
+    <string name="rom_mod_string">CyanogenMod</string>
+    <bool name="force_hidden_settings">false</bool>
     <bool name="config_desktopRotation">true</bool>
     <integer name="config_desktopSpeed">450</integer>
     <integer name="config_desktopBounce">40</integer>
@@ -41,6 +41,7 @@
     <bool name="config_uiCloseDockbar">false</bool>
     <bool name="config_uiCloseFolder">false</bool>
     <bool name="config_uiABBg">false</bool>
+    <bool name="config_uiLockAB">false</bool>
     <!-- config_zoomSpeed min is 300, so it will add 300 to whatever value you set here -->
     <integer name="config_zoomSpeed">250</integer>
     <!-- config_uiScaleAB is a float value between 0.1 and 1.0. Set here the default .X-->
