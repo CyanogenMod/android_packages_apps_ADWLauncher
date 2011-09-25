@@ -262,6 +262,10 @@
 				android:defaultValue="false"
 				android:summary="@string/pref_summary_hide_ab_bg"
 				android:key="uiABBg" />
+			<CheckBoxPreference android:title="@string/pref_title_lock_ab"
+				android:defaultValue="false"
+				android:summary="@string/pref_summary_lock_ab"
+				android:key="uiLockAB" />
 			<CheckBoxPreference android:title="@string/pref_title_ab_tint"
 				android:defaultValue="@bool/config_ab_tint" android:summary="@string/pref_summary_ab_tint"
 				android:key="uiABTint" />

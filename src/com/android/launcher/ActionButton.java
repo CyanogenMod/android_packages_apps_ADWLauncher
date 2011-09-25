@@ -38,6 +38,7 @@ public class ActionButton extends CounterImageView implements DropTarget, DragLi
     private int mOrientation = ORIENTATION_HORIZONTAL;
     private SwipeListener mSwipeListener;
     private DragController mDragger;
+    private boolean ABLocked=false;
 
 	public ActionButton(Context context) {
 		super(context);
@@ -332,7 +333,12 @@ public class ActionButton extends CounterImageView implements DropTarget, DragLi
 
 	@Override
 	public boolean onLongClick(View v) {
-        if (mDragger == null || !v.isInTouchMode() || mCurrentInfo == null || specialMode || mLauncher.isDesktopBlocked()) {
+        if ( mDragger == null ||
+                !v.isInTouchMode() ||
+                mCurrentInfo == null || 
+                specialMode ||
+                mLauncher.isDesktopBlocked() ||
+                areABLocked(mLauncher) ) {
             return false;
         }
         mLauncher.showActions(mCurrentInfo, v, new PopupWindow.OnDismissListener()
@@ -414,6 +420,13 @@ public class ActionButton extends CounterImageView implements DropTarget, DragLi
      */
     public interface SwipeListener {
         void onSwipe();
+    }
+
+    /**
+     * Returns true if action buttons are locked, false otherwise.
+     */
+    private boolean areABLocked(Launcher launcher) {
+        return( AlmostNexusSettingsHelper.getUILockAB(launcher) );
     }
 
 }

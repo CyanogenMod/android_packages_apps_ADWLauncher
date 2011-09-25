@@ -212,6 +212,9 @@
     <string name="pref_title_hide_ab_bg">Hide AB Bg</string>
     <string name="pref_summary_hide_ab_bg">Hide the background for the Action Buttons</string>
 
+    <string name="pref_title_lock_ab">Lock Action Buttons</string>
+    <string name="pref_summary_lock_ab">Prevent editing of Action Buttons</string>
+
     <string name="pref_title_hide_icon_labels">Hide icon labels</string>
     <string name="pref_summary_hide_icon_labels">Hide desktop icon labels</string>
 
