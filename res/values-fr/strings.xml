@@ -122,6 +122,9 @@
     <string name="pref_title_hide_statusbar">Cacher la barre de statut</string>
     <string name="pref_summary_hide_statusbar">Cache la barre haute de statut</string>
 
+    <string name="pref_title_looping">Défilement en boucle</string>
+    <string name="pref_summary_looping">Autoriser le défilement entre le premier et le dernier bureau</string>
+
     <string name="pref_title_default_screen">Bureau par défaut</string>
 
 	<string name="pref_title_desktop_scrolling_speed">Vitesse de défilement des bureaux</string>

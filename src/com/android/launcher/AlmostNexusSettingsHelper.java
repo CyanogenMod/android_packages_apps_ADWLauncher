@@ -120,6 +120,11 @@ public final class AlmostNexusSettingsHelper {
 		int newD = sp.getInt("desktopBounce", context.getResources().getInteger(R.integer.config_desktopBounce));
 		return newD;
 	}
+	public static boolean getDesktopLooping(Context context) {
+		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
+		boolean newD = sp.getBoolean("desktopLooping", context.getResources().getBoolean(R.bool.config_desktopLooping));
+		return newD;
+	}
 	public static boolean getUIABBg(Context context) {
 		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
 		boolean newD = sp.getBoolean("uiABBg", context.getResources().getBoolean(R.bool.config_uiABBg));

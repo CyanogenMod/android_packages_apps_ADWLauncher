@@ -60,6 +60,10 @@
                 android:entryValues="@array/desktop_transition_values"
                 android:entries="@array/desktop_transition_entries"
             />
+            <CheckBoxPreference android:title="@string/pref_title_looping"
+                android:defaultValue="false"
+                android:summary="@string/pref_summary_looping"
+                android:key="desktopLooping" />
 		</PreferenceCategory>
 	</PreferenceScreen>
 	<PreferenceScreen

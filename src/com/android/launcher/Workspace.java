@@ -137,6 +137,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
     private int mScrollingSpeed=600;
     //ADW: bounce scroll
     private int mScrollingBounce=50;
+    private boolean mScrollingLoop=false;
     //ADW: sense zoom constants
 	private static final int SENSE_OPENING = 1;
 	private static final int SENSE_CLOSING = 2;
@@ -1075,8 +1076,12 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
 		if (mTouchState == TOUCH_STATE_SCROLLING) {
 			if (Direction == FlingGesture.FLING_LEFT && mCurrentScreen > 0) {
 				snapToScreen(mCurrentScreen - 1);
+            } else if (Direction == FlingGesture.FLING_LEFT && mCurrentScreen <= 0 && mScrollingLoop) {
+                snapToScreen(getChildCount());
 	        } else if (Direction == FlingGesture.FLING_RIGHT && mCurrentScreen < getChildCount() - 1) {
 	        	snapToScreen(mCurrentScreen + 1);
+            } else if (Direction == FlingGesture.FLING_RIGHT && mCurrentScreen >= getChildCount() - 1 && mScrollingLoop) {
+                snapToScreen(0);
 	        } else {
 				final int screenWidth = getWidth();
 				final int nextScreen = (getScrollX() + (screenWidth / 2)) / screenWidth;
@@ -1783,6 +1788,9 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
 	public void setBounceAmount(int amount){
 		mScrollingBounce=amount;
 		mScroller.setInterpolator(new ElasticInterpolator(mScrollingBounce/10));
+	}
+	public void setDesktopLooping(boolean looping){
+		mScrollingLoop=looping;
 	}
 	public void openSense(boolean open){
 		mScroller.abortAnimation();

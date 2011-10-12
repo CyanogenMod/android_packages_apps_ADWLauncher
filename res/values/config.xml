@@ -20,6 +20,7 @@
     <bool name="config_desktopRotation">true</bool> 
     <integer name="config_desktopSpeed">450</integer>
     <integer name="config_desktopBounce">40</integer>
+    <bool name="config_desktopLooping">false</bool>
     <integer name="config_pageHorizontalMargin">10</integer>
     <integer name="config_drawerColumnsPortrait">3</integer>
     <integer name="config_drawerRowsPortrait">3</integer>

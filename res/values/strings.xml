@@ -127,6 +127,9 @@
     <string name="pref_title_hide_statusbar">Hide StatusBar</string>
     <string name="pref_summary_hide_statusbar">Hides the statusbar</string>
 
+    <string name="pref_title_looping">Screen Loop</string>
+    <string name="pref_summary_looping">Make able to have workspace loop</string>
+
     <string name="pref_title_default_screen">Default Screen</string>
 
     <string name="pref_title_desktop_scrolling_speed">Desktop scrolling speed</string>

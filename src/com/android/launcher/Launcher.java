@@ -3220,6 +3220,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 		if(mWorkspace!=null){
 			mWorkspace.setSpeed(AlmostNexusSettingsHelper.getDesktopSpeed(this));
 			mWorkspace.setBounceAmount(AlmostNexusSettingsHelper.getDesktopBounce(this));
+			mWorkspace.setDesktopLooping(AlmostNexusSettingsHelper.getDesktopLooping(this));
 			mWorkspace.setDefaultScreen(AlmostNexusSettingsHelper.getDefaultScreen(this));
 			mWorkspace.setWallpaperScroll(AlmostNexusSettingsHelper.getWallpaperScrolling(this));
 		}
