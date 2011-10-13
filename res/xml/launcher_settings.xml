@@ -193,6 +193,14 @@
 			android:entryValues="@array/menu_binding_values"
 			android:entries="@array/menu_binding_entries"
 		/>
+		<ListPreference
+			android:key="doubletapActions"
+			android:title="@string/pref_title_doubletap_actions"
+			android:summary="@string/pref_summary_doubletap_actions"
+			android:defaultValue="@string/config_doubletap_actions"
+			android:entryValues="@array/menu_binding_values"
+			android:entries="@array/menu_binding_entries"
+		/>
 	</PreferenceScreen>
 	<PreferenceScreen
 		android:key="systemPreferences"

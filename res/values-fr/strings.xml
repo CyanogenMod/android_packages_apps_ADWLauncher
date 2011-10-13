@@ -177,6 +177,9 @@
     <string name="pref_title_swipeup_actions">Glissé vers le haut</string>
     <string name="pref_summary_swipeup_actions">Actions en cas de geste glissé vers le haut</string>
 
+    <string name="pref_title_doubletap_actions">Double tape</string>
+    <string name="pref_summary_doubletap_actions">Actions en cas de double tape</string>
+
     <string name="pref_title_desktop_dots">Indicateurs de bureau</string>
     <string name="pref_summary_desktop_dots">Afficher/cacher les points indicateurs de bureau</string>
 

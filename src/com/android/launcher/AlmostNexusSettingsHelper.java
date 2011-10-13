@@ -221,6 +221,11 @@ public final class AlmostNexusSettingsHelper {
 		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
 		return sp.getString("swipeDownAppToLaunchPackageName", "");
 	}
+	public static String getDoubleTapAppToLaunchPackageName(Context context)
+	{
+		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
+		return sp.getString("doubleTapAppToLaunchPackageName", "");
+	}
 	public static String getSwipeUpAppToLaunchPackageName(Context context)
 	{
 		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
@@ -240,6 +245,11 @@ public final class AlmostNexusSettingsHelper {
 	{
 		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
 		return sp.getString("swipeUpAppToLaunchName", "");
+	}
+	public static String getDoubleTapAppToLaunchName(Context context)
+	{
+		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
+		return sp.getString("doubleTapAppToLaunchName", "");
 	}
 	public static String getHomeBindingAppToLaunchName(Context context)
 	{
@@ -262,6 +272,14 @@ public final class AlmostNexusSettingsHelper {
 	    editor.putString("swipeUpAppToLaunchName", info.intent.getComponent().getClassName());
 	    editor.commit();
 	}
+	public static void setDoubleTapAppToLaunch(Context context, ApplicationInfo info)
+	{
+		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
+	    SharedPreferences.Editor editor = sp.edit();
+	    editor.putString("doubleTapAppToLaunchPackageName", info.intent.getComponent().getPackageName());
+	    editor.putString("doubleTapAppToLaunchName", info.intent.getComponent().getClassName());
+	    editor.commit();
+	}
 	public static void setHomeBindingAppToLaunch(Context context, ApplicationInfo info)
 	{
 		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
@@ -278,6 +296,11 @@ public final class AlmostNexusSettingsHelper {
 	public static int getSwipeUpActions(Context context) {
 		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
 		int newD = Integer.valueOf(sp.getString("swipeupActions", context.getResources().getString(R.string.config_swipeup_actions)));
+		return newD;
+	}
+	public static int getDoubleTapActions(Context context) {
+		SharedPreferences sp = context.getSharedPreferences(ALMOSTNEXUS_PREFERENCES, Context.MODE_PRIVATE);
+		int newD = Integer.valueOf(sp.getString("doubletapActions", context.getResources().getString(R.string.config_doubletap_actions)));
 		return newD;
 	}
 	public static String getThemePackageName(Context context, String default_theme)

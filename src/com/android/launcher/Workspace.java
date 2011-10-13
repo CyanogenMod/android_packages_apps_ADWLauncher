@@ -93,6 +93,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
     private final static int TOUCH_STATE_SCROLLING = 1;
     private final static int TOUCH_SWIPE_DOWN_GESTURE = 2;
     private final static int TOUCH_SWIPE_UP_GESTURE = 3;
+    private final static int TOUCH_DOUBLE_TAP_GESTURE = 4;
 
     private int mTouchState = TOUCH_STATE_REST;
 
@@ -146,6 +147,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
 	private boolean mSensemode=false;
 	private boolean isAnimating=false;
 	private long startTime;
+	private long lastTouchTime;
 	private int mStatus=SENSE_CLOSED;
 	private final int mAnimationDuration=400;
 	private final int[][] distro={{1},{2},{1,2},{2,2},{2,1,2},{2,2,2},{2,3,2},{3,2,3},{3,3,3}};
@@ -880,6 +882,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
 
         final float x = ev.getX();
         final float y = ev.getY();
+		long thisTime = 0;
 
         switch (action) {
             case MotionEvent.ACTION_MOVE:
@@ -940,6 +943,14 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
                 mLastMotionY = y;
                 mAllowLongPress = true;
 
+				thisTime = System.currentTimeMillis();
+				if (thisTime - lastTouchTime < 250) {
+					mTouchState = TOUCH_DOUBLE_TAP_GESTURE;
+					lastTouchTime = -1;
+					return true;
+				} else {
+					lastTouchTime = thisTime;
+				}
                 /*
                  * If being flinged and user touches the screen, initiate drag;
                  * otherwise don't.  mScroller.isFinished should be false when
@@ -951,7 +962,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
             case MotionEvent.ACTION_CANCEL:
             case MotionEvent.ACTION_UP:
 
-            	if (mTouchState != TOUCH_STATE_SCROLLING && mTouchState != TOUCH_SWIPE_DOWN_GESTURE && mTouchState != TOUCH_SWIPE_UP_GESTURE) {
+            	if (mTouchState != TOUCH_STATE_SCROLLING && mTouchState != TOUCH_SWIPE_DOWN_GESTURE && mTouchState != TOUCH_SWIPE_UP_GESTURE && mTouchState != TOUCH_DOUBLE_TAP_GESTURE) {
                     final CellLayout currentScreen = (CellLayout) getChildAt(mCurrentScreen);
                     if (!currentScreen.lastDownOnOccupiedCell()) {
                         getLocationOnScreen(mTempCell);
@@ -1060,6 +1071,9 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
             } else if (mTouchState == TOUCH_SWIPE_UP_GESTURE )
             {
             	mLauncher.fireSwipeUpAction();
+            } else if (mTouchState == TOUCH_DOUBLE_TAP_GESTURE )
+            {
+            	mLauncher.fireDoubleTapAction();
             }
             mTouchState = TOUCH_STATE_REST;
             break;

@@ -61,6 +61,7 @@ public class MyLauncherSettings extends PreferenceActivity implements OnPreferen
     private static final int REQUEST_SWIPE_DOWN_APP_CHOOSER = 0;
     private static final int REQUEST_HOME_BINDING_APP_CHOOSER = 1;
     private static final int REQUEST_SWIPE_UP_APP_CHOOSER = 2;
+    private static final int REQUEST_DOUBLE_TAP_APP_CHOOSER = 3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //TODO: ADW should i read stored values after addPreferencesFromResource?
@@ -92,6 +93,8 @@ public class MyLauncherSettings extends PreferenceActivity implements OnPreferen
         swipedown_action.setOnPreferenceChangeListener(this);
         ListPreference swipeup_action = (ListPreference) findPreference("swipeupActions");
         swipeup_action.setOnPreferenceChangeListener(this);
+        ListPreference doubletap_action = (ListPreference) findPreference("doubletapActions");
+        doubletap_action.setOnPreferenceChangeListener(this);
         ListPreference homebutton_binding = (ListPreference) findPreference("homeBinding");
         homebutton_binding.setOnPreferenceChangeListener(this);
         CheckBoxPreference persist=(CheckBoxPreference)findPreference("systemPersistent");
@@ -463,6 +466,19 @@ public class MyLauncherSettings extends PreferenceActivity implements OnPreferen
                 pickIntent.putExtra(Intent.EXTRA_INTENT, mainIntent);
                 startActivityForResult(pickIntent,REQUEST_SWIPE_UP_APP_CHOOSER);
             }
+        }
+        else if(preference.getKey().equals("doubletapActions"))
+        {
+            // lets launch app picker if the user selected to launch an app on gesture
+            if (newValue.equals(String.valueOf(Launcher.BIND_APP_LAUNCHER)))
+            {
+                Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+                mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+                Intent pickIntent = new Intent(Intent.ACTION_PICK_ACTIVITY);
+                pickIntent.putExtra(Intent.EXTRA_INTENT, mainIntent);
+                startActivityForResult(pickIntent,REQUEST_DOUBLE_TAP_APP_CHOOSER);
+            }
         }else if(preference.getKey().equals("systemPersistent")) {
             Preference orientations=findPreference("homeOrientation");
             if(newValue.equals(true)){
@@ -509,6 +525,9 @@ public class MyLauncherSettings extends PreferenceActivity implements OnPreferen
                 break;
                 case REQUEST_SWIPE_UP_APP_CHOOSER:
                     AlmostNexusSettingsHelper.setSwipeUpAppToLaunch(this, infoFromApplicationIntent(this, data));
+                break;
+                case REQUEST_DOUBLE_TAP_APP_CHOOSER:
+                    AlmostNexusSettingsHelper.setDoubleTapAppToLaunch(this, infoFromApplicationIntent(this, data));
                 break;
             }
         }

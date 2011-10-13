@@ -187,6 +187,9 @@
     <string name="pref_title_swipeup_actions">Swipe up actions</string>
     <string name="pref_summary_swipeup_actions">Select action for Swipe up gesture</string>
 
+    <string name="pref_title_doubletap_actions">Double tap actions</string>
+    <string name="pref_summary_doubletap_actions">Select action for double tap</string>
+
     <string name="pref_title_desktop_dots">Desktop dots</string>
     <string name="pref_summary_desktop_dots">Show/hide the nexus style pagination dots</string>
 

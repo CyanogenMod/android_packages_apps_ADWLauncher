@@ -344,6 +344,10 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 	* wjax: Swipe UP binding enum
 	*/
 	private int mSwipeupAction = BIND_NOTIFICATIONS;
+	/**
+	* wjax: Double Tap binding enum
+	*/
+	private int mDoubletapAction = BIND_NONE;
 
 	/**
 	 * ADW:Wallpaper intent receiver
@@ -3209,6 +3213,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 		mHomeBinding=AlmostNexusSettingsHelper.getHomeBinding(this);
 		mSwipedownAction=AlmostNexusSettingsHelper.getSwipeDownActions(this);
 		mSwipeupAction=AlmostNexusSettingsHelper.getSwipeUpActions(this);
+		mDoubletapAction=AlmostNexusSettingsHelper.getDoubleTapActions(this);
 		hideStatusBar=AlmostNexusSettingsHelper.getHideStatusbar(this);
 		showDots=AlmostNexusSettingsHelper.getUIDots(this);
 		mDockStyle=AlmostNexusSettingsHelper.getmainDockStyle(this);
@@ -4035,6 +4040,10 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 				package_name = AlmostNexusSettingsHelper.getSwipeDownAppToLaunchPackageName(this);
 				name = AlmostNexusSettingsHelper.getSwipeDownAppToLaunchName(this);
 				break;
+			case 4:
+				package_name = AlmostNexusSettingsHelper.getDoubleTapAppToLaunchPackageName(this);
+				name = AlmostNexusSettingsHelper.getDoubleTapAppToLaunchName(this);
+				break;
 			default:
 				break;
 			}
@@ -4069,6 +4078,14 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 	public void fireSwipeUpAction(){
     	//wjax: switch SwipeUpAction button binding user selection
 		fireHomeBinding(mSwipeupAction,2);
+	}
+
+	/**
+	 * wjax: Double tap binding action
+	 */
+	public void fireDoubleTapAction(){
+    	//wjax: switch DoubleTapAction button binding user selection
+		fireHomeBinding(mDoubletapAction,4);
 	}
 
 	private void realAddWidget(AppWidgetProviderInfo appWidgetInfo,CellLayout.CellInfo cellInfo, int[]spans,int appWidgetId,boolean insertAtFirst){
