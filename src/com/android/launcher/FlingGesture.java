@@ -1,5 +1,6 @@
 package com.android.launcher;
 
+import android.content.Context;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
@@ -25,8 +26,8 @@ public class FlingGesture {
 	private VelocityTracker mVelocityTracker = null;
 	private FlingListener mListener = null;
 
-	public FlingGesture() {
-		mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
+	public FlingGesture(Context context) {
+		mMaximumVelocity = ViewConfiguration.get(context).getScaledMaximumFlingVelocity();
 	}
 
 	public void setListener(FlingListener aListener) {

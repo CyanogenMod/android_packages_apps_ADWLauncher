@@ -217,7 +217,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
         	CellLayout screen=(CellLayout)layoutInflter.inflate(R.layout.workspace_screen, this, false);
         	addView(screen);
         }
-        mFlingGesture = new FlingGesture();
+        mFlingGesture = new FlingGesture(context);
         mFlingGesture.setListener(this);
         initWorkspace();
     }

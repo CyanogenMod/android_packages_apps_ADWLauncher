@@ -61,11 +61,12 @@ public class MiniLauncher extends ViewGroup implements View.OnLongClickListener,
     private final int mScrollingSpeed=600;
     private boolean mScrollAllowed=false;
     private DragController mDragger;
-    private final FlingGesture mFlingGesture = new FlingGesture();
+    private final FlingGesture mFlingGesture;
     private int mCurrentIndex = 0;
 
     public MiniLauncher(Context context) {
         super(context);
+    	mFlingGesture = new FlingGesture(context);
     }
 
     public MiniLauncher(Context context, AttributeSet attrs) {
@@ -83,6 +84,7 @@ public class MiniLauncher extends ViewGroup implements View.OnLongClickListener,
 		mCellHeight=a.getDimensionPixelSize(R.styleable.MiniLauncher_cellHeight, mCellHeight);
         mScroller = new Scroller(getContext());
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+        mFlingGesture = new FlingGesture(context);
         mFlingGesture.setListener(this);
     }
 
