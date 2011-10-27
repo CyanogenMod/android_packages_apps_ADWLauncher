@@ -16,8 +16,6 @@
 
 package com.android.launcher;
 
-import android.content.ContentValues;
-
 import java.util.ArrayList;
 
 /**

@@ -16,12 +16,14 @@
 
 package com.android.launcher;
 
+import java.util.ArrayList;
+
+import mobi.intuitit.android.widget.WidgetCellLayout;
 import android.app.WallpaperManager;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
@@ -30,10 +32,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
-
-import java.util.ArrayList;
-
-import mobi.intuitit.android.widget.WidgetCellLayout;
 
 public class CellLayout extends WidgetCellLayout {
     private boolean mPortrait;
@@ -471,14 +469,14 @@ public class CellLayout extends WidgetCellLayout {
         cellInfo.vacantCells.add(cell);
     }
 
-    private static boolean isColumnEmpty(int x, int top, int bottom, boolean[][] occupied) {
+    /*private static boolean isColumnEmpty(int x, int top, int bottom, boolean[][] occupied) {
         for (int y = top; y <= bottom; y++) {
             if (occupied[x][y]) {
                 return false;
             }
         }
         return true;
-    }
+    }*/// Seems that this method is not used
 
     private static boolean isRowEmpty(int y, int left, int right, boolean[][] occupied) {
         for (int x = left; x <= right; x++) {
@@ -1035,7 +1033,7 @@ out:            for (int i = x; i < x + spanX - 1 && x < xCount; i++) {
         }
         
         public LayoutParams(int cellX, int cellY, int cellHSpan, int cellVSpan) {
-            super(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+            super(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
             this.cellX = cellX;
             this.cellY = cellY;
             this.cellHSpan = cellHSpan;

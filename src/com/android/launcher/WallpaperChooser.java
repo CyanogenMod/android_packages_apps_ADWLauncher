@@ -113,7 +113,7 @@ public class WallpaperChooser extends Activity implements AdapterView.OnItemSele
         }
     }
 
-    public void onItemSelected(AdapterView parent, View v, int position, long id) {
+    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
         if (mLoader != null && mLoader.getStatus() != WallpaperLoader.Status.FINISHED) {
             mLoader.cancel();
         }
@@ -141,7 +141,7 @@ public class WallpaperChooser extends Activity implements AdapterView.OnItemSele
         }
     }
 
-    public void onNothingSelected(AdapterView parent) {
+    public void onNothingSelected(AdapterView<?> parent) {
     }
 
     private class ImageAdapter extends BaseAdapter {

@@ -2,7 +2,6 @@ package com.android.launcher;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -12,19 +11,16 @@ public class PreviewsHolder extends ViewGroup {
 	private int maxPreviewHeight;
 	public PreviewsHolder(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PreviewsHolder(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PreviewsHolder(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 	}
-	private void init(){
+	//private void init(){
 		/*
 		2
 		2-1
@@ -33,17 +29,17 @@ public class PreviewsHolder extends ViewGroup {
 		3-3
 		3-1-3
 		 */
-	}
+	//}
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         assert(MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.UNSPECIFIED);
 
         final int width = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft() - getPaddingRight();
         int height = MeasureSpec.getSize(heightMeasureSpec) - getPaddingTop() - getPaddingBottom();
-        final int count = getChildCount();
+        //final int count = getChildCount();
         int line_height = 0;
 
-        int xpos = getPaddingLeft();
+        //int xpos = getPaddingLeft();
         int ypos = getPaddingTop();
         int distro_set=getChildCount()-1;
         int childPos=0;
@@ -57,13 +53,13 @@ public class PreviewsHolder extends ViewGroup {
                             MeasureSpec.makeMeasureSpec(width, MeasureSpec.AT_MOST),
                             MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
 
-                    final int childw = child.getMeasuredWidth();
+                    //final int childw = child.getMeasuredWidth();
                     line_height = Math.max(line_height, child.getMeasuredHeight() + lp.vertical_spacing);
-                    xpos += childw + lp.horizontal_spacing;
+          //          xpos += childw + lp.horizontal_spacing;
                 }
                 childPos++;
         	}
-            xpos = getPaddingLeft();
+            //xpos = getPaddingLeft();
             ypos += line_height;
         }
         maxPreviewWidth=getChildAt(0).getMeasuredWidth();
@@ -82,7 +78,6 @@ public class PreviewsHolder extends ViewGroup {
 
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
-		// TODO Auto-generated method stub
         final int count = getChildCount();
         final int width = r - l;
         final int height = b-t;

@@ -19,11 +19,6 @@ package com.android.launcher.catalogue;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.android.launcher.ApplicationInfo;
-import com.android.launcher.LauncherModel;
-import com.android.launcher.R;
-import com.android.launcher.catalogue.AppCatalogueFilters.Catalogue;
-
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -36,9 +31,14 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.CompoundButton.OnCheckedChangeListener;
+
+import com.android.launcher.ApplicationInfo;
+import com.android.launcher.ApplicationsAdapter;
+import com.android.launcher.R;
+import com.android.launcher.catalogue.AppCatalogueFilters.Catalogue;
 
 public class AppInfoMList extends ListActivity implements
 		View.OnCreateContextMenuListener, View.OnClickListener,
@@ -157,7 +157,7 @@ public class AppInfoMList extends ListActivity implements
 	/* update app into */
 	private void updateAppList() {
 
-		ArrayList<ApplicationInfo> appInfos = LauncherModel.mApplicationsAdapter.allItems;
+		ArrayList<ApplicationInfo> appInfos = ApplicationsAdapter.allItems;
 		/* app info */
 		final List<AppListInfo> savedAppInfos = new ArrayList<AppListInfo>();
 

@@ -41,28 +41,25 @@ public class ActionButton extends CounterImageView implements DropTarget, DragLi
 
 	public ActionButton(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	public ActionButton(Context context, AttributeSet attrs) {
 		this(context, attrs,0);
-		// TODO Auto-generated constructor stub
 	}
 
 	public ActionButton(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 		setHapticFeedbackEnabled(true);
 		TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.ActionButton,defStyle,0);
 		mIdent=a.getInt(R.styleable.ActionButton_ident, mIdent);
-        mOrientation = a.getInt(R.styleable.ActionButton_direction, ORIENTATION_HORIZONTAL);
+		mOrientation = a.getInt(R.styleable.ActionButton_direction, ORIENTATION_HORIZONTAL);
 		//bgResource=a.getDrawable(R.styleable.ActionButton_background);
 		bgEmpty=context.getResources().getDrawable(R.drawable.lab_rab_empty_bg);
 		a.recycle();
-        mGestureListener = new ABGestureListener();
-        //mGestureDetector = new GestureDetector(mGestureListener);
-        mGestureDetector = new GestureDetector(context, mGestureListener);
-        this.setOnLongClickListener(this);
+		mGestureListener = new ABGestureListener();
+		//mGestureDetector = new GestureDetector(mGestureListener);
+		mGestureDetector = new GestureDetector(context, mGestureListener);
+		this.setOnLongClickListener(this);
 	}
 
 	public boolean acceptDrop(DragSource source, int x, int y, int xOffset,
@@ -184,7 +181,6 @@ public class ActionButton extends CounterImageView implements DropTarget, DragLi
 
 	@Override
 	public Object getTag() {
-		// TODO Auto-generated method stub
 		if(!specialMode){
 		    return mCurrentInfo;
 		}else{
@@ -246,7 +242,6 @@ public class ActionButton extends CounterImageView implements DropTarget, DragLi
 
 	@Override
 	public void setBackgroundDrawable(Drawable d) {
-		// TODO Auto-generated method stub
 		super.setBackgroundDrawable(d);
 		if(d!=bgEmpty){
 			if(bgResource!=null)bgResource.setCallback(null);

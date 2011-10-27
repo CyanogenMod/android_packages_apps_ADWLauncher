@@ -33,16 +33,15 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup.MarginLayoutParams;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
+import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.FrameLayout.LayoutParams;
 
 public class DeleteZone extends ImageView implements DropTarget, DragController.DragListener {
     private static final int POSITION_NONE = 0;
@@ -326,7 +325,6 @@ public class DeleteZone extends ImageView implements DropTarget, DragController.
 
 	@Override
 	public void setBackgroundDrawable(Drawable d) {
-		// TODO Auto-generated method stub
 		super.setBackgroundDrawable(d);
         mTransition = (TransitionDrawable) d;
 	}

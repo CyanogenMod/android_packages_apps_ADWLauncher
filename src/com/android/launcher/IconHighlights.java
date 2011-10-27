@@ -4,13 +4,10 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.NinePatchDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.widget.ImageView;
 
 public class IconHighlights {
 	public static final int TYPE_DESKTOP=1;
@@ -48,7 +45,7 @@ public class IconHighlights {
 		return drawable;
 	}
 	private static Drawable oldSelector(Context context, int type){
-		int selectedColor=AlmostNexusSettingsHelper.getHighlightsColorFocus(context);
+		//int selectedColor=AlmostNexusSettingsHelper.getHighlightsColorFocus(context);
 		int pressedColor=AlmostNexusSettingsHelper.getHighlightsColor(context);
     	//ADW: Load the specified theme
     	String themePackage=AlmostNexusSettingsHelper.getThemePackageName(context, Launcher.THEME_DEFAULT);

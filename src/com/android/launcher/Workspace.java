@@ -113,7 +113,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
     private boolean mLocked;
 
     private int mTouchSlop;
-    private int mMaximumVelocity;
+    //private int mMaximumVelocity;
 
     final Rect mDrawerBounds = new Rect();
     final Rect mClipBounds = new Rect();
@@ -128,7 +128,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
     //ADW: port from donut wallpaper drawing
     private Paint mPaint;
     private int mWallpaperWidth;
-    private int mWallpaperHeight;
+    //private int mWallpaperHeight;
     private float mWallpaperOffset;
     private boolean mWallpaperLoaded;
     private boolean lwpSupport=true;
@@ -236,7 +236,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
         mPaint.setDither(false);
         final ViewConfiguration configuration = ViewConfiguration.get(getContext());
         mTouchSlop = configuration.getScaledTouchSlop();
-        mMaximumVelocity = configuration.getScaledMaximumFlingVelocity();
+        //mMaximumVelocity = configuration.getScaledMaximumFlingVelocity();
         //Wysie: Use MultiTouchController only for multitouch events
         multiTouchController = new MultiTouchController<Object>(this, false);
         mDesktopRows=AlmostNexusSettingsHelper.getDesktopRows(getContext());
@@ -518,7 +518,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
             }
             postInvalidate();
         } else if (mNextScreen != INVALID_SCREEN) {
-        	int lastScreen = mCurrentScreen;
+        	//int lastScreen = mCurrentScreen;
             mCurrentScreen = Math.max(0, Math.min(mNextScreen, getChildCount() - 1));
             //ADW: dots
             //indicatorLevels(mCurrentScreen);
@@ -736,7 +736,7 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
     	if(!lwpSupport && mWallpaperDrawable!=null){
     		if (mWallpaperLoaded) {
     		    mWallpaperLoaded = false;
-    		    mWallpaperHeight = mWallpaperDrawable.getIntrinsicHeight();
+    		    //mWallpaperHeight = mWallpaperDrawable.getIntrinsicHeight();
     		    mWallpaperWidth = mWallpaperDrawable.getIntrinsicWidth();
     		}
 
@@ -1994,7 +1994,6 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
 	}
 
 	public Activity getLauncherActivity() {
-		// TODO Auto-generated method stub
 		return mLauncher;
 	}
 	public int currentDesktopRows(){
@@ -2208,7 +2207,6 @@ public class Workspace extends WidgetSpace implements DropTarget, DragSource, Dr
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        // TODO Auto-generated method stub
         super.onSizeChanged(w, h, oldw, oldh);
         if(mLauncher!=null)mWallpaperY=h - mLauncher.getWindow().getDecorView().getHeight();
     }

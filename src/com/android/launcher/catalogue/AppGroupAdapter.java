@@ -18,19 +18,17 @@ package com.android.launcher.catalogue;
 
 import java.util.ArrayList;
 
-import com.android.launcher.Launcher;
-import com.android.launcher.R;
-import com.android.launcher.Workspace;
-
 import android.content.Context;
 import android.content.res.Resources;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.TextView;
+
+import com.android.launcher.Launcher;
+import com.android.launcher.R;
+import com.android.launcher.Workspace;
 
 /**
  * Adapter showing the types of items that can be added to a {@link Workspace}.

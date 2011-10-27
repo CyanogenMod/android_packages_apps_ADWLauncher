@@ -2,7 +2,6 @@ package com.android.launcher.catalogue;
 
 import java.util.List;
 
-import com.android.launcher.ApplicationsAdapter;
 import com.android.launcher.Launcher;
 import com.android.launcher.catalogue.AppCatalogueFilters.Catalogue;
 

@@ -20,8 +20,6 @@ import static android.util.Log.d;
 import static android.util.Log.e;
 import static android.util.Log.w;
 
-import com.android.launcher.ActionButton.SwipeListener;
-import com.android.launcher.DockBar.DockBarListener;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
@@ -34,14 +32,6 @@ import java.util.List;
 
 import mobi.intuitit.android.content.LauncherIntent;
 import mobi.intuitit.android.content.LauncherMetadata;
-
-import com.android.launcher.DockBar.DockBarListener;
-import com.android.launcher.catalogue.AppCatalogueFilter;
-import com.android.launcher.catalogue.AppCatalogueFilters;
-import com.android.launcher.catalogue.AppGroupAdapter;
-import com.android.launcher.catalogue.AppInfoMList;
-import com.android.launcher.catalogue.AppCatalogueFilters.Catalogue;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
@@ -59,17 +49,16 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.Intent.ShortcutIconResource;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.content.Intent.ShortcutIconResource;
 import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.ActivityInfo;
 import android.content.pm.LabeledIntent;
 import android.content.pm.PackageManager;
-import android.content.pm.ProviderInfo;
-import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ProviderInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.ContentObserver;
@@ -91,7 +80,6 @@ import android.os.Message;
 import android.os.MessageQueue;
 import android.os.Parcelable;
 import android.provider.LiveFolders;
-import android.provider.Settings;
 import android.text.Selection;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -105,15 +93,14 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
-import android.view.animation.Animation;
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
 import android.widget.Gallery;
 import android.widget.ImageView;
@@ -122,8 +109,14 @@ import android.widget.ListAdapter;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemSelectedListener;
 
+import com.android.launcher.ActionButton.SwipeListener;
+import com.android.launcher.DockBar.DockBarListener;
+import com.android.launcher.catalogue.AppCatalogueFilter;
+import com.android.launcher.catalogue.AppCatalogueFilters;
+import com.android.launcher.catalogue.AppCatalogueFilters.Catalogue;
+import com.android.launcher.catalogue.AppGroupAdapter;
+import com.android.launcher.catalogue.AppInfoMList;
 import com.devoteam.quickaction.QuickActionWindow;
 
 
@@ -308,7 +301,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 	private boolean uiHideLabels=false;
 	private boolean wallpaperHack=true;
 	private DesktopIndicator mDesktopIndicator;
-	private int savedOrientation;
+	//private int savedOrientation;
     private boolean useDrawerCatalogNavigation=true;
     public boolean useDrawerUngroupCatalog=false;
     protected boolean useDrawerTitleCatalog=false;
@@ -402,9 +395,9 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 		mMessWithPersistence=AlmostNexusSettingsHelper.getSystemPersistent(this);
 		if(mMessWithPersistence){
 	        changeOrientation(AlmostNexusSettingsHelper.getDesktopOrientation(this),true);
-			setPersistent(true);
+			//setPersistent(true);
 		}else{
-			setPersistent(false);
+			//setPersistent(false);
 	        changeOrientation(AlmostNexusSettingsHelper.getDesktopOrientation(this),false);
 		}
         mBlockDesktop=AlmostNexusSettingsHelper.getDesktopBlocked(this);
@@ -677,7 +670,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         //ADW: removed cause it was closing app-drawer every time Home button is triggered
         //ADW: it should be done only on certain circumstances
         //closeDrawer(false);
-        savedOrientation = getResources().getConfiguration().orientation;
+        //savedOrientation = getResources().getConfiguration().orientation;
     }
 
     @Override
@@ -1672,7 +1665,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         // TODO: catch bad widget exception when sent
         int appWidgetId = data.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, -1);
 
-        String customWidget = data.getStringExtra(EXTRA_CUSTOM_WIDGET);
+        //String customWidget = data.getStringExtra(EXTRA_CUSTOM_WIDGET);
         /*if (SEARCH_WIDGET.equals(customWidget)) {
             // We don't need this any more, since this isn't a real app widget.
             mAppWidgetHost.deleteAppWidgetId(appWidgetId);
@@ -2541,9 +2534,9 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 					.create();
    	        case DIALOG_PICK_GROUPS:
    	            return new PickGrpDialog().createDialog();
+   	        default:
+   	            return null;
         }
-
-        return super.onCreateDialog(id);
     }
 
     @Override
@@ -3537,7 +3530,8 @@ public final class Launcher extends Activity implements View.OnClickListener, On
                     for (int i = 0; i < count; i++) {
                         ((ImageView) group.getChildAt(i)).setImageDrawable(null);
                     }
-                    ArrayList<Bitmap> bitmaps = (ArrayList<Bitmap>) v.getTag(R.id.icon);
+                    @SuppressWarnings("unchecked")
+		    ArrayList<Bitmap> bitmaps = (ArrayList<Bitmap>) v.getTag(R.id.icon);
                     for (Bitmap bitmap : bitmaps) bitmap.recycle();
 
                     v.setTag(R.id.workspace, null);
@@ -3693,7 +3687,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
      */
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
-		// TODO Auto-generated method stub
     	super.onWindowFocusChanged(hasFocus);
 		if(mShouldHideStatusbaronFocus && hasFocus){
 			fullScreen(true);
@@ -3876,7 +3869,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 	public void onSharedPreferenceChanged(SharedPreferences sp, String key) {
 		//ADW: Try to add the restart flag here instead on preferences activity
 		if(AlmostNexusSettingsHelper.needsRestart(key)){
-			setPersistent(false);
+			//setPersistent(false);
 			mShouldRestart=true;
 		}else{
 			//TODO: ADW Move here all the updates instead on updateAlmostNexusUI()
@@ -3887,7 +3880,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 		        	//ADW: If a user changes between different orientation modes
 		        	//we temporarily disable persistence to change the app orientation
 		        	//it will be re-enabled on the next onCreate
-		        	setPersistent(false);
+		        	//setPersistent(false);
 		        	changeOrientation(AlmostNexusSettingsHelper.getDesktopOrientation(this),true);
 		        }
 			}else if(key.equals("systemPersistent")){
@@ -3897,10 +3890,10 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 					//ADW: If previously in portrait, set persistent
 					//else, it will call the setPersistent on the next onCreate
 					//caused by the orientation change
-					if(savedOrientation==ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
-						setPersistent(true);
+				/*	if(savedOrientation==ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+						setPersistent(true);*/
 				}else{
-					setPersistent(false);
+					//setPersistent(false);
 	        		changeOrientation(AlmostNexusSettingsHelper.getDesktopOrientation(this),false);
 				}
 			}else if(key.equals("notif_receiver")){
@@ -4148,7 +4141,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 
 	@Override
 	protected void onStart() {
-		// TODO Auto-generated method stub
 		//if(mMessWithPersistence)setPersistent(false);
 		super.onStart();
 		//int currentOrientation=getResources().getConfiguration().orientation;
@@ -4163,7 +4155,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 			//savedOrientation=getResources().getConfiguration().orientation;
 	    	//if(mMessWithPersistence)setPersistent(true);
 		//}
-		// TODO Auto-generated method stub
 		super.onStop();
 	}
 	private boolean checkDefaultLauncher(){
@@ -4708,7 +4699,6 @@ public final class Launcher extends Activity implements View.OnClickListener, On
 
     @Override
     public void startActivity(Intent intent) {
-        // TODO Auto-generated method stub
         final ComponentName name = intent.getComponent();
         if(name!=null)
             updateCountersForPackage(name.getPackageName(),0,0);

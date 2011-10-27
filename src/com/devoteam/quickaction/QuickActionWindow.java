@@ -68,7 +68,7 @@ public class QuickActionWindow extends PopupWindow implements KeyEvent.Callback 
 		
 		mScreenWidth = mWindowManager.getDefaultDisplay().getWidth();
 		
-		setWindowLayoutMode(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+		setWindowLayoutMode(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 		
 		final Resources res = mContext.getResources();
 		mShadowHoriz = res.getDimensionPixelSize(R.dimen.quickaction_shadow_horiz);
@@ -178,7 +178,7 @@ public class QuickActionWindow extends PopupWindow implements KeyEvent.Callback 
 		// Calculate properly to position the popup the correctly based on height of popup
 		if (isShowing()) {
 			int x, y, windowAnimations;
-			this.getContentView().measure(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+			this.getContentView().measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 			final int blockHeight = this.getContentView().getMeasuredHeight();
 			
 			x = -mShadowHoriz;

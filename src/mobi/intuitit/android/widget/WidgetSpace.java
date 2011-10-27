@@ -827,7 +827,12 @@ public abstract class WidgetSpace extends ViewGroup {
     }
 
     class FrameAnimationException extends AnimationException {
-        public FrameAnimationException(String msg) {
+        /**
+	 * 
+	 */
+	private static final long serialVersionUID = -3873320976176961709L;
+
+	public FrameAnimationException(String msg) {
             super(LauncherIntent.Error.ERROR_FRAME_ANIMATION, msg);
         }
 
@@ -835,7 +840,12 @@ public abstract class WidgetSpace extends ViewGroup {
 
     class TweenAnimationException extends AnimationException {
 
-        public TweenAnimationException(String msg) {
+        /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1459429645365799185L;
+
+	public TweenAnimationException(String msg) {
             super(LauncherIntent.Error.ERROR_TWEEN_ANIMATION, msg);
         }
 

@@ -2,19 +2,15 @@ package com.android.launcher;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.drawable.RotateDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
-import android.view.Gravity;
+import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.GestureDetector.OnGestureListener;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.view.animation.Animation.AnimationListener;
-import android.widget.FrameLayout;
+import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
 
 public class DockBar extends LinearLayout implements OnClickListener {
@@ -39,14 +35,11 @@ public class DockBar extends LinearLayout implements OnClickListener {
 	private DockBarListener mDockBarListener;
 	public DockBar(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	public DockBar(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DockBar);
-		RuntimeException e = null;
         mHandleId = a.getResourceId(R.styleable.DockBar_handle, 0);
         /*if (mHandleId == 0) {
                 e = new IllegalArgumentException(a.getPositionDescription() +
@@ -54,7 +47,7 @@ public class DockBar extends LinearLayout implements OnClickListener {
         }*/
         mContentId = a.getResourceId(R.styleable.DockBar_content, 0);
         if (mContentId == 0) {
-                e = new IllegalArgumentException(a.getPositionDescription() +
+            new IllegalArgumentException(a.getPositionDescription() +
                                 ": The content attribute is required and must refer to a valid child.");
         }
         mPosition = a.getInt(
@@ -147,7 +140,6 @@ public class DockBar extends LinearLayout implements OnClickListener {
 			
 			//@Override
 			public void onAnimationEnd(Animation animation) {
-				// TODO Auto-generated method stub
 				setVisibility(View.GONE);
 			}
 		});
@@ -235,7 +227,6 @@ public class DockBar extends LinearLayout implements OnClickListener {
 
 	//@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		if(v==mHandle){
 			close();
 		}

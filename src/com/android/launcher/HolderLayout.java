@@ -3,7 +3,6 @@ package com.android.launcher;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -42,7 +41,7 @@ public class HolderLayout extends ViewGroup {
     private float x;
     private float y;
     private float width;
-    private float height;
+    //private float height; //Not used
     private Rect rl1=new Rect();
     private Rect rl2=new Rect();
     private float scale;
@@ -50,7 +49,6 @@ public class HolderLayout extends ViewGroup {
     private int xx;
 	public HolderLayout(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 		mPaint=new Paint();
 		mPaint.setDither(false);
         mLabelPaint=new Paint();
@@ -61,7 +59,6 @@ public class HolderLayout extends ViewGroup {
 
 	public HolderLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 		mPaint=new Paint();
 		mPaint.setDither(false);
         mLabelPaint=new Paint();
@@ -72,7 +69,6 @@ public class HolderLayout extends ViewGroup {
 
 	public HolderLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 		mPaint=new Paint();
 		mPaint.setDither(false);
         mLabelPaint=new Paint();
@@ -89,13 +85,11 @@ public class HolderLayout extends ViewGroup {
 	@Override
 	protected boolean addViewInLayout(View child, int index,
 			LayoutParams params, boolean preventRequestLayout) {
-		// TODO Auto-generated method stub
 		return super.addViewInLayout(child, index, params, preventRequestLayout);
 	}
 
 	@Override
 	protected void attachViewToParent(View child, int index, LayoutParams params) {
-		// TODO Auto-generated method stub
 		super.attachViewToParent(child, index, params);
 	}
 
@@ -107,7 +101,6 @@ public class HolderLayout extends ViewGroup {
 
 	@Override
 	public void dispatchSetSelected(boolean selected) {
-		// TODO Auto-generated method stub
 		super.dispatchSetSelected(selected);
 	}
     /*@Override
@@ -234,7 +227,7 @@ public class HolderLayout extends ViewGroup {
 			x=child.getLeft()+(distH*(mScaleFactor-1))*(mScaleFactor);
 			y=child.getTop()+(distV*(mScaleFactor-1))*(mScaleFactor);
 			width=child.getWidth()*mScaleFactor;
-			height=(child.getHeight()-(child.getHeight()-mIconSize))*mScaleFactor;
+			//height=(child.getHeight()-(child.getHeight()-mIconSize))*mScaleFactor;
 			if(shouldDrawLabels) {
                                 child.setDrawingCacheEnabled(true);
                                 child.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_LOW);

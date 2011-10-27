@@ -18,12 +18,7 @@ package com.android.launcher;
 
 //import com.android.launcher.catalogue.CataGridView;
 
-import com.android.launcher.AllAppsSlidingView.MyGestureDetector;
-import com.android.launcher.catalogue.AppCatalogueFilters;
-import com.android.launcher.catalogue.AppGroupAdapter;
-
 import android.content.Context;
-import android.content.res.Configuration;
 import android.database.DataSetObserver;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -34,20 +29,19 @@ import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Transformation;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.android.launcher.catalogue.AppCatalogueFilters;
+import com.android.launcher.catalogue.AppGroupAdapter;
 
 public class AllAppsGridView extends GridView implements
 		AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener,
@@ -84,7 +78,7 @@ public class AllAppsGridView extends GridView implements
     private Rect rl1=new Rect();
     private Rect rl2=new Rect();
 //    private float scale;
-    private Rect r3=new Rect();
+//    private Rect r3=new Rect(); //Removed beacause is never used
 //    private int xx;
 
     private int mLastIndexDraw = -99;
@@ -131,7 +125,7 @@ public class AllAppsGridView extends GridView implements
 		setOnItemLongClickListener(this);
 	}
 	
-	public void onItemClick(AdapterView parent, View v, int position, long id) {
+	public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 	    if ( !mFlang )
 	    {
     		ApplicationInfo app = (ApplicationInfo) parent
@@ -514,7 +508,6 @@ public class AllAppsGridView extends GridView implements
                         @Override
                         public void onChanged()
                         {
-                            // TODO Auto-generated method stub
                             super.onChanged();
                             postInvalidate();
                             long time = mFadeEnd - System.currentTimeMillis();
@@ -608,7 +601,6 @@ public class AllAppsGridView extends GridView implements
         {
             mFlang = false;
             downX = e.getX();
-            // TODO Auto-generated method stub
             return super.onDown(e);
         }
         
@@ -617,7 +609,6 @@ public class AllAppsGridView extends GridView implements
         {
             if (Math.abs(downX - e.getX()) > SWIPE_MAX_OFF_PATH)
                 return false;
-            // TODO Auto-generated method stub
             return super.onSingleTapUp(e);
         }
         

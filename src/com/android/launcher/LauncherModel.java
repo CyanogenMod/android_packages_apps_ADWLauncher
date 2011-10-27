@@ -223,7 +223,7 @@ public class LauncherModel {
             final ApplicationsAdapter adapter = mApplicationsAdapter;
 
             final List<ApplicationInfo> toRemove = new ArrayList<ApplicationInfo>();
-            final ArrayList<ApplicationInfo> allItems = adapter.allItems;
+            final ArrayList<ApplicationInfo> allItems = ApplicationsAdapter.allItems;
             final int count = allItems.size();
 
             for (int i = 0; i < count; i++) {
@@ -1692,7 +1692,7 @@ public class LauncherModel {
                         if(compiledIconShader!=null){
                             icon = Utilities.createIconThumbnail(activityInfo.loadIcon(manager), context);
                             try {
-                                icon = IconShader.processIcon(icon, compiledIconShader);
+                                icon = IconShader.processIcon(themeResources, icon, compiledIconShader);
                             } catch (Exception e) {}
                         }
                     }

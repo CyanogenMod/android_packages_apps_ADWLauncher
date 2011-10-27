@@ -42,8 +42,8 @@ public class WidgetCursorAdapter extends CursorAdapter {
 
     boolean mAllowRequery = true;
 
-    private ContentResolver mContentResolver;
-    private Intent mIntent;
+    //private ContentResolver mContentResolver;
+    //private Intent mIntent;
 
     class ItemMapping {
         int type;
@@ -86,7 +86,7 @@ public class WidgetCursorAdapter extends CursorAdapter {
     final int mItemActionUriIndex;
     ComponentName mAppWidgetProvider;
 
-    private Activity mActivity;
+    //private Activity mActivity;
 
     /**
      * 
@@ -106,11 +106,11 @@ public class WidgetCursorAdapter extends CursorAdapter {
 
         mAppWidgetId = appWidgetId;
         mListViewId = listViewId;
-        mContentResolver = context.getContentResolver();
-        mIntent = intent;
+        //mContentResolver = context.getContentResolver();
+        //mIntent = intent;
         mAppWidgetProvider = provider;
         mInflater = LayoutInflater.from(context);
-        mActivity = a;
+        //mActivity = a;
 
         // verify is contentProvider requery is allowed
         mAllowRequery = intent.getBooleanExtra(

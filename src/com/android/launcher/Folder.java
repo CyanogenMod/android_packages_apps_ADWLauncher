@@ -23,16 +23,15 @@ import android.content.res.Resources;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.AbsListView;
-import android.widget.BaseAdapter;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 /**
@@ -58,7 +57,7 @@ public class Folder extends LinearLayout implements DragSource, OnItemLongClickL
      * ADW:Theme vars
      */
     private int mTextColor=0;
-    private boolean useThemeTextColor=false;
+    //private boolean useThemeTextColor=false; //not used
 
     /**
      * Used to inflate the Workspace from XML.
@@ -118,7 +117,7 @@ public class Folder extends LinearLayout implements DragSource, OnItemLongClickL
         
     }
     
-    public void onItemClick(AdapterView parent, View v, int position, long id) {
+    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         ApplicationInfo app = (ApplicationInfo) parent.getItemAtPosition(position);
 		// set bound
 		if (v != null) {

@@ -51,7 +51,6 @@ public class MyLauncherSettings extends PreferenceActivity implements OnPreferen
     public static final boolean IsDebugVersion = false;
     private static final String ALMOSTNEXUS_PREFERENCES = "launcher.preferences.almostnexus";
     private boolean shouldRestart=false;
-    private String mMsg;
     private Context mContext;
 
     private static final String PREF_BACKUP_FILENAME = "adw_settings.xml";
@@ -66,9 +65,9 @@ public class MyLauncherSettings extends PreferenceActivity implements OnPreferen
     protected void onCreate(Bundle savedInstanceState) {
         //TODO: ADW should i read stored values after addPreferencesFromResource?
         if (Build.VERSION.SDK_INT >= 8)
-            mMsg = getString(R.string.pref_message_restart_froyo);
-        else
-            mMsg = getString(R.string.pref_message_restart_normal);
+	    getString(R.string.pref_message_restart_froyo);
+	else
+	    getString(R.string.pref_message_restart_normal);
         super.onCreate(savedInstanceState);
         getPreferenceManager().setSharedPreferencesName(ALMOSTNEXUS_PREFERENCES);
         addPreferencesFromResource(R.xml.launcher_settings);
@@ -416,7 +415,7 @@ public class MyLauncherSettings extends PreferenceActivity implements OnPreferen
                 AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
                 am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sender);
                 ActivityManager acm = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
-                acm.restartPackage("com.android.launcher");
+                acm.killBackgroundProcesses("com.android.launcher");
             }else{
                 android.os.Process.killProcess(android.os.Process.myPid());
             }

@@ -214,7 +214,6 @@ public class CustomShirtcutActivity extends Activity implements OnClickListener 
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		if(resultCode==RESULT_OK){
 			switch (requestCode) {
@@ -232,10 +231,8 @@ public class CustomShirtcutActivity extends Activity implements OnClickListener 
 					InputStream is = getContentResolver().openInputStream(
 							photoUri);
 					BitmapFactory.Options opts = new BitmapFactory.Options();
-					Bitmap bitmap;
+					//Bitmap bitmap = BitmapFactory.decodeStream(is, null, opts); // Seems that it's never used
 					opts.inJustDecodeBounds = true;
-					bitmap = BitmapFactory.decodeStream(is, null, opts);
-
 					BitmapFactory.Options ops2 = new BitmapFactory.Options();
 					int width = mIconSize;
 					float w = opts.outWidth;
@@ -431,9 +428,8 @@ public class CustomShirtcutActivity extends Activity implements OnClickListener 
 		case DIALOG_ICON_TYPE:
 			return new IconTypeDialog().createDialog();
 		default:
-			break;
+			return null;
 		}
-		return super.onCreateDialog(id);
 	}
     protected class IconTypeDialog implements DialogInterface.OnClickListener,
 	    DialogInterface.OnCancelListener, DialogInterface.OnDismissListener,

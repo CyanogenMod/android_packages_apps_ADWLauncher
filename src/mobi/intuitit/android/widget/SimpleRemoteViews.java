@@ -426,8 +426,7 @@ public class SimpleRemoteViews implements Parcelable {
            }
        }
 
-       @SuppressWarnings("unchecked")
-       private Class getParameterType() {
+       private Class<?> getParameterType() {
            switch (this.type) {
                case BOOLEAN:
                    return boolean.class;
@@ -460,7 +459,6 @@ public class SimpleRemoteViews implements Parcelable {
            }
        }
 
-       @SuppressWarnings("unchecked")
        @Override
        public void apply(View root) {
            final View view = root.findViewById(viewId);
@@ -468,12 +466,12 @@ public class SimpleRemoteViews implements Parcelable {
                throw new ActionException("can't find view: 0x" + Integer.toHexString(viewId));
            }
 
-           Class param = getParameterType();
+           Class<?> param = getParameterType();
            if (param == null) {
                throw new ActionException("bad type: " + this.type);
            }
 
-           Class klass = view.getClass();
+           Class<? extends View> klass = view.getClass();
            Method method;
            try {
                method = klass.getMethod(this.methodName, getParameterType());

@@ -49,7 +49,7 @@ public class LiveFolder extends Folder {
     }
 
     @Override
-    public void onItemClick(AdapterView parent, View v, int position, long id) {
+    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         LiveFolderAdapter.ViewHolder holder = (LiveFolderAdapter.ViewHolder) v.getTag();
 
         if (holder.useBaseIntent) {

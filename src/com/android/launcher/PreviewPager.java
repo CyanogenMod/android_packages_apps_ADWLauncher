@@ -26,14 +26,12 @@ public class PreviewPager extends ViewGroup {
 	
 	public PreviewPager(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 		initPager();
 	}
 
 	public PreviewPager(Context context) {
 		super(context);
 		initPager();
-		// TODO Auto-generated constructor stub
 	}
 	private void initPager(){
 		setFocusable(false);
@@ -160,8 +158,8 @@ public class PreviewPager extends ViewGroup {
 			td.setCrossFadeEnabled(true);
 			dot.setImageDrawable(td);
 	        ViewGroup.LayoutParams p;
-	        p = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,
-	        		ViewGroup.LayoutParams.FILL_PARENT);
+	        p = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+	        		ViewGroup.LayoutParams.MATCH_PARENT);
             dot.setLayoutParams(p);
             int childHeightSpec = getChildMeasureSpec(
                     MeasureSpec.makeMeasureSpec(dotWidth, MeasureSpec.UNSPECIFIED), 0, p.height);

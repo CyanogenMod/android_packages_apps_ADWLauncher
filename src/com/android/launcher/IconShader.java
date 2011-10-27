@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -257,7 +258,7 @@ class IconShader {
                 inputChannel, inputValue);
     }
     
-    static Drawable processIcon(Drawable icon_d, CompiledIconShader compiledShader) {
+    static Drawable processIcon(Resources res, Drawable icon_d, CompiledIconShader compiledShader) {
         List<Shader> shaders = compiledShader.shaders;
         Bitmap icon_bitmap=null;
         // get bitmap
@@ -494,7 +495,8 @@ class IconShader {
                 Bitmap.Config.ARGB_8888 : icon_bitmap.getConfig();
         Bitmap output_bitmap = Bitmap.createBitmap(pixels, width, height, c);
         output_bitmap.setDensity(DisplayMetrics.DENSITY_DEFAULT);
-        BitmapDrawable output_bd = new BitmapDrawable(output_bitmap);
+        
+        BitmapDrawable output_bd = new BitmapDrawable(res, output_bitmap);
         return output_bd;
     }
     

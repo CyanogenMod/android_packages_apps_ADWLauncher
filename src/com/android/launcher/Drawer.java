@@ -1,8 +1,5 @@
 package com.android.launcher;
 
-import android.util.DisplayMetrics;
-import android.view.GestureDetector;
-import android.view.View;
 
 
 public interface Drawer {

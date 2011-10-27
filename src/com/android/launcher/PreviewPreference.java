@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.os.Parcelable;
 import android.preference.Preference;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -18,26 +17,21 @@ public class PreviewPreference extends Preference {
 	private CharSequence themeName;
 	private CharSequence themePackageName;
 	private CharSequence themeDescription;
-	private Drawable themeIcon;
 	private Drawable themePreview;
 	public PreviewPreference(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PreviewPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PreviewPreference(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected void onBindView(View view) {
-		// TODO Auto-generated method stub
 		super.onBindView(view);
 		if(themePackageName!=null && themePackageName.toString().length()>0){
 			TextView vThemeTitle= (TextView) view.findViewById(R.id.ThemeTitle);
