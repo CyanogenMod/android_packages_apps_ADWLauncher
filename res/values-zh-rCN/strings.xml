@@ -79,6 +79,9 @@
     <string name="pref_summary_desktop_overshoot">开启桌面滑动时的弹性效果</string>
     <string name="pref_dialog_desktop_overshoot">设置为0时禁用桌面弹性效果</string>
 
+    <string name="pref_title_desktop_transition">桌面过渡动画</string>
+    <string name="pref_summary_desktop_transition">桌面分页切换时要使用的动画效果</string>
+
     <!-- Drawer Settings -->
     <string name="pref_title_drawer_settings">托盘设置</string>
     <string name="pref_summary_drawer_settings">托盘动画显示设置</string>
@@ -309,6 +312,11 @@
 
     <string name="pref_title_drawer_navigate_catalogs">目录导航</string>
     <string name="pref_summary_drawer_navigate_catalogs">显示应用程序目录导航按钮</string>
+    <string name="pref_title_drawer_ungroup_catalog">只显示已分类目录</string>
+    <string name="pref_summary_drawer_ungroup_catalog">不显示所有程序，只显示已分类目录</string>
+    <string name="pref_title_drawer_show_catalogs">显示目录标题</string>
+    <string name="pref_summary_drawer_show_catalogs">在托盘显示目录标题</string>
+
     <string name="pref_title_notif_receiver">显示通知</string>
     <string name="pref_summary_notif_receiver">启用全局通知计数</string>
 
@@ -328,7 +336,11 @@
     <string name="pref_summary_ab_tint">启用主工具栏图标着色</string>
     <string name="pref_title_ab_tint_color">着色色调</string>
     <string name="pref_summary_ab_tint_color">选择着色图标色调</string>
-
+    <string name="pref_title_deletezone_preferencecategory">垃圾桶</string>
+    <string name="pref_title_deletezone_style">垃圾桶位置</string>
+    <string name="pref_summary_deletezone_style">更改垃圾桶位置</string>
+    <string name="pref_title_close_apps_dockbar">关闭程序托盘</string>
+    <string name="pref_summary_close_apps_dockbar">当扩展栏可见并长按条目时关闭程序托盘</string>
     <string name="menu_lock">桌面锁定</string>
     <string name="menu_unlock">桌面解锁</string>
 
