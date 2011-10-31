@@ -71,6 +71,9 @@
   <string name="pref_title_hide_statusbar">Statuszeile ausblenden</string>
   <string name="pref_summary_hide_statusbar">Obere Statuszeile ausblenden</string>
 
+  <string name="pref_title_looping">Bildschirm-Schleife</string>
+  <string name="pref_summary_looping">Ermöglicht es in einer Endlosschleife durch die Bildschirme zu Scrollen</string>
+
   <string name="pref_title_default_screen">Standardbildschirm</string>
 
   <string name="pref_title_desktop_scrolling_speed">Scrollgeschwindigkeit</string>
@@ -130,6 +133,9 @@
 
   <string name="pref_title_swipeup_actions">Swipe-Up Aktion</string>
   <string name="pref_summary_swipeup_actions">Aktion wählen für: Nach oben wischen</string>
+
+  <string name="pref_title_doubletap_actions">Double-Tap Aktion</string>
+  <string name="pref_summary_doubletap_actions">Aktion wählen für: Doppeltes tippen</string>
 
   <string name="pref_title_desktop_dots">Desktop-Punkte</string>
   <string name="pref_summary_desktop_dots">Zeige/Verstecke Punkte für Anzeigenwechsel (wie Nexus One)</string>
@@ -295,6 +301,7 @@
   <string name="shirtcuts_icon_packs">ADWTheme Icon-Packs</string>
   <string name="shirtcuts_select_icon_type">Icon-Typ auswählen</string>
   <string name="shirtcuts_select_icon_pack">Icon-Pack auswählen</string>
+  <string name="shirtcuts_restore_original">Original wiederherstellen</string>
 
   <string name="selectAll">Alle auswählen</string>
   <string name="AppGroupAll">Alle</string>
