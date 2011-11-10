@@ -367,14 +367,41 @@
 	<string name="pref_title_adw_restart">Redémarrer ADW</string>
 	<string name="pref_summary_adw_restart">Fermer et relancer ADW.Launcher</string>
 	<string name="pref_title_adw_reset">Remettre à zéro ADW</string>
-	<string name="pref_summary_adw_reset">Vider les préférences et relancer ADW.Launcher</string>
+	<string name="pref_summary_adw_reset">Effacer les préférences et relancer ADW.Launcher</string>
 
     <string name="scrollable_api_required">Ce widget nécessite une nouvelle version d\'ADW.Launcher.\nVeuillez le mettre à jour ou contactez le développeur du widget</string>
 
     <string name="pref_title_drawer_navigate_catalogs">Navigation par groupes</string>
     <string name="pref_summary_drawer_navigate_catalogs">Afficher les boutons de navigation par groupes</string>
+    <string name="pref_title_drawer_ungroup_catalog">Catalogues uniquement</string>
+    <string name="pref_summary_drawer_ungroup_catalog">Utiliser uniquement les catégories, retire la liste complète</string>
+    <string name="pref_title_drawer_show_catalogs">Titre du catalogue</string>
+    <string name="pref_summary_drawer_show_catalogs">Affiche le titre du catalogue dans le menu</string>
+
     <string name="pref_title_notif_receiver">Afficher notifications</string>
     <string name="pref_summary_notif_receiver">Activer les compteurs de notifications globaux</string>
+    <string name="pref_title_notif_size">Police des bulles</string>
+    <string name="pref_summary_notif_size">Sélectionner la taille de la police pour les bulles de notification</string>
+    <string name="pref_dialog_notif_size">Taille de la police pour les bulles de notification</string>
+
+    <string name="pref_title_ab_preferencecategory">Dock principal</string>
+    <string name="pref_title_main_dock_style">Style du dock principal</string>
+    <string name="pref_summary_main_dock_style">Sélectionner la disposition du dock principal</string>
     <string name="pref_title_behaviour_preferences">Comportement général</string>
     <string name="pref_summary_behaviour_preferences">Configuration du comportement général des applications</string>
+    <string name="pref_title_drawer_style">Style du menu</string>
+    <string name="pref_summary_drawer_style">Changer les implémentations entre les différents bureaux</string>
+    <string name="pref_title_dockbar_preferencecategory">Cacher le Dock</string>
+    <string name="pref_title_ab_tint">Teinte des icônes du dock</string>
+    <string name="pref_summary_ab_tint">Applique une couleur aux icônes présentes dans le dock</string>
+    <string name="pref_title_ab_tint_color">Couleur</string>
+    <string name="pref_summary_ab_tint_color">Choisir la couleur pour la teinte</string>
+    <string name="pref_title_deletezone_preferencecategory">Corbeille</string>
+    <string name="pref_title_deletezone_style">Position corbeille</string>
+    <string name="pref_summary_deletezone_style">Change la position de la corbeille</string>
+    <string name="pref_title_close_apps_dockbar">Fermer menu applications</string>
+    <string name="pref_summary_close_apps_dockbar">Fermer le menu d\'applications lors d\'une longue pression d\'un élément lorsque la barre de dock est visible</string>
+    <string name="menu_lock">Vérrouiller Bureau</string>
+    <string name="menu_unlock">Dévérrouiller Bureau</string>
+
 </resources>
