@@ -69,6 +69,9 @@
     <string name="pref_title_hide_statusbar">隐藏状态栏</string>
     <string name="pref_summary_hide_statusbar">隐藏屏幕上方的状态栏</string>
 
+    <string name="pref_title_looping">屏幕循环</string>
+    <string name="pref_summary_looping">开启工作区循环显示</string>
+
     <string name="pref_title_default_screen">默认桌面</string>
 
     <string name="pref_title_desktop_scrolling_speed">滚动速度</string>
@@ -129,6 +132,9 @@
     
     <string name="pref_title_swipeup_actions">上滑手势</string>
     <string name="pref_summary_swipeup_actions">选择向上滑动手势动作</string>
+
+    <string name="pref_title_doubletap_actions">双触动作</string>
+    <string name="pref_summary_doubletap_actions">选择双触时的动作</string>
 
     <string name="pref_title_desktop_dots">桌面分页点</string>
     <string name="pref_summary_desktop_dots">开启/关闭Nexus风格的桌面分页点</string>
