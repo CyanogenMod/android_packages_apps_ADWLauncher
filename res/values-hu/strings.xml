@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+* Copyright (C) 2008 The Android Open Source Project
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- General -->
+    <skip />
+    <!-- Application name -->
+    <string name="application_name">ADW.Indító</string>
+    <!-- Default folder name -->
+    <string name="folder_name">Mappa</string>
+    <!-- Title of dialog that appears after user selects Wallpaper from menu -->
+    <string name="chooser_wallpaper">Háttér kiválasztása</string>
+    <!-- Button label on Wallpaper Gallery screen; user selects this button to set a specific wallpaper -->
+    <string name="wallpaper_instructions">Alkalmaz</string>
+    <!-- Displayed when user selects a shortcut for an app that was uninstalled -->
+    <string name="activity_not_found">Az alkalmazás nincs telepítve.</string>
+    <!-- List item for configuring the current wallpaper -->
+    <string name="configure_wallpaper">Beállít\u2026</string>
+
+    <!-- Folders -->
+    <skip />
+    <!-- Label of Folder name field in Rename folder dialog box -->
+    <string name="rename_folder_label">Mappa neve</string>
+    <!-- Title of dialog box -->
+    <string name="rename_folder_title">Mappa átnevezése</string>
+    <!-- Buttons in Rename folder dialog box -->
+    <string name="rename_action">OK</string>
+    <!-- Buttons in Rename folder dialog box -->
+    <string name="cancel_action">Mégsem</string>
+
+    <!-- Shortcuts -->
+    <skip />
+    <!-- Title of dialog box -->
+    <string name="menu_item_add_item">Hozzáadás főképernyőhöz</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all apps -->
+    <string name="group_applications">Alkalmazás</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all shortcuts -->
+    <string name="group_shortcuts">Parancsikon</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all launcher actions -->
+    <string name="launcher_actions">ADW Indító események</string>
+    <!-- Options in "Add to Home" dialog box; Title of the search gadget -->
+    <string name="group_search">Keresés</string>
+    <!-- Options in "Add to Home" dialog box; Title of the folder gadget -->
+    <string name="group_folder">Új mappa</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all live folders -->
+    <string name="group_live_folders">Mappák</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all widgets/gadgets -->
+    <string name="group_widgets">Widgetek</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of apps that can set the wallpaper-->
+    <string name="group_wallpapers">Hátterek</string>
+    <!-- Error message when user has filled a home screen, possibly not used -->
+    <string name="out_of_space">Nincs több hely ezen a főképernyőn.</string>
+    <!-- Message displayed when a shortcut is created by an external application -->
+    <string name="shortcut_installed">Parancsikon \"<xliff:g id="name" example="Browser">%s</xliff:g>\" létrehozva.</string>
+    <!-- Message displayed when a shortcut is uninstalled by an external application -->
+    <string name="shortcut_uninstalled">Parancsikon \"<xliff:g id="name" example="Browser">%s</xliff:g>\" törölve.</string>
+    <!-- Message displayed when an external application attempts to create a shortcut that already exists -->
+    <string name="shortcut_duplicate">Parancsikon \"<xliff:g id="name" example="Browser">%s</xliff:g>\" már létezik.</string>
+
+    <!-- Title of dialog when user is selecting shortcut to add to homescreen -->
+    <string name="title_select_shortcut">Parancsikon kiválasztása</string>
+    <!-- Title of dialog when user is selecting live folder to add to homescreen -->
+    <string name="title_select_live_folder">Mappa kiválasztása</string>
+
+    <!-- Menus items: -->
+    <skip />
+    <!-- Verb, menu item used to add an item on the desktop -->
+    <string name="menu_add">Hozzáad</string>
+    <string name="menu_delete">Töröl</string>
+    <!-- Noun, menu item used to set the desktop's wallpaper -->
+    <string name="menu_wallpaper">Háttér</string>
+    <!-- Verb, menu item used to initiate global search -->
+    <string name="menu_search">Keresés</string>
+    <!-- Noun, menu item used to show the system settings -->
+    <string name="menu_settings">Beállítások</string>
+    <string name="menu_adw_settings">ADW Beállítások</string>
+
+    <!-- Permissions: -->
+    <string name="permlab_install_shortcut">parancsikon létrehozás</string>
+    <string name="permdesc_install_shortcut">Engedélyezi az alkalmazásnak a hogy parancsikont hozzon létre felhasználói beavatkozás nélkül.</string>
+    <string name="permlab_uninstall_shortcut">parancsikon törlés</string>
+    <string name="permdesc_uninstall_shortcut">Engedélyezi az alkalmazásnak a hogy parancsikont töröljön felhasználói beavatkozás nélkül.</string>
+    <string name="permlab_read_settings">Főképernyő beállítások és parancsikonok beolvasása</string>
+    <string name="permdesc_read_settings">Engedélyezi az alkalmazásnak hogy beolvassa a főképernyő beállításait és a parancsikonjait.</string>
+    <string name="permlab_write_settings">Főképernyő beállítások és parancsikonok felülírása</string>
+    <string name="permdesc_write_settings">Engedélyezi az alkalmazásnak hogy felülírja a főképernyő beállításait és a parancsikonjait.</string>
+
+    <!-- Widgets: -->
+    <skip />
+
+    <!-- Text to show user in place of a gadget when we can't display it properly -->
+    <string name="gadget_error_text">Hiba a widget betöltésekor</string>
+    <!-- ADW Version Information -->
+    <string name="adw_version">Verzió 1.3.6 Rendszer CM 1.1</string>
+    <!-- ADW Settings -->
+    <string name="pref_label_settings">ADW Beállítások</string>
+    <!-- Screen preferences -->
+    <string name="pref_title_screen_preferences">Képernyő beállítások</string>
+    <string name="pref_summary_screen_preferences">Alapértelmezett képernyő, elrendezés\u2026</string>
+
+    <string name="pref_title_wallpaper_hack">Háttérkép Hack</string>
+    <string name="pref_summary_wallpaper_hack">Kapcsold ki ha FC-t kapsz, hagyd bekapcsolva a görgetés sebességének javításához.</string>
+
+    <string name="pref_title_orientation_sensor">Főképernyő iránya</string>
+    <string name="pref_summary_orientation_sensor">A kívánt irány kiválasztása</string>
+
+    <string name="pref_title_hide_statusbar">Állapotsor elrejtése</string>
+    <string name="pref_summary_hide_statusbar">Rejtse el az állapotsort</string>
+
+    <string name="pref_title_looping">Képernyő hurok</string>
+    <string name="pref_summary_looping">Engedélyezze a képernyők közötti körkörös váltást</string>
+
+    <string name="pref_title_default_screen">Alapértelmezett képernyő</string>
+
+    <string name="pref_title_desktop_scrolling_speed">Asztal görgetés sebessége</string>
+    <string name="pref_summary_desktop_scrolling_speed">Sebesség beállítása az asztal képernyőinek lapozásakor</string>
+    <string name="pref_dialog_desktop_scrolling_speed">Minél kisebb az érték annál gyorsabb a lapozás</string>
+
+    <string name="pref_title_desktop_overshoot">Rugalmas lapozás</string>
+    <string name="pref_summary_desktop_overshoot">Engedélyezi a rugalmas lapozást az asztal képernyői között</string>
+    <string name="pref_dialog_desktop_overshoot">Állítsa 0-ra a rugalmasság kikapcsolásához</string>
+
+    <string name="pref_title_desktop_transition">Asztal átmenetek</string>
+    <string name="pref_summary_desktop_transition">Asztal képernyőinek lapozásakor történő átmenetek animációja</string>
+
+    <!-- Drawer Settings -->
+    <string name="pref_title_drawer_settings">Alkalmazásfiók beállítások</string>
+    <string name="pref_summary_drawer_settings">Alkalmazásfiók megjelenésének, működésének testreszabása</string>
+
+    <string name="pref_title_zoom_effect_speed">Nagyítás effekt sebessége</string>
+    <string name="pref_summary_zoom_effect_speed">Idő megadása ezredmásodpercben a nagyítás effekthez</string>
+    <string name="pref_dialog_zoom_effect_speed">Idő megadása ezredmásodpercben a nagyítás effekthez</string>
+
+    <string name="pref_title_page_horizontal_margin">Vízszintes margó</string>
+    <string name="pref_summary_page_horizontal_margin">Vízszintes margó értéke az alkalmazásfiók oldalai között</string>
+    <string name="pref_dialog_page_horizontal_margin">Vízszintes margó értéke az alkalmazásfiók oldalai között</string>
+
+    <string name="pref_title_animated_drawer">Animált alkalmazásfiók</string>
+    <string name="pref_summary_animated_drawer">Alkalmazásfiók megjelenése animációval</string>
+
+    <string name="pref_title_drawer_columns_portrait">Alkalmazásfiók oszlop - álló</string>
+    <string name="pref_summary_drawer_columns_portrait">Alkalmazásfiók oszlopainak száma álló módban</string>
+    <string name="pref_dialog_drawer_columns_portrait">Alkalmazásfiók oszlopainak száma álló módban</string>
+
+    <string name="pref_title_drawer_rows_portrait">Alkalmazásfiók sor - álló</string>
+    <string name="pref_summary_drawer_rows_portrait">Alkalmazásfiók sorainak száma álló módban</string>
+    <string name="pref_dialog_drawer_rows_portrait">Alkalmazásfiók sorainak száma álló módban</string>
+
+    <string name="pref_title_drawer_columns_landscape">Alkalmazásfiók oszlop - fekvő</string>
+    <string name="pref_summary_drawer_columns_landscape">Alkalmazásfiók oszlopainak száma fekvő módban</string>
+    <string name="pref_dialog_drawer_columns_landscape">Alkalmazásfiók oszlopainak száma fekvő módban</string>
+
+    <string name="pref_title_drawer_rows_landscape">Alkalmazásfiók sor - fekvő</string>
+    <string name="pref_summary_drawer_rows_landscape">Alkalmazásfiók sorainak száma fekvő módban</string>
+    <string name="pref_dialog_drawer_rows_landscape">Alkalmazásfiók sorainak száma fekvő módban</string>
+
+    <string name="pref_title_sense_previews">Sense-szerű előnézet</string>
+    <string name="pref_summary_sense_previews">Sense-szerű előnézet használata főképernyőknél</string>
+
+    <!-- Button preferences -->
+    <string name="pref_title_ui_settings">Felhasználói felület</string>
+    <string name="pref_summary_ui_settings">Főképernyőn ki/bekapcsolható elemek</string>
+
+    <string name="pref_title_home_button_binding">Home gomb hozzárendelés</string>
+    <string name="pref_summary_home_button_binding">Home gomb megnyomásakor történő esemény kiválasztása</string>
+
+    <string name="pref_title_swipedown_actions">Lefeléhúzás gesztus</string>
+    <string name="pref_summary_swipedown_actions">Lefeléhúzás gesztusra történő esemény kiválasztása</string>
+
+    <string name="pref_title_swipeup_actions">Felfeléhúzás gesztus</string>
+    <string name="pref_summary_swipeup_actions">Felfeléhúzás gesztusra történő esemény kiválasztása</string>
+
+    <string name="pref_title_doubletap_actions">Dupla érintés</string>
+    <string name="pref_summary_doubletap_actions">Dupla érintéskor történő esemény kiválasztása</string>
+
+    <string name="pref_title_desktop_dots">Képernyő jelzők</string>
+    <string name="pref_summary_desktop_dots">Nexus stílusú képernyőjelzők ki/bekapcsolása</string>
+
+    <string name="pref_title_dockbar">Dockbar</string>
+    <string name="pref_summary_dockbar">Parancsikonokhoz használható új dockbar ki/bekapcsolása</string>
+
+    <string name="pref_title_closing_dockbar">Dockbar bezárás</string>
+    <string name="pref_summary_closing_dockbar">Dockbar automatikus bezárása alkalmazás indítása után</string>
+
+    <string name="pref_title_closing_folder">Mappa bezárás</string>
+    <string name="pref_summary_closing_folder">Mappa automatikus bezárása alkalmazás indítása után</string>
+
+    <string name="pref_title_ab_scale_factor">Dock gombok mérete</string>
+    <string name="pref_summary_ab_scale_factor">Dock gombok ikonjainak mérete</string>
+    <string name="pref_dialog_ab_scale_factor">Dock gomb ikonjainak mérete</string>
+
+    <string name="pref_title_hide_ab_bg">Dock gombok háttere</string>
+    <string name="pref_summary_hide_ab_bg">Dock gombok hátterét rejtse el</string>
+
+    <string name="pref_title_hide_icon_labels">Ikon nevének elrejtése</string>
+    <string name="pref_summary_hide_icon_labels">Az ikonok neveit ne jelenítse meg</string>
+
+    <string name="pref_title_build_info">Build Információ</string>
+    <string name="pref_title_adw_version">ADW Verzió</string>
+
+    <string name="pref_title_icon_highlights">Kijelölés színe - megnyomáskor</string>
+    <string name="pref_summary_icon_highlights">Kijelölés színének kiválasztása ikon megnyomásakor</string>
+    <string name="pref_title_icon_highlights_focus">Kijelölés színe - fókuszkor</string>
+    <string name="pref_summary_icon_highlights_focus">Kijelölés színének kiválasztása ikonra fókuszoláskor</string>
+    <string name="pref_title_new_selectors">Új ikonválasztó használata</string>
+    <string name="pref_summary_new_selectors">Kapcsold ki a régi ikonválasztó használatához.</string>
+    <string name="pref_title_drawer_color">Háttér színe</string>
+    <string name="pref_summary_drawer_color">Alkalmazásfiók háttérszínének beállítása</string>
+
+    <string name="pref_dialog_title_color_picker">Szín kiválasztása</string>
+    <string name="pref_dialog_message_color_picker">Érintsd meg középen a színt a megerősítéshez\nNyomd meg a "Vissza" gombot az elutasításhoz.</string>
+    <string name="pref_dialog_color_picker_alpha">átlátszóság</string>
+    <string name="pref_message_restart_normal">A beállítás megváltoztatásakor az Indító újraindítja magát</string>
+    <string name="pref_message_restart_froyo">A beállítás megváltoztatásakor az Indító újraindítja magát</string>
+    <string name="drop_to_uninstall">Dobja az Eltávolításhoz</string>
+
+    <string name="toast_widgets_not_supported">Widget nem támogatott\u2026 sajnáljuk!</string>
+    <string name="toast_unknown_item">Ismeretlen tétel. Ismeretlen típusú tételt nem lehet hozzáadni!</string>
+    <string name="toast_no_application_def">Még nincs alkalmazás definiálva, dobj ide valamit!</string>
+
+    <string name="pref_title_import_export">Mentés és visszaállítás</string>
+    <string name="pref_title_xml">ADW beállítások</string>
+    <string name="pref_title_xml_import">ADW beállítások visszaállítása</string>
+    <string name="pref_summary_xml_import">Visszaállítás fájlból /sdcard/adw_settings.xml</string>
+    <string name="pref_title_xml_export">ADW beállítások mentése</string>
+    <string name="pref_summary_xml_export">Mentés fájlba /sdcard/adw_settings.xml</string>
+
+    <string name="pref_title_db">Asztal beállítások</string>
+    <string name="pref_title_db_import">Asztal beállítások visszaállítása</string>
+    <string name="pref_summary_db_import">Visszaállítás fájlból /sdcard/adw_launcher.db</string>
+    <string name="pref_title_db_export">Asztal beállítások mentése</string>
+    <string name="pref_summary_db_export">Mentés fájlba /sdcard/adw_launcher.db</string>
+
+    <string name="title_dialog_xml">ADW Indító Beállítások</string>
+    <string name="import_export_sdcard_unmounted">SD kártya nincs csatlakoztatva!</string>
+
+    <!-- XML Import/Export strings -->
+    <string name="message_dialog_export">ADW beállítások mentése? Minden létező fájl felülírásra kerül.</string>
+    <string name="xml_export_dialog">ADW beállítások mentése folyamatban\u2026</string>
+    <string name="xml_export_success">ADW beállítások mentése sikeres!</string>
+    <string name="xml_export_error">Hiba az ADW beállítások mentése közben!</string>
+
+    <string name="message_dialog_import">ADW beállítások visszaállítása? ADW.Indító újraindul.</string>
+    <string name="xml_import_dialog">ADW beállítások visszaállítása folyamatban\u2026</string>
+    <string name="xml_file_not_found">/sdcard/adw_settings.xml fájl nem található!</string>
+    <string name="xml_not_readable">/sdcard/adw_settings.xml fájl létezik, de nem olvasható!</string>
+    <string name="xml_import_success">ADW beállítások visszaállítása sikeres!</string>
+    <string name="xml_import_error">Hiba az ADW beállítások visszaállítása közben!</string>
+
+    <!-- Config Import/Export strings -->
+    <string name="message_dialog_export_config">Asztal beállítások mentése? Minden létező fájl felülírásra kerül.</string>
+    <string name="dbfile_export_dialog">Asztal beállítások mentése folyamatban\u2026</string>
+    <string name="dbfile_export_success">Asztal beállítások mentése sikeres!</string>
+    <string name="dbfile_export_error">Hiba az Asztal beállítások mentése közben!</string>
+
+    <string name="message_dialog_import_config">Asztal beállítások visszaállítása? ADW.Indító újraindul.</string>
+    <string name="dbfile_import_dialog">Asztal beállítások visszaállítása folyamatban\u2026</string>
+    <string name="dbfile_not_found">/sdcard/adw_launcher.db fájl nem található!</string>
+    <string name="dbfile_not_readable">/sdcard/adw_launcher.db fájl létezik, de nem olvasható!</string>
+    <string name="dbfile_import_success">Asztal beállítások visszaállítása sikeres!</string>
+    <string name="dbfile_import_error">Hiba az Asztal beállítások visszaállítása közben!</string>
+    <!--  Desktop columns/Rows -->
+    <string name="pref_title_desktop_columns">Asztal oszlopok</string>
+    <string name="pref_summary_desktop_columns">Oszlopok száma az Asztalon</string>
+    <string name="pref_dialog_desktop_columns">Oszlopok száma az Asztalon</string>
+
+    <string name="pref_title_desktop_rows">Asztal sorok</string>
+    <string name="pref_summary_desktop_rows">Sorok száma az Asztalon</string>
+    <string name="pref_dialog_desktop_rows">Sorok száma az Asztalon</string>
+
+    <string name="pref_title_autosize_icons">Automata nyújtás</string>
+    <string name="pref_summary_autosize_icons">Ikonok és widgetek nyújtása hogy ne fedjék egymást</string>
+
+    <string name="pref_title_drawer_labels">Alkalmazás neve</string>
+    <string name="pref_summary_drawer_labels">Alkalmazások nevei látszódnak az Alkalmazásfiókban</string>
+    <string name="pref_title_fade_drawer_labels">Halvány alkalmazás nevek</string>
+    <string name="pref_summary_fade_drawer_labels">Alkalmazás nevei halványítva jelennek meg. Több RAM/CPU-t használ!</string>
+
+	<string name="widget_config_dialog_title">Widget távolságok</string>
+	<string name="widget_config_dialog_summary">Hány sort/oszlopot használjon egy widget?</string>
+	<string name="widget_columns">Oszlop</string>
+	<string name="widget_rows">Sor</string>
+    
+    <string name="pref_title_screen_cache">Görgetés gyorsítótár</string>
+    <string name="pref_summary_screen_cache">A jobb minőség több memóriát használ.</string>
+
+    <string name="pref_title_desktop_indicator">Asztal jelző</string>
+    <string name="pref_summary_desktop_indicator">Asztal görgetésekor jelző mutatása segítségként</string>
+    <string name="pref_title_desktop_indicator_autohide">Asztal jelző automata elrejtés</string>
+    <string name="pref_summary_desktop_indicator_autohide">Asztal jelző automatikusan eltűnik kis idő után</string>
+    <string name="pref_title_desktop_indicator_type">Jelző stílusa</string>
+    <string name="pref_summary_desktop_indicator_type">Válassz a jelző stílusok közül</string>
+
+	<!-- Category titles -->
+	<string name="pref_title_system_preferences">Rendszer beállítások</string>
+	<string name="pref_summary_system_preferences">Általános rendszer beállítások az ADW.Indítóhoz</string>
+	<string name="pref_title_screens_layout_preferencecategory">Asztal elrendezése</string>
+	<string name="pref_title_screens_behaviour_preferencecategory">Asztal viselkedése</string>
+	<string name="pref_title_drawer_preferencecategory">Alkalmazásfiók</string>
+	<string name="pref_title_drawer_visuals_preferencecategory">Alkalmazásfiók megjelenés</string>
+	<string name="pref_title_highlights_preferencecategory">Ikon kijelölés</string>
+	<string name="pref_title_indicators_preferencecategory">Asztal jelző</string>
+
+    <string name="pref_title_system_persistent">Rendszer állandó</string>
+    <string name="pref_summary_system_persistent">Veszélyes! Bekapcsolása megakadályozza hogy a rendszer bezárja az Indítót</string>
+    <!-- Theme preferences -->
+	<string name="pref_title_theme_settings">Téma beállítások</string>
+	<string name="pref_summary_theme_settings">Válassz témát az ADW.Indító-hoz</string>
+	<string name="pref_title_theme_package">Válassz témát</string>
+	<string name="pref_summary_theme_package">Válassz témát az ADW.Indító-hoz</string>
+	<string name="pref_title_theme_preview">Téma előnézet</string>
+	<string name="pref_summary_theme_preview">A kiválasztott téma előnézete</string>
+	<string name="pref_title_theme_icons">Téma ikonok használata</string>
+	<string name="pref_summary_theme_icons">Törölje ezt az általános rendszer ikonok használatához</string>
+	<string name="pref_themes_apply_theme">Téma alkalmazása!</string>
+	<string name="pref_themes_get_themes">Téma beszerzése!</string>
+	
+    <string name="pref_title_wallpaper_scrolling">Háttérkép görgetése</string>
+    <string name="pref_summary_wallpaper_scrolling">Képernyők közötti lapozáskor engedélyezi a háttér görgetését</string>
+    <string name="message_delete_desktop_screen">Törli ezt a képernyőt és minden tartalmát?</string>
+    <string name="message_cannot_delete_desktop_screen">Az utolsó képernyőt nem lehet törölni!</string>
+    <string name="message_cannot_add_desktop_screen">Több képernyőt nem lehet hozzáadni!</string>
+    <string name="message_cannot_swap_desktop_screen">A képernyőket nem cserélheted!</string>
+    
+    <string name="menu_edit">Szerkesztés</string>
+
+	<string name="pref_label_shirtcuts">Egyéni parancsikon</string>
+	<string name="pref_label_activities">Tevékenységek</string>
+	<string name="shirtcut_header">Válaszd ki egy alkalmazás tevékenységét az indításhoz.\nÉs válassz egyéni ikont is hozzá.</string>
+	<string name="shirtcut_pick_activity">Válassz tevékenységet</string>
+	<string name="shirtcut_label">Név</string>
+	<string name="shirtcuts_select_picture">Kép választása</string>
+	<string name="shirtcuts_crop_picture">Válassz és vágd ki a képet</string>
+	<string name="shirtcuts_icon_packs">ADWTéma IkonCsomag</string>
+	<string name="shirtcuts_select_icon_type">Ikon típusának kiválasztása</string>
+    <string name="shirtcuts_select_icon_pack">Ikon csomag kiválasztása</string>
+    <string name="shirtcuts_restore_original">Eredeti visszaállítása</string>
+
+	<string name="selectAll">Mind kijelöl</string>
+	<string name="AppGroupAll">"Mind"</string>
+	<string name="AppGroupUn">"Nem katalogizált"</string>
+	<string name="AppGroupAdd">"Új Katalógus"</string>
+	<string name="AppGroupDel">"Katalógus törlése"</string>
+    <string name="AppGroupDelLong">"Biztos törlöd az\naktuális Katalógust?"</string>
+	<string name="AppGroupChoose">"Válassz Katalógust"</string>
+	<string name="AppGroupConfig">"Katalógus beállítása"</string>
+	<string name="AppGroupRename">"Új Katalógus"</string>
+	<string name="AppGroupConfigError">"Ezt a katalógust nem tudja módosítani!"</string>
+	<string name="rename_group_title">Új Katalógus</string>
+	<string name="rename_group_label">Katalógus Neve</string>
+	<string name="show_catalog">Katalógus \"%s\"</string>
+	
+	<string name="pref_title_adw_restart">ADW Újraindítása</string>
+	<string name="pref_summary_adw_restart">Bezárja és újraindítja az ADW.Indító-t</string>
+	<string name="pref_title_adw_reset">Reset ADW</string>
+	<string name="pref_summary_adw_reset">ADW.Indító beállításainak törlése és újraindítása</string>
+	
+	<string name="scrollable_api_required">Ennek a widgetnek egy frissített verziójára van szükség az ADW.Indító-hoz.\nFrissítsd vagy lépj kapcsolatba a widget fejlesztőjével</string>
+    
+    <string name="pref_title_drawer_navigate_catalogs">Katalógus navigáció</string>
+    <string name="pref_summary_drawer_navigate_catalogs">Katalógus navigáció gombok megjelenítése</string>
+    <string name="pref_title_drawer_ungroup_catalog">Csak Katalógus</string>
+
+    <string name="pref_title_drawer_show_catalogs">Katalógus címe</string>
+    <string name="pref_summary_drawer_show_catalogs">Katalógus címe látszik az Alkalmazásfiókban</string>
+    <string name="pref_title_notif_receiver">Értesítések</string>
+    <string name="pref_summary_notif_receiver">Globális értesítés számláló engedélyezése</string>
+
+    <string name="pref_title_notif_size">Buborék betűmérete</string>
+    <string name="pref_summary_notif_size">A felugró értesítő buborékban megjelenő betű méretének beállítása</string>
+    <string name="pref_dialog_notif_size">A felugró értesítő buborékban megjelenő betű méretének beállítása</string>
+
+    <string name="pref_title_ab_preferencecategory">Fő Dock</string>
+    <string name="pref_title_main_dock_style">Fő Dock stílusa</string>
+    <string name="pref_summary_main_dock_style">A fő dock elrendezésének kiválasztása</string>
+    <string name="pref_title_behaviour_preferences">Általános viselkedés</string>
+    <string name="pref_summary_behaviour_preferences">Alkalmazás általános viselkedése, konfigurációja</string>
+    <string name="pref_title_drawer_style">Alkalmazásfiók stílusa</string>
+    <string name="pref_summary_drawer_style">Válassz a különböző megjelenések közül</string>
+    <string name="pref_title_dockbar_preferencecategory">Rejtett Dockbar</string>
+    <string name="pref_title_ab_tint">Dock ikonok színárnyalata</string>
+    <string name="pref_summary_ab_tint">Dock ikonok egyedi színárnyalattal való megjelenítése</string>
+    <string name="pref_title_ab_tint_color">Színárnyalat színe</string>
+    <string name="pref_summary_ab_tint_color">Válaszd ki a színárnyalat egyedi színét</string>
+    <string name="pref_title_deletezone_preferencecategory">Kuka</string>
+    <string name="pref_title_deletezone_style">Kuka pozíciója</string>
+    <string name="pref_summary_deletezone_style">Kuka helyének meghatározása</string>
+    <string name="pref_title_close_apps_dockbar">Alkalmazásfiók bezárása</string>
+    <string name="pref_summary_close_apps_dockbar">Alkalmazásfiók bezárása hosszú érintéskor egy ikonon ha a Dockbar látható</string>
+    <string name="menu_lock">Asztal zárolása be</string>
+    <string name="menu_unlock">Asztal zárolása ki</string>
+</resources>

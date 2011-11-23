@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+       <string-array name="menu_binding_entries">
+                <item>Semmi</item>
+                <item>Alapértelmezett Asztal</item>
+                <item>Alapértelmezett Asztal/Előnézet</item>
+                <item>Előnézet</item>
+                <item>Alkalmazásfiók nyit/zár</item>
+                <item>Állapotsor megjelenít/elrejt</item>
+                <item>Értesítések nyit/zár</item>
+                <item>Alapértelmezett Asztal/Értesítések</item>
+                <item>DockBar nyit/zár</item>
+                <item>Alkalmazás megnyitása...</item>
+       </string-array>
+       <string-array name="desktop_indicator_entries">
+                <item>Pötty jelző fent</item>
+                <item>Csúszó jelző fent</item>
+                <item>Csúszó jelző lent</item>
+       </string-array>
+       <string-array name="desktop_transition_entries">
+                <item>Normál</item>
+                <item>Forgat</item>
+                <item>Oldal</item>
+                <item>Kocka</item>
+                <item>Szóró</item>
+       </string-array>
+       <string-array name="home_orientation_entries">
+                <item>Auto/szenzor</item>
+                <item>Álló</item>
+                <item>Fekvő</item>
+       </string-array>
+       <string-array name="screen_cache_entries">
+                <item>Alacsony minőség</item>
+                <item>Automatikus</item>
+                <item>Letiltva</item>
+       </string-array>
+       <string-array name="main_dock_entries">
+                <item>Nincs (Asztalt kiterjeszt)</item>
+                <item>3 Ikon</item>
+                <item>5 Ikon</item>
+                <item>1 Ikon</item>
+       </string-array>
+       <string-array name="deletezone_entries">
+                <item>Nincs</item>
+                <item>Fent</item>
+                <item>Lent</item>
+                <item>Fent (Asztalt összehúz)</item>
+                <item>Lent (Asztalt összehúz)</item>
+       </string-array>
+       <string-array name="app_drawer_style_entries">
+                <item>Függőleges</item>
+                <item>Vízszintes lapozható</item>
+       </string-array>
+</resources>
