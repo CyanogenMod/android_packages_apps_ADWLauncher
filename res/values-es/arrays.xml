@@ -13,9 +13,16 @@
                 <item>Elige una App...</item>
        </string-array>
        <string-array name="desktop_indicator_entries">
-                <item>Puntos, arriba</item>
-                <item>Línea superior</item>
-                <item>Línea inferior</item>
+                <item>Puntos arriba</item>
+                <item>Líneas arriba</item>
+                <item>Líneas abajo</item>
+       </string-array>
+       <string-array name="desktop_transition_entries">
+                <item>Normal</item>
+                <item>Rotación</item>
+                <item>Página</item>
+                <item>Cubo</item>
+                <item>Dispersión</item>
        </string-array>
        <string-array name="home_orientation_entries">
                 <item>Automático/sensor</item>
