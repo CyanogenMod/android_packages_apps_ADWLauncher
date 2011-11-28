@@ -19,65 +19,58 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- General -->
-    <skip />
-    <string name="application_name">ADW.Launcher</string>
-    <string name="folder_name">Carpeta</string>
-    <string name="chooser_wallpaper">Seleccionar fondo de pantalla de</string>
-    <string name="wallpaper_instructions">Establecer fondo de pantalla</string>
-    <string name="activity_not_found">La aplicación no está instalada en el teléfono.</string>
-    <string name="configure_wallpaper">Configurar...</string>
+    <string name="application_name" msgid="5865630159700533006">"ADW.Launcher"</string>
+    <string name="folder_name" msgid="4588446541914685904">"Carpeta"</string>
+    <string name="chooser_wallpaper" msgid="5988031014201479733">"Seleccionar fondo de pantalla de"</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"Establecer fondo de pantalla"</string>
+    <string name="activity_not_found" msgid="3571057450431950427">"La aplicación no está instalada en el teléfono."</string>
+    <string name="configure_wallpaper" msgid="2820186271419674623">"Configurar\u2026"</string>
 
     <!-- Folders -->
-    <skip />
-    <string name="rename_folder_label">Nombre de carpeta</string>
-    <string name="rename_folder_title">Cambiar nombre de carpeta</string>
-    <string name="rename_action">Aceptar</string>
-    <string name="cancel_action">Cancelar</string>
+    <string name="rename_folder_label" msgid="5646236631298452787">"Nombre de carpeta"</string>
+    <string name="rename_folder_title" msgid="4544573104191526550">"Cambiar nombre de carpeta"</string>
+    <string name="rename_action" msgid="6016003384693240896">"Aceptar"</string>
+    <string name="cancel_action" msgid="3811860427489435048">"Cancelar"</string>
 
     <!-- Shortcuts -->
-    <skip />
-    <string name="menu_item_add_item">Añadir a pantalla de página principal</string>
-    <string name="group_applications">Aplicaciones</string>
-    <string name="group_shortcuts">Accesos directos</string>
+    <string name="menu_item_add_item" msgid="6233177331075781114">"Añadir a pantalla principal"</string>
+    <string name="group_applications" msgid="4118484163419674240">"Aplicaciones"</string>
+    <string name="group_shortcuts" msgid="9133529424900391877">"Accesos directos"</string>
     <string name="launcher_actions">Acciones del Launcher</string>
-    <string name="group_search">Búsqueda</string>
-    <string name="group_folder">Nueva carpeta</string>
-    <string name="group_live_folders">Carpetas</string>
-    <string name="group_widgets">Widgets</string>
-    <string name="group_wallpapers">Fondos de pantalla"</string>
-    <string name="out_of_space">No queda espacio en esta pantalla de página principal.</string>
-    <string name="shortcut_installed">Se ha creado el acceso directo \"<xliff:g id="NAME">%s</xliff:g>\".</string>
-    <string name="shortcut_uninstalled">Se ha eliminado el acceso directo \"<xliff:g id="NAME">%s</xliff:g>\".</string>
-    <string name="shortcut_duplicate">El acceso directo \"<xliff:g id="NAME">%s</xliff:g>\" ya existe.</string>
-    <string name="title_select_shortcut">Seleccionar acceso directo</string>
-    <string name="title_select_live_folder">Seleccionar carpeta</string>
+    <string name="group_search" msgid="5905328940867162196">"Búsqueda"</string>
+    <string name="group_folder" msgid="5143593791798929193">"Nueva carpeta"</string>
+    <string name="group_live_folders" msgid="2664945399140647217">"Carpetas"</string>
+    <string name="group_widgets" msgid="6704978494073105844">"Widgets"</string>
+    <string name="group_wallpapers" msgid="1568191644272224858">"Fondos de pantalla"</string>
+    <string name="out_of_space" msgid="8365249326091984698">"No queda espacio en esta pantalla."</string>
+    <string name="shortcut_installed" msgid="7071557296331322355">"Se ha creado el acceso directo \"<xliff:g id="NAME">%s</xliff:g>\"."</string>
+    <string name="shortcut_uninstalled" msgid="2129499669449749995">"Se ha eliminado el acceso directo \"<xliff:g id="NAME">%s</xliff:g>\"."</string>
+    <string name="shortcut_duplicate" msgid="4757756326465060694">"El acceso directo \"<xliff:g id="NAME">%s</xliff:g>\" ya existe."</string>
+    <string name="title_select_shortcut" msgid="2858897527672831763">"Seleccionar acceso directo"</string>
+    <string name="title_select_live_folder" msgid="3753447798805166749">"Seleccionar carpeta"</string>
 
     <!-- Menus items -->
-    <skip />
-    <string name="menu_add">Añadir</string>
+    <string name="menu_add" msgid="3065046628354640854">"Añadir"</string>
     <string name="menu_delete">Borrar</string>
-    <string name="menu_wallpaper">Fondo de pantalla</string>
-    <string name="menu_search">Buscar con Google</string>
-    <string name="menu_settings">Ajustes</string>
+    <string name="menu_wallpaper" msgid="5837429080911269832">"Fondo de pantalla"</string>
+    <string name="menu_search" msgid="4826514464423239041">"Buscar con Google"</string>
+    <string name="menu_settings" msgid="6233960148378443661">"Ajustes"</string>
     <string name="menu_adw_settings">Ajustes ADW</string>
 
     <!-- Permissions -->
-    <string name="permlab_install_shortcut">instalar accesos directos"</string>
-    <string name="permdesc_install_shortcut">Permite que una aplicación añada accesos directos sin intervención del usuario.</string>
-    <string name="permlab_uninstall_shortcut">desinstalar accesos directos</string>
-    <string name="permdesc_uninstall_shortcut">Permite que una aplicación elimine accesos directos sin intervención del usuario.</string>
-    <string name="permlab_read_settings">leer información de accesos directos y de configuración de la página principal</string>
-    <string name="permdesc_read_settings">Permite que una aplicación lea la información de configuración y accesos directos de la página principal.</string>
-    <string name="permlab_write_settings">escribir información de accesos directos y de configuración de la página principal</string>
-    <string name="permdesc_write_settings">Permite que una aplicación modifique la configuración y los accesos directos de la página principal.</string>
-    <string name="gadget_error_text">Problema al cargar el widget</string>
-
-    <!-- Widgets: -->
-    <skip />
-    <string name="gadget_error_text">Problema al cargar el widget</string>
+    <string name="permlab_install_shortcut" msgid="1201690825493376489">"instalar accesos directos"</string>
+    <string name="permdesc_install_shortcut" msgid="7429365847558984148">"Permite que una aplicación añada accesos directos sin intervención del usuario."</string>
+    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"desinstalar accesos directos"</string>
+    <string name="permdesc_uninstall_shortcut" msgid="959972195916090900">"Permite que una aplicación elimine accesos directos sin intervención del usuario."</string>
+    <string name="permlab_read_settings" msgid="3452408290738106747">"leer información de accesos directos y de configuración de la página principal"</string>
+    <string name="permdesc_read_settings" msgid="8377434937176025492">"Permite que una aplicación lea la información de configuración y accesos directos de la página principal."</string>
+    <string name="permlab_write_settings" msgid="1360567537236705628">"escribir información de accesos directos y de configuración de la página principal"</string>
+    <string name="permdesc_write_settings" msgid="1098648778383349818">"Permite que una aplicación modifique la configuración y los accesos directos de la página principal."</string>
+    <string name="gadget_error_text" msgid="8359351016167075858">"Problema al cargar el widget"</string>
 
     <!-- ADW Settings -->
     <string name="pref_label_settings">Ajustes ADW</string>
+
     <!-- Screen preferences -->
     <string name="pref_title_screen_preferences">Pantalla</string>
     <string name="pref_summary_screen_preferences">Escritorio por defecto, disposición, etc...</string>
@@ -102,7 +95,7 @@
 
     <string name="pref_title_desktop_overshoot">Rebote</string>
     <string name="pref_summary_desktop_overshoot">Efecto de rebote al desplazarte entre escritorios</string>
-    <string name="pref_dialog_desktop_overshoot">Si lo dejas a 0, no habrá rebote</string>
+    <string name="pref_dialog_desktop_overshoot">Establecido a 0 no habrá rebote</string>
 
     <string name="pref_title_desktop_transition">Transicion escritorios</string>
     <string name="pref_summary_desktop_transition">Cómo las pantallas de escritorio cambian entre ellas</string>
@@ -138,6 +131,7 @@
     <string name="pref_summary_drawer_rows_landscape">Número de filas con el tlf en horizontal</string>
     <string name="pref_dialog_drawer_rows_landscape">Número de filas con el tlf en horizontal</string>
 
+    <!-- Previews preferences -->
     <string name="pref_title_sense_previews">Estilo Sense</string>
     <string name="pref_summary_sense_previews">Usa la previsualización tipo Sense</string>
 
@@ -168,8 +162,8 @@
 
     <string name="pref_title_ab_scale_factor">Tamaño AB</string>
     <string name="pref_summary_ab_scale_factor">Selecciona la escala de los iconos de los ActionButton</string>
-
     <string name="pref_dialog_ab_scale_factor">Selecciona la escala de los iconos de los ActionButton</string>
+
     <string name="pref_title_closing_folder">Auto cerrar carpetas</string>
     <string name="pref_summary_closing_folder">Cierra las carpetas tras abrir una app</string>
 
@@ -198,7 +192,7 @@
     <string name="pref_message_restart_froyo">Cambiar esto hará que el launcher se reinicie</string>
     <string name="drop_to_uninstall">Soltar para desinstalar</string>
 
-    <string name="toast_widgets_not_supported">Widgets no soportados... lo siento :-)</string>
+    <string name="toast_widgets_not_supported">Widgets no soportados\u2026</string>
     <string name="toast_unknown_item">Elemento desconocido. No puedo añadir un tipo de elemento desconocido :-)</string>
     <string name="toast_no_application_def">No hay aplicación definida, arrastre alguna aquí! :)</string>
 
@@ -243,6 +237,7 @@
     <string name="dbfile_not_readable">¡La copia de seguridad no pudo leerse!</string>
     <string name="dbfile_import_success">¡Escritorio restaurado con éxito!</string>
     <string name="dbfile_import_error">¡Error restaurando escritorio!</string>
+
     <!--  Desktop columns/Rows -->
     <string name="pref_title_desktop_columns">Columnas escritorio</string>
     <string name="pref_summary_desktop_columns">Selecciona el número de columnas del escritorio</string>
