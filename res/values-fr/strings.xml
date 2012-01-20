@@ -135,6 +135,9 @@
     <string name="pref_summary_desktop_overshoot">Autoriser le rebondissement sur le premier et dernier bureau</string>
     <string name="pref_dialog_desktop_overshoot">Autoriser le rebondissement sur le premier et dernier bureau</string>
 
+    <string name="pref_title_desktop_transition">Transition du bureau</string>
+    <string name="pref_summary_desktop_transition">Effet au passage d\'un écran du bureau à l\'autre</string>
+
 	<!-- Drawer Settings -->
     <string name="pref_title_drawer_settings">Préférences du menu</string>
     <string name="pref_summary_drawer_settings">Préférences du menu des applications</string>
@@ -350,7 +353,8 @@
 	<string name="shirtcuts_select_icon_pack">Sélectionnez un pack d\'icônes</string>
 
 	<string name="selectAll">Sélectionner tout</string>
-	<string name="AppGroupAll">"TOUT"</string>
+	<string name="AppGroupAll">"Tout"</string>
+	<string name="AppGroupUn">"Sans groupe"</string>
 	<string name="AppGroupAdd">"Nouveau groupe"</string>
 
 	<string name="AppGroupDel">"Supprimer le groupe ?"</string>

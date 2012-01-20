@@ -17,6 +17,13 @@
                 <item>Indicateur haut ligne</item>
                 <item>Indicateur bas ligne</item>
        </string-array>
+       <string-array name="desktop_transition_entries">
+                <item>Normal</item>
+                <item>Rotation</item>
+                <item>Page</item>
+                <item>Cube</item>
+                <item>Dispertion</item>
+       </string-array>
        <string-array name="home_orientation_entries">
                 <item>Automatique</item>
                 <item>Portrait</item>
