@@ -14,6 +14,7 @@
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License.
+* Translated into Polish by monkasta - monkasta22@gmail.com
 */
 -->
 
@@ -92,7 +93,7 @@
     <string name="menu_adw_settings">Ustawienia ADW</string>
 
     <!-- Permissions: -->
-    <string name="permlab_install_shortcut">zainstaluj skróty</string>
+    <string name="permlab_install_shortcut">Zainstaluj skróty</string>
     <string name="permdesc_install_shortcut">Umożliwia aplikacji dodawanie skrótów bez interwencji użytkownika.</string>
     <string name="permlab_uninstall_shortcut">odinstaluj skróty</string>
     <string name="permdesc_uninstall_shortcut">Umożliwia aplikacji usuwanie skrótów bez interwencji użytkownika.</string>
@@ -130,6 +131,279 @@
 
     <string name="pref_title_desktop_scrolling_speed">Prędkość przewijania pulpitu</string>
     <string name="pref_summary_desktop_scrolling_speed">Ustaw prędkość z jaką zmieniać się będą ekrany pulpitów</string>
-    <string name="pref_dialog_desktop_scrolling_speed">Im niższa wartośc tym ekrany będą zmieniać się szybciej</string>
+    <string name="pref_dialog_desktop_scrolling_speed">Im niższa wartość tym ekrany będą zmieniać się szybciej</string>
 
+    <string name="pref_title_desktop_overshoot">Przekroczenie pulpitu</string>
+    <string name="pref_summary_desktop_overshoot">Pozwala odbicie podczas przewijania pulpitów</string>
+    <string name="pref_dialog_desktop_overshoot">Ustaw na 0, aby wyłączyć przejścia</string>
+
+    <string name="pref_title_desktop_transition">Przejścia pulpitu</string>
+    <string name="pref_summary_desktop_transition">Jak pulpity mają zmieniać się</string>
+
+    <!-- Drawer Settings -->
+    <string name="pref_title_drawer_settings">Ustawienia szuflady</string>
+    <string name="pref_summary_drawer_settings">Ustawienia siatki szuflady aplikacji</string>
+
+    <string name="pref_title_zoom_effect_speed">Szybkość efektu przybliżenia</string>
+    <string name="pref_summary_zoom_effect_speed">Ustaw czas efektu przybliżenia w milisekundach</string>
+    <string name="pref_dialog_zoom_effect_speed">Ustaw czas efektu przybliżenia w milisekundach</string>
+
+    <string name="pref_title_page_horizontal_margin">Margines poziomy</string>
+    <string name="pref_summary_page_horizontal_margin">Ustaw poziomy margines pomiędzy poszczególnymi stronami szuflady</string>
+    <string name="pref_dialog_page_horizontal_margin">Ustaw poziomy margines pomiędzy poszczególnymi stronami szuflady</string>
+
+    <string name="pref_title_animated_drawer">Animowana szuflada</string>
+    <string name="pref_summary_animated_drawer">Włącz, aby wyświetlać animacje szuflady</string>
+
+    <string name="pref_title_drawer_columns_portrait">Kolumny w szufladzie pionowej</string>
+    <string name="pref_summary_drawer_columns_portrait">Wybierz liczbę kolumn w szufladzie pionowej</string>
+    <string name="pref_dialog_drawer_columns_portrait">Wybierz liczbę kolumn w szufladzie pionowej</string>
+
+    <string name="pref_title_drawer_rows_portrait">Wiersze w szufladzie pionowej</string>
+    <string name="pref_summary_drawer_rows_portrait">Wybierz liczbę wierszy w pozycji pionowej</string>
+    <string name="pref_dialog_drawer_rows_portrait">Wybierz liczbę wierszy w pozycji pionowej</string>
+
+    <string name="pref_title_drawer_columns_landscape">Kolumny w szufladzie poziomej</string>
+    <string name="pref_summary_drawer_columns_landscape">Wybierz liczbę kolumn w szufladzie poziomej</string>
+    <string name="pref_dialog_drawer_columns_landscape">Wybierz liczbę kolumn w szufladzie poziomej</string>
+
+    <string name="pref_title_drawer_rows_landscape">Wiersze w szufladzie poziomej</string>
+    <string name="pref_summary_drawer_rows_landscape">Wybierz liczbę wierszy w szufladzie poziomomej</string>
+    <string name="pref_dialog_drawer_rows_landscape">Wybierz liczbę wierszy w szufladzie poziomomej</string>
+
+    <string name="pref_title_sense_previews">Podgląd Sense</string>
+    <string name="pref_summary_sense_previews">Użyj podglądu pulpitów jak w Sense</string>
+
+    <!-- Button preferences -->
+    <string name="pref_title_ui_settings">Ustawienia interfejsu</string>
+    <string name="pref_summary_ui_settings">Włącz/Wyłącz elementy interfejsu</string>
+
+    <string name="pref_title_home_button_binding">Ustawienia klawisza Home</string>
+    <string name="pref_summary_home_button_binding">Wybierz akcję dla klawisza Home</string>
+
+    <string name="pref_title_swipedown_actions">Akcja przesunięcia w dół</string>
+    <string name="pref_summary_swipedown_actions">Wybierz akcję gestu przesunięcia w dół</string>
+
+    <string name="pref_title_swipeup_actions">Akcja przesunięcia w górę</string>
+    <string name="pref_summary_swipeup_actions">Wybierz akcję gestu przesunięcia w górę</string>
+
+    <string name="pref_title_doubletap_actions">Akcje podwójnego stuknięcia</string>
+    <string name="pref_summary_doubletap_actions">Wybierz akcję dla podwójnego stuknięcia</string>
+
+    <string name="pref_title_desktop_dots">Punkty pulpitu</string>
+    <string name="pref_summary_desktop_dots">Pokaż/ukryj stronicowania punktowego w stylu nexus</string>
+
+    <string name="pref_title_dockbar">Dock</string>
+    <string name="pref_summary_dockbar">Włącz/wyłącz nowy dock dla twoich skrótów</string>
+
+    <string name="pref_title_closing_dockbar">Zamykanie docka</string>
+    <string name="pref_summary_closing_dockbar">Autozamknięcie docka po uruchomieniu aplikacji</string>
+
+    <string name="pref_title_closing_folder">Zamykanie folderu</string>
+    <string name="pref_summary_closing_folder">Autozamknięcie folderu po uruchomieniu aplikacji</string>
+
+    <string name="pref_title_ab_scale_factor">Wielkość przycisku akcji</string>
+    <string name="pref_summary_ab_scale_factor">Ustaw wielkość skalowania dla ikon przycisku akcji</string>
+    <string name="pref_dialog_ab_scale_factor">Ustaw wielkość skalowania dla ikon przycisku akcji</string>
+
+    <string name="pref_title_hide_ab_bg">Ukryj tło przycisku akcji</string>
+    <string name="pref_summary_hide_ab_bg">Ukryj tło przycisku akcji</string>
+
+    <string name="pref_title_hide_icon_labels">Ukryj etykiety ikon</string>
+    <string name="pref_summary_hide_icon_labels">Ukryj etykiety ikon na pulpicie</string>
+
+    <string name="pref_title_build_info">Informacja o wersji</string>
+    <string name="pref_title_adw_version">Wersja ADW</string>
+
+    <string name="pref_title_icon_highlights">Kolor podkreślenia podczas naciśnięcia</string>
+    <string name="pref_summary_icon_highlights">Ustaw kolor dla naciśnięcia ikony</string>
+    <string name="pref_title_icon_highlights_focus">Kolor podkreślenia podczas skupienia</string>
+    <string name="pref_summary_icon_highlights_focus">Ustaw kolor dla skupienia ikony</string>
+    <string name="pref_title_new_selectors">Użyj nowych ikon dla selektorów</string>
+    <string name="pref_summary_new_selectors">Wyłącz to, aby użyć starego rysowania.</string>
+    <string name="pref_title_drawer_color">Kolor tła</string>
+    <string name="pref_summary_drawer_color">Ustaw kolor dla tła szuflady</string>
+
+    <string name="pref_dialog_title_color_picker">Wybierz kolor.</string>
+    <string name="pref_dialog_message_color_picker">Naciśnij na środku koloru, aby potwierdzić.\nNaciśnij powróć, aby anulować.</string>
+    <string name="pref_dialog_color_picker_alpha">alpha</string>
+    <string name="pref_message_restart_normal">Zmina tego ustawienia spowoduje ponowne uruchomienie przez ADW</string>
+    <string name="pref_message_restart_froyo">Zmina tego ustawienia spowoduje ponowne uruchomienie przez ADW</string>
+    <string name="drop_to_uninstall">Upuść, aby odinstalować</string>
+
+    <string name="toast_widgets_not_supported">Widżet nie jest wspierany\u2026 przepraszamy!</string>
+    <string name="toast_unknown_item">Nieznany przedmiot. Nie możemy dodać nieznanych rodzajów przedmiotów!</string>
+    <string name="toast_no_application_def">Żadna aplikacja nie została jeszcze określona, upuść coś tutaj!</string>
+
+    <string name="pref_title_import_export">Zapis i przywracanie</string>
+    <string name="pref_title_xml">Ustawienia ADW</string>
+    <string name="pref_title_xml_import">Przywróć ustawienia ADW</string>
+    <string name="pref_summary_xml_import">Przywróć z /sdcard/adw_settings.xml</string>
+    <string name="pref_title_xml_export">Zapisz ustawienia ADW</string>
+    <string name="pref_summary_xml_export">Zapisz do /sdcard/adw_settings.xml</string>
+
+    <string name="pref_title_db">Konfiguracja pulpitu</string>
+    <string name="pref_title_db_import">Przywróć konfigurację pulpitu</string>
+    <string name="pref_summary_db_import">Przywróć z /sdcard/adw_launcher.db</string>
+    <string name="pref_title_db_export">Zapisz konfigurację pulpitu</string>
+    <string name="pref_summary_db_export">Zapisz na /sdcard/adw_launcher.db</string>
+
+    <string name="title_dialog_xml">Ustawienia ADW</string>
+    <string name="import_export_sdcard_unmounted">Karta SD nie jest zamontowana!</string>
+
+    <!-- XML Import/Export strings -->
+    <string name="message_dialog_export">Wykonać kopię ustawień ADW? Poprzedni plik zostanie nadpisany.</string>
+    <string name="xml_export_dialog">Kopiowanie ustawień ADW\u2026</string>
+    <string name="xml_export_success">Ustawienia ADW zostały skopiowane pomyślnie!</string>
+    <string name="xml_export_error">Błąd podczas wykonywania kopii ustawień ADW!</string>
+
+    <string name="message_dialog_import">Przywrócić ustawienia ADW? ADW.Launcher zostanie uruchomiony ponownie.</string>
+    <string name="xml_import_dialog">Przywracanie ustawień ADW\u2026</string>
+    <string name="xml_file_not_found">Nie znaleziono pliku kopii zapasowej ustawień!</string>
+    <string name="xml_not_readable">Plik kopii zapasowej ustawień istnieje, ale nie możliwy do odczytania!</string>
+    <string name="xml_import_success">Ustawienia ADW przywrócone pomyślnie!</string>
+    <string name="xml_import_error">Błąd przy przywracaniu ustawień ADW!</string>
+
+    <!-- Config Import/Export strings -->
+    <string name="message_dialog_export_config">Zapisać konfigurację pulpitu? Jakikolwiek istniejący plik zostanie nadpisany.</string>
+    <string name="dbfile_export_dialog">Zapisywanie konfiguracji pulpitu\u2026</string>
+    <string name="dbfile_export_success">Konfiguracja została zapisania pomyślnie!</string>
+    <string name="dbfile_export_error">Błąd przy zapisywaniu konfiguracji!</string>
+
+    <string name="message_dialog_import_config">Przywrócić konfigurację pulpitu? ADW.Launcher zostanie uruchomiony ponownie.</string>
+    <string name="dbfile_import_dialog">Przywracanie konfiguracji pulpitu\u2026</string>
+    <string name="dbfile_not_found">Plik konfiguracji nie znaleziony!</string>
+    <string name="dbfile_not_readable">Plik konfiguracji istnieje, ale jest nieczytelny!</string>
+    <string name="dbfile_import_success">Konfiguracja przywrócona pomyślnie!</string>
+    <string name="dbfile_import_error">Błąd podczas przywracania konfiguracji!</string>
+    <!--  Desktop columns/Rows -->
+    <string name="pref_title_desktop_columns">Kolumny pulpitu</string>
+    <string name="pref_summary_desktop_columns">Wybierz liczbę kolumn do używania na pulpicie</string>
+    <string name="pref_dialog_desktop_columns">Wybierz liczbę kolumn do używania na pulpicie</string>
+
+    <string name="pref_title_desktop_rows">Rzędy pulpitu</string>
+    <string name="pref_summary_desktop_rows">Wybierz liczbę rzędów do używania na pulpicie</string>
+    <string name="pref_dialog_desktop_rows">Wybierz liczbę rzędów do używania na pulpicie</string>
+
+    <string name="pref_title_autosize_icons">Autorozciąganie</string>
+    <string name="pref_summary_autosize_icons">Spróbuj rozciągnąć ikony/widżety, aby nie nakładały się</string>
+
+    <string name="pref_title_drawer_labels">Pokaż etykiety aplikacji</string>
+    <string name="pref_summary_drawer_labels">Pokaż etykiety w szufladzie aplikacji</string>
+    <string name="pref_title_fade_drawer_labels">Blaknięcie etykiet aplikacji</string>
+    <string name="pref_summary_fade_drawer_labels">Etykiety zanikają zamiast tylko znikać. Zużywa więcej RAM/CPU</string>
+
+	<string name="widget_config_dialog_title">Ustawienia rozpiętości widżetu</string>
+	<string name="widget_config_dialog_summary">Ile rzędów/kolumn ma zająć widżet?</string>
+	<string name="widget_columns">Kolumny</string>
+	<string name="widget_rows">Rzędy</string>
+    
+    <string name="pref_title_screen_cache">Cache przewijania</string>
+    <string name="pref_summary_screen_cache">Wyższa jakość zużywa więcej pamięci.</string>
+
+    <string name="pref_title_desktop_indicator">Pokaż wskaźnik pulpitu</string>
+    <string name="pref_summary_desktop_indicator">Pokaż wskazówki na pulpicie przewijania</string>
+    <string name="pref_title_desktop_indicator_autohide">Autoukrycie wskaźnika pulpitu</string>
+    <string name="pref_summary_desktop_indicator_autohide">Ukryj wskaźnik po krótkim czasie</string>
+    <string name="pref_title_desktop_indicator_type">Rodzaj wskaźnika</string>
+    <string name="pref_summary_desktop_indicator_type">Wybierz styl wskaźnika ekranu</string>
+
+	<!-- Category titles -->
+	<string name="pref_title_system_preferences">Ustawienia systemowe</string>
+	<string name="pref_summary_system_preferences">Główne ustawienia ADW.Launcher</string>
+	<string name="pref_title_screens_layout_preferencecategory">Układ pulpitu</string>
+	<string name="pref_title_screens_behaviour_preferencecategory">Zachowanie pulpitu</string>
+	<string name="pref_title_drawer_preferencecategory">Szuflada aplikacji</string>
+	<string name="pref_title_drawer_visuals_preferencecategory">Wygląd szuflady aplikacji</string>
+	<string name="pref_title_highlights_preferencecategory">Podświetlanie ikon</string>
+	<string name="pref_title_indicators_preferencecategory">Wskaźnik pulpitu</string>
+
+    <string name="pref_title_system_persistent">Trwałość systemu</string>
+    <string name="pref_summary_system_persistent">Niebezpieczne. Zaznacz, aby uniknąć zamknięcia launchera</string>
+    <!-- Theme preferences -->
+	<string name="pref_title_theme_settings">Ustawienia kompozycji</string>
+	<string name="pref_summary_theme_settings">Ustawienia kompozycji ADW.Launcher</string>
+	<string name="pref_title_theme_package">Wybierz kompozycję</string>
+	<string name="pref_summary_theme_package">Wybierz kompozycję ADW.Launcher</string>
+	<string name="pref_title_theme_preview">Podgląd kompozycji</string>
+	<string name="pref_summary_theme_preview">Podgląd wybranej kompozycji</string>
+	<string name="pref_title_theme_icons">Użyj ikon z kompozycji</string>
+	<string name="pref_summary_theme_icons">Odznacz to jeśli chcesz użyć standardowych ikon systemowych</string>
+	<string name="pref_themes_apply_theme">Zastosuj komopozycję!</string>
+	<string name="pref_themes_get_themes">Zdobądź kompozycje!</string>
+	
+    <string name="pref_title_wallpaper_scrolling">Przewijanie tapety</string>
+    <string name="pref_summary_wallpaper_scrolling">Pozwól przesuwać się tapecie podczas przewijania pulpitów</string>
+    <string name="message_delete_desktop_screen">Usunąć ten pulpit i całą jego zawartość?</string>
+    <string name="message_cannot_delete_desktop_screen">Nie możesz usunąć ostatniego pulpitu</string>
+    <string name="message_cannot_add_desktop_screen">Nie możesz dodać więcej pulpitów</string>
+    <string name="message_cannot_swap_desktop_screen">Nie możesz zamienić pulpitów</string>
+    
+    <string name="menu_edit">Edytuj</string>
+
+	<string name="pref_label_shirtcuts">Niestandardowy skrót</string>
+	<string name="pref_label_activities">Czynności</string>
+	<string name="shirtcut_header">Wybierz czynność do wykoniania.\nMożesz też wybrać niestandardową ikonę.</string>
+	<string name="shirtcut_pick_activity">Wybierz czynność</string>
+	<string name="shirtcut_label">Podpis</string>
+	<string name="shirtcuts_select_picture">Wybierz obrazek</string>
+	<string name="shirtcuts_crop_picture">Wybierz i przytnij obrazek</string>
+	<string name="shirtcuts_icon_packs">Paczki ikon</string>
+	<string name="shirtcuts_select_icon_type">Wybierz typ ikon</string>
+    <string name="shirtcuts_select_icon_pack">Wybierz paczkę ikon</string>
+    <string name="shirtcuts_restore_original">Przywróć oryginalne</string>
+
+	<string name="selectAll">Zaznacz wszystkie</string>
+	<string name="AppGroupAll">"Wszystkie"</string>
+	<string name="AppGroupUn">"Nieskatalogowane"</string>
+	<string name="AppGroupAdd">"Nowy katalog"</string>
+	<string name="AppGroupDel">"Usuń katalog"</string>
+    <string name="AppGroupDelLong">"Na pewno usunąć\nBierzący katalog?"</string>
+	<string name="AppGroupChoose">"Wybierz katalog"</string>
+	<string name="AppGroupConfig">"Utwórz katalog"</string>
+	<string name="AppGroupRename">"Nowy katalog"</string>
+	<string name="AppGroupConfigError">"Nie możesz utworzyć tego katalogu"</string>
+	<string name="rename_group_title">Nowy katalog</string>
+	<string name="rename_group_label">Nazwa katalogu</string>
+	<string name="show_catalog">Pokaż katalog \"%s\"</string>
+	
+	<string name="pref_title_adw_restart">Uruchom ponownie ADW</string>
+	<string name="pref_summary_adw_restart">Zamknij i uruchom ponownie ADW.Launcher</string>
+	<string name="pref_title_adw_reset">Wyczyść ADW</string>
+	<string name="pref_summary_adw_reset">Wyczyść ustawienia ADW.Launcher i uruchom ponownie</string>
+	
+	<string name="scrollable_api_required">Ten widżet potrzebuje aktualizacji ADW.Launcher.\nProszę skontaktować się z deweloperem widżetu</string>
+    
+    <string name="pref_title_drawer_navigate_catalogs">Nawigacja po katalogach</string>
+    <string name="pref_summary_drawer_navigate_catalogs">Pokazuje przyciski nawigacji dla katalogów aplikacji</string>
+    <string name="pref_title_drawer_ungroup_catalog">Tylko katalogi</string>
+    <string name="pref_summary_drawer_ungroup_catalog">Usuń WSZYSTKIE kategorie i używaj tylko kategorii</string>
+    <string name="pref_title_drawer_show_catalogs">Pokaż nazwy katalogów</string>
+    <string name="pref_summary_drawer_show_catalogs">Pokaż nazwy katalogów w szufladzie</string>
+    <string name="pref_title_notif_receiver">Pokaż powiadomienia</string>
+    <string name="pref_summary_notif_receiver">Włącz globalny licznik powiadomień</string>
+
+    <string name="pref_title_notif_size">Wielkość czcionki w bańce</string>
+    <string name="pref_summary_notif_size">Ustaw wielkość czcionki dla baniek powiadomień</string>
+    <string name="pref_dialog_notif_size">Ustaw wielkość czcionki dla baniek powiadomień</string>
+
+    <string name="pref_title_ab_preferencecategory">Główny dock</string>
+    <string name="pref_title_main_dock_style">Styl głównego docka</string>
+    <string name="pref_summary_main_dock_style">Wybierz układ głównego docka</string>
+    <string name="pref_title_behaviour_preferences">Ogólne zachowanie</string>
+    <string name="pref_summary_behaviour_preferences">Konfiguracja ogólnego zachowania aplikacji</string>
+    <string name="pref_title_drawer_style">Styl szuflady</string>
+    <string name="pref_summary_drawer_style">Przełączaj między różnymi implemantacjami szuflady</string>
+    <string name="pref_title_dockbar_preferencecategory">Ukryty dock</string>
+    <string name="pref_title_ab_tint">Odcień ikon w docku</string>
+    <string name="pref_summary_ab_tint">Wykonywanie barwienia grafiki dla ikon docka</string>
+    <string name="pref_title_ab_tint_color">Odcień koloru</string>
+    <string name="pref_summary_ab_tint_color">Zmień kolor barwienia</string>
+    <string name="pref_title_deletezone_preferencecategory">Kosz</string>
+    <string name="pref_title_deletezone_style">Pozycja kosza</string>
+    <string name="pref_summary_deletezone_style">Zmień pozycję kosza</string>
+    <string name="pref_title_close_apps_dockbar">Zamknij szufladę</string>
+    <string name="pref_summary_close_apps_dockbar">Zamknij szufladę podczas długiego naciśnięcia, gdy dock jest widoczny</string>
+    <string name="menu_lock">Zablokuj pulpit</string>
+    <string name="menu_unlock">Odblokuj pulpit</string>
 </resources>
