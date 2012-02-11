@@ -19,7 +19,7 @@
 
 <resources>
   <string-array name="menu_binding_entries">
-    <item>Žádná</item>
+    <item>Žiadna</item>
     <item>Presunúť na plochu</item>
     <item>Presunúť na plochu/ukázať náhľady</item>
     <item>Ukázať náhľady</item>
@@ -46,9 +46,9 @@
   </string-array>
 
   <string-array name="home_orientation_entries">
-    <item>Automaticky/senzorem</item>
+    <item>Automaticky/senzorom</item>
     <item>Na výšku</item>
-    <item>Na šířku</item>
+    <item>Na šírku</item>
   </string-array>
 
   <string-array name="screen_cache_entries">
@@ -73,7 +73,7 @@
   </string-array>
 
   <string-array name="app_drawer_style_entries">
-    <item>Svislá plocha</item>
+    <item>Zvislá plocha</item>
     <item>Horizontálne stránkovanie</item>
   </string-array>
 </resources>
