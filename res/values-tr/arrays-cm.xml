@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+       <string-array name="menu_binding_entries">
+                <item>HİÇBİRİ</item>
+                <item>Varsayılan masaüstüne taşı</item>
+                <item>Varsayılan masaüstüne taşı/Önizlemeleri göster</item>
+                <item>Önizlemeleri göster</item>
+                <item>Uygulamalar ekranını aç/kapat</item>
+                <item>Durum çubuğunu göster/gizle</item>
+                <item>Bildirimleri aç/kapat</item>
+                <item>Varsayılan masaüstüne taşı/Bildirimleri aç</item>
+                <item>Sabit programlar çubuğunu aç/kapat</item>
+                <item>Uygulama aç...</item>
+       </string-array>
+       <string-array name="desktop_indicator_entries">
+                <item>Üstte noktalı</item>
+                <item>Üstte kayan</item>
+                <item>Altta kayan</item>
+       </string-array>
+       <string-array name="desktop_transition_entries">
+                <item>Normal</item>
+                <item>Döndür</item>
+                <item>Sayfa Çevir</item>
+                <item>Küp</item>
+                <item>Dağıt</item>
+       </string-array>
+       <string-array name="home_orientation_entries">
+                <item>Otomatik/sensör</item>
+                <item>Dikey</item>
+                <item>Yatay</item>
+       </string-array>
+       <string-array name="screen_cache_entries">
+                <item>Düşük kalite</item>
+                <item>Otomatik</item>
+                <item>Devre dışı</item>
+       </string-array>
+       <string-array name="main_dock_entries">
+                <item>Simge yok (sadece masaüstü)</item>
+                <item>3 simge</item>
+                <item>5 simge</item>
+                <item>1 simge</item>
+       </string-array>
+       <string-array name="deletezone_entries">
+                <item>Hiçbiri</item>
+                <item>Üst</item>
+                <item>Alt</item>
+                <item>Üst (Masaüstünü küçült)</item>
+                <item>Alt (Masaüstünü küçült)</item>
+       </string-array>
+       <string-array name="app_drawer_style_entries">
+                <item>Dikey (düz)</item>
+                <item>Yatay (sayfalı)</item>
+       </string-array>
+</resources>
+
