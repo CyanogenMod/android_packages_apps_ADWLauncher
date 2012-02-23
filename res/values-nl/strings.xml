@@ -19,7 +19,7 @@
     <string name="folder_name" msgid="4588446541914685904">"Map"</string>
     <string name="chooser_wallpaper" msgid="5988031014201479733">"Achtergrond selecteren in"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Achtergrond instellen"</string>
-    <string name="activity_not_found" msgid="3571057450431950427">"Deze toepassing is niet geïnstalleerd op uw telefoon."</string>
+    <string name="activity_not_found" msgid="3571057450431950427">"Deze applicatie is niet geïnstalleerd op uw telefoon."</string>
     <string name="configure_wallpaper" msgid="2820186271419674623">"Configureren..."</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"Mapnaam"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"Naam van map wijzigen"</string>
@@ -28,7 +28,7 @@
     <string name="menu_item_add_item" msgid="6233177331075781114">"Toevoegen aan startpagina"</string>
     <string name="group_applications" msgid="4118484163419674240">"Toepassingen"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"Sneltoetsen"</string>
-	<string name="launcher_actions">Launcher Acties</string>
+	<string name="launcher_actions">Launcher-acties</string>
     <string name="group_search" msgid="5905328940867162196">"Zoeken"</string>
     <string name="group_folder" msgid="5143593791798929193">"Nieuwe map"</string>
     <string name="group_live_folders" msgid="2664945399140647217">"Mappen"</string>
@@ -44,7 +44,7 @@
     <string name="menu_wallpaper" msgid="5837429080911269832">"Achtergrond"</string>
     <string name="menu_search" msgid="4826514464423239041">"Zoeken"</string>
     <string name="menu_settings" msgid="6233960148378443661">"Instellingen"</string>
-	<string name="menu_adw_settings">ADW instellingen</string>
+	<string name="menu_adw_settings">ADW-instellingen</string>
     <string name="permlab_install_shortcut" msgid="1201690825493376489">"snelkoppelingen installeren"</string>
     <string name="permdesc_install_shortcut" msgid="7429365847558984148">"Een toepassing toestaan om snelkoppelingen toe te voegen zonder tussenkomst van de gebruiker."</string>
     <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"snelkoppelingen verwijderen"</string>
@@ -57,9 +57,9 @@
 
     <!-- ADW Settings -->
     <!-- Screen preferences -->
-    <string name="pref_label_settings">ADW instellingen</string>
-    <string name="pref_title_screen_preferences">Scherm-Instellingen</string>
-    <string name="pref_summary_screen_preferences">Instellingen voor standaard scherm, layout...</string>
+    <string name="pref_label_settings">ADW-instellingen</string>
+    <string name="pref_title_screen_preferences">Scherminstellingen</string>
+    <string name="pref_summary_screen_preferences">Instellingen voor standaardscherm, opmaak...</string>
 
     <string name="pref_title_wallpaper_hack">Wallpaper Hack</string>
     <string name="pref_summary_wallpaper_hack">Schakel deze optie uit bij Force Closes. Wanneer ingeschakeld verbeterd de scroll snelheid.</string>
