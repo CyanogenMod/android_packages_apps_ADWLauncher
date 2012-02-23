@@ -19,7 +19,7 @@
     <string name="folder_name" msgid="4588446541914685904">"Map"</string>
     <string name="chooser_wallpaper" msgid="5988031014201479733">"Achtergrond selecteren in"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Achtergrond instellen"</string>
-    <string name="activity_not_found" msgid="3571057450431950427">"Deze toepassing is niet geïnstalleerd op uw telefoon."</string>
+    <string name="activity_not_found" msgid="3571057450431950427">"Deze applicatie is niet geïnstalleerd op uw telefoon."</string>
     <string name="configure_wallpaper" msgid="2820186271419674623">"Configureren..."</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"Mapnaam"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"Naam van map wijzigen"</string>
@@ -28,7 +28,7 @@
     <string name="menu_item_add_item" msgid="6233177331075781114">"Toevoegen aan startpagina"</string>
     <string name="group_applications" msgid="4118484163419674240">"Toepassingen"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"Sneltoetsen"</string>
-	<string name="launcher_actions">Launcher Acties</string>
+    <string name="launcher_actions">Launcher&ndash;acties</string>
     <string name="group_search" msgid="5905328940867162196">"Zoeken"</string>
     <string name="group_folder" msgid="5143593791798929193">"Nieuwe map"</string>
     <string name="group_live_folders" msgid="2664945399140647217">"Mappen"</string>
@@ -44,7 +44,7 @@
     <string name="menu_wallpaper" msgid="5837429080911269832">"Achtergrond"</string>
     <string name="menu_search" msgid="4826514464423239041">"Zoeken"</string>
     <string name="menu_settings" msgid="6233960148378443661">"Instellingen"</string>
-	<string name="menu_adw_settings">ADW instellingen</string>
+    <string name="menu_adw_settings">ADW&ndash;instellingen</string>
     <string name="permlab_install_shortcut" msgid="1201690825493376489">"snelkoppelingen installeren"</string>
     <string name="permdesc_install_shortcut" msgid="7429365847558984148">"Een toepassing toestaan om snelkoppelingen toe te voegen zonder tussenkomst van de gebruiker."</string>
     <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"snelkoppelingen verwijderen"</string>
@@ -57,9 +57,9 @@
 
     <!-- ADW Settings -->
     <!-- Screen preferences -->
-    <string name="pref_label_settings">ADW instellingen</string>
-    <string name="pref_title_screen_preferences">Scherm-Instellingen</string>
-    <string name="pref_summary_screen_preferences">Instellingen voor standaard scherm, layout...</string>
+    <string name="pref_label_settings">ADW&ndash;instellingen</string>
+    <string name="pref_title_screen_preferences">Scherminstellingen</string>
+    <string name="pref_summary_screen_preferences">Instellingen voor standaardscherm, opmaak...</string>
 
     <string name="pref_title_wallpaper_hack">Wallpaper Hack</string>
     <string name="pref_summary_wallpaper_hack">Schakel deze optie uit bij Force Closes. Wanneer ingeschakeld verbeterd de scroll snelheid.</string>
@@ -168,8 +168,8 @@
     <string name="pref_message_restart_froyo">Wanneer deze optie aangepast wordt, herstart de launcher automatisch</string>
     <string name="drop_to_uninstall">Loslaten om te verwijderenl</string>
 
-    <string name="toast_widgets_not_supported">Widgets niet ondersteund... sorry :-)</string>
-    <string name="toast_unknown_item">Onbekend item. We kunnen geen onbekende item types toevoegen :-)</string>
+    <string name="toast_widgets_not_supported">Widgets niet ondersteund... sorry :&ndash;)</string>
+    <string name="toast_unknown_item">Onbekend item. We kunnen geen onbekende item types toevoegen :&ndash;)</string>
     <string name="toast_no_application_def">Geen applicatie gedefinieerd, stel iets in! :)</string>
 
     <string name="pref_title_import_export">Backup en restore</string>
@@ -231,12 +231,12 @@
     <string name="pref_title_fade_drawer_labels">Vervaag app labels</string>
     <string name="pref_summary_fade_drawer_labels">Labels vervagen. Gebruikt meer RAM/CPU</string>
 
-	<string name="widget_config_dialog_title">Widget grootte instellingen</string>
-	<string name="widget_config_dialog_summary">Hoeveel rijen/kolommen neemt de widget in beslag?</string>
-	<string name="widget_columns">Kolommen</string>
-	<string name="widget_rows">Rijen</string>
+    <string name="widget_config_dialog_title">Widget grootte instellingen</string>
+    <string name="widget_config_dialog_summary">Hoeveel rijen/kolommen neemt de widget in beslag?</string>
+    <string name="widget_columns">Kolommen</string>
+    <string name="widget_rows">Rijen</string>
     
-    <string name="pref_title_screen_cache">Scrolling cache</string>
+    <string name="pref_title_screen_cache">Scrolcache</string>
     <string name="pref_summary_screen_cache">Hogere kwaliteit, gebruikt meer geheugen.</string>
 
     <string name="pref_title_desktop_indicator">Geef desktop indicator weer</string>
@@ -246,30 +246,30 @@
     <string name="pref_title_desktop_indicator_type">Indicator type</string>
     <string name="pref_summary_desktop_indicator_type">Kies een indicator stijl</string>
 
-	<!-- Category titles -->
-	<string name="pref_title_system_preferences">Systeem instellingen</string>
-	<string name="pref_summary_system_preferences">Algemene systeem instellingen voor ADW Launcher</string>
-	<string name="pref_title_screens_layout_preferencecategory">Desktop layout</string>
-	<string name="pref_title_screens_behaviour_preferencecategory">Desktop gedrag</string>
-	<string name="pref_title_drawer_preferencecategory">App drawer</string>
-	<string name="pref_title_drawer_visuals_preferencecategory">App drawer visuele elementen</string>
-	<string name="pref_title_highlights_preferencecategory">Icoon highlights</string>
-	<string name="pref_title_indicators_preferencecategory">Scherm indicator</string>
+    <!-- Category titles -->
+    <string name="pref_title_system_preferences">Systeem instellingen</string>
+    <string name="pref_summary_system_preferences">Algemene systeem instellingen voor ADW Launcher</string>
+    <string name="pref_title_screens_layout_preferencecategory">Desktop layout</string>
+    <string name="pref_title_screens_behaviour_preferencecategory">Desktop gedrag</string>
+    <string name="pref_title_drawer_preferencecategory">App drawer</string>
+    <string name="pref_title_drawer_visuals_preferencecategory">App drawer visuele elementen</string>
+    <string name="pref_title_highlights_preferencecategory">Icoon highlights</string>
+    <string name="pref_title_indicators_preferencecategory">Scherm indicator</string>
 
     <string name="pref_title_system_persistent">Launcher niet uit te zetten</string>
     <string name="pref_summary_system_persistent">LET OP: Deze optie zorgt ervoor dat de launcher niet afgesloten kan worden door het systeem</string>
     <!-- Theme preferences -->
-	<string name="pref_title_theme_settings">Thema instellingen</string>
-	<string name="pref_summary_theme_settings">Selecteer ADW Launcher thema</string>
-	<string name="pref_title_theme_package">Selecteer theme</string>
-	<string name="pref_summary_theme_package">Selecteer ADW Launcher thema</string>
-	<string name="pref_title_theme_preview">Thema voorbeeld</string>
-	<string name="pref_summary_theme_preview">Voorbeeld van het geselecteerde thema</string>
-	<string name="pref_title_theme_icons">Gebruik thema iconen</string>
-	<string name="pref_summary_theme_icons">Schakel deze optie uit om de standaard OS iconen te gebruiken</string>
-	<string name="pref_themes_apply_theme">Thema toepassen!</string>
-	<string name="pref_themes_get_themes">Verkrijg thema\'s!</string>
-	
+    <string name="pref_title_theme_settings">Thema instellingen</string>
+    <string name="pref_summary_theme_settings">Selecteer ADW Launcher thema</string>
+    <string name="pref_title_theme_package">Selecteer theme</string>
+    <string name="pref_summary_theme_package">Selecteer ADW Launcher thema</string>
+    <string name="pref_title_theme_preview">Thema voorbeeld</string>
+    <string name="pref_summary_theme_preview">Voorbeeld van het geselecteerde thema</string>
+    <string name="pref_title_theme_icons">Gebruik thema iconen</string>
+    <string name="pref_summary_theme_icons">Schakel deze optie uit om de standaard OS iconen te gebruiken</string>
+    <string name="pref_themes_apply_theme">Thema toepassen!</string>
+    <string name="pref_themes_get_themes">Verkrijg thema\'s!</string>
+    
     <string name="pref_title_wallpaper_scrolling">Wallpaper Scrolling</string>
     <string name="pref_summary_wallpaper_scrolling">Wallpaper beweegt mee tijdens het scrollen tussen schermen</string>
     <string name="message_delete_desktop_screen">Dit scherm en alle inhoud verwijderen?</string>
@@ -279,36 +279,36 @@
     
     <string name="menu_edit">Aanpassen</string>
 
-	<string name="pref_label_shirtcuts">Aangepaste snelkoppeling</string>
-	<string name="pref_label_activities">Activiteiten</string>
-	<string name="shirtcut_header">Selecteer de gewenste app om te starten\nEr kan ook een aangepast icoon gekozen worden.</string>
-	<string name="shirtcut_pick_activity">Kies je activiteit</string>
-	<string name="shirtcut_label">Label</string>
-	<string name="shirtcuts_select_picture">Selecteer afbeelding</string>
-	<string name="shirtcuts_crop_picture">Selecteer afbeelding en snij deze bij</string>
-	<string name="shirtcuts_icon_packs">ADWThema IcoonPack</string>
-	<string name="shirtcuts_select_icon_type">Selecteer icoon type</string>
-	<string name="shirtcuts_select_icon_pack">Selecteer icoon pack</string>
+    <string name="pref_label_shirtcuts">Aangepaste snelkoppeling</string>
+    <string name="pref_label_activities">Activiteiten</string>
+    <string name="shirtcut_header">Selecteer de gewenste app om te starten\nEr kan ook een aangepast icoon gekozen worden.</string>
+    <string name="shirtcut_pick_activity">Kies je activiteit</string>
+    <string name="shirtcut_label">Label</string>
+    <string name="shirtcuts_select_picture">Selecteer afbeelding</string>
+    <string name="shirtcuts_crop_picture">Selecteer afbeelding en snij deze bij</string>
+    <string name="shirtcuts_icon_packs">ADWThema IcoonPack</string>
+    <string name="shirtcuts_select_icon_type">Selecteer icoon type</string>
+    <string name="shirtcuts_select_icon_pack">Selecteer icoon pack</string>
 
-	<string name="selectAll">Alles selecteren</string>
-	<string name="AppGroupAll">"ALLES"</string>
-	<string name="AppGroupAdd">"Nieuwe catalogus"</string>
-	<string name="AppGroupDel">"Verwijder catalogus"</string>
+    <string name="selectAll">Alles selecteren</string>
+    <string name="AppGroupAll">"ALLES"</string>
+    <string name="AppGroupAdd">"Nieuwe catalogus"</string>
+    <string name="AppGroupDel">"Verwijder catalogus"</string>
     <string name="AppGroupDelLong">"Moet de huidige catalogus\necht verwijderd worden?"</string>
-	<string name="AppGroupChoose">"Kies groep"</string>
-	<string name="AppGroupConfig">"Stel groep in"</string>
-	<string name="AppGroupRename">"Nieuwe catalogus"</string>
-	<string name="AppGroupConfigError">"Deze groep kan niet ingesteld worden"</string>
-	<string name="rename_group_title">Nieuwe catalogus</string>
-	<string name="rename_group_label">Catalogus naam</string>
-	<string name="show_catalog">Geef catalogus \"%s\" weer</string>
-	
-	<string name="pref_title_adw_restart">herstart ADW</string>
-	<string name="pref_summary_adw_restart">Sluit ADW af en herstart deze</string>
-	<string name="pref_title_adw_reset">Reset ADW</string>
-	<string name="pref_summary_adw_reset">Verwijder ADW instellingen en herstart</string>
-	
-	<string name="scrollable_api_required">Om deze widget te gebruiken moet ADW geupdate worden.</string>
+    <string name="AppGroupChoose">"Kies groep"</string>
+    <string name="AppGroupConfig">"Stel groep in"</string>
+    <string name="AppGroupRename">"Nieuwe catalogus"</string>
+    <string name="AppGroupConfigError">"Deze groep kan niet ingesteld worden"</string>
+    <string name="rename_group_title">Nieuwe catalogus</string>
+    <string name="rename_group_label">Catalogus naam</string>
+    <string name="show_catalog">Geef catalogus \"%s\" weer</string>
+    
+    <string name="pref_title_adw_restart">herstart ADW</string>
+    <string name="pref_summary_adw_restart">Sluit ADW af en herstart deze</string>
+    <string name="pref_title_adw_reset">Reset ADW</string>
+    <string name="pref_summary_adw_reset">Verwijder ADW instellingen en herstart</string>
+    
+    <string name="scrollable_api_required">Om deze widget te gebruiken moet ADW geupdate worden.</string>
     
     <string name="pref_title_drawer_navigate_catalogs">Catalogus navigatie</string>
     <string name="pref_summary_drawer_navigate_catalogs">Geef catalogus navigatie knoppen weer</string>
@@ -319,15 +319,15 @@
     <string name="pref_summary_notif_size">Selecteer lettergrootte voor de notificatie bubbles</string>
     <string name="pref_dialog_notif_size">Selecteer lettergrootte voor de notificatie bubbles</string>
 
-    <string name="pref_title_ab_preferencecategory">Hoofd dock</string>
-    <string name="pref_title_main_dock_style">Hoofd dock stijl</string>
-    <string name="pref_summary_main_dock_style">Selecteer stijl voor hoofd dock</string>
+    <string name="pref_title_ab_preferencecategory">Hoofddock</string>
+    <string name="pref_title_main_dock_style">Hoofddock&ndash;stijl</string>
+    <string name="pref_summary_main_dock_style">Selecteer stijl voor hoofddock</string>
     <string name="pref_title_behaviour_preferences">Algemeen gedrag</string>
-    <string name="pref_summary_behaviour_preferences">Algemene instellingen voor app gedrag</string>
-    <string name="pref_title_drawer_style">App Drawer stijl</string>
-    <string name="pref_summary_drawer_style">Schakel tussen verschillende drawer implementaties</string>
+    <string name="pref_summary_behaviour_preferences">Algemene instellingen voor applicatiegedrag</string>
+    <string name="pref_title_drawer_style">Appdrawer&ndash;stijl</string>
+    <string name="pref_summary_drawer_style">Schakel tussen verschillende appdrawer&ndash;implementaties</string>
     <string name="pref_title_dockbar_preferencecategory">Verborgen dockbalk</string>
-    <string name="pref_title_ab_tint">Dock iconen Dock Icons tint</string>
+    <string name="pref_title_ab_tint">Dockiconen Dock Icons tint</string>
     <string name="pref_summary_ab_tint">Voer grafische tints uit op de dock iconen</string>
     <string name="pref_title_ab_tint_color">Tint kleur</string>
     <string name="pref_summary_ab_tint_color">Verander de kleur van de tint</string>
@@ -336,6 +336,6 @@
     <string name="pref_summary_deletezone_style">Verander de positie van de prullenbak</string>
     <string name="pref_title_close_apps_dockbar">Sluit de app drawer</string>
     <string name="pref_summary_close_apps_dockbar">Sluit de app drawer bij het lang indrukken van items wanneer de dockbalk zichtbaar is</string>
-    <string name="menu_lock">Lock Desktop</string>
-    <string name="menu_unlock">Unlock Desktop</string>
+    <string name="menu_lock">Vergrendel bureaublad</string>
+    <string name="menu_unlock">Ontgrendel bureaublad</string>
 </resources>
