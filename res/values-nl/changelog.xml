@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string name="adw_changelog">
--&lt;b>Note:&lt;/b> Wanneer je thema er lelijk uit ziet, moet je je thema developer vragen deze te updaten!!! &lt;br>&lt;br>
--&lt;b>Note:&lt;/b> Om schermen toe te voegen of te verwijderen druk MENU/Aanpassen&lt;br>&lt;br>
--&lt;b>Note:&lt;/b> Om automatische orientatië aan te zetten, moet PERSISTANCE uitgeschakeld worden.&lt;br>&lt;br>
--&lt;b>Herinnering:&lt;/b> Apps kunnen verborgen worden in de app drawer door het gebruiken van aangepaste catalogi (kies de menu knop terwijl drawer open is) &lt;br>&lt;br>
+-&lt;b>Opmerking:&lt;/b> Vraag de ontwikkelaar van jouw thema deze bij te werken, als het er raar uitziet&lt;br>&lt;br>
+-&lt;b>Opmerking:&lt;/b> Om schermen toe te voegen of te verwijderen, druk je op MENU/Aanpassen&lt;br>&lt;br>
+-&lt;b>Opmerking:&lt;/b> Om automatische schermorientatië aan te zetten, moet PERSISTANCE uitgeschakeld worden.&lt;br>&lt;br>
+-&lt;b>Herinnering:&lt;/b> Applicaties kunnen verborgen worden in de appdrawer door aangepaste catalogi te gebruiken (kies de menu knop terwijl de appdrawer open is) &lt;br>&lt;br>
 
 &lt;b>Versie 1.3.6:&lt;/b>&lt;br>
 &lt;b>--------------&lt;/b>&lt;br>
--Optie om de desktop te locken/unlocken(kies menu/meer) &lt;br>
--Kleine aanpassingen voor Fore Closes &lt;br>
+-Optie om het bureaublad te ver- of ontgrendelen (MENU/meer) &lt;br>
+-Kleine aanpassingen voor onverwachte afsluitingen van de launcher&lt;br>
 &lt;b>Versie 1.3.5:&lt;/b>&lt;br>
 &lt;b>--------------&lt;/b>&lt;br>
--Optie om verschillende prullenbak posities en gedragingen te selecteren &lt;br>
--Snelle actie scherm bij het lang indrukken van items. &lt;br>
--Ondersteuning voor wegslepen en snelle acties op het hoofd dock. &lt;br>
--Launcher acties toegevoegd aan hoofdmenu. &lt;br>
--Heel veel fixes &lt;br>
-
+-Optie om verschillende prullenbakposities en -gedragingen te selecteren &lt;br>
+-Snelle actie-scherm bij het lang indrukken van items. &lt;br>
+-Ondersteuning voor wegslepen en snelle acties op het hoofddock. &lt;br>
+-Launcher-acties toegevoegd aan hoofdmenu. &lt;br>
+-Heel veel andere verbeteringen &lt;br>
 </string>
 </resources>
