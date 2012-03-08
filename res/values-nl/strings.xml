@@ -41,6 +41,7 @@
     <string name="title_select_shortcut" msgid="2858897527672831763">"Snelkoppeling selecteren"</string>
     <string name="title_select_live_folder" msgid="3753447798805166749">"Map selecteren"</string>
     <string name="menu_add" msgid="3065046628354640854">"Toevoegen"</string>
+    <string name="menu_delete">"Verwijderen"</string>
     <string name="menu_wallpaper" msgid="5837429080911269832">"Achtergrond"</string>
     <string name="menu_search" msgid="4826514464423239041">"Zoeken"</string>
     <string name="menu_settings" msgid="6233960148378443661">"Instellingen"</string>
@@ -67,8 +68,11 @@
     <string name="pref_title_orientation_sensor">Schermoriëntatie</string>
     <string name="pref_summary_orientation_sensor">Selecteer de gewenste oriëntatie</string>
 
-    <string name="pref_title_hide_statusbar">Verberg statusbalk</string>
-    <string name="pref_summary_hide_statusbar">Verberg statusbalk</string>
+    <string name="pref_title_hide_statusbar">"Verberg statusbalk"</string>
+    <string name="pref_summary_hide_statusbar">"Verberg statusbalk"</string>
+
+    <string name="pref_title_looping">"Schermlus"</string>
+    <string name="pref_summary_looping">"Staat toe dat je in een lus tussen de schermen kunt wisselen"</string>
 
     <string name="pref_title_default_screen">Standaardscherm</string>
 
@@ -79,6 +83,9 @@
     <string name="pref_title_desktop_overshoot">Overscrollen</string>
     <string name="pref_summary_desktop_overshoot">Sta overscrollen toe bij het wisselen tussen schermen</string>
     <string name="pref_dialog_desktop_overshoot">Stel 0 in om deze optie uit te schakelen</string>
+
+    <string name="pref_title_desktop_transition">Schermovergang</string>
+    <string name="pref_summary_desktop_transition">Hoe het wisselen van schermen gebeurd</string>
 
     <!-- Appdrawer Settings -->
     <string name="pref_title_drawer_settings">Appdrawer-instellingen</string>
@@ -115,7 +122,7 @@
     <string name="pref_summary_sense_previews">Gebruik de nieuwe Sense-implementatie</string>
 
     <!-- Button preferences -->
-    <string name="pref_title_ui_settings">Gebruikersinterface-instellingen</string>
+    <string name="pref_title_ui_settings">Interface-instellingen</string>
     <string name="pref_summary_ui_settings">Schakel elementen van de gebruikersinterface in/uit</string>
 
     <string name="pref_title_home_button_binding">Home-knop</string>
@@ -129,6 +136,9 @@
 
     <string name="pref_title_desktop_dots">Bureaubladpuntjes</string>
     <string name="pref_summary_desktop_dots">Toon/verberg bureaubladpuntjes</string>
+
+    <string name="pref_title_doubletap_actions">Dubbeldruk-actie</string>
+    <string name="pref_summary_doubletap_actions">Selecteer de uit te voeren actie als er twee keer wordt gedrukken</string>
 
     <string name="pref_title_dockbar">Dockbalk</string>
     <string name="pref_summary_dockbar">Schakel de nieuwe dockbalk voor snelkoppelingen in/uit</string>
@@ -290,29 +300,35 @@
     <string name="shirtcuts_icon_packs">Icoonpack voor ADW-thema</string>
     <string name="shirtcuts_select_icon_type">Selecteer icoontype</string>
     <string name="shirtcuts_select_icon_pack">Selecteer icoonpack</string>
+    <string name="shirtcuts_restore_original">Herstel origineel</string>
 
     <string name="selectAll">Alles selecteren</string>
     <string name="AppGroupAll">"ALLES"</string>
-    <string name="AppGroupAdd">"Nieuwe catalogus"</string>
-    <string name="AppGroupDel">"Verwijder catalogus"</string>
-    <string name="AppGroupDelLong">"Moet de huidige catalogus\necht verwijderd worden?"</string>
+    <string name="AppGroupUn">"Zonder groep"</string>
+    <string name="AppGroupAdd">"Nieuwe groep"</string>
+    <string name="AppGroupDel">"Verwijder groep"</string>
+    <string name="AppGroupDelLong">"Moet de huidige groep\necht verwijderd worden?"</string>
     <string name="AppGroupChoose">"Kies groep"</string>
     <string name="AppGroupConfig">"Stel groep in"</string>
-    <string name="AppGroupRename">"Nieuwe catalogus"</string>
+    <string name="AppGroupRename">"Nieuwe groep"</string>
     <string name="AppGroupConfigError">"Deze groep kan niet ingesteld worden"</string>
-    <string name="rename_group_title">Nieuwe catalogus</string>
-    <string name="rename_group_label">Catalogusnaam</string>
-    <string name="show_catalog">Toon catalogus \"%s\"</string>
+    <string name="rename_group_title">Nieuwe groep</string>
+    <string name="rename_group_label">Groepsnaam</string>
+    <string name="show_catalog">Toon groep \"%s\"</string>
 
-    <string name="pref_title_adw_restart">herstart ADW</string>
+    <string name="pref_title_adw_restart">Herstart ADW</string>
     <string name="pref_summary_adw_restart">Sluit ADW af en herstart deze</string>
     <string name="pref_title_adw_reset">Herstel ADW</string>
     <string name="pref_summary_adw_reset">Verwijder ADW-instellingen en herstart</string>
 
     <string name="scrollable_api_required">Om deze widget te gebruiken moet ADW geüpdatet worden.</string>
 
-    <string name="pref_title_drawer_navigate_catalogs">Catalogusnavigatie</string>
-    <string name="pref_summary_drawer_navigate_catalogs">Toon catalogusnavigatieknoppen</string>
+    <string name="pref_title_drawer_navigate_catalogs">Groepennavigatie</string>
+    <string name="pref_summary_drawer_navigate_catalogs">Toon groepennavigatieknoppen</string>
+    <string name="pref_title_drawer_ungroup_catalog">Enkel groepen</string>
+    <string name="pref_summary_drawer_ungroup_catalog">Verwijder de ALLES groep en gebruik enkel groepen</string>
+    <string name="pref_title_drawer_show_catalogs">Laat groepsnaam zien</string>
+    <string name="pref_summary_drawer_show_catalogs">Laat de groepsnaam zien in de appdrawer</string>
     <string name="pref_title_notif_receiver">Toon notificaties</string>
     <string name="pref_summary_notif_receiver">Schakel notificatietellers in</string>
 
