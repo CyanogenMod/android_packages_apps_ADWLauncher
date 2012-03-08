@@ -15,45 +15,46 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="application_name" msgid="5865630159700533006">"ADW.Launcher"</string>
-    <string name="folder_name" msgid="4588446541914685904">"Map"</string>
-    <string name="chooser_wallpaper" msgid="5988031014201479733">"Achtergrond selecteren in"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"Achtergrond instellen"</string>
-    <string name="activity_not_found" msgid="3571057450431950427">"Deze applicatie is niet geïnstalleerd op uw telefoon."</string>
-    <string name="configure_wallpaper" msgid="2820186271419674623">"Configureren\u2026"</string>
-    <string name="rename_folder_label" msgid="5646236631298452787">"Mapnaam"</string>
-    <string name="rename_folder_title" msgid="4544573104191526550">"Naam van map wijzigen"</string>
-    <string name="rename_action" msgid="6016003384693240896">"OK"</string>
-    <string name="cancel_action" msgid="3811860427489435048">"Annuleren"</string>
-    <string name="menu_item_add_item" msgid="6233177331075781114">"Toevoegen aan startpagina"</string>
-    <string name="group_applications" msgid="4118484163419674240">"Toepassingen"</string>
-    <string name="group_shortcuts" msgid="9133529424900391877">"Sneltoetsen"</string>
+  <string name="application_name" msgid="5865630159700533006">ADW.Launcher</string>
+    <string name="folder_name" msgid="4588446541914685904">Map</string>
+    <string name="chooser_wallpaper" msgid="5988031014201479733">Achtergrond selecteren in</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">Achtergrond instellen</string>
+    <string name="activity_not_found" msgid="3571057450431950427">Deze applicatie is niet geïnstalleerd op uw telefoon.</string>
+    <string name="configure_wallpaper" msgid="2820186271419674623">Configureren\u2026</string>
+    <string name="rename_folder_label" msgid="5646236631298452787">Mapnaam</string>
+    <string name="rename_folder_title" msgid="4544573104191526550">Naam van map wijzigen</string>
+    <string name="rename_action" msgid="6016003384693240896">OK</string>
+    <string name="cancel_action" msgid="3811860427489435048">Annuleren</string>
+    <string name="menu_item_add_item" msgid="6233177331075781114">Toevoegen aan startpagina</string>
+    <string name="group_applications" msgid="4118484163419674240">Toepassingen</string>
+    <string name="group_shortcuts" msgid="9133529424900391877">Sneltoetsen</string>
     <string name="launcher_actions">Launcher-acties</string>
-    <string name="group_search" msgid="5905328940867162196">"Zoeken"</string>
-    <string name="group_folder" msgid="5143593791798929193">"Nieuwe map"</string>
-    <string name="group_live_folders" msgid="2664945399140647217">"Mappen"</string>
-    <string name="group_widgets" msgid="6704978494073105844">"Widgets"</string>
-    <string name="group_wallpapers" msgid="1568191644272224858">"Achtergronden"</string>
-    <string name="out_of_space" msgid="8365249326091984698">"Er is geen ruimte meer op dit startscherm."</string>
-    <string name="shortcut_installed" msgid="7071557296331322355">"Snelkoppeling \'<xliff:g id="NAME">%s</xliff:g>\' is gemaakt."</string>
-    <string name="shortcut_uninstalled" msgid="2129499669449749995">"Snelkoppeling \'<xliff:g id="NAME">%s</xliff:g>\' is verwijderd."</string>
-    <string name="shortcut_duplicate" msgid="4757756326465060694">"Snelkoppeling \'<xliff:g id="NAME">%s</xliff:g>\' bestaat al."</string>
-    <string name="title_select_shortcut" msgid="2858897527672831763">"Snelkoppeling selecteren"</string>
-    <string name="title_select_live_folder" msgid="3753447798805166749">"Map selecteren"</string>
-    <string name="menu_add" msgid="3065046628354640854">"Toevoegen"</string>
-    <string name="menu_wallpaper" msgid="5837429080911269832">"Achtergrond"</string>
-    <string name="menu_search" msgid="4826514464423239041">"Zoeken"</string>
-    <string name="menu_settings" msgid="6233960148378443661">"Instellingen"</string>
+    <string name="group_search" msgid="5905328940867162196">Zoeken</string>
+    <string name="group_folder" msgid="5143593791798929193">Nieuwe map</string>
+    <string name="group_live_folders" msgid="2664945399140647217">Mappen</string>
+    <string name="group_widgets" msgid="6704978494073105844">Widgets</string>
+    <string name="group_wallpapers" msgid="1568191644272224858">Achtergronden</string>
+    <string name="out_of_space" msgid="8365249326091984698">Er is geen ruimte meer op dit startscherm.</string>
+    <string name="shortcut_installed" msgid="7071557296331322355">Snelkoppeling \'<xliff:g id="NAME">%s</xliff:g>\' is gemaakt.</string>
+    <string name="shortcut_uninstalled" msgid="2129499669449749995">Snelkoppeling \'<xliff:g id="NAME">%s</xliff:g>\' is verwijderd.</string>
+    <string name="shortcut_duplicate" msgid="4757756326465060694">Snelkoppeling \'<xliff:g id="NAME">%s</xliff:g>\' bestaat al.</string>
+    <string name="title_select_shortcut" msgid="2858897527672831763">Snelkoppeling selecteren</string>
+    <string name="title_select_live_folder" msgid="3753447798805166749">Map selecteren</string>
+    <string name="menu_add" msgid="3065046628354640854">Toevoegen</string>
+    <string name="menu_delete">Verwijderen</string>
+    <string name="menu_wallpaper" msgid="5837429080911269832">Achtergrond</string>
+    <string name="menu_search" msgid="4826514464423239041">Zoeken</string>
+    <string name="menu_settings" msgid="6233960148378443661">Instellingen</string>
     <string name="menu_adw_settings">ADW-instellingen</string>
-    <string name="permlab_install_shortcut" msgid="1201690825493376489">"snelkoppelingen installeren"</string>
-    <string name="permdesc_install_shortcut" msgid="7429365847558984148">"Een toepassing toestaan om snelkoppelingen toe te voegen zonder tussenkomst van de gebruiker."</string>
-    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"snelkoppelingen verwijderen"</string>
-    <string name="permdesc_uninstall_shortcut" msgid="959972195916090900">"Een toepassing toestaan om snelkoppelingen te verwijderen zonder tussenkomst van de gebruiker."</string>
-    <string name="permlab_read_settings" msgid="3452408290738106747">"instellingen en snelkoppelingen voor de startpagina lezen"</string>
-    <string name="permdesc_read_settings" msgid="8377434937176025492">"Hiermee kan een toepassing de instellingen en snelkoppelingen op de startpagina lezen."</string>
-    <string name="permlab_write_settings" msgid="1360567537236705628">"instellingen en snelkoppelingen voor de startpagina schrijven"</string>
-    <string name="permdesc_write_settings" msgid="1098648778383349818">"Hiermee kan een toepassing de instellingen en snelkoppelingen op de startpagina wijzigen."</string>
-    <string name="gadget_error_text" msgid="8359351016167075858">"Probleem bij het laden van widget"</string>
+    <string name="permlab_install_shortcut" msgid="1201690825493376489">snelkoppelingen installeren</string>
+    <string name="permdesc_install_shortcut" msgid="7429365847558984148">Een toepassing toestaan om snelkoppelingen toe te voegen zonder tussenkomst van de gebruiker.</string>
+    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">snelkoppelingen verwijderen</string>
+    <string name="permdesc_uninstall_shortcut" msgid="959972195916090900">Een toepassing toestaan om snelkoppelingen te verwijderen zonder tussenkomst van de gebruiker.</string>
+    <string name="permlab_read_settings" msgid="3452408290738106747">instellingen en snelkoppelingen voor de startpagina lezen</string>
+    <string name="permdesc_read_settings" msgid="8377434937176025492">Hiermee kan een toepassing de instellingen en snelkoppelingen op de startpagina lezen.</string>
+    <string name="permlab_write_settings" msgid="1360567537236705628">instellingen en snelkoppelingen voor de startpagina schrijven</string>
+    <string name="permdesc_write_settings" msgid="1098648778383349818">Hiermee kan een toepassing de instellingen en snelkoppelingen op de startpagina wijzigen.</string>
+    <string name="gadget_error_text" msgid="8359351016167075858">Probleem bij het laden van widget</string>
 
     <!-- ADW Settings -->
     <!-- Screen preferences -->
@@ -70,6 +71,9 @@
     <string name="pref_title_hide_statusbar">Verberg statusbalk</string>
     <string name="pref_summary_hide_statusbar">Verberg statusbalk</string>
 
+    <string name="pref_title_looping">Schermlus</string>
+    <string name="pref_summary_looping">Staat toe tussen schermen te wisselen in een lus</string>
+
     <string name="pref_title_default_screen">Standaardscherm</string>
 
     <string name="pref_title_desktop_scrolling_speed">Scrolsnelheid</string>
@@ -79,6 +83,9 @@
     <string name="pref_title_desktop_overshoot">Overscrollen</string>
     <string name="pref_summary_desktop_overshoot">Sta overscrollen toe bij het wisselen tussen schermen</string>
     <string name="pref_dialog_desktop_overshoot">Stel 0 in om deze optie uit te schakelen</string>
+
+    <string name="pref_title_desktop_transition">Schermovergang</string>
+    <string name="pref_summary_desktop_transition">Hoe het wisselen van schermen gebeurd</string>
 
     <!-- Appdrawer Settings -->
     <string name="pref_title_drawer_settings">Appdrawer-instellingen</string>
@@ -115,7 +122,7 @@
     <string name="pref_summary_sense_previews">Gebruik de nieuwe Sense-implementatie</string>
 
     <!-- Button preferences -->
-    <string name="pref_title_ui_settings">Gebruikersinterface-instellingen</string>
+    <string name="pref_title_ui_settings">Interface</string>
     <string name="pref_summary_ui_settings">Schakel elementen van de gebruikersinterface in/uit</string>
 
     <string name="pref_title_home_button_binding">Home-knop</string>
@@ -130,6 +137,9 @@
     <string name="pref_title_desktop_dots">Bureaubladpuntjes</string>
     <string name="pref_summary_desktop_dots">Toon/verberg bureaubladpuntjes</string>
 
+    <string name="pref_title_doubletap_actions">Dubbeltik-actie</string>
+    <string name="pref_summary_doubletap_actions">Voer gekozen actie uit bij twee keer tikken op de schermachtergrond</string>
+
     <string name="pref_title_dockbar">Dockbalk</string>
     <string name="pref_summary_dockbar">Schakel de nieuwe dockbalk voor snelkoppelingen in/uit</string>
 
@@ -143,8 +153,8 @@
     <string name="pref_summary_ab_scale_factor">Stel de grootte van de actieknop in</string>
     <string name="pref_dialog_ab_scale_factor">Stel de grootte van de actieknop in</string>
 
-    <string name="pref_title_hide_ab_bg">Verberg achtergrond actieknop</string>
-    <string name="pref_summary_hide_ab_bg">Verberg de achtergrond van de actieknop</string>
+    <string name="pref_title_hide_ab_bg">Verberg achtergrond</string>
+    <string name="pref_summary_hide_ab_bg">Verberg de achtergrond van de actieknopen</string>
 
     <string name="pref_title_hide_icon_labels">Verberg icoonlabels</string>
     <string name="pref_summary_hide_icon_labels">Verberg icoonlabels op het bureaublad</string>
@@ -290,29 +300,35 @@
     <string name="shirtcuts_icon_packs">Icoonpack voor ADW-thema</string>
     <string name="shirtcuts_select_icon_type">Selecteer icoontype</string>
     <string name="shirtcuts_select_icon_pack">Selecteer icoonpack</string>
+    <string name="shirtcuts_restore_original">Herstel origineel</string>
 
     <string name="selectAll">Alles selecteren</string>
-    <string name="AppGroupAll">"ALLES"</string>
-    <string name="AppGroupAdd">"Nieuwe catalogus"</string>
-    <string name="AppGroupDel">"Verwijder catalogus"</string>
-    <string name="AppGroupDelLong">"Moet de huidige catalogus\necht verwijderd worden?"</string>
-    <string name="AppGroupChoose">"Kies groep"</string>
-    <string name="AppGroupConfig">"Stel groep in"</string>
-    <string name="AppGroupRename">"Nieuwe catalogus"</string>
-    <string name="AppGroupConfigError">"Deze groep kan niet ingesteld worden"</string>
-    <string name="rename_group_title">Nieuwe catalogus</string>
-    <string name="rename_group_label">Catalogusnaam</string>
-    <string name="show_catalog">Toon catalogus \"%s\"</string>
+    <string name="AppGroupAll">ALLES</string>
+    <string name="AppGroupUn">Zonder groep</string>
+    <string name="AppGroupAdd">Nieuwe groep</string>
+    <string name="AppGroupDel">Verwijder groep</string>
+    <string name="AppGroupDelLong">Moet de huidige groep\necht verwijderd worden?</string>
+    <string name="AppGroupChoose">Kies groep</string>
+    <string name="AppGroupConfig">Stel groep in</string>
+    <string name="AppGroupRename">Nieuwe groep</string>
+    <string name="AppGroupConfigError">Deze groep kan niet ingesteld worden</string>
+    <string name="rename_group_title">Nieuwe groep</string>
+    <string name="rename_group_label">Groepsnaam</string>
+    <string name="show_catalog">Toon groep \"%s\"</string>
 
-    <string name="pref_title_adw_restart">herstart ADW</string>
+    <string name="pref_title_adw_restart">Herstart ADW</string>
     <string name="pref_summary_adw_restart">Sluit ADW af en herstart deze</string>
     <string name="pref_title_adw_reset">Herstel ADW</string>
     <string name="pref_summary_adw_reset">Verwijder ADW-instellingen en herstart</string>
 
     <string name="scrollable_api_required">Om deze widget te gebruiken moet ADW geüpdatet worden.</string>
 
-    <string name="pref_title_drawer_navigate_catalogs">Catalogusnavigatie</string>
-    <string name="pref_summary_drawer_navigate_catalogs">Toon catalogusnavigatieknoppen</string>
+    <string name="pref_title_drawer_navigate_catalogs">Groepennavigatie</string>
+    <string name="pref_summary_drawer_navigate_catalogs">Toon groepennavigatieknoppen</string>
+    <string name="pref_title_drawer_ungroup_catalog">Enkel groepen</string>
+    <string name="pref_summary_drawer_ungroup_catalog">Verwijder de ALLES-groep en gebruik enkel groepen</string>
+    <string name="pref_title_drawer_show_catalogs">Toon groepsnaam</string>
+    <string name="pref_summary_drawer_show_catalogs">De groepsnaam tonen in de appdrawer</string>
     <string name="pref_title_notif_receiver">Toon notificaties</string>
     <string name="pref_summary_notif_receiver">Schakel notificatietellers in</string>
 
@@ -328,8 +344,8 @@
     <string name="pref_title_drawer_style">Appdrawer-stijl</string>
     <string name="pref_summary_drawer_style">Schakel tussen verschillende appdrawer-implementaties</string>
     <string name="pref_title_dockbar_preferencecategory">Verborgen dockbalk</string>
-    <string name="pref_title_ab_tint">Dockiconen Dock Icons tint</string>
-    <string name="pref_summary_ab_tint">Voer grafische tints uit op de dock iconen</string>
+    <string name="pref_title_ab_tint">Actieknop tint</string>
+    <string name="pref_summary_ab_tint">Voer grafische tint uit op de dock iconen</string>
     <string name="pref_title_ab_tint_color">Tint kleur</string>
     <string name="pref_summary_ab_tint_color">Verander de kleur van de tint</string>
     <string name="pref_title_deletezone_preferencecategory">Prullenbak</string>
