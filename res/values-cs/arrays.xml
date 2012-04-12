@@ -76,4 +76,9 @@
     <item>Svislá plocha</item>
     <item>Horizontální stránkování</item>
   </string-array>
+
+  <string-array name="catalog_sorttype_entries">
+    <item>Jména</item>
+    <item>Stáří</item>
+  </string-array>
 </resources>

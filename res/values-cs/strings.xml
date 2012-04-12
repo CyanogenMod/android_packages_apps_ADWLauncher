@@ -25,7 +25,7 @@
   <string name="chooser_wallpaper">Zvolit tapetu ze složky</string>
   <string name="wallpaper_instructions">Nastavit tapetu</string>
   <string name="activity_not_found">Aplikace není nainstalována.</string>
-  <string name="configure_wallpaper">Konfigurace\u2026</string>
+  <string name="configure_wallpaper">Nastavení\u2026</string>
 
   <!-- Folders -->
   <skip />
@@ -174,6 +174,9 @@
   <string name="pref_title_hide_ab_bg">Skrýt pozadí TA</string>
   <string name="pref_summary_hide_ab_bg">Skrýt pozadí pro Tlačítka Akce</string>
 
+  <string name="pref_title_lock_ab">Uzamknout akční tlačítka</string>
+  <string name="pref_summary_lock_ab">Zamezit úpravy akčních tlačítek</string>
+
   <string name="pref_title_hide_icon_labels">Skrýt názvy ikon</string>
   <string name="pref_summary_hide_icon_labels">Skrýt názvy ikon na ploše</string>
 
@@ -207,10 +210,10 @@
   <string name="pref_title_xml_export">Záloha nastavení ADW</string>
   <string name="pref_summary_xml_export">Zálohovat do /sdcard/adw_settings.xml</string>
 
-  <string name="pref_title_db">Konfigurace plochy</string>
-  <string name="pref_title_db_import">Obnovit konfiguraci plochy</string>
+  <string name="pref_title_db">Nastavení plochy</string>
+  <string name="pref_title_db_import">Obnovit nastavení plochy</string>
   <string name="pref_summary_db_import">Obnovit z /sdcard/adw_launcher.db</string>
-  <string name="pref_title_db_export">Zálohovat konfiguraci plochy</string>
+  <string name="pref_title_db_export">Zálohovat nastavení plochy</string>
   <string name="pref_summary_db_export">Zálohovat do /sdcard/adw_launcher.db</string>
 
   <string name="title_dialog_xml">Nastavení spouštěče ADW</string>
@@ -230,17 +233,17 @@
   <string name="xml_import_error">Při obnově nastavení ADW došlo k chybě!</string>
 
   <!-- Config Import/Export strings -->
-  <string name="message_dialog_export_config">Záloha konfigurace plochy? Existující soubor bude přepsán.</string>
+  <string name="message_dialog_export_config">Zálohovat nastavení plochy? Existující soubor bude přepsán.</string>
   <string name="dbfile_export_dialog">Zálohuje se nastavení plochy\u2026</string>
-  <string name="dbfile_export_success">Konfigurace úspěšně zazálohována!</string>
+  <string name="dbfile_export_success">Nastavení úspěšně zálohováno!</string>
   <string name="dbfile_export_error">Při zálohování došlo k chybě!</string>
 
-  <string name="message_dialog_import_config">Obnova konfigurace plochy? Spouštěč ADW bude restartován.</string>
+  <string name="message_dialog_import_config">Obnovit nastavení plochy? Spouštěč ADW bude restartován.</string>
   <string name="dbfile_import_dialog">Obnovuje se nastavení plochy\u2026</string>
   <string name="dbfile_not_found">Soubor zálohy nenalezen!</string>
   <string name="dbfile_not_readable">Soubor zálohy nalezen, ale je nečitelný (poškozený)!</string>
-  <string name="dbfile_import_success">Konfigurace úspěšně obnovena!</string>
-  <string name="dbfile_import_error">Při obnově konfigurace došlo k chybě!</string>
+  <string name="dbfile_import_success">Nastavení úspěšně obnoveno!</string>
+  <string name="dbfile_import_error">Při obnově nastavení došlo k chybě!</string>
 
   <!--  Desktop columns/Rows -->
   <string name="pref_title_desktop_columns">Sloupce plochy</string>
@@ -322,6 +325,7 @@
   <string name="shirtcuts_select_icon_pack">Vybrat balíček ikon</string>
   <string name="shirtcuts_restore_original">Obnovit originální</string>
 
+  <string name="sortType">Třídit podle\:</string>
   <string name="selectAll">Vybrat vše</string>
   <string name="AppGroupAll">"Vše"</string>
   <string name="AppGroupUn">"Netříděné"</string>
@@ -360,7 +364,7 @@
   <string name="pref_title_main_dock_style">Styl hlavního doku</string>
   <string name="pref_summary_main_dock_style">Zvolit vzhled hlavního doku</string>
   <string name="pref_title_behaviour_preferences">Obecné chování</string>
-  <string name="pref_summary_behaviour_preferences">Konfigurace chování aplikací</string>
+  <string name="pref_summary_behaviour_preferences">Nastavení chování aplikací</string>
   <string name="pref_title_drawer_style">Vzhled složky aplikací</string>
   <string name="pref_summary_drawer_style">Umožní přepínat mezi různými vzhledy složky aplikací</string>
   <string name="pref_title_dockbar_preferencecategory">Skrytý dok</string>
