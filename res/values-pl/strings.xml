@@ -209,6 +209,9 @@
     <string name="pref_title_hide_ab_bg">Ukryj tło przycisku akcji</string>
     <string name="pref_summary_hide_ab_bg">Ukryj tło przycisku akcji</string>
 
+    <string name="pref_title_lock_ab">Zablokuj przyciski akcji</string>
+    <string name="pref_summary_lock_ab">Zapobiegaj edytowaniu przycisków akcji</string>
+
     <string name="pref_title_hide_icon_labels">Ukryj etykiety ikon</string>
     <string name="pref_summary_hide_icon_labels">Ukryj etykiety ikon na pulpicie</string>
 
@@ -353,6 +356,7 @@
     <string name="shirtcuts_select_icon_pack">Wybierz paczkę ikon</string>
     <string name="shirtcuts_restore_original">Przywróć oryginalne</string>
 
+    <string name="sortType">Sortuj według\:</string>
 	<string name="selectAll">Zaznacz wszystkie</string>
 	<string name="AppGroupAll">"Wszystkie"</string>
 	<string name="AppGroupUn">"Nieskatalogowane"</string>
