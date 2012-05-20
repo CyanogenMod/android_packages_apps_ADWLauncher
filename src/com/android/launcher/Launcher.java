@@ -4863,7 +4863,7 @@ public final class Launcher extends Activity implements View.OnClickListener, On
         // found the package and it's not an ADW internal shortcut
         if (infoPackage != null && !isADWShortcut)
         {
-            if ( !(info instanceof FolderInfo) )
+            if (info instanceof ApplicationInfo)
             {
                 qa.addItem(getResources().getDrawable(android.R.drawable.ic_menu_agenda), R.string.AppGroupChoose, new OnClickListener()
                 {
