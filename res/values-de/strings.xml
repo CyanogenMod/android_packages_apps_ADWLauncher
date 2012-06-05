@@ -156,6 +156,9 @@
   <string name="pref_title_hide_ab_bg">Aktionstasten-HG ausblenden</string>
   <string name="pref_summary_hide_ab_bg">Hintergrund der Aktionstasten ausblenden</string>
 
+  <string name="pref_title_lock_ab">Aktionstasten sperren</string>
+  <string name="pref_summary_lock_ab">Bearbeiten der Aktionstasten verhindern</string>
+
   <string name="pref_title_hide_icon_labels">Keine Icon-Beschriftung</string>
   <string name="pref_summary_hide_icon_labels">Beschriftung der Bildschirmsymbole ausblenden</string>
 
@@ -303,6 +306,7 @@
   <string name="shirtcuts_select_icon_pack">Icon-Pack auswählen</string>
   <string name="shirtcuts_restore_original">Original wiederherstellen</string>
 
+  <string name="sortType">Sortieren nach\:</string>
   <string name="selectAll">Alle auswählen</string>
   <string name="AppGroupAll">Alle</string>
   <string name="AppGroupAdd">Neuer Katalog</string>

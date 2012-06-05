@@ -58,4 +58,10 @@
     <item>Vertikal</item>
     <item>Horizontal mit Blättern</item>
   </string-array>
+
+  <string-array name="catalog_sorttype_entries">
+    <item>Name</item>
+    <item>Alter</item>
+  </string-array>
+
 </resources>
