@@ -18,62 +18,68 @@
 -->
 
 <resources>
-  <string-array name="menu_binding_entries">
-    <item>Žádná</item>
-    <item>Presunúť na plochu</item>
-    <item>Presunúť na plochu/ukázať náhľady</item>
-    <item>Ukázať náhľady</item>
-    <item>Otvoriť/zavrieť ponuku aplikácií</item>
-    <item>Zobraziť/skryť stavový riadok</item>
-    <item>Zobraziť/skryť oznámenia</item>
-    <item>Presunúť na plochu/Otvoriť oznámenia</item>
-    <item>Zobraziť/skryť dok</item>
-    <item>Otvoriť aplikáciu...</item>
-  </string-array>
+       <string-array name="menu_binding_entries">
+                <item>Žiadna</item>
+                <item>Presunúť na plochu</item>
+                <item>Presunúť na plochu/ukázať náhľady</item>
+                <item>Ukázať náhľady</item>
+                <item>Otvoriť/zavrieť ponuku aplikácií</item>
+                <item>Zobraziť/skryť stavový riadok</item>
+                <item>Zobraziť/skryť oznámenia</item>
+                <item>Presunúť na plochu/Otvoriť oznámenia</item>
+                <item>Zobraziť/skryť dok</item>
+                <item>Otvoriť aplikáciu...</item>
+       </string-array>
 
-  <string-array name="desktop_indicator_entries">
-    <item>Bodový stránkovač navrchu</item>
-    <item>Posuvný stránkovač navrchu</item>
-    <item>Posuvný stránkovač dole</item>
-  </string-array>
+       <string-array name="desktop_indicator_entries">
+                <item>Bodový stránkovač navrchu</item>
+                <item>Posuvný stránkovač navrchu</item>
+                <item>Posuvný stránkovač dole</item>
+       </string-array>
 
-  <string-array name="desktop_transition_entries">
-    <item>Normálny</item>
-    <item>Rotácia</item>
-    <item>Stránka</item>
-    <item>Kocka</item>
-    <item>Rozptýlenie</item>
-  </string-array>
+       <string-array name="desktop_transition_entries">
+                <item>Normálny</item>
+                <item>Rotácia</item>
+                <item>Stránka</item>
+                <item>Kocka</item>
+                <item>Rozptýlenie</item>
+       </string-array>
 
-  <string-array name="home_orientation_entries">
-    <item>Automaticky/senzorem</item>
-    <item>Na výšku</item>
-    <item>Na šířku</item>
-  </string-array>
+       <string-array name="home_orientation_entries">
+                <item>Automaticky/senzorom</item>
+                <item>Na výšku</item>
+                <item>Na šírku</item>
+       </string-array>
 
-  <string-array name="screen_cache_entries">
-    <item>Nízka kvalita</item>
-    <item>Automaticky</item>
-    <item>Vypnuté</item>
-  </string-array>
+       <string-array name="screen_cache_entries">
+                <item>Nízka kvalita</item>
+                <item>Automaticky</item>
+                <item>Vypnuté</item>
+       </string-array>
 
-  <string-array name="main_dock_entries">
-    <item>Žiadne (rozšírenie plochy)</item>
-    <item>3 ikony</item>
-    <item>5 ikon</item>
-    <item>1 ikona</item>
-  </string-array>
+       <string-array name="main_dock_entries">
+                <item>Žiadne (rozšírenie plochy)</item>
+                <item>3 ikony</item>
+                <item>5 ikon</item>
+                <item>1 ikona</item>
+       </string-array>
 
-  <string-array name="deletezone_entries">
-    <item>Žiadny</item>
-    <item>Hore</item>
-    <item>Dole</item>
-    <item>Hore (zmenšiť plochu)</item>
-    <item>Dole (zmenšiť plochu)</item>
-  </string-array>
+       <string-array name="deletezone_entries">
+                <item>Žiadny</item>
+                <item>Hore</item>
+                <item>Dole</item>
+                <item>Hore (zmenšiť plochu)</item>
+                <item>Dole (zmenšiť plochu)</item>
+       </string-array>
 
-  <string-array name="app_drawer_style_entries">
-    <item>Svislá plocha</item>
-    <item>Horizontálne stránkovanie</item>
-  </string-array>
+       <string-array name="app_drawer_style_entries">
+                <item>Zvislá plocha</item>
+                <item>Horizontálne stránkovanie</item>
+       </string-array>
+
+       <string-array name="catalog_sorttype_entries">
+                <item>Meno</item>
+                <item>Vek</item>
+       </string-array>
+
 </resources>

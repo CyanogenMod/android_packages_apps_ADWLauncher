@@ -89,6 +89,9 @@
   <string name="pref_title_hide_statusbar">Skryť stavový riadok</string>
   <string name="pref_summary_hide_statusbar">Skryje stavový riadok</string>
 
+  <string name="pref_title_looping">Slučka obrazovky</string>
+  <string name="pref_summary_looping">Povolí prechod v slučke z poslednej obrazovky na prvú</string>
+
   <string name="pref_title_default_screen">Základná obrazovka</string>
 
   <string name="pref_title_desktop_scrolling_speed">Rýchlosť posúvania plochy</string>
@@ -149,6 +152,9 @@
   <string name="pref_title_swipeup_actions">Akcia pre &quot;hore&quot;</string>
   <string name="pref_summary_swipeup_actions">Zvoliť akciu pre gesto  &quot;hore&quot;</string>
 
+  <string name="pref_title_doubletap_actions">Akcia dvojitého ťuknutia</string>
+  <string name="pref_summary_doubletap_actions">Vyberte akciu pre dvojité ťuknutie</string>
+
   <string name="pref_title_desktop_dots">Plochy ako body</string>
   <string name="pref_summary_desktop_dots">Zobraziť/skryť stránkovanie v štýle bodov (Nexus)</string>
 
@@ -167,6 +173,9 @@
 
   <string name="pref_title_hide_ab_bg">Skryť pozadie TA</string>
   <string name="pref_summary_hide_ab_bg">Skryť pozadie  pre Tlačidlá Akcií</string>
+
+  <string name="pref_title_lock_ab">Uzamknúť tlačidlá akcií</string>
+  <string name="pref_summary_lock_ab">Zabráni náhodnému stlačeniu tlačidiel akcií</string>
 
   <string name="pref_title_hide_icon_labels">Skryť názvy ikon</string>
   <string name="pref_summary_hide_icon_labels">Skryť názvy ikon na ploche</string>
@@ -315,6 +324,7 @@
   <string name="shirtcuts_select_icon_pack">Vybrať balík ikon</string>
   <string name="shirtcuts_restore_original">Obnoviť originálne</string>
 
+  <string name="sortType">Zoradiť podľa</string>
   <string name="selectAll">Vybrať všetko</string>
   <string name="AppGroupAll">"Všetko"</string>
   <string name="AppGroupUn">"Netriedené"</string>
