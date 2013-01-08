@@ -23,22 +23,22 @@
     <!-- Application name -->
     <string name="application_name">ADW.Launcher</string>
     <!-- Default folder name -->
-    <string name="folder_name">Folder</string>
+    <string name="folder_name">Φάκελος</string>
     <!-- Title of dialog that appears after user selects Wallpaper from menu -->
-    <string name="chooser_wallpaper">Επιλογη ταπετσαριας απο</string>
+    <string name="chooser_wallpaper">Επιλογή ταπετσαρίας από</string>
     <!-- Button label on Wallpaper Gallery screen; user selects this button to set a specific wallpaper -->
     <string name="wallpaper_instructions">Ορισμός ταπετσαρίας</string>
     <!-- Displayed when user selects a shortcut for an app that was uninstalled -->
     <string name="activity_not_found">Η εφαρμογή δεν βρέθηκε εγκατεστημένη.</string>
     <!-- List item for configuring the current wallpaper -->
-    <string name="configure_wallpaper">Ρυθμίσεις...</string>
+    <string name="configure_wallpaper">Ρυθμίσεις\u2026</string>
 
     <!-- Folders -->
     <skip />
     <!-- Label of Folder name field in Rename folder dialog box -->
-    <string name="rename_folder_label">Όνομα αρχείου</string>
+    <string name="rename_folder_label">Όνομα φακέλου</string>
     <!-- Title of dialog box -->
-    <string name="rename_folder_title">Μετονομασία αρχείου</string>
+    <string name="rename_folder_title">Μετονομασία φακέλου</string>
     <!-- Buttons in Rename folder dialog box -->
     <string name="rename_action">OK</string>
     <!-- Buttons in Rename folder dialog box -->
@@ -52,12 +52,14 @@
     <string name="group_applications">Εφαρμογές</string>
     <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all shortcuts -->
     <string name="group_shortcuts">Συντομεύσεις</string>
+    <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all launcher actions -->
+    <string name="launcher_actions">Ενέργειες Launcher</string>
     <!-- Options in "Add to Home" dialog box; Title of the search gadget -->
     <string name="group_search">Αναζήτηση</string>
     <!-- Options in "Add to Home" dialog box; Title of the folder gadget -->
-    <string name="group_folder">Νέος φάκελλος</string>
+    <string name="group_folder">Νέος φάκελος</string>
     <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all live folders -->
-    <string name="group_live_folders">Φάκελλοι</string>
+    <string name="group_live_folders">Φάκελοι</string>
     <!-- Options in "Add to Home" dialog box; Title of the group containing the list of all widgets/gadgets -->
     <string name="group_widgets">Γραφικά στοιχεία</string>
     <!-- Options in "Add to Home" dialog box; Title of the group containing the list of apps that can set the wallpaper-->
@@ -65,11 +67,11 @@
     <!-- Error message when user has filled a home screen, possibly not used -->
     <string name="out_of_space">Δεν υπάρχει χώρος σε αυτή την αρχική οθόνη.</string>
     <!-- Message displayed when a shortcut is created by an external application -->
-    <string name="shortcut_installed">Συντόμευση \"<xliff:g id="name" example="Browser">%s</xliff:g>\" δημιουργήθηκε.</string>
+    <string name="shortcut_installed">Η συντόμευση \"<xliff:g id="name" example="Browser">%s</xliff:g>\" δημιουργήθηκε.</string>
     <!-- Message displayed when a shortcut is uninstalled by an external application -->
-    <string name="shortcut_uninstalled">Συντόμευση \"<xliff:g id="name" example="Browser">%s</xliff:g>\" αφαιρέθηκε.</string>
+    <string name="shortcut_uninstalled">Η συντόμευση \"<xliff:g id="name" example="Browser">%s</xliff:g>\" αφαιρέθηκε.</string>
     <!-- Message displayed when an external application attemps to create a shortcut that already exists -->
-    <string name="shortcut_duplicate">Συντόμευση \"<xliff:g id="name" example="Browser">%s</xliff:g>\" υπάρχει ήδη.</string>
+    <string name="shortcut_duplicate">Η συντόμευση \"<xliff:g id="name" example="Browser">%s</xliff:g>\" υπάρχει ήδη.</string>
 
     <!-- Title of dialog when user is selecting shortcut to add to homescreen -->
     <string name="title_select_shortcut">Επιλέξτε συντόμευση</string>
@@ -80,6 +82,7 @@
     <skip />
     <!-- Verb, menu item used to add an item on the desktop -->
     <string name="menu_add">Προσθήκη</string>
+    <string name="menu_delete">Αφαίρεση</string>
     <!-- Noun, menu item used to set the desktop's wallpaper -->
     <string name="menu_wallpaper">Ταπετσαρία</string>
     <!-- Verb, menu item used to initiate global search -->
@@ -89,107 +92,322 @@
     <string name="menu_adw_settings">ADWΡυθμίσεις</string>
 
     <!-- Permissions: -->
-    <string name="permlab_install_shortcut">install shortcuts</string>
-    <string name="permdesc_install_shortcut">Allows an application to add
-        shortcuts without user intervention.</string>
-    <string name="permlab_uninstall_shortcut">uninstall shortcuts</string>
-    <string name="permdesc_uninstall_shortcut">Allows an application to remove
-        shortcuts without user intervention.</string>
-    <string name="permlab_read_settings">read Home settings and shortcuts</string>
-    <string name="permdesc_read_settings">Allows an application to read the settings and
-        shortcuts in Home.</string>
-    <string name="permlab_write_settings">write Home settings and shortcuts</string>
-    <string name="permdesc_write_settings">Allows an application to change the settings and
-        shortcuts in Home.</string>
+    <string name="permlab_install_shortcut">Εγκατάσταση συντομεύσεων</string>
+    <string name="permdesc_install_shortcut">Επιτρέπει σε μια εφαρμογή να προσθέτει συντομεύσεις χωρίς την παρέμβαση του χρήστη.</string>
+    <string name="permlab_uninstall_shortcut">Απεγκατάσταση συντομέυσεων</string>
+    <string name="permdesc_uninstall_shortcut">Επιτρέπει σε μια εφαρμογή να αφαιρεί συντομεύσεις χωρίς την παρέμβαση του χρήστη.</string>
+    <string name="permlab_read_settings">Ανάγνωση ρυθμίσεων και συντομεύσεων</string>
+    <string name="permdesc_read_settings">Επιτρέπει σε μια εφαρμογή να διαβάζει τις ρυθμίσεις και τις συντομεύσεις της αρχικής σελίδας</string>
+    <string name="permlab_write_settings">Εγγραφή ρυθμίσεων και συντομεύσεων</string>
+    <string name="permdesc_write_settings">Επιτρέπει σε μια εφαρμογή να τροποποιεί τις ρυθμίσεις και τις συντομεύσεις της αρχικής σελίδας</string>
 
     <!-- Widgets: -->
-    <skip />    
+    <skip />
 
     <!-- Text to show user in place of a gadget when we can't display it properly -->
-    <string name="gadget_error_text">Problem loading widget</string>
-
+    <string name="gadget_error_text">Πρόβλημα φόρτωσης widget</string>
+    <!-- ADW Version Information -->
+    <string name="adw_version">Έκδοση 1.3.6 Συστήματος CM 1.1</string>
     <!-- ADW Settings -->
-    <string name="pref_label_settings">AlmostNexus Ρυθμίσεις</string>
+    <string name="pref_label_settings">Ρυθμίσεις ADW</string>
     <!-- Screen preferences -->
-    <string name="pref_title_screen_preferences">προτιμησεις οθονης</string>
-    <string name="pref_summary_screen_preferences">αριθμος οθονων,κυρια οθονη ...</string>
+    <string name="pref_title_screen_preferences">Προτιμήσεις οθόνης</string>
+    <string name="pref_summary_screen_preferences">Αριθμός οθονών, κύρια οθόνη\u2026</string>
 
-    <string name="pref_title_wallpaper_hack">hack ταπετσαριας</string>
-    <string name="pref_summary_wallpaper_hack">απενεργοποιηστε το αν εχετε fc\'s χρησιμοποιωντας μεγαλες ταπετσαριες</string>
+    <string name="pref_title_wallpaper_hack">Hack ταπετσαρίας</string>
+    <string name="pref_summary_wallpaper_hack">Απενεργοποιήστε το αν έχετε FCs χρησιμοποιώντας μεγάλες ταπετσαρίες</string>
 
-    <string name="pref_title_orientation_sensor">αισθητηρας προσανατολισμου</string>
-    <string name="pref_summary_orientation_sensor">περιστροφη οθονης μετα απο περιστροφη αισθητηρα</string>
+    <string name="pref_title_orientation_sensor">Αισθητήρας προσανατολισμού</string>
+    <string name="pref_summary_orientation_sensor">Περιστροφή οθόνης με την περιστροφή του αισθητήρα</string>
 
-    <string name="pref_title_hide_statusbar">κρυψιμο status bar</string>
-    <string name="pref_summary_hide_statusbar">κρυβει το status bar</string>
+    <string name="pref_title_hide_statusbar">Κρύψιμο μπάρας κατάστασης</string>
+    <string name="pref_summary_hide_statusbar">Κρύβει την μπάρα κατάστασης</string>
 
-    <string name="pref_title_default_screen">κεντρικη οθονη </string>
+    <string name="pref_title_looping">Απεριόριστη κύλιση</string>
+    <string name="pref_summary_looping">Απεριόριστη κύλιση μεταξύ αρχικών οθονών</string>
 
-    <string name="pref_title_desktop_scrolling_speed">ταχυτητα κυλησης οθονων</string>
-    <string name="pref_summary_desktop_scrolling_speed">οριστε την ταχυτητα εναλλαγης των οθονων</string>
-    <string name="pref_dialog_desktop_scrolling_speed">οσο μικροτερη τιμη,τοσο πιο γρηγορη εναλλαγη</string>
+    <string name="pref_title_default_screen">Κεντρική οθόνη</string>
 
-    <string name="pref_title_desktop_overshoot">υπερβαση επιφανειων εργασιας </string>
-    <string name="pref_summary_desktop_overshoot">επιτρεπει την υπερπηδηση μεταξυ πρωτης/τελευταιας επιφανειας εργασιας</string>
-    <string name="pref_dialog_desktop_overshoot">τοποθετηστε στο 0 για απενεργοποιηση υπερβασης</string>
+    <string name="pref_title_desktop_scrolling_speed">Ταχύτητα κύλισης οθονών</string>
+    <string name="pref_summary_desktop_scrolling_speed">Ορίστε την ταχύτητα εναλλαγής των οθονών</string>
+    <string name="pref_dialog_desktop_scrolling_speed">Όσο μικρότερη τιμή, τόσο πιο γρήγορη εναλλαγή</string>
+
+    <string name="pref_title_desktop_overshoot">Υπέρβαση επιφανειών εργασίας</string>
+    <string name="pref_summary_desktop_overshoot">Επιτρέπει την υπερπήδηση μεταξύ πρώτης/τελευταίας επιφάνειας εργασίας</string>
+    <string name="pref_dialog_desktop_overshoot">Επιλέξτε 0 για απενεργοποίηση υπέρβασης</string>
+
+    <string name="pref_title_desktop_transition">Εφέ μετάβασης</string>
+    <string name="pref_summary_desktop_transition">Εφέ μετάβασης αρχικών οθονών</string>
 
     <!-- Drawer Settings -->
-    <string name="pref_title_drawer_settings">ρυθμισεις συρταριου</string>
-    <string name="pref_summary_drawer_settings">προτιμησεις πλεγματος συρταριου εφαρμογων</string>
+    <string name="pref_title_drawer_settings">Ρυθμίσεις συρταριού</string>
+    <string name="pref_summary_drawer_settings">Προτιμήσεις πλέγματος συρταριού εφαρμογών</string>
 
-    <string name="pref_title_zoom_effect_speed">ταχυτητα ζουμαρισματος </string>
-    <string name="pref_summary_zoom_effect_speed">οριστε το χρονο του ζουμαρισματος σε χιλιοστα του δευτερολεπτου</string>
-    <string name="pref_dialog_zoom_effect_speed">οριστε το χρονο του ζουμαρισματος σε χιλιοστα του δευτερολεπτου</string>
+    <string name="pref_title_zoom_effect_speed">Ταχύτητα zoom</string>
+    <string name="pref_summary_zoom_effect_speed">Ορίστε το χρόνο του zoom σε χιλιοστά του δευτερολέπτου</string>
+    <string name="pref_dialog_zoom_effect_speed">Ορίστε το χρόνο του zoom σε χιλιοστά του δευτερολέπτου</string>
 
-    <string name="pref_title_animated_drawer">animated συρταρι</string>
-    <string name="pref_summary_animated_drawer">επιλεγει αν το συρταρι εφαρμογων εκτελειται με animations</string>
+    <string name="pref_title_page_horizontal_margin">Οριζόντιο περιθώριο σελιδών</string>
+    <string name="pref_summary_page_horizontal_margin">Ορίστε το οριζόντιο περιθώριο μεταξύ των σελιδών του συρταριού</string>
+    <string name="pref_dialog_page_horizontal_margin">Ορίστε το οριζόντιο περιθώριο μεταξύ των σελιδών του συρταριού</string>
 
-    <string name="pref_title_drawer_columns_portrait">στηλες συρταριου πορτραιτου</string>
-    <string name="pref_summary_drawer_columns_portrait">επιλεξτε τον αριθμο κατακορυφων στηλων του συρταριου σε λειτουργια πορτραιτου</string>
-    <string name="pref_dialog_drawer_columns_portrait">επιλεξτε τον αριθμο κατακορυφων στηλων του συρταριου σε λειτουργια πορτραιτου</string>
+    <string name="pref_title_animated_drawer">Εφέ κίνησης συρταριού</string>
+    <string name="pref_summary_animated_drawer">Επιλογή εφέ κίνησης του συρταριού</string>
 
-    <string name="pref_title_drawer_rows_portrait">σειρες συρταριου πορτραιτου </string>
-    <string name="pref_summary_drawer_rows_portrait">επιλεξτε τον αριθμο σειρων του συρταριου σε λειτουργια πορτραιτου</string>
-    <string name="pref_dialog_drawer_rows_portrait">επιλεξτε τον αριθμο σειρων του συρταριου σε λειτουργια πορτραιτου</string>
+    <string name="pref_title_drawer_columns_portrait">Στήλες συρταριού (πορτραίτο)</string>
+    <string name="pref_summary_drawer_columns_portrait">Επιλέξτε τον αριθμό στηλών του συρταριού σε λειτουργία πορτραίτου</string>
+    <string name="pref_dialog_drawer_columns_portrait">Επιλέξτε τον αριθμό στηλών του συρταριού σε λειτουργία πορτραίτου</string>
 
-    <string name="pref_title_drawer_columns_landscape">στηλες συρταριου τοπιου</string>
-    <string name="pref_summary_drawer_columns_landscape">επιλεξτε τον αριθμο κατακορυφων στηλων του συρταριου σε λειτουργια τοπιου</string>
-    <string name="pref_dialog_drawer_columns_landscape">επιλεξτε τον αριθμο κατακορυφων στηλων του συρταριου σε λειτουργια τοπιου</string>
+    <string name="pref_title_drawer_rows_portrait">Σειρές συρταριού (πορτραίτο)</string>
+    <string name="pref_summary_drawer_rows_portrait">Επιλέξτε τον αριθμό σειρών του συρταριού σε λειτουργία πορτραίτου</string>
+    <string name="pref_dialog_drawer_rows_portrait">Επιλέξτε τον αριθμό σειρών του συρταριού σε λειτουργία πορτραίτου</string>
 
-    <string name="pref_title_drawer_rows_landscape">σειρες συρταριου τοπιου</string>
-    <string name="pref_summary_drawer_rows_landscape">επιλεξτε τον αριθμο σειρων του συρταριου σε λειτουργια τοπιου</string>
-    <string name="pref_dialog_drawer_rows_landscape">επιλεξτε τον αριθμο σειρων του συρταριου σε λειτουργια τοπιου</string>
+    <string name="pref_title_drawer_columns_landscape">Στήλες συρταριού (τοπίο)</string>
+    <string name="pref_summary_drawer_columns_landscape">Επιλέξτε τον αριθμό στηλών του συρταριού σε λειτουργία τοπίου</string>
+    <string name="pref_dialog_drawer_columns_landscape">Επιλέξτε τον αριθμό στηλών του συρταριού σε λειτουργία τοπίου</string>
 
-    <!-- Previews preferences -->
-    <string name="pref_title_sense_previews">sense προεπισκοπηση</string>
-    <string name="pref_summary_sense_previews">χρησιμοποιηστε την καινουργια εκτελεση που μοιαζει με της sense</string>
+    <string name="pref_title_drawer_rows_landscape">Σειρές συρταριού (τοπίο)</string>
+    <string name="pref_summary_drawer_rows_landscape">Επιλέξτε τον αριθμό σειρών του συρταριού σε λειτουργία τοπίου</string>
+    <string name="pref_dialog_drawer_rows_landscape">Επιλέξτε τον αριθμό σειρών του συρταριού σε λειτουργία τοπίου</string>
+
+    <string name="pref_title_sense_previews">Προεπισκόπιση sense</string>
+    <string name="pref_summary_sense_previews">Χρησιμοποιήστε το καινούριο εφέ προεπισκόπισης που μοιάζει με της sense</string>
 
     <!-- Button preferences -->
-    <string name="pref_title_ui_settings">ρυθμισεις UI</string>
-    <string name="pref_summary_ui_settings">ενεργοποιηση/απενεργοποιηση στοιχειων UI</string>
+    <string name="pref_title_ui_settings">Ρυθμίσεις UI</string>
+    <string name="pref_summary_ui_settings">Ενεργοποίηση/απενεργοποίηση στοιχείων UI</string>
 
-    <string name="pref_title_home_button_binding">δεσμευση πληκτρου home </string>
-    <string name="pref_summary_home_button_binding">διαλεξτε ενεργεια δεσμευσης πληκτρου home</string>
+    <string name="pref_title_home_button_binding">Δέσμευση πλήκτρου home</string>
+    <string name="pref_summary_home_button_binding">Διαλέξτε ενέργεια για το πλήκτρο home</string>
 
-    <string name="pref_title_desktop_dots">τελείες επιφανειας εργασιας</string>
-    <string name="pref_summary_desktop_dots">εμφανιση/κρυψιμο τελειων στυλ nexus</string>
+    <string name="pref_title_swipedown_actions">Σύρσιμο προς τα κάτω</string>
+    <string name="pref_summary_swipedown_actions">Επιλογή ενέργειας για το σύρσιμο προς τα κάτω</string>
 
-    <string name="pref_title_dockbar">Dockbar</string>
-    <string name="pref_summary_dockbar">ενεργοποιηση/απενεργοποιηση του καινουργιου dockbar για τις συντομευσεις σας</string>
+    <string name="pref_title_swipeup_actions">Σύρσιμο προς τα πάνω</string>
+    <string name="pref_summary_swipeup_actions">Επιλογή ενέργειας για το σύρσιμο προς τα πάνω</string>
 
-    <string name="pref_title_closing_dockbar">κλεισιμο dockbar</string>
-    <string name="pref_summary_closing_dockbar">αυτοματο κλεισιμο dockbar μετα την εναρξη της εφαρμογης</string>
+    <string name="pref_title_doubletap_actions">Διπλό χτύπημα</string>
+    <string name="pref_summary_doubletap_actions">Επιλογή ενέργειας για το διπλό χτύπημα στην οθόνη</string>
 
-    <string name="pref_title_ab_scale_factor">μεγεθος ΠΕ</string>
-    <string name="pref_summary_ab_scale_factor">οριστε το μεγεθος των εικονιδιων των πληκτρων ενεργειας</string>
-    <string name="pref_dialog_ab_scale_factor">οριστε το μεγεθος των εικονιδιων των πληκτρων ενεργειας</string>
+    <string name="pref_title_desktop_dots">Τελείες επιφάνειας εργασίας</string>
+    <string name="pref_summary_desktop_dots">Εμφάνιση/απόκρυψη τελειών στυλ nexus</string>
 
-    <string name="pref_title_hide_ab_bg">κρυψιμο φοντου ΠΕ</string>
-    <string name="pref_summary_hide_ab_bg">κρυψιμο φοντου των πληκτρων ενεργειας</string>
+    <string name="pref_title_dockbar">Μπάρα εφαρμογών</string>
+    <string name="pref_summary_dockbar">Ενεργοποίηση/απενεργοποίηση της καινούριας μπάρας εφαρμογών για τις συντομεύσεις σας</string>
 
-    <string name="pref_title_hide_icon_labels">κρυψιμο ταμπελας εικονιδιων</string>
-    <string name="pref_summary_hide_icon_labels">κρυψιμο ταμπελας εικονιδιων επιφανειας εργασιας</string>
+    <string name="pref_title_closing_dockbar">Κλέισιμο μπάρας εφαρμογών</string>
+    <string name="pref_summary_closing_dockbar">Αυτόματο κλείσιμο μπάρας εφαρμογών μετά την έναρξη της εφαρμογής</string>
 
-    <string name="pref_title_build_info">πληροφοριες εκδοσης εφαρμογης</string>
-    <string name="pref_title_adw_version">εκδοση ADW </string>
+    <string name="pref_title_closing_folder">Κλείσιμο φακέλου</string>
+    <string name="pref_summary_closing_folder">Αυτόματο κλείσιμο φακέλου μετά την έναρξη της εφαρμογής</string>
+
+    <string name="pref_title_ab_scale_factor">Μέγεθος πλήκτρων ενέργειας</string>
+    <string name="pref_summary_ab_scale_factor">Ορίστε το μέγεθος των εικονιδίων των πλήκτρων ενέργειας</string>
+    <string name="pref_dialog_ab_scale_factor">Ορίστε το μέγεθος των εικονιδίων των πλήκτρων ενέργειας</string>
+
+    <string name="pref_title_hide_ab_bg">Απόκρυψη φόντου πλήκτρων ενέργειας</string>
+    <string name="pref_summary_hide_ab_bg">Απόκρυψη φόντου των πλήκτρων ενέργειας</string>
+
+    <string name="pref_title_lock_ab">Κλείδωμα πλήκτρων ενέργειας</string>
+    <string name="pref_summary_lock_ab">Αποτροπή επεξεργασίας των πλήκτρων ενέργειας</string>
+
+    <string name="pref_title_hide_icon_labels">Απόκρυψη ετικετών εικονιδίων</string>
+    <string name="pref_summary_hide_icon_labels">Απόκρυψη ετικετών εικονιδίων επιφάνειας εργασίας</string>
+
+    <string name="pref_title_build_info">Πληροφορίες έκδοσης</string>
+    <string name="pref_title_adw_version">Έκδοση ADW</string>
+
+    <string name="pref_title_icon_highlights">Χρώμα πίεσης εικονιδίου</string>
+    <string name="pref_summary_icon_highlights">Επιλογή χρώματος πίεσης εικονιδίου</string>
+    <string name="pref_title_icon_highlights_focus">Χρώμα εστίασης εικονιδιου</string>
+    <string name="pref_summary_icon_highlights_focus">Επιλογή χρώματος εστίασης εικονιδίου</string>
+    <string name="pref_title_new_selectors">Χρήση νέων εικονιδίων επιλογέα</string>
+    <string name="pref_summary_new_selectors">Απενεργοποιήστε για χρήση των παλιών εικονιδίων.</string>
+    <string name="pref_title_drawer_color">Χρώμα φόντου</string>
+    <string name="pref_summary_drawer_color">Επιλογή χρώματος φόντου του συρταριού</string>
+
+    <string name="pref_dialog_title_color_picker">Επιλέξτε χρώμα.</string>
+    <string name="pref_dialog_message_color_picker">Πιέστε στο κέντρο για επιβεβαίωση.\nΠίσω για ακύρωση.</string>
+    <string name="pref_dialog_color_picker_alpha">alpha</string>
+    <string name="pref_message_restart_normal">Η αλλαγή αυτής της ρύθμισης θα επανεκκινήσει τον Launcher</string>
+    <string name="pref_message_restart_froyo">Η αλλαγή αυτής της ρύθμισης θα επανεκκινήσει τον Launcher</string>
+    <string name="drop_to_uninstall">Αφήστε για απεγκατάσταση</string>
+
+    <string name="toast_widgets_not_supported">Δεν υποστηρίζονται τα widget!</string>
+    <string name="toast_unknown_item">Άγνωστο αντικείμενο. Δεν είναι δυνατή η προσθήκη άγνωστων αντικειμένων!</string>
+    <string name="toast_no_application_def">Δεν ορίσθηκε καμία εφαρμογή, σύρετε κάποια εφαρμογή εδώ!</string>
+
+    <string name="pref_title_import_export">Αντίγραφα ασφαλείας και επαναφορά</string>
+    <string name="pref_title_xml">Ρυθμίσεις ADW</string>
+    <string name="pref_title_xml_import">Επαναφορά ρυθμίσεων ADW</string>
+    <string name="pref_summary_xml_import">Επαναφορά από /sdcard/adw_settings.xml</string>
+    <string name="pref_title_xml_export">Αντίγραφο ασφαλείας ρυθμίσεων ADW</string>
+    <string name="pref_summary_xml_export">Αντίγραφο ασφαλείας στο /sdcard/adw_settings.xml</string>
+
+    <string name="pref_title_db">Ρυθμίσεις αρχικών οθονών</string>
+    <string name="pref_title_db_import">Επαναφορά ρυθμίσεων αρχικών οθονών</string>
+    <string name="pref_summary_db_import">Επαναφορά από /sdcard/adw_launcher.db</string>
+    <string name="pref_title_db_export">Αντίγραφο ασφαλείας ρυθμίσεων αρχικών οθονών</string>
+    <string name="pref_summary_db_export">Αντίγραφο ασφαλείας στο /sdcard/adw_launcher.db</string>
+
+    <string name="title_dialog_xml">Ρυθμίσεις ADW Launcher</string>
+    <string name="import_export_sdcard_unmounted">Η κάρτα SD δεν είναι προσαρτημένη!</string>
+
+    <!-- XML Import/Export strings -->
+    <string name="message_dialog_export">Δημιουργία αντιγράφου ασφαλείας ρυθμίσεων ADW; Κάθε υπάρχον αρχείο θα αντικατασταθεί.</string>
+    <string name="xml_export_dialog">Δημιουργία αντιγράφου ασφαλείας ρυθμίσεων ADW\u2026</string>
+    <string name="xml_export_success">Το αντίγραφο ασφαλείας ρυθμίσεων ADW ολοκληρώθηκε με επιτυχία!</string>
+    <string name="xml_export_error">Σφάλμα κατά τη δημιουργία αντιγράφου ασφαλείας ρυθμίσεων ADW!</string>
+
+    <string name="message_dialog_import">Επαναφορά ρυθμίσεων ADW; Ο ADW.Launcher θα επανεκκινηθεί.</string>
+    <string name="xml_import_dialog">Επαναφορά ρυθμίσεων ADW\u2026</string>
+    <string name="xml_file_not_found">Δεν βρέθηκε αντίγραφο ασφαλείας ρυθμίσεων!</string>
+    <string name="xml_not_readable">Δεν είναι δυνατή η ανάγνωση του αντιγράφου ασφαλείας ρυθμίσεων!</string>
+    <string name="xml_import_success">Η επαναφορά ρυθμίσεων ADW ολοκληρώθηκε με επιτυχία!</string>
+    <string name="xml_import_error">Σφάλμα κατά την επαναφορά ρυθμίσεων ADW!</string>
+
+    <!-- Config Import/Export strings -->
+    <string name="message_dialog_export_config">Δημιουργία αντιγράφου ασφαλείας ρυθμίσεων αρχικών οθονών; Κάθε υπάρχον αρχείο θα αντικατασταθεί.</string>
+    <string name="dbfile_export_dialog">Δημιουργία αντιγράφου ασφαλείας ρυθμίσεων αρχικών οθονών\u2026</string>
+    <string name="dbfile_export_success">Το αντίγραφο ασφαλείας ολοκληρώθηκε με επιτυχία!</string>
+    <string name="dbfile_export_error">Σφάλμα κατά τη δημιουργία αντιγράφου ασφαλείας!</string>
+
+    <string name="message_dialog_import_config">Επαναφορά ρυθμίσεων αρχικών οθονών; Ο ADW.Launcher θα επανεκκινηθεί.</string>
+    <string name="dbfile_import_dialog">Επαναφορά ρυθμίσεων αρχικών οθονών\u2026</string>
+    <string name="dbfile_not_found">Δεν βρέθηκε αντίγραφο ασφαλείας ρυθμίσεων!</string>
+    <string name="dbfile_not_readable">Δεν είναι δυνατή η ανάγνωση του αντιγράφου ασφαλείας ρυθμίσεων!</string>
+    <string name="dbfile_import_success">Η επαναφορά ρυθμίσεων ολοκληρώθηκε με επιτυχία!</string>
+    <string name="dbfile_import_error">Σφάλμα κατά την επαναφορά ρυθμίσεων!</string>
+    <!--  Desktop columns/Rows -->
+    <string name="pref_title_desktop_columns">Στήλες αρχικών οθονών</string>
+    <string name="pref_summary_desktop_columns">Επιλέξτε τον αριθμό στηλών που θα εμφανίζονται στις αρχικές οθόνες</string>
+    <string name="pref_dialog_desktop_columns">Επιλέξτε τον αριθμό στηλών που θα εμφανίζονται στις αρχικές οθόνες</string>
+
+    <string name="pref_title_desktop_rows">Σειρές αρχικών οθονών</string>
+    <string name="pref_summary_desktop_rows">Επιλέξτε τον αριθμό σειρών που θα εμφανίζονται στις αρχικές οθόνες</string>
+    <string name="pref_dialog_desktop_rows">Επιλέξτε τον αριθμό σειρών που θα εμφανίζονται στις αρχικές οθόνες</string>
+
+    <string name="pref_title_autosize_icons">Αυτόματη επέκταση</string>
+    <string name="pref_summary_autosize_icons">Επέκταση εικονιδίων/widget έτσι ώστε να μην επικαλύπτονται</string>
+
+    <string name="pref_title_drawer_labels">Εμφάνιση ετικετών</string>
+    <string name="pref_summary_drawer_labels">Εμφάνιση ετικετών των εφαρμογών στο συρτάρι</string>
+    <string name="pref_title_fade_drawer_labels">Σταδιακό σβήσιμο ετικετών</string>
+    <string name="pref_summary_fade_drawer_labels">Σταδιακό σβήσιμο ετικετών των εφαρμογών. Χρησιμοποιεί περισσότερη ram/cpu</string>
+
+    <string name="widget_config_dialog_title">Μέγεθος widget</string>
+    <string name="widget_config_dialog_summary">Πόσες σειρές/στήλες θα καταλαμβάνει το widget;</string>
+    <string name="widget_columns">Στήλες</string>
+    <string name="widget_rows">Σειρές</string>
+    
+    <string name="pref_title_screen_cache">Cache κύλισης</string>
+    <string name="pref_summary_screen_cache">Υψηλότερη ποιότητα χρησιμοποιεί περισσότερη ram.</string>
+
+    <string name="pref_title_desktop_indicator">Εμφάνιση ένδειξης</string>
+    <string name="pref_summary_desktop_indicator">Εμφάνιση ένδειξης αρχικής οθόνης κατά την κύλιση</string>
+    <string name="pref_title_desktop_indicator_autohide">Αυτόματη απόκρυψη ένδειξης</string>
+    <string name="pref_summary_desktop_indicator_autohide">Απόκρυψη ένδειξης μετά απο σύντομο χρονικό διάστημα</string>
+    <string name="pref_title_desktop_indicator_type">Στυλ ένδειξης</string>
+    <string name="pref_summary_desktop_indicator_type">Επιλογή μεταξύ διαφορετικών στυλ ένδειξης</string>
+
+    <!-- Category titles -->
+    <string name="pref_title_system_preferences">Επιλογές συστήματος</string>
+    <string name="pref_summary_system_preferences">Γενικές επιλογές συστήματο του ADW.Launcher</string>
+    <string name="pref_title_screens_layout_preferencecategory">Διάταξη επιφάνειας εργασίας</string>
+    <string name="pref_title_screens_behaviour_preferencecategory">Συμπεριφορά επιφάνειας εργασίας</string>
+    <string name="pref_title_drawer_preferencecategory">Συρτάρι εφαρμογών</string>
+    <string name="pref_title_drawer_visuals_preferencecategory">Εμφάνιση συρταριού εφαρμογών</string>
+    <string name="pref_title_highlights_preferencecategory">Επισήμανση εικονιδίων</string>
+    <string name="pref_title_indicators_preferencecategory">Ένδειξη οθόνης</string>
+
+    <string name="pref_title_system_persistent">Επιμονή launcher</string>
+    <string name="pref_summary_system_persistent">Επικίνδυνο. Ενεργοποίηση για την αποφυγή τερματισμού του launcher από το σύστημα</string>
+    <!-- Theme preferences -->
+    <string name="pref_title_theme_settings">Θέματα</string>
+    <string name="pref_summary_theme_settings">Επιλογή θεμάτων για τον ADW.Launcher</string>
+    <string name="pref_title_theme_package">Επιλογή θέματος</string>
+    <string name="pref_summary_theme_package">Επιλογή ενός θέματος για τον ADW.Launcher</string>
+    <string name="pref_title_theme_preview">Προεπισκόπιση θέματος</string>
+    <string name="pref_summary_theme_preview">Προεπισκόπιση επιλεγμένου θέματος</string>
+    <string name="pref_title_theme_icons">Χρήση εικονιδίων θέματος</string>
+    <string name="pref_summary_theme_icons">Χρήση των εικονιδίων που περιλαμβάνει το θέμα</string>
+    <string name="pref_themes_apply_theme">Εφαρμογή θέματος!</string>
+    <string name="pref_themes_get_themes">Λήψη θεμάτων!</string>
+
+    <string name="pref_title_wallpaper_scrolling">Κύλιση ταπετσαρίας</string>
+    <string name="pref_summary_wallpaper_scrolling">Επιτρέπει την κίνηση της ταπετσαρίας κατά την κύλιση μεταξύ αρχικών οθονών</string>
+    <string name="message_delete_desktop_screen">Αφαίρεση της οθόνης και όλων των περιεχομένων της;</string>
+    <string name="message_cannot_delete_desktop_screen">Δεν είναι δυνατή η διαγραφή της τελευταίας οθόνης</string>
+    <string name="message_cannot_add_desktop_screen">Δεν είναι δυνατή η προσθήκη περισσότερων οθονών</string>
+    <string name="message_cannot_swap_desktop_screen">Δεν είναι δυνατή η εναλλαγή οθονών</string>
+    
+    <string name="menu_edit">Επεξεργασία</string>
+
+    <string name="pref_label_shirtcuts">Προσαρμοσμένη συντόμευση</string>
+    <string name="pref_label_activities">Δραστηριότητες</string>
+    <string name="shirtcut_header">Επιλέξτε δραστηριότητα.\nΜπορείτε επίσης να επιλέξετε ένα προσαρμοσμένο εικονίδιο.</string>
+    <string name="shirtcut_pick_activity">Επιλογή δραστηριότητας</string>
+    <string name="shirtcut_label">Ετικέτα</string>
+    <string name="shirtcuts_select_picture">Επιλογή εικόνας</string>
+    <string name="shirtcuts_crop_picture">Επιλογή και περικοπή εικόνας</string>
+    <string name="shirtcuts_icon_packs">Πακέτα εικονιδίων ADW</string>
+    <string name="shirtcuts_select_icon_type">Επιλογή τύπου εικονιδίων</string>
+    <string name="shirtcuts_select_icon_pack">Επιλογή πακέτου εικονιδίων</string>
+    <string name="shirtcuts_restore_original">Επαναφορά εργοστασιακών</string>
+
+    <!-- Catalogs strings -->
+    <string name="sortType">Ταξινόμηση ανά\:</string>
+    <string name="selectAll">Επιλογή όλων</string>
+    <string name="AppGroupAll">"Όλα"</string>
+    <string name="AppGroupUn">"Χωρίς κατάλογο"</string>
+    <string name="AppGroupAdd">"Νέος κατάλογος"</string>
+    <string name="AppGroupDel">"Αφαίρεση καταλόγου"</string>
+    <string name="AppGroupDelLong">"Θέλετε πραγματικά να αφαιρέσετε\nτον τρέχων κατάλογο;"</string>
+    <string name="AppGroupChoose">"Επιλογή καταλόγου"</string>
+    <string name="AppGroupConfig">"Ρύθμιση καταλόγου"</string>
+    <string name="AppGroupRename">"Μετονομασία καταλόγου"</string>
+    <string name="AppGroupConfigError">"Δεν είναι δυνατή η ρύθμιση του καταλόγου"</string>
+    <string name="rename_group_title">Νέος κατάλογος</string>
+    <string name="rename_group_label">Όνομα καταλόγου</string>
+    <string name="show_catalog">Εμφάνιση καταλόγου \"%s\"</string>
+
+    <string name="pref_title_adw_restart">Επανεκκίνηση ADW</string>
+    <string name="pref_summary_adw_restart">Κλείσιμο και επανεκκίνηση ADW.Launcher</string>
+    <string name="pref_title_adw_reset">Επαναφορά ADW</string>
+    <string name="pref_summary_adw_reset">Επαναφορά των εργοστασιακών ρυθμίσεων του ADW.Launcher και επανεκκίνηση</string>
+
+    <string name="scrollable_api_required">Αυτό το widget χρειάζεται μια αναβαθμισμένη έκδοση του ADW.Launcher.\nΠαρακαλώ αναβαθμίστε η επικοινωνήστε με τον δημιουργό του widget</string>
+
+    <string name="pref_title_drawer_navigate_catalogs">Catalogs navigation</string>
+    <string name="pref_summary_drawer_navigate_catalogs">Show app catalogs navigation buttons</string>
+    <string name="pref_title_drawer_ungroup_catalog">Catalogs only</string>
+    <string name="pref_summary_drawer_ungroup_catalog">Remove the ALL category and use categories only</string>
+    <string name="pref_title_drawer_show_catalogs">Show Catalog Title</string>
+    <string name="pref_summary_drawer_show_catalogs">Show the catalog titles in the drawer</string>
+    <string name="pref_title_notif_receiver">Εμφάνιση ειδοποιήσεων</string>
+    <string name="pref_summary_notif_receiver">Enable the global notification counters</string>
+
+    <string name="pref_title_notif_size">Bubble font size</string>
+    <string name="pref_summary_notif_size">Select the font size for the notification bubbles</string>
+    <string name="pref_dialog_notif_size">Select the font size for the notification bubbles</string>
+
+    <string name="pref_title_ab_preferencecategory">Main Dock</string>
+    <string name="pref_title_main_dock_style">Main Dock Style</string>
+    <string name="pref_summary_main_dock_style">Select the main dock layout</string>
+    <string name="pref_title_behaviour_preferences">General Behavior</string>
+    <string name="pref_summary_behaviour_preferences">General application behavior configuration</string>
+    <string name="pref_title_drawer_style">Στυλ συρταριού εφαρμογών</string>
+    <string name="pref_summary_drawer_style">Εναλλαγή στυλ του συρταριού εφαρμογών</string>
+    <string name="pref_title_dockbar_preferencecategory">Hidden Dockbar</string>
+    <string name="pref_title_ab_tint">Dock Icons Tint</string>
+    <string name="pref_summary_ab_tint">Perform graphic tinting to the dock icons</string>
+    <string name="pref_title_ab_tint_color">Tint Color</string>
+    <string name="pref_summary_ab_tint_color">Change the tinting color</string>
+    <string name="pref_title_deletezone_preferencecategory">Κάδος ανακύκλωσης</string>
+    <string name="pref_title_deletezone_style">Θέση κάδου ανακύκλωσης</string>
+    <string name="pref_summary_deletezone_style">Αλλαγή θέσης του κάδου ανακύκλωσης</string>
+    <string name="pref_title_close_apps_dockbar">Κλείσιμο συρταριού εφαρμογών</string>
+    <string name="pref_summary_close_apps_dockbar">Close the app drawer when longpressing items when the dockbar is visible</string>
+    <string name="menu_lock">Κλείδωμα επιφάνειας εργασίας</string>
+    <string name="menu_unlock">Ξεκλείδωμα επιφάνειας εργασίας</string>
 </resources>
