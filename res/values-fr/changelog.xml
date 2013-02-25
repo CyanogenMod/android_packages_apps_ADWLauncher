@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="adw_changelog">
+-&lt;b>NOTE :&lt;/b> Si votre thème est moche, demandez au développeur du thème de le mettre à jour !&lt;br>&lt;br>
+-&lt;b>NOTE :&lt;/b> Pour configurer le bureau, appuyez sur MENU/Modifier.&lt;br>&lt;br>
+-&lt;b>NOTE :&lt;/b> Pour activer la ROTATION, désactivez la persistance.&lt;br>&lt;br>
+-&lt;b>SOUVENEZ-VOUS :&lt;/b> Vous pouvez masquer les icônes de la liste des applications à l'aide des catalogues personnalisés (appuyez sur la touche menu afin d'ouvrir la liste des applications)&lt;br>&lt;br>
+
+&lt;b>Version 1.3.6 :&lt;/b>&lt;br>
+&lt;b>--------------&lt;/b>&lt;br>
+- Option pour verrouiller/déverrouiller le bureau. (appuyez sur MENU/Plus)&lt;br>
+- Quelques petites corrections pour certains FCs.&lt;br>
+&lt;b>Version 1.3.5 :&lt;/b>&lt;br>
+&lt;b>--------------&lt;/b>&lt;br>
+- Possibilité de choisir plusieurs positions/comportements pour la corbeille.&lt;br>
+- Plusieurs options sont maintenant disponibles lorsque vous appuyez de manière prolongée sur les icônes.&lt;br>
+- Vous pouvez maintenant déplacer et modifier des icônes dans le dock.&lt;br>
+- Ajout de l'option "Actions du lanceur", au menu principal "Ajouter à l'écran d'accueil".&lt;br>
+- De nombreuses corrections.&lt;br>
+</string>
+</resources>
