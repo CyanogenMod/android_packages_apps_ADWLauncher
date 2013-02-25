@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
        <string-array name="menu_binding_entries">
-       			<item>NONE</item>
+                <item>Aucune</item>
                 <item>Aller au bureau par défaut</item>
                 <item>Aller au bureau par défaut/Voir les vignettes</item>
                 <item>Voir les vignettes</item>
@@ -10,7 +10,7 @@
                 <item>Ouvrir/Fermer les notifications</item>
                 <item>Aller au bureau par défaut/Ouvrir les notifications</item>
                 <item>Ouvrir/Fermer la barre de raccourcis</item>
-                <item>Ouvrir une application</item>
+                <item>Ouvrir une application\u2026</item>
        </string-array>
        <string-array name="desktop_indicator_entries">
                 <item>Indicateur haut point</item>
@@ -31,7 +31,28 @@
        </string-array>
        <string-array name="screen_cache_entries">
                 <item>Basse qualité</item>
-                <item>Auto</item>
+                <item>Automatique</item>
                 <item>Désactivé</item>
-       </string-array>     
+       </string-array>
+       <string-array name="main_dock_entries">
+                <item>Aucune (extension du bureau)</item>
+                <item>3 Icônes</item>
+                <item>5 Icônes</item>
+                <item>1 Icône</item>
+       </string-array>
+       <string-array name="deletezone_entries">
+                <item>Aucune</item>
+                <item>Haut</item>
+                <item>Bas</item>
+                <item>Haut (réduction du bureau)</item>
+                <item>Bas (réduction du bureau)</item>
+       </string-array>
+       <string-array name="app_drawer_style_entries">
+                <item>Pagination verticale</item>
+                <item>Pagination horizontale</item>
+       </string-array>
+       <string-array name="catalog_sorttype_entries">
+                <item>Nom</item>
+                <item>Âge</item>
+       </string-array>
 </resources>
