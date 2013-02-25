@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <string name="adw_changelog">
+    -&lt;b>NOTE :&lt;/b> Si votre thème est moche, demandez au développeur du thème de le mettre à jour !&lt;br /&gt;&lt;br /&gt;
+    -&lt;b>NOTE :&lt;/b> Pour configurer le bureau, appuyez sur MENU/Modifier.&lt;br /&gt;&lt;br /&gt;
+    -&lt;b>NOTE :&lt;/b> Pour activer la ROTATION, désactivez la persistance.&lt;br /&gt;&lt;br /&gt;
+    -&lt;b>SOUVENEZ-VOUS :&lt;/b> Vous pouvez masquer les icônes de la liste des applications à l\'aide des catalogues personnalisés (appuyez sur la touche menu afin d\'ouvrir la liste des applications)&lt;br /&gt;&lt;br /&gt;
+
+    &lt;b>Version 1.3.6 :&lt;/b>&lt;br /&gt;
+    &lt;b>---------------&lt;/b>&lt;br /&gt;
+    - Option pour verrouiller/déverrouiller le bureau. (appuyez sur MENU/Plus)&lt;br /&gt;
+    - Quelques petites corrections pour certains FCs.&lt;br /&gt;
+    &lt;b>Version 1.3.5 :&lt;/b>&lt;br /&gt;
+    &lt;b>---------------&lt;/b>&lt;br /&gt;
+    - Possibilité de choisir plusieurs positions/comportements pour la corbeille.&lt;br /&gt;
+    - Plusieurs options sont maintenant disponibles lorsque vous appuyez de manière prolongée sur les icônes.&lt;br /&gt;
+    - Vous pouvez maintenant déplacer et modifier des icônes dans le dock.&lt;br /&gt;
+    - Ajout de l\'option "Actions du lanceur", au menu principal "Ajouter à l\'écran d\'accueil".&lt;br /&gt;
+    - De nombreuses corrections.&lt;br /&gt;
+    </string>
+</resources>
